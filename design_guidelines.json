@@ -1,0 +1,183 @@
+{
+  "project_name": "D2C Profitability Diagnostic & Tracking System",
+  "app_type": "hybrid_fullstack",
+  "archetype": "THE PERFORMANCE PRO / SWISS HIGH-CONTRAST CRO HYBRID",
+  "theme": {
+    "background_primary": "#FFFFFF",
+    "background_secondary": "#F8F9FA",
+    "card_background": "#E7F1FF",
+    "text_primary": "#212529",
+    "text_secondary": "#495057",
+    "text_muted": "#6C757D",
+    "accent_primary": "#0D6EFD",
+    "accent_primary_hover": "#0B5ED7",
+    "accent_secondary": "#052C65",
+    "danger_red": "#DC3545",
+    "danger_bg": "#F8D7DA",
+    "success_green": "#198754",
+    "success_bg": "#D1E7DD",
+    "border_subtle": "#E2E8F0",
+    "glass_background": "rgba(255, 255, 255, 0.85)",
+    "admin_sidebar_bg": "#0A0E17",
+    "admin_card_bg": "#FFFFFF"
+  },
+  "typography": {
+    "font_family_primary": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "font_family_heading": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "font_family_mono": "'JetBrains Mono', 'Fira Code', monospace",
+    "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]",
+    "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#212529]",
+    "h3_subsection": "text-xl sm:text-2xl font-bold tracking-tight text-[#212529]",
+    "body_large": "text-lg sm:text-xl text-[#495057] leading-relaxed font-normal",
+    "body_regular": "text-base text-[#495057] leading-relaxed",
+    "label_caps": "text-xs uppercase font-bold tracking-[0.2em] text-[#0D6EFD]"
+  },
+  "spacing_and_layout": {
+    "container_max_width": "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-16 sm:py-24",
+    "grid_gap": "gap-6 sm:gap-8",
+    "card_padding": "p-6 sm:p-8"
+  },
+  "visual_enhancers": {
+    "shadow_subtle": "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+    "shadow_card": "shadow-[0_10px_30px_rgba(13,110,253,0.08)]",
+    "shadow_hover": "hover:shadow-[0_20px_40px_rgba(13,110,253,0.15)] transition-shadow duration-300",
+    "border_card": "border border-[#0D6EFD]/20",
+    "hero_masked_text": "overflow-hidden inline-block",
+    "glassmorphism_nav": "backdrop-blur-md bg-white/85 border-b border-slate-200/80 sticky top-0 z-50",
+    "badge_style": "inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#E7F1FF] text-[#0D6EFD] border border-[#0D6EFD]/30 shadow-sm"
+  },
+  "motion_and_libraries": {
+    "smooth_scrolling": "lenis for inertia momentum scroll",
+    "animations": "framer-motion for section reveals (fade-in-up), line-by-line hero text reveal, tab transitions, drop-off visualizer",
+    "icons": "lucide-react",
+    "notifications": "sonner for live event simulation toasts and admin action feedback"
+  },
+  "landing_page_sections": [
+    {
+      "section": "Navbar",
+      "features": ["Brand logo (D2C Audit Pro)", "Navigation items (Pain Points, Deliverables, Case Studies, Pricing)", "Admin Portal button", "Primary CTA 'Book Diagnostic ₹1,999'"]
+    },
+    {
+      "section": "Hero",
+      "features": [
+        "Headline with line-by-line masked reveal: 'Your D2C Brand Is Losing Money On Every Order.'",
+        "Accent badge: 'Your Agency Is Just Showing You ROAS.'",
+        "Subheadline highlighting 3-layer tracking, CM2 audit, and leakage elimination",
+        "Primary CTA button with instant scroll to Cal.id embed",
+        "Trust Bar with 3 high-impact live counters: '₹42 Cr+ Tracked Spend', '180+ D2C Audits', '3.4x Avg CM2 Boost'"
+      ]
+    },
+    {
+      "section": "PainPoints",
+      "features": [
+        "4 Grid cards highlighting 'Agency Says' in Red (#DC3545) vs 'Reality' in Green (#198754)",
+        "Covers ROAS illusion, Meta CAPI gaps, RTO hidden erosion, and fake LTV projections"
+      ]
+    },
+    {
+      "section": "AuditComparison",
+      "features": [
+        "7-row high-contrast interactive comparison matrix",
+        "Columns: Audit Dimensions, Generic Agency Ads Audit, Profitability Diagnostic System"
+      ]
+    },
+    {
+      "section": "WhatYouGet",
+      "features": [
+        "6 deliverables with individual stacked values total ₹45,000",
+        "Items: CM2 Unit Economics Sheet, 3-Layer Meta CAPI Setup, RTO Leakage Map, Ad Waste Audit, Conversion Funnel Teardown, 1-on-1 Action Call"
+      ]
+    },
+    {
+      "section": "BonusAutomations",
+      "features": [
+        "4 Turnkey AI Automations worth ₹18,000 total",
+        "Items: WhatsApp RTO Verification Flow, CAPI Meta Server Sync Script, Auto COD-to-Prepaid Conversion Bot, Daily CM2 Margin Alert Bot"
+      ]
+    },
+    {
+      "section": "CaseStudies",
+      "features": [
+        "2 Detailed Case Studies with side-by-side Before/After metric cards (CAC, RTO %, CM2 %, Net Profit)",
+        "Expandable 'Action Plan Executed' drawer for each case study"
+      ]
+    },
+    {
+      "section": "WhyNow",
+      "features": [
+        "5 Critical Stats on 2026 D2C Meta Ad Costs, Privacy updates, and RTO trends"
+      ]
+    },
+    {
+      "section": "About",
+      "features": [
+        "3 Crisp 'I don't... / I...' manifesto lines",
+        "Founder photo & verified diagnostic practitioner bio"
+      ]
+    },
+    {
+      "section": "HowItWorks",
+      "features": [
+        "3 Numbered Steps: Step 1 Reserve & Connect Data, Step 2 Deep Diagnostic & Meta CAPI Audit, Step 3 Live Execution Session & Automations Setup"
+      ]
+    },
+    {
+      "section": "FinalCTA",
+      "features": [
+        "100% Money-Back Scarcity Guarantee banner",
+        "Limited slot scarcity countdown timer",
+        "Razorpay payment trigger & Cal.com calendar launcher"
+      ]
+    },
+    {
+      "section": "CalEmbed",
+      "features": [
+        "Embedded Cal.com inline scheduling component with interactive mock fallbacks, date picker, slot selector, and payment modal integration"
+      ]
+    },
+    {
+      "section": "Footer",
+      "features": [
+        "Editorial marquee ticker",
+        "Quick links, Razorpay SSL badge, Meta Business Partner indicator, MongoDB Audit Trail tag"
+      ]
+    }
+  ],
+  "admin_dashboard": {
+    "auth": "Passcode / Mock Auth system (default passcode: admin123)",
+    "views": [
+      {
+        "name": "Funnel Visualization",
+        "description": "Interactive stage-by-stage progression (Visitors -> Scrolled -> Clicked CTA -> Calendar Opened -> Paid -> Booked) with real-time drop-off percentage metrics."
+      },
+      {
+        "name": "UTM Content Performance",
+        "description": "Table & chart sorting ad creative source, utm_content, CAC impact, and conversions."
+      },
+      {
+        "name": "Bookings Table",
+        "description": "Searchable & filterable table of ₹1,999 diagnostic clients with status, date, brand, revenue, and tracking state."
+      },
+      {
+        "name": "Live Events Audit Feed",
+        "description": "3-Layer Meta tracking trail log showing Pixel event, CAPI Server event, and MongoDB audit entry with transaction IDs."
+      },
+      {
+        "name": "User Journey Timeline Viewer",
+        "description": "Visual session journey map showing exact scroll depth, clicked elements, UTM tags, and conversion events for specific visitors."
+      }
+    ]
+  },
+  "image_urls": {
+    "founder_portrait": "https://images.unsplash.com/photo-1676989880574-6be39345d345?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHw3fHxkMmMlMjBlY29tbWVyY2UlMjBwcm9kdWN0JTIwYW5hbHl0aWNzJTIwZGFzaGJvYXJkJTIwZm91bmRlciUyMHBvcnRyYWl0fGVufDB8fHx8MTc4OTkyNDY0M3ww&ixlib=rb-4.1.0&q=85",
+    "dashboard_preview": "https://images.pexels.com/photos/38246349/pexels-photo-38246349.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "general_ui_ux_guidelines": [
+    "Never rely on default browser transparent backgrounds in fixed headers or dropdown menus; always use blur and semi-opaque fill.",
+    "Ensure every interactive button, input, tab, link, and key metric block has a explicit data-testid attribute formatted in kebab-case.",
+    "Maintain strict APCA/WCAG accessibility contrast: dark text on light cards, bold white text on blue CTA buttons.",
+    "Implement smooth micro-interactions on hover for cards (subtle translate-y, border glow, shadow depth).",
+    "Use Framer Motion with reduced-motion fallbacks for performance and smooth UX."
+  ]
+}

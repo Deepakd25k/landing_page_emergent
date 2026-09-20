@@ -1,0 +1,58 @@
+import { useEffect } from "react";
+import Lenis from "lenis";
+import { TrackingProvider } from "@/context/TrackingContext";
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { Marquee } from "@/components/Marquee";
+import { PainPoints } from "@/components/PainPoints";
+import { AuditComparison } from "@/components/AuditComparison";
+import { WhatYouGet } from "@/components/WhatYouGet";
+import { BonusAutomations } from "@/components/BonusAutomations";
+import { CaseStudies } from "@/components/CaseStudies";
+import { WhyNow } from "@/components/WhyNow";
+import { About } from "@/components/About";
+import { HowItWorks } from "@/components/HowItWorks";
+import { FinalCTA } from "@/components/FinalCTA";
+import { CalEmbed } from "@/components/CalEmbed";
+import { Footer } from "@/components/Footer";
+
+export default function Landing() {
+  useEffect(() => {
+    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 0.95 });
+    window.__lenis = lenis;
+    let frame;
+    const raf = (time) => {
+      lenis.raf(time);
+      frame = requestAnimationFrame(raf);
+    };
+    frame = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(frame);
+      lenis.destroy();
+      window.__lenis = null;
+    };
+  }, []);
+
+  return (
+    <TrackingProvider>
+      <div className="min-h-screen bg-white text-ink" data-testid="landing-page">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <Marquee />
+          <PainPoints />
+          <AuditComparison />
+          <WhatYouGet />
+          <BonusAutomations />
+          <CaseStudies />
+          <WhyNow />
+          <About />
+          <HowItWorks />
+          <FinalCTA />
+          <CalEmbed />
+        </main>
+        <Footer />
+      </div>
+    </TrackingProvider>
+  );
+}
