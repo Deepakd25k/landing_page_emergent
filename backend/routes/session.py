@@ -23,10 +23,10 @@ async def init_session(body: SessionInitRequest, request: Request):
         existing = await sessions.find_one({"session_id": body.existing_session_id})
         if existing:
             patch = {"last_seen_at": now, "page_views": existing.get("page_views", 1) + 1}
-            if body.fbp and not existing.get("fbp"):
-                patch["fbp"] = body.fbp
-            if body.fbc and not existing.get("fbc"):
-                patch["fbc"] = body.fbc
+            for key in ("fbp", "fbc", "fbclid", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"):
+                value = getattr(body, key)
+                if value and not existing.get(key):
+                    patch[key] = value
             await sessions.update_one({"session_id": body.existing_session_id}, {"$set": patch})
             return {"session_id": body.existing_session_id, "is_new": False}
 

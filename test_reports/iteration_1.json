@@ -1,0 +1,21 @@
+{
+  "summary": "First-run full backend + frontend test of D2C Profitability Diagnostic. Backend: 28/28 pytest tests pass covering session init/update, tracking with dedupe + invalid event validation, Cal.id webhook (BOOKING_PAID with session match, Purchase + Schedule events with hashed em/ph/fn/ln/country/external_id, idempotency, BOOKING_CANCELLED, /webhook/calid alias), JWT auth (login success/failure, /me, /admin/* protection), admin stats/funnel/bookings PATCH/events filter/sessions/utm+spend/journey (200 + 404). Frontend: landing renders all sections + testids, session.init fires with utm/fbclid, _fbc cookie set, PageView + scroll-triggered ViewContent / ViewContent_CaseStudy + hero CTA InitiateCheckout tracked (5 track calls captured). Admin login flow: /admin redirects to /admin/login when unauthenticated, wrong password shows error, correct login lands on dashboard with all 6 funnel steps, 5 stat cards, bookings-table with retainer selects, events-table, utm-table with spend inputs, session-item list opens journey session + timeline panels, logout returns to /admin/login. Cal.id placeholder notice renders as expected (per spec).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "webhook.py: /webhook/calid (non-/api) alias route is defined but Kubernetes ingress only proxies /api/* to backend — the alias returned 404 when hit via public URL. Safe today (Cal.com should be pointed at /api/webhook/calid) but confusing. Consider removing the alias or documenting that only the /api/webhook/calid path is reachable externally.",
+    "track.py line 46: for PageView, custom_data intentionally omits currency/value/content_name — good, but the base custom_data dict built above is silently discarded. Minor readability issue; could branch earlier.",
+    "auth.py: session cookie is set with samesite='none', secure=True — correct for cross-origin preview. Note the frontend does not currently rely on the cookie (uses Bearer token in localStorage via AuthContext), so cookie is effectively unused; either remove or start using it via credentials: 'include'.",
+    "admin.py stats: capi_skipped uses status=='skipped'; matches meta_capi output — verified.",
+    "Files are well-sized (<250 lines each), async is used consistently, MongoDB _id is stripped via strip_id helper. No hardcoded URLs; all env-driven."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "admin@d2cdiagnostic.com / Admin@1999 (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "Test run created TEST_-prefixed sessions, PageView/ViewContent/InitiateCheckout/CalendarOpen events, several TEST_uid_* and TEST_admin_* bookings (paid + cancelled), and ad_spend row for utm_content=TEST_creative_A (₹5000). None of the seeded production data was modified.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend tests live at /app/backend/tests/backend_test.py — reuse as regression. Test suite is parallel-safe (2 xdist loadscope workers). BOOKING_UID module-level constant is created by TestWebhook; TestAdmin creates its own booking to avoid cross-worker race. Meta CAPI keys empty by design → status 'skipped' is the expected value everywhere. Cal.id iframe 404 inside the embed is expected (placeholder link)."
+}
