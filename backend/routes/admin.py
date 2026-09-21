@@ -8,7 +8,7 @@ from models.booking import AdSpendRequest, BookingUpdateRequest
 from services.auth import get_current_admin
 from services.mongo import ad_spend, bookings, events, sessions, strip_id
 
-router = APIRouter(prefix="/api/admin", tags=["admin"], dependencies=[Depends(get_current_admin)])
+router = APIRouter(prefix="/api/admin", tags=["admin"])
 
 FUNNEL = [
     ("visitors", "PageView", "Visitors"),
