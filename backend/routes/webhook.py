@@ -4,6 +4,7 @@ import json
 import logging
 import time
 from datetime import datetime, timezone
+from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Request
 
@@ -17,7 +18,7 @@ logger = logging.getLogger("webhook")
 router = APIRouter(tags=["webhook"])
 
 
-def verify_signature(raw: bytes, signature: str | None) -> bool:
+def verify_signature(raw: bytes, signature: Optional[str]) -> bool:
     if not CALID_WEBHOOK_SECRET:
         return True
     if not signature:
@@ -85,7 +86,7 @@ async def resolve_session(booking: dict):
     return None
 
 
-async def fire_purchase_and_schedule(booking: dict, session: dict | None, trigger: str):
+async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], trigger: str):
     now_ts = int(time.time())
     session = session or {}
     user_data = build_hashed_user_data(
