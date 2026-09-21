@@ -21,12 +21,14 @@ export function usePolling(path, { interval = 10000, enabled = true, params } = 
     }
   }, [api, path]);
 
+  const paramsStr = JSON.stringify(params);
+
   useEffect(() => {
     if (!enabled) return;
     refresh();
     const id = setInterval(refresh, interval);
     return () => clearInterval(id);
-  }, [refresh, interval, enabled, JSON.stringify(params)]);
+  }, [refresh, interval, enabled, paramsStr]);
 
   return { data, error, loading, refresh };
 }
