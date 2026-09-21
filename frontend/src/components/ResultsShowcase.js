@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, BarChart3, Search, ShoppingCart, MessageCircle, MousePointerClick } from "lucide-react";
+import { BarChart3, Search, ShoppingCart, MessageCircle, MousePointerClick } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -26,6 +26,13 @@ const metaStats = [
   { label: "Total Purchases", value: "9,031", highlight: false },
 ];
 
+const googleStats = [
+  { label: "Total Conversions", value: "393", highlight: false },
+  { label: "Conv. Value", value: "₹5.46 Lakhs", highlight: true },
+  { label: "ROAS (Value/Cost)", value: "4.20x", highlight: true },
+  { label: "Total Cost", value: "₹1.3 Lakhs", highlight: false },
+];
+
 export const ResultsShowcase = () => {
   const [activeTab, setActiveTab] = useState("meta");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -38,9 +45,6 @@ export const ResultsShowcase = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [activeTab]);
-
-  const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % metaScreenshots.length);
-  const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + metaScreenshots.length) % metaScreenshots.length);
 
   return (
     <section className="py-24 bg-ink-bg relative overflow-hidden" id="results">
@@ -91,7 +95,9 @@ export const ResultsShowcase = () => {
         {/* Content Area */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-[0_20px_60px_rgba(5,44,101,0.08)] border border-line">
           <AnimatePresence mode="wait">
-            {activeTab === "meta" ? (
+            
+            {/* META TAB */}
+            {activeTab === "meta" && (
               <motion.div
                 key="meta"
                 initial={{ opacity: 0, y: 10 }}
@@ -101,39 +107,29 @@ export const ResultsShowcase = () => {
                 className="grid lg:grid-cols-5 gap-10 items-center"
               >
                 {/* Image Carousel (Left 3 cols) */}
-                <div className="lg:col-span-3 relative group rounded-xl overflow-hidden border border-line shadow-inner bg-ink-bg">
-                  <div className="aspect-[16/9] relative">
+                <div className="lg:col-span-3 relative group rounded-xl overflow-hidden border border-line shadow-inner bg-ink-bg pb-8">
+                  <div className="relative w-full overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={currentImageIndex}
                         src={metaScreenshots[currentImageIndex]}
                         alt={`Meta Ads Dashboard ${currentImageIndex + 1}`}
-                        className="w-full h-full object-cover absolute inset-0"
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        className="w-full h-auto object-contain block"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.5 }}
                       />
                     </AnimatePresence>
                   </div>
                   
-                  {/* Carousel Controls */}
-                  <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button onClick={prevImage} className="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-ink hover:bg-white hover:scale-110 transition-all">
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button onClick={nextImage} className="w-10 h-10 rounded-full bg-white/90 shadow flex items-center justify-center text-ink hover:bg-white hover:scale-110 transition-all">
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-                  </div>
-                  
                   {/* Indicators */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
                     {metaScreenshots.map((_, i) => (
                       <button 
                         key={i} 
                         onClick={() => setCurrentImageIndex(i)}
-                        className={`w-2 h-2 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-6" : "bg-white/60 hover:bg-white"}`}
+                        className={`w-2 h-2 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-6" : "bg-ink-3 hover:bg-ink"}`}
                       />
                     ))}
                   </div>
@@ -154,8 +150,44 @@ export const ResultsShowcase = () => {
                   </div>
                 </div>
               </motion.div>
-            ) : (
-              /* Coming Soon / Placeholder State for other tabs */
+            )}
+
+            {/* GOOGLE TAB */}
+            {activeTab === "google" && (
+              <motion.div
+                key="google"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="grid lg:grid-cols-5 gap-10 items-center"
+              >
+                <div className="lg:col-span-3 relative rounded-xl overflow-hidden border border-line shadow-inner bg-ink-bg">
+                  <img
+                    src="/images/google1.png"
+                    alt="Google Ads Dashboard"
+                    className="w-full h-auto object-contain block"
+                  />
+                </div>
+
+                <div className="lg:col-span-2">
+                  <h3 className="text-2xl font-bold text-ink mb-2">Google Ads Mastery</h3>
+                  <p className="text-ink-2 mb-8">High-intent search and performance max campaigns driving consistent profitability.</p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    {googleStats.map((stat, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${stat.highlight ? 'bg-blue/5 border-blue/20' : 'bg-ink-bg border-line'}`}>
+                        <p className="text-xs sm:text-sm font-semibold text-ink-3 uppercase tracking-wide mb-1">{stat.label}</p>
+                        <p className={`text-2xl sm:text-3xl font-bold ${stat.highlight ? 'text-blue' : 'text-ink'}`}>{stat.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* PLACEHOLDERS FOR OTHERS */}
+            {["amazon", "whatsapp", "cro"].includes(activeTab) && (
               <motion.div
                 key="placeholder"
                 initial={{ opacity: 0, y: 10 }}
@@ -165,7 +197,6 @@ export const ResultsShowcase = () => {
                 className="flex flex-col items-center justify-center py-20 text-center"
               >
                 <div className="w-20 h-20 rounded-full bg-ink-bg flex items-center justify-center mb-6">
-                  {activeTab === "google" && <Search className="w-8 h-8 text-ink-3" />}
                   {activeTab === "amazon" && <ShoppingCart className="w-8 h-8 text-ink-3" />}
                   {activeTab === "whatsapp" && <MessageCircle className="w-8 h-8 text-ink-3" />}
                   {activeTab === "cro" && <MousePointerClick className="w-8 h-8 text-ink-3" />}
@@ -176,9 +207,9 @@ export const ResultsShowcase = () => {
                 </p>
               </motion.div>
             )}
+            
           </AnimatePresence>
         </div>
-
       </div>
     </section>
   );
