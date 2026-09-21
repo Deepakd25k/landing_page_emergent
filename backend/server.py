@@ -2,10 +2,13 @@ import logging
 import traceback
 from contextlib import asynccontextmanager
 
+from fastapi import FastAPI
+from fastapi.responses import PlainTextResponse
+from starlette.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="D2C Diagnostic - Booting...")
+
 try:
-    from fastapi import FastAPI
-    from starlette.middleware.cors import CORSMiddleware
-    
     import config
     from routes import admin, auth, session, track, webhook
     from services.auth import seed_admin
@@ -14,13 +17,13 @@ try:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 
     @asynccontextmanager
-    async def lifespan(app: FastAPI):
+    async def lifespan_app(app: FastAPI):
         await ensure_indexes()
         await seed_admin()
         yield
         client.close()
-
-    app = FastAPI(title="D2C Profitability Diagnostic API", lifespan=lifespan)
+        
+    app.router.lifespan_context = lifespan_app
 
     app.include_router(session.router)
     app.include_router(track.router)
@@ -47,8 +50,7 @@ try:
 except Exception as e:
     error_msg = traceback.format_exc()
     
-    # Raw WSGI app that requires NO dependencies
-    def app(environ, start_response):
-        start_response('500 Internal Server Error', [('Content-Type', 'text/plain')])
-        return [f"CRITICAL IMPORT ERROR:\n{error_msg}".encode('utf-8')]
+    @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
+    async def catch_all(path: str):
+        return PlainTextResponse(f"Startup Error:\n{error_msg}", status_code=500)
 
