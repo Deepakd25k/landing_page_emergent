@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / ".env")
 
-MONGO_URL = os.environ["MONGO_URL"]
-DB_NAME = os.environ["DB_NAME"]
+MONGO_URL = os.environ.get("MONGO_URL", "")
+DB_NAME = os.environ.get("DB_NAME", "emergent")
 CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "*").split(",")
 
-JWT_SECRET = os.environ["JWT_SECRET"]
-ADMIN_EMAIL = os.environ["ADMIN_EMAIL"].strip().lower()
-ADMIN_PASSWORD = os.environ["ADMIN_PASSWORD"]
+JWT_SECRET = os.environ.get("JWT_SECRET", "default_secret")
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@example.com").strip().lower()
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Admin@123")
 
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID", "").strip()
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN", "").strip()
