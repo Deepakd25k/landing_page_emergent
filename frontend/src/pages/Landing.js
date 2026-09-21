@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
 import { PainPoints } from "@/components/PainPoints";
+import { PnlReveal } from "@/components/PnlReveal";
 import { AuditComparison } from "@/components/AuditComparison";
 import { WhatYouGet } from "@/components/WhatYouGet";
 import { BonusAutomations } from "@/components/BonusAutomations";
@@ -42,6 +43,7 @@ export default function Landing() {
           <HeroSection />
           <Marquee />
           <PainPoints />
+          <PnlReveal />
           <AuditComparison />
           <WhatYouGet />
           <BonusAutomations />
