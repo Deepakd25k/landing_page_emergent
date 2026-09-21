@@ -15,6 +15,7 @@ import { WhyNow } from "@/components/WhyNow";
 import { About } from "@/components/About";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FinalCTA } from "@/components/FinalCTA";
+import { AboutMe } from "@/components/AboutMe";
 import { CalEmbed } from "@/components/CalEmbed";
 import { Footer } from "@/components/Footer";
 import { MobileStickyButton } from "@/components/MobileStickyButton";
@@ -53,6 +54,7 @@ export default function Landing() {
           <WhyNow />
           <About />
           <HowItWorks />
+          <AboutMe />
           <FinalCTA />
           <CalEmbed />
         </main>
