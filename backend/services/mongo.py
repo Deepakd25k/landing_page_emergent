@@ -2,18 +2,18 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from config import MONGO_URL, DB_NAME
 
 client = AsyncIOMotorClient(MONGO_URL) if MONGO_URL else None
-db = client[DB_NAME] if client else None
+db = client[DB_NAME] if client is not None else None
 
 class MockDB:
     def __getattr__(self, name):
         return None
 
-sessions = db.sessions if db else None
-events = db.events if db else None
-bookings = db.bookings if db else None
-users = db.users if db else None
-login_attempts = db.login_attempts if db else None
-ad_spend = db.ad_spend if db else None
+sessions = db.sessions if db is not None else None
+events = db.events if db is not None else None
+bookings = db.bookings if db is not None else None
+users = db.users if db is not None else None
+login_attempts = db.login_attempts if db is not None else None
+ad_spend = db.ad_spend if db is not None else None
 
 
 async def ensure_indexes():
