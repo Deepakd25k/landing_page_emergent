@@ -1,4 +1,4 @@
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = process.env.REACT_APP_BACKEND_URL ? `${process.env.REACT_APP_BACKEND_URL}/api` : "/api";
 
 async function post(path, body, { keepalive = false } = {}) {
   const res = await fetch(`${API}${path}`, {
