@@ -20,23 +20,39 @@ FUNNEL = [
 ]
 
 
+def date_filter(start_date: Optional[str], end_date: Optional[str]) -> dict:
+    match = {}
+    if start_date or end_date:
+        created_at = {}
+        if start_date:
+            created_at["$gte"] = start_date
+        if end_date:
+            created_at["$lte"] = end_date if "T" in end_date else f"{end_date}T23:59:59.999Z"
+        if created_at:
+            match["created_at"] = created_at
+    return match
+
+
 def pct(part, whole):
     return round((part / whole) * 100, 1) if whole else 0.0
 
 
 @router.get("/stats")
-async def stats():
-    total_sessions = await sessions.count_documents({})
-    total_events = await events.count_documents({})
-    paid = await bookings.count_documents({"status": {"$in": ["paid", "completed", "rescheduled"]}})
-    total_bookings = await bookings.count_documents({})
-    revenue_cursor = bookings.aggregate([{"$match": {"status": {"$in": ["paid", "completed", "rescheduled"]}}},
+async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None):
+    match = date_filter(start_date, end_date)
+    b_match = {**match, "status": {"$in": ["paid", "completed", "rescheduled"]}}
+    
+    total_sessions = await sessions.count_documents(match)
+    total_events = await events.count_documents(match)
+    paid = await bookings.count_documents(b_match)
+    total_bookings = await bookings.count_documents(match)
+    revenue_cursor = bookings.aggregate([{"$match": b_match},
                                          {"$group": {"_id": None, "sum": {"$sum": "$payment_amount"}}}])
     revenue = [r async for r in revenue_cursor]
-    retainers = await bookings.count_documents({"retainer_status": "converted"})
-    capi_sent = await events.count_documents({"capi.status": "sent"})
-    capi_skipped = await events.count_documents({"capi.status": "skipped"})
-    capi_error = await events.count_documents({"capi.status": "error"})
+    retainers = await bookings.count_documents({**match, "retainer_status": "converted"})
+    capi_sent = await events.count_documents({**match, "capi.status": "sent"})
+    capi_skipped = await events.count_documents({**match, "capi.status": "skipped"})
+    capi_error = await events.count_documents({**match, "capi.status": "error"})
     since = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
     today_visitors = await sessions.count_documents({"created_at": {"$gte": since}})
     today_events = await events.count_documents({"created_at": {"$gte": since}})
@@ -53,8 +69,8 @@ async def stats():
 
 
 @router.get("/funnel")
-async def funnel(utm_content: Optional[str] = None):
-    match = {}
+async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
+    match = date_filter(start_date, end_date)
     if utm_content:
         match["utm_content"] = utm_content
     total = await sessions.count_documents(match)
@@ -73,8 +89,10 @@ async def funnel(utm_content: Optional[str] = None):
 
 
 @router.get("/bookings")
-async def list_bookings(limit: int = Query(100, le=500), status: Optional[str] = None):
-    query = {"status": status} if status else {}
+async def list_bookings(limit: int = Query(100, le=500), status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
+    query = date_filter(start_date, end_date)
+    if status:
+        query["status"] = status
     cursor = bookings.find(query).sort("created_at", -1).limit(limit)
     return [strip_id(b) async for b in cursor]
 
@@ -92,10 +110,12 @@ async def update_booking(booking_uid: str, body: BookingUpdateRequest):
 
 
 @router.get("/events")
-async def list_events(limit: int = Query(100, le=500), since: Optional[str] = None, event_name: Optional[str] = None):
-    query = {}
+async def list_events(limit: int = Query(100, le=500), since: Optional[str] = None, event_name: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
+    query = date_filter(start_date, end_date)
     if since:
-        query["created_at"] = {"$gt": since}
+        if "created_at" not in query:
+            query["created_at"] = {}
+        query["created_at"]["$gt"] = since
     if event_name:
         query["event_name"] = event_name
     cursor = events.find(query).sort("created_at", -1).limit(limit)
@@ -103,14 +123,19 @@ async def list_events(limit: int = Query(100, le=500), since: Optional[str] = No
 
 
 @router.get("/sessions")
-async def list_sessions(limit: int = Query(100, le=500)):
-    cursor = sessions.find({}).sort("created_at", -1).limit(limit)
+async def list_sessions(limit: int = Query(100, le=500), start_date: Optional[str] = None, end_date: Optional[str] = None):
+    query = date_filter(start_date, end_date)
+    cursor = sessions.find(query).sort("created_at", -1).limit(limit)
     return [strip_id(s) async for s in cursor]
 
 
 @router.get("/utm")
-async def utm_performance():
-    pipeline = [
+async def utm_performance(start_date: Optional[str] = None, end_date: Optional[str] = None):
+    match = date_filter(start_date, end_date)
+    pipeline = []
+    if match:
+        pipeline.append({"$match": match})
+    pipeline.extend([
         {"$group": {
             "_id": {"$ifNull": ["$utm_content", "(direct / none)"]},
             "visitors": {"$sum": 1},

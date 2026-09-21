@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { toast } from "sonner";
 import { usePolling, fmtTime, shortId } from "@/hooks/usePolling";
@@ -9,7 +9,11 @@ const EVENT_NAMES = ["", "PageView", "ViewContent", "ViewContent_CaseStudy", "In
 
 export const EventsFeed = () => {
   const [filter, setFilter] = useState("");
-  const { data } = usePolling("/admin/events", { interval: 5000, params: { limit: 100, event_name: filter || undefined } });
+  const [searchParams] = useSearchParams();
+  const start_date = searchParams.get("start") || undefined;
+  const end_date = searchParams.get("end") || undefined;
+  
+  const { data } = usePolling("/admin/events", { interval: 5000, params: { limit: 100, event_name: filter || undefined, start_date, end_date } });
   const seen = useRef(null);
 
   useEffect(() => {

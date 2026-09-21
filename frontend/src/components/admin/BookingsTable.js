@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Search, RouteIcon } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
@@ -10,7 +10,11 @@ const RETAINER = ["none", "pitched", "converted", "lost"];
 
 export const BookingsTable = () => {
   const { api } = useAuth();
-  const { data, refresh } = usePolling("/admin/bookings", { interval: 15000 });
+  const [searchParams] = useSearchParams();
+  const start_date = searchParams.get("start") || undefined;
+  const end_date = searchParams.get("end") || undefined;
+  
+  const { data, refresh } = usePolling("/admin/bookings", { interval: 15000, params: { start_date, end_date } });
   const [q, setQ] = useState("");
 
   const rows = (data || []).filter((b) => {

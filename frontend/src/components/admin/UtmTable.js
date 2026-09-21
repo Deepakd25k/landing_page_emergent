@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
 import { usePolling, fmtINR } from "@/hooks/usePolling";
@@ -24,7 +25,11 @@ const SpendInput = ({ row, onSave }) => {
 
 export const UtmTable = () => {
   const { api } = useAuth();
-  const { data, refresh } = usePolling("/admin/utm", { interval: 15000 });
+  const [searchParams] = useSearchParams();
+  const start_date = searchParams.get("start") || undefined;
+  const end_date = searchParams.get("end") || undefined;
+  
+  const { data, refresh } = usePolling("/admin/utm", { interval: 15000, params: { start_date, end_date } });
 
   const saveSpend = async (utm_content, spend) => {
     try {

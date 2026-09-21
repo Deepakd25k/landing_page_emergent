@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 import { Users, IndianRupee, CalendarCheck, Zap, ServerCog, Repeat } from "lucide-react";
 import { usePolling, fmtINR } from "@/hooks/usePolling";
 import { PageTitle, Panel, Badge } from "@/components/admin/ui";
@@ -44,8 +45,12 @@ const FunnelBars = ({ funnel }) => (
 );
 
 export const Overview = () => {
-  const { data: stats } = usePolling("/admin/stats", { interval: 10000 });
-  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000 });
+  const [searchParams] = useSearchParams();
+  const start_date = searchParams.get("start") || undefined;
+  const end_date = searchParams.get("end") || undefined;
+
+  const { data: stats } = usePolling("/admin/stats", { interval: 10000, params: { start_date, end_date } });
+  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000, params: { start_date, end_date } });
 
   return (
     <div>
