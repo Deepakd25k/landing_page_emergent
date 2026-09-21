@@ -147,7 +147,7 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
             "paid": {"$sum": {"$cond": [{"$ifNull": ["$funnel.Purchase", False]}, 1, 0]}},
         }},
         {"$sort": {"paid": -1, "visitors": -1}},
-    ]
+    ])
     rows = [r async for r in sessions.aggregate(pipeline)]
     spend_map = {s["utm_content"]: s["spend"] async for s in ad_spend.find({})}
     out = []
