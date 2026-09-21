@@ -2,11 +2,10 @@ import logging
 import traceback
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
-from starlette.middleware.cors import CORSMiddleware
-from fastapi.responses import PlainTextResponse
-
 try:
+    from fastapi import FastAPI
+    from starlette.middleware.cors import CORSMiddleware
+    
     import config
     from routes import admin, auth, session, track, webhook
     from services.auth import seed_admin
@@ -47,9 +46,19 @@ try:
 
 except Exception as e:
     error_msg = traceback.format_exc()
-    app = FastAPI(title="Error App")
-
-    @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "PATCH"])
-    async def catch_all(path: str):
-        return PlainTextResponse(f"Startup Error:\n{error_msg}", status_code=500)
+    
+    # Raw ASGI app that requires NO dependencies
+    async def app(scope, receive, send):
+        assert scope['type'] == 'http'
+        await send({
+            'type': 'http.response.start',
+            'status': 500,
+            'headers': [
+                [b'content-type', b'text/plain'],
+            ],
+        })
+        await send({
+            'type': 'http.response.body',
+            'body': f"CRITICAL IMPORT ERROR:\n{error_msg}".encode(),
+        })
 
