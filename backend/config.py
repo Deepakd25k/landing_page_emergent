@@ -4,7 +4,19 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent / ".env")
 
-MONGO_URL = os.environ.get("MONGO_URL", "")
+import urllib.parse
+import re
+
+raw_mongo_url = os.environ.get("MONGO_URL", "")
+match = re.match(r"(mongodb(?:\+srv)?://)([^:]+):([^@]+)(@.*)", raw_mongo_url)
+if match:
+    prefix, user, password, suffix = match.groups()
+    # If password is not url-encoded (doesn't contain %), encode it
+    if "%" not in password:
+        password = urllib.parse.quote_plus(password)
+    MONGO_URL = f"{prefix}{user}:{password}{suffix}"
+else:
+    MONGO_URL = raw_mongo_url
 DB_NAME = os.environ.get("DB_NAME", "emergent")
 CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "*").split(",")
 
