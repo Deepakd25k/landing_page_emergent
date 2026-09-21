@@ -4,7 +4,7 @@
 
 export const siteConfig = {
   brandName: "D2C Diagnostic",
-  calLink: "yourusername/d2c-diagnostic",
+  calLink: "d2cdeepak-audit/free-15-min-d2c-growth-x-ray",
   calOrigin: "https://cal.id",
   calEmbedJsUrl: "https://cal.id/embed/embed.js",
   price: "1,999",
