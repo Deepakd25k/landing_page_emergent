@@ -26,7 +26,7 @@ export function usePolling(path, { interval = 10000, enabled = true, params } = 
     refresh();
     const id = setInterval(refresh, interval);
     return () => clearInterval(id);
-  }, [refresh, interval, enabled]);
+  }, [refresh, interval, enabled, JSON.stringify(params)]);
 
   return { data, error, loading, refresh };
 }
