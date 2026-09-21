@@ -3,6 +3,7 @@ from datetime import datetime, timedelta, timezone
 import bcrypt
 import jwt
 from fastapi import HTTPException, Request
+from pymongo.errors import DuplicateKeyError
 
 from config import ADMIN_EMAIL, ADMIN_PASSWORD, JWT_SECRET
 from services.mongo import login_attempts, strip_id, users
@@ -29,9 +30,13 @@ def create_access_token(email: str, hours: int = 24) -> str:
 async def seed_admin():
     existing = await users.find_one({"email": ADMIN_EMAIL})
     if existing is None:
-        await users.insert_one({"email": ADMIN_EMAIL, "password_hash": hash_password(ADMIN_PASSWORD),
-                                "name": "Admin", "role": "admin",
-                                "created_at": datetime.now(timezone.utc).isoformat()})
+        try:
+            await users.insert_one({"email": ADMIN_EMAIL, "password_hash": hash_password(ADMIN_PASSWORD),
+                                    "name": "Admin", "role": "admin",
+                                    "created_at": datetime.now(timezone.utc).isoformat()})
+        except DuplicateKeyError:
+            # Another worker already inserted it — update the password hash instead
+            await users.update_one({"email": ADMIN_EMAIL}, {"$set": {"password_hash": hash_password(ADMIN_PASSWORD)}})
     elif not verify_password(ADMIN_PASSWORD, existing["password_hash"]):
         await users.update_one({"email": ADMIN_EMAIL}, {"$set": {"password_hash": hash_password(ADMIN_PASSWORD)}})
 
