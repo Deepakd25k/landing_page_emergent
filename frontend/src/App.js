@@ -15,7 +15,11 @@ function App() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin/*"
-            element={<AdminDashboard />}
+            element={
+              <RequireAdmin>
+                <AdminDashboard />
+              </RequireAdmin>
+            }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

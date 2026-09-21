@@ -20,9 +20,9 @@ else:
 DB_NAME = os.environ.get("DB_NAME", "emergent")
 CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "*").split(",")
 
-JWT_SECRET = os.environ.get("JWT_SECRET", "default_secret")
-ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@example.com").strip().lower()
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Admin@123")
+JWT_SECRET = os.environ.get("JWT_SECRET", "super_secure_jwt_key_emergent_2026")
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "kumardeepak.kal09@gmail.com").strip().lower()
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Deepak1029")
 
 META_PIXEL_ID = os.environ.get("META_PIXEL_ID", "").strip()
 META_ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN", "").strip()
