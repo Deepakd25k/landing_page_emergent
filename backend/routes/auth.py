@@ -19,6 +19,11 @@ async def login(body: LoginRequest, request: Request, response: Response):
     ip = request.headers.get("x-forwarded-for", request.client.host if request.client else "unknown").split(",")[0].strip()
     identifier = f"{ip}:{email}"
     await check_lockout(identifier)
+    
+    # Ensure admin user exists (Vercel serverless workaround)
+    from services.auth import seed_admin
+    await seed_admin()
+
     user = await users.find_one({"email": email})
     if not user or not verify_password(body.password, user["password_hash"]):
         await record_failure(identifier)
