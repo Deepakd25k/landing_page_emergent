@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Menu, X, Activity } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { siteConfig } from "@/data/content";
@@ -52,13 +51,10 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/admin/login" data-testid="nav-admin-link" className="text-xs font-semibold text-ink-3 hover:text-ink transition-colors">
-            Admin
-          </Link>
           <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar" size="sm" testId="nav-cta-button" />
         </div>
 
-        <button className="md:hidden p-2 rounded-lg text-ink" onClick={() => setOpen(!open)} data-testid="nav-mobile-toggle" aria-label="Menu">
+        <button className="md:hidden p-2 rounded-lg text-ink" onClick={() => setOpen(!open)} data-testid="nav-mobile-toggle" aria-label="Menu" aria-expanded={open} aria-controls="mobile-navigation">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -72,14 +68,14 @@ export const Navbar = () => {
             transition={{ duration: 0.2 }}
             className="md:hidden bg-white/95 backdrop-blur-xl border-b border-line px-4 pb-6 pt-2 flex flex-col gap-4"
             data-testid="nav-mobile-menu"
+            id="mobile-navigation"
           >
             {siteConfig.nav.map((item) => (
-              <a key={item.href} href={item.href} onClick={go(item.href)} className="text-base font-semibold text-ink py-1">
+              <a key={item.href} href={item.href} onClick={go(item.href)} className="text-base font-semibold text-ink py-1" data-testid={`nav-mobile-link-${item.href.replace("#", "")}`}>
                 {item.label}
               </a>
             ))}
             <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
-            <Link to="/admin/login" className="text-xs font-semibold text-ink-3">Admin login</Link>
           </motion.div>
         )}
       </AnimatePresence>

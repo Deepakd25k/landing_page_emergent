@@ -1,0 +1,22 @@
+{
+  "summary": "Verified mobile-visibility fix for Hero P&L card and Admin-link removal. Tested 7 viewport widths (320/360/390/430/768/1024/1920). Card is visible, centered under hero copy on mobile/tablet, and floats two-column on desktop. All six P&L rows, Bleeding status, Contribution Margin (CM2) with -₹23 / order and ROAS 4.1x badge are readable with no clipping and no horizontal page overflow at any tested width. 3D tilt correctly ignores non-mouse pointers (transform stays 'none' after touch tap). Admin link is absent from desktop navbar, mobile menu, and footer. Mobile menu closes after link tap. Direct /admin redirects unauthenticated visitors to /admin/login; login with seeded admin@d2cdiagnostic.com / Admin@1999 successfully lands on /admin dashboard. No page/runtime errors captured.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/app/test_reports/screenshots/pnl_320.jpg", "/app/test_reports/screenshots/pnl_360.jpg", "/app/test_reports/screenshots/pnl_390.jpg", "/app/test_reports/screenshots/pnl_430.jpg", "/app/test_reports/screenshots/pnl_768.jpg", "/app/test_reports/screenshots/pnl_1024.jpg", "/app/test_reports/screenshots/pnl_1920.jpg"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Hero CTA button click does not scroll/navigate to #book because there is no element with id='book' in the DOM (placeholder). This is intended per request, but consider adding an empty anchor <span id='book'> or booking section to avoid dead-click UX in production.",
+    "HeroSection.js PnlCard has non-trivial motion logic (~110 lines) inside a single file with HeroSection; consider extracting PnlCard into its own component file for maintainability."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped per request)", "frontend": "100%"},
+  "test_credentials": "admin@d2cdiagnostic.com / Admin@1999 (from /app/memory/test_credentials.md) — login confirmed working.",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All P&L testids present: hero-pnl-card, hero-pnl-row-0..5, hero-pnl-label/value-0..5, hero-pnl-status, hero-pnl-margin-label/value, hero-pnl-roas-label/value, hero-pnl-container. Nav testids: navbar, nav-mobile-toggle, nav-mobile-menu, nav-mobile-link-{pain|pricing|cases|how}, nav-mobile-cta-button, nav-cta-button, hero-cta-button. Admin routes: /admin/login public, /admin protected via RequireAdmin. Booking CTA points to #book which is intentionally a placeholder anchor."
+}

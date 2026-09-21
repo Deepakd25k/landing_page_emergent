@@ -31,7 +31,17 @@ PageView → ViewContent (#pricing) → ViewContent_CaseStudy (#cases) → Initi
 - Admin: JWT login (bcrypt, lockout), Overview (stats + funnel drop-off + tracking status), Bookings (retainer tracking), Live Events (5s poll + toasts), Attribution (utm_content + spend → cost/booking), Journeys (timeline replay)
 - Testing: 28/28 backend tests, frontend flows verified (iteration_1)
 
+## Mobile visibility and navigation fix (2026-07)
+- User priority: about 99% of visitors are on mobile; make the hero Per-Order P&L card from desktop visible and readable on phones. Remove public Admin navigation; retain direct URL access.
+- Reproduced root cause: `hidden lg:block` wrapper hid the entire P&L card below 1024px (iteration_2).
+- `HeroSection.js`: card now visible at every breakpoint, centered under hero content below desktop; responsive padding/title, non-wrapping values, wrapping CM2 summary, and in-flow green ROAS badge on mobile/tablet prevent clipping. Desktop retains two columns and floating badge. Tilt responds only to mouse pointers, not touch.
+- `Navbar.js` and `Footer.js`: removed public Admin links from desktop header, mobile menu and footer. `/admin/login` and protected `/admin` routes unchanged. Mobile navigation and P&L metrics have explicit test IDs.
+- Verified in browser at 320, 360, 390, 430, 768, 1024 and 1920px: all six rows, margin and ROAS badge visible, no horizontal overflow, touch interaction stable, navigation links work, direct admin login and protection pass (iteration_3).
+- Targeted CTA follow-up passed (iteration_4): both hero and mobile-menu booking buttons scroll to the existing `#book` section. The missing-anchor comment in iteration_3 was incorrect; no CTA code fix was needed.
+- No backend/auth logic or integration configuration changed. Cal.id remains a placeholder; Meta sends remain skipped pending credentials.
+
 ## Backlog
+- P0 (deferred while mobile fix prioritized): Add `frontend/vercel.json` SPA fallback for direct frontend route access on Vercel; not implemented in this fix.
 - P0: Set real `calLink`, `META_PIXEL_ID`, `META_ACCESS_TOKEN`, `CALID_WEBHOOK_SECRET`; point Cal.id webhook to `<backend>/api/webhook/calid`; verify in Meta Events Manager (test_event_code) — dedup + EMQ
 - P1: Admin CSV export of bookings; date range filters; email/WhatsApp notification on Purchase
 - P1: Pre-diagnostic form link auto-send after booking
