@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Activity, BadgeCheck } from "lucide-react";
 import { footer, siteConfig } from "@/data/content";
 import { scrollToHash } from "@/components/shared";
@@ -33,7 +32,6 @@ export const Footer = () => (
       <div>
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">Operator</p>
         <ul className="mt-4 space-y-2.5 text-sm">
-          <li><Link to="/admin/login" className="hover:text-white transition-colors" data-testid="footer-admin-link">Admin dashboard</Link></li>
           <li><span className="font-mono text-xs text-white/40">3-layer tracking: Pixel + CAPI + Mongo</span></li>
         </ul>
       </div>

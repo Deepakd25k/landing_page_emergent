@@ -35,6 +35,7 @@ const PnlCard = () => {
   const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-12, 12]), { stiffness: 120, damping: 18 });
 
   const onMove = (e) => {
+    if (e.pointerType !== "mouse") return;
     const rect = ref.current.getBoundingClientRect();
     mx.set((e.clientX - rect.left) / rect.width - 0.5);
     my.set((e.clientY - rect.top) / rect.height - 0.5);
@@ -54,18 +55,18 @@ const PnlCard = () => {
     >
       <motion.div
         ref={ref}
-        onMouseMove={onMove}
-        onMouseLeave={reset}
+        onPointerMove={onMove}
+        onPointerLeave={reset}
         style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-        className="relative bg-white rounded-2xl border border-line shadow-[0_30px_80px_rgba(5,44,101,0.18)] p-6 sm:p-7 w-full max-w-md ml-auto"
+        className="relative bg-white rounded-2xl border border-line shadow-[0_30px_80px_rgba(5,44,101,0.18)] p-4 sm:p-7 lg:pb-10 w-full max-w-md mx-auto lg:mr-0"
         data-testid="hero-pnl-card"
       >
-        <div className="flex items-center justify-between mb-5">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink-3">Live example</p>
-            <p className="font-bold text-ink mt-1">{hero.pnlCard.title}</p>
+        <div className="flex items-start justify-between gap-3 mb-5">
+          <div className="min-w-0">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink-3" data-testid="hero-pnl-eyebrow">Live example</p>
+            <p className="font-bold text-sm sm:text-base text-ink mt-1" data-testid="hero-pnl-title">{hero.pnlCard.title}</p>
           </div>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-danger-bg text-danger">
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-danger-bg text-danger" data-testid="hero-pnl-status">
             <TrendingDown className="w-3.5 h-3.5" /> Bleeding
           </span>
         </div>
@@ -76,26 +77,28 @@ const PnlCard = () => {
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2 + i * 0.08, duration: 0.5 }}
-              className="flex items-center justify-between py-2.5 text-sm"
+              className="flex items-center justify-between gap-3 py-2.5 text-sm"
+              data-testid={`hero-pnl-row-${i}`}
             >
-              <span className="text-ink-2">{row.label}</span>
-              <span className={`font-mono font-bold ${row.tone === "neg" ? "text-danger" : "text-ink"}`}>{row.value}</span>
+              <span className="min-w-0 text-ink-2" data-testid={`hero-pnl-label-${i}`}>{row.label}</span>
+              <span className={`shrink-0 whitespace-nowrap font-mono font-bold ${row.tone === "neg" ? "text-danger" : "text-ink"}`} data-testid={`hero-pnl-value-${i}`}>{row.value}</span>
             </motion.li>
           ))}
         </ul>
-        <div className="mt-4 pt-4 border-t-2 border-ink flex items-center justify-between">
-          <span className="font-bold text-ink">{hero.pnlCard.footerLabel}</span>
-          <span className="font-mono text-xl font-bold text-danger">{hero.pnlCard.footerValue}</span>
+        <div className="mt-4 pt-4 border-t-2 border-ink flex flex-wrap items-center justify-between gap-x-3 gap-y-1" data-testid="hero-pnl-margin">
+          <span className="font-bold text-sm sm:text-base text-ink" data-testid="hero-pnl-margin-label">{hero.pnlCard.footerLabel}</span>
+          <span className="font-mono text-xl font-bold text-danger whitespace-nowrap" data-testid="hero-pnl-margin-value">{hero.pnlCard.footerValue}</span>
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.9, duration: 0.5, ease: EASE }}
           style={{ transform: "translateZ(40px)" }}
-          className="absolute -bottom-6 -left-4 sm:-left-8 bg-success text-white rounded-xl px-4 py-2.5 shadow-[0_12px_30px_rgba(25,135,84,0.35)] rotate-[-4deg]"
+          className="relative mt-4 w-fit lg:absolute lg:mt-0 lg:-bottom-6 lg:-left-8 bg-success text-white rounded-xl px-4 py-2.5 shadow-[0_12px_30px_rgba(25,135,84,0.35)] lg:rotate-[-4deg]"
+          data-testid="hero-pnl-roas-badge"
         >
-          <p className="text-[10px] uppercase tracking-[0.18em] font-bold opacity-80">{hero.pnlCard.agencyLabel}</p>
-          <p className="font-mono font-bold text-lg leading-tight">{hero.pnlCard.agencyValue}</p>
+          <p className="text-[10px] uppercase tracking-[0.18em] font-bold opacity-80" data-testid="hero-pnl-roas-label">{hero.pnlCard.agencyLabel}</p>
+          <p className="font-mono font-bold text-lg leading-tight" data-testid="hero-pnl-roas-value">{hero.pnlCard.agencyValue}</p>
         </motion.div>
       </motion.div>
     </motion.div>
@@ -179,7 +182,7 @@ export const HeroSection = () => {
           </motion.div>
         </div>
 
-        <div className="hidden lg:block pl-6">
+        <div className="w-full min-w-0 lg:pl-6" data-testid="hero-pnl-container">
           <PnlCard />
         </div>
       </div>
