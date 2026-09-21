@@ -6,9 +6,8 @@ export const Footer = () => (
   <footer className="bg-night text-white/70 py-14" data-testid="footer">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
       <div>
-        <div className="flex items-center gap-2.5 text-white">
-          <span className="w-9 h-9 rounded-xl bg-blue grid place-items-center"><Activity className="w-5 h-5" /></span>
-          <span className="font-extrabold tracking-tight text-lg">{siteConfig.brandName}</span>
+        <div className="flex items-center text-white">
+          <span className="font-extrabold tracking-tight text-2xl">D2<span className="text-blue">{"{C}"}</span>ode</span>
         </div>
         <p className="mt-4 text-sm max-w-sm leading-relaxed">{footer.tagline}</p>
         <div className="mt-6 flex flex-wrap gap-2">

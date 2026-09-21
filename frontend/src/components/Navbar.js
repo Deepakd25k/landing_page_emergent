@@ -29,11 +29,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        <a href="#top" onClick={go("#top")} className="flex items-center gap-2.5 group" data-testid="nav-logo">
-          <span className="w-9 h-9 rounded-xl bg-blue text-white grid place-items-center shadow-[0_8px_20px_rgba(13,110,253,0.35)] group-hover:rotate-6 transition-transform duration-300">
-            <Activity className="w-5 h-5" />
-          </span>
-          <span className="font-extrabold tracking-tight text-lg text-ink">{siteConfig.brandName}</span>
+        <a href="#top" onClick={go("#top")} className="flex items-center group" data-testid="nav-logo">
+          <span className="font-extrabold tracking-tight text-2xl text-ink">D2<span className="text-blue">{"{C}"}</span>ode</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
