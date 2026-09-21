@@ -47,18 +47,8 @@ try:
 except Exception as e:
     error_msg = traceback.format_exc()
     
-    # Raw ASGI app that requires NO dependencies
-    async def app(scope, receive, send):
-        assert scope['type'] == 'http'
-        await send({
-            'type': 'http.response.start',
-            'status': 500,
-            'headers': [
-                [b'content-type', b'text/plain'],
-            ],
-        })
-        await send({
-            'type': 'http.response.body',
-            'body': f"CRITICAL IMPORT ERROR:\n{error_msg}".encode(),
-        })
+    # Raw WSGI app that requires NO dependencies
+    def app(environ, start_response):
+        start_response('500 Internal Server Error', [('Content-Type', 'text/plain')])
+        return [f"CRITICAL IMPORT ERROR:\n{error_msg}".encode('utf-8')]
 
