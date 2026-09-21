@@ -33,6 +33,13 @@ const googleStats = [
   { label: "Total Cost", value: "₹1.3 Lakhs", highlight: false },
 ];
 
+const croStats = [
+  { label: "Our Top Conv. Rate", value: "16.67%", highlight: true },
+  { label: "Industry Average (India)", value: "1.5% - 2.5%", highlight: false, note: "Source: Cognito IT & PulseCRO 2026 D2C Reports" },
+  { label: "Avg. Mobile Drop-off", value: "Reduced 40%", highlight: false },
+  { label: "Checkout Efficiency", value: "+3.2x Lift", highlight: true },
+];
+
 export const ResultsShowcase = () => {
   const [activeTab, setActiveTab] = useState("meta");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -186,8 +193,43 @@ export const ResultsShowcase = () => {
               </motion.div>
             )}
 
+            {/* CRO TAB */}
+            {activeTab === "cro" && (
+              <motion.div
+                key="cro"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="grid lg:grid-cols-5 gap-10 items-center"
+              >
+                <div className="lg:col-span-2 relative rounded-xl overflow-hidden border border-line shadow-inner bg-ink-bg flex justify-center py-4">
+                  <img
+                    src="/images/cro1.png"
+                    alt="CRO Conversion Rates"
+                    className="w-auto max-h-[400px] object-contain block"
+                  />
+                </div>
+
+                <div className="lg:col-span-3">
+                  <h3 className="text-2xl font-bold text-ink mb-2">CRO: Beating The Benchmark</h3>
+                  <p className="text-ink-2 mb-8">While the average Indian D2C brand struggles with a 1.5% conversion rate due to COD friction and mobile drop-offs, our optimized funnels shatter industry standards.</p>
+                  
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {croStats.map((stat, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${stat.highlight ? 'bg-blue/5 border-blue/20' : 'bg-ink-bg border-line'}`}>
+                        <p className="text-xs sm:text-sm font-semibold text-ink-3 uppercase tracking-wide mb-1">{stat.label}</p>
+                        <p className={`text-2xl sm:text-3xl font-bold ${stat.highlight ? 'text-blue' : 'text-ink'}`}>{stat.value}</p>
+                        {stat.note && <p className="text-[10px] sm:text-xs text-ink-3 mt-2 leading-tight">{stat.note}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
             {/* PLACEHOLDERS FOR OTHERS */}
-            {["amazon", "whatsapp", "cro"].includes(activeTab) && (
+            {["amazon", "whatsapp"].includes(activeTab) && (
               <motion.div
                 key="placeholder"
                 initial={{ opacity: 0, y: 10 }}
@@ -199,7 +241,6 @@ export const ResultsShowcase = () => {
                 <div className="w-20 h-20 rounded-full bg-ink-bg flex items-center justify-center mb-6">
                   {activeTab === "amazon" && <ShoppingCart className="w-8 h-8 text-ink-3" />}
                   {activeTab === "whatsapp" && <MessageCircle className="w-8 h-8 text-ink-3" />}
-                  {activeTab === "cro" && <MousePointerClick className="w-8 h-8 text-ink-3" />}
                 </div>
                 <h3 className="text-xl font-bold text-ink mb-2">Proof Uploading...</h3>
                 <p className="text-ink-2 max-w-sm">
