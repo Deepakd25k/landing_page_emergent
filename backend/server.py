@@ -1,6 +1,10 @@
 import logging
 import traceback
+import sys
+import os
 from contextlib import asynccontextmanager
+
+sys.path.append(os.path.dirname(__file__))
 
 from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
