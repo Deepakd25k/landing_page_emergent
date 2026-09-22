@@ -10,9 +10,7 @@ import { ResultsShowcase } from "@/components/ResultsShowcase";
 import { AuditComparison } from "@/components/AuditComparison";
 import { WhatYouGet } from "@/components/WhatYouGet";
 import { BonusAutomations } from "@/components/BonusAutomations";
-import { CaseStudies } from "@/components/CaseStudies";
 import { WhyNow } from "@/components/WhyNow";
-import { About } from "@/components/About";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FinalCTA } from "@/components/FinalCTA";
 import { AboutMe } from "@/components/AboutMe";
@@ -50,9 +48,7 @@ export default function Landing() {
           <AuditComparison />
           <WhatYouGet />
           <BonusAutomations />
-          <CaseStudies />
           <WhyNow />
-          <About />
           <HowItWorks />
           <AboutMe />
           <FinalCTA />
