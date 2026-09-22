@@ -7,7 +7,7 @@ export const Footer = () => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
       <div>
         <div className="flex items-center text-white">
-          <span className="font-extrabold tracking-tight text-2xl">D2<span className="text-blue">{"{C}"}</span>ode</span>
+          <span className="font-bold tracking-tight text-3xl lowercase"><span className="text-white">fox</span><span className="text-[#FF6B00]">.ads</span></span>
         </div>
         <p className="mt-4 text-sm max-w-sm leading-relaxed">{footer.tagline}</p>
         <div className="mt-6 flex flex-wrap gap-2">
