@@ -1,29 +1,80 @@
-import { Clock3, ShieldCheck } from "lucide-react";
-import { finalCta } from "@/data/content";
+import { motion } from "framer-motion";
+import { ArrowRight, Facebook, Instagram, MessageCircle, Calendar, Zap } from "lucide-react";
 import { Reveal } from "@/components/shared";
-import { CTAButton } from "@/components/CTAButton";
+
+const floatingIcons = [
+  { icon: Facebook, color: "text-blue", delay: 0, x: -60, y: 10, rotate: -6 },
+  { icon: Instagram, color: "text-pink-600", delay: 0.1, x: -20, y: -10, rotate: 8 },
+  { icon: MessageCircle, color: "text-green-500", delay: 0.2, x: 20, y: 15, rotate: -4 },
+  { icon: Calendar, color: "text-red-500", delay: 0.3, x: 60, y: -5, rotate: 12 },
+  { icon: Zap, color: "text-yellow-500", delay: 0.4, x: 100, y: 20, rotate: -8 },
+];
 
 export const FinalCTA = () => (
-  <section id="final" data-section="final-cta" className="relative bg-blue text-white py-20 sm:py-28 overflow-hidden noise">
-    <div className="absolute -bottom-32 -left-20 w-[500px] h-[500px] rounded-full bg-navy/60 blur-[120px]" />
-    <div className="absolute -top-24 right-0 w-[400px] h-[400px] rounded-full bg-white/10 blur-[100px]" />
-    <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="final" data-section="final-cta" className="bg-white py-12 sm:py-24">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6">
+
       <Reveal>
-        <p className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] max-w-4xl" data-testid="final-line1">{finalCta.line1}</p>
-      </Reveal>
-      <Reveal delay={0.1}>
-        <p className="mt-4 font-mono text-base sm:text-xl text-white/80 tracking-wide">{finalCta.line2}</p>
-      </Reveal>
-      <Reveal delay={0.2}>
-        <p className="mt-8 text-lg sm:text-2xl font-semibold max-w-3xl flex items-start gap-3">
-          <ShieldCheck className="w-7 h-7 shrink-0 mt-0.5" /> {finalCta.line3}
-        </p>
-      </Reveal>
-      <Reveal delay={0.3} className="mt-10 flex flex-col sm:flex-row sm:items-center gap-5">
-        <CTAButton label={finalCta.cta} location="final" variant="white" testId="final-cta-button" />
-        <p className="flex items-center gap-2 text-sm text-white/85" data-testid="final-scarcity">
-          <Clock3 className="w-4 h-4" /> {finalCta.scarcity}
-        </p>
+        <div className="relative bg-[#f8f9fb] rounded-[2rem] border border-line p-8 sm:p-16 text-center overflow-hidden">
+          
+          {/* Subtle dot grid background */}
+          <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ backgroundImage: "radial-gradient(#d1d5db 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }} />
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center">
+            
+            {/* Pill */}
+            <div className="inline-flex items-center gap-2 bg-white border border-line rounded-full px-3 py-1 mb-6 sm:mb-8 shadow-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue" />
+              <span className="text-[10px] sm:text-xs font-bold text-ink-2 uppercase tracking-wide">One last thing</span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-ink tracking-tight leading-[1.1] mb-4 sm:mb-6">
+              Your business deserves growth that scales, <span className="whitespace-nowrap">not just ROAS.</span>
+            </h2>
+
+            {/* Text */}
+            <p className="text-sm sm:text-lg text-ink-2 leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10">
+              Let's fix the tracking, plug the RTO leaks, and map out your actual unit economics, <span className="bg-blue/10 px-1 py-0.5 rounded text-blue font-semibold">right on the call</span>, so you stop losing money on every order.
+            </p>
+
+            {/* CTA Button */}
+            <a href="https://rzp.io/l/foxads" target="_blank" rel="noopener noreferrer" className="group w-full max-w-md bg-blue text-white rounded-xl py-4 px-6 flex items-center justify-center gap-2 text-sm sm:text-base font-bold shadow-[0_8px_20px_-4px_rgba(13,110,253,0.4)] hover:shadow-[0_12px_24px_-4px_rgba(13,110,253,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+              Book Your Diagnostic — ₹1,999
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            {/* Floating Icons */}
+            <div className="mt-10 sm:mt-12 flex items-center justify-center h-12 relative w-full max-w-[280px]">
+              {floatingIcons.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: item.y }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ duration: 0.5, delay: 0.2 + item.delay, type: "spring", stiffness: 200 }}
+                    className="absolute bg-white rounded-2xl shadow-md p-3 sm:p-3.5 flex items-center justify-center border border-line"
+                    style={{ left: `calc(50% + ${item.x - 24}px)`, rotate: item.rotate }}
+                  >
+                    {i === 3 ? (
+                      // Custom calendar icon with SAT 11
+                      <div className="flex flex-col items-center">
+                        <div className="bg-danger text-white text-[6px] sm:text-[7px] font-black w-full text-center px-2 py-0.5 rounded-t -mt-1 mb-0.5">SAT</div>
+                        <div className="text-ink text-sm sm:text-base font-black">11</div>
+                      </div>
+                    ) : (
+                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${item.color}`} />
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
       </Reveal>
     </div>
   </section>
