@@ -4,7 +4,6 @@ import { TrackingProvider } from "@/context/TrackingContext";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
-import { PainPoints } from "@/components/PainPoints";
 import { PnlReveal } from "@/components/PnlReveal";
 import { FunnelChain } from "@/components/FunnelChain";
 import { ResultsShowcase } from "@/components/ResultsShowcase";
@@ -14,7 +13,6 @@ import { BonusAutomations } from "@/components/BonusAutomations";
 import { WhyNow } from "@/components/WhyNow";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FinalCTA } from "@/components/FinalCTA";
-import { AboutMe } from "@/components/AboutMe";
 import { CalEmbed } from "@/components/CalEmbed";
 import { Footer } from "@/components/Footer";
 import { MobileStickyButton } from "@/components/MobileStickyButton";
@@ -43,7 +41,6 @@ export default function Landing() {
         <main>
           <HeroSection />
           <Marquee />
-          <PainPoints />
           <FunnelChain />
           <PnlReveal />
           <ResultsShowcase />
@@ -52,7 +49,6 @@ export default function Landing() {
           <BonusAutomations />
           <WhyNow />
           <HowItWorks />
-          <AboutMe />
           <FinalCTA />
           <CalEmbed />
         </main>
