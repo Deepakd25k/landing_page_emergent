@@ -141,22 +141,47 @@ export const WhyNow = () => {
                   <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl ${activeStat.bg} flex items-center justify-center mb-5 md:mb-6`}>
                     <ActiveIcon className={`w-5 h-5 md:w-6 md:h-6 ${activeStat.color}`} />
                   </div>
-                  <AnimatePresence mode="wait">
+                  
+                  {/* Rolling Data Display */}
+                  <div className="relative flex flex-col min-h-[140px] md:min-h-[auto] justify-center">
+                    {/* Mobile: Faded Previous Preview */}
                     <motion.div
-                      key={activeIndex}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
+                      key={`prev-${activeIndex}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="md:hidden text-ink-3/20 font-mono text-2xl font-black tracking-tighter absolute -top-4 pointer-events-none select-none"
                     >
-                      <h3 className="font-mono text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter text-ink mb-2 md:mb-3 drop-shadow-sm">
-                        {activeStat.stat}
-                      </h3>
-                      <p className="text-sm sm:text-base md:text-xl font-bold text-ink-2 leading-snug max-w-[250px] md:max-w-[280px]">
-                        {activeStat.label}
-                      </p>
+                      {enrichedStats[(activeIndex - 1 + enrichedStats.length) % enrichedStats.length].stat}
                     </motion.div>
-                  </AnimatePresence>
+
+                    <AnimatePresence mode="popLayout">
+                      <motion.div
+                        key={activeIndex}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.4 }}
+                        className="py-1"
+                      >
+                        <h3 className="font-mono text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter text-ink mb-1 md:mb-2 drop-shadow-sm">
+                          {activeStat.stat}
+                        </h3>
+                        <p className="text-sm sm:text-base md:text-xl font-bold text-ink-2 leading-snug max-w-[250px] md:max-w-[280px]">
+                          {activeStat.label}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
+
+                    {/* Mobile: Faded Next Preview */}
+                    <motion.div
+                      key={`next-${activeIndex}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="md:hidden text-ink-3/20 font-mono text-2xl font-black tracking-tighter absolute -bottom-4 pointer-events-none select-none"
+                    >
+                      {enrichedStats[(activeIndex + 1) % enrichedStats.length].stat}
+                    </motion.div>
+                  </div>
                 </div>
 
                 {/* Source Badge */}
@@ -209,26 +234,25 @@ export const WhyNow = () => {
           </div>
         </Reveal>
 
-        {/* Premium Closer Alert */}
-        <Reveal delay={0.2} className="mt-10 sm:mt-16">
-          <div className="relative rounded-[2rem] bg-gradient-to-r from-red-950 via-red-900 to-red-950 p-[1px] shadow-[0_10px_40px_-10px_rgba(220,38,38,0.4)] group overflow-hidden">
+        {/* Premium Compact Closer Alert */}
+        <Reveal delay={0.2} className="mt-8 sm:mt-12">
+          <div className="relative rounded-2xl md:rounded-[2rem] bg-gradient-to-r from-red-950 via-red-900 to-red-950 p-[1px] shadow-[0_10px_30px_-10px_rgba(220,38,38,0.3)] group overflow-hidden max-w-4xl mx-auto">
             {/* Animated glowing borders */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/50 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/40 to-transparent -translate-x-full group-hover:animate-[shimmer_2.5s_infinite] pointer-events-none" />
             
-            <div className="bg-[#0f0505] rounded-[2rem] p-6 sm:p-10 flex flex-col md:flex-row items-center gap-5 sm:gap-8 text-center md:text-left relative z-10">
+            <div className="bg-[#0f0505] rounded-2xl md:rounded-[2rem] p-4 sm:p-5 md:p-6 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 text-center md:text-left relative z-10">
               
-              <div className="relative">
-                <div className="absolute inset-0 bg-red-500 blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full" />
-                <div className="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 flex items-center justify-center relative z-10">
-                  <AlertTriangle className="w-7 h-7 md:w-8 md:h-8 text-red-500" />
+              <div className="relative shrink-0">
+                <div className="absolute inset-0 bg-red-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 flex items-center justify-center relative z-10">
+                  <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-red-500" />
                 </div>
               </div>
               
-              <div className="flex-1">
-                <p className="text-base sm:text-lg md:text-2xl font-bold text-white tracking-tight leading-snug" data-testid="why-now-closer">
+              <div className="flex-1 md:flex-initial">
+                <p className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight leading-snug" data-testid="why-now-closer">
                   Brands that don't fix unit economics now <span className="text-red-400">won't survive 2027.</span>
-                  <br className="hidden md:block" />
-                  <span className="text-white/60 text-sm md:text-lg font-normal mt-1 block">Not a prediction. It's just math.</span>
+                  <span className="text-white/60 text-xs sm:text-sm font-normal md:ml-2 block md:inline mt-1 md:mt-0">Not a prediction. It's just math.</span>
                 </p>
               </div>
             </div>
