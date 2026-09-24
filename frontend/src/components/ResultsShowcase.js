@@ -1,16 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BarChart3, Search, ShoppingCart, MessageCircle, MousePointerClick } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1];
-
-const platforms = [
-  { id: "meta", label: "Meta Ads", icon: BarChart3 },
-  { id: "google", label: "Google Ads", icon: Search },
-  { id: "amazon", label: "Amazon Ads", icon: ShoppingCart },
-  { id: "whatsapp", label: "WhatsApp", icon: MessageCircle },
-  { id: "cro", label: "CRO", icon: MousePointerClick },
-];
 
 const metaScreenshots = [
   "/images/meta1.png",
@@ -19,220 +11,234 @@ const metaScreenshots = [
   "/images/meta4.png",
 ];
 
+// Mobile scorecard: 1 headline stat per platform
+const mobileSummary = [
+  { icon: BarChart3,        label: "Meta Ads",    metric: "6.59x ROAS",   sub: "₹1.49 Cr Revenue",  color: "text-blue" },
+  { icon: Search,           label: "Google Ads",  metric: "4.20x ROAS",   sub: "₹5.46L Conv. Value", color: "text-blue" },
+  { icon: ShoppingCart,     label: "Amazon Ads",  metric: "Coming Soon",  sub: "Upload screenshots", color: "text-ink-3" },
+  { icon: MessageCircle,    label: "WhatsApp",    metric: "Coming Soon",  sub: "Upload screenshots", color: "text-ink-3" },
+  { icon: MousePointerClick,label: "CRO",         metric: "16.67%",       sub: "vs 1.5–2.5% avg",   color: "text-blue" },
+];
+
+// Desktop tabs
+const platforms = [
+  { id: "meta",     label: "Meta Ads",    icon: BarChart3 },
+  { id: "google",   label: "Google Ads",  icon: Search },
+  { id: "amazon",   label: "Amazon Ads",  icon: ShoppingCart },
+  { id: "whatsapp", label: "WhatsApp",    icon: MessageCircle },
+  { id: "cro",      label: "CRO",         icon: MousePointerClick },
+];
+
 const metaStats = [
-  { label: "Total Revenue", value: "₹1.49 Cr", highlight: true },
-  { label: "Ad Spend", value: "₹22.7L", highlight: false },
-  { label: "Avg. ROAS", value: "6.59x", highlight: true },
-  { label: "Purchases", value: "9,031", highlight: false },
+  { label: "Total Revenue",  value: "₹1.49 Cr", highlight: true },
+  { label: "Ad Spend",       value: "₹22.7L",   highlight: false },
+  { label: "Avg. ROAS",      value: "6.59x",    highlight: true },
+  { label: "Purchases",      value: "9,031",    highlight: false },
 ];
 
 const googleStats = [
-  { label: "Conversions", value: "393", highlight: false },
-  { label: "Conv. Value", value: "₹5.46L", highlight: true },
-  { label: "ROAS", value: "4.20x", highlight: true },
-  { label: "Total Cost", value: "₹1.3L", highlight: false },
+  { label: "Conversions",   value: "393",      highlight: false },
+  { label: "Conv. Value",   value: "₹5.46L",   highlight: true },
+  { label: "ROAS",          value: "4.20x",    highlight: true },
+  { label: "Total Cost",    value: "₹1.3L",    highlight: false },
 ];
 
 const croStats = [
-  { label: "Our Top Conv. Rate", value: "16.67%", highlight: true },
-  { label: "Industry Avg (India)", value: "1.5–2.5%", highlight: false, note: "Source: Cognito IT & PulseCRO 2026" },
-  { label: "Mobile Drop-off", value: "–40%", highlight: false },
-  { label: "Checkout Lift", value: "+3.2x", highlight: true },
+  { label: "Our Top Conv. Rate",    value: "16.67%",    highlight: true },
+  { label: "Industry Avg (India)",  value: "1.5–2.5%",  highlight: false, note: "Source: Cognito IT & PulseCRO 2026" },
+  { label: "Mobile Drop-off",       value: "–40%",      highlight: false },
+  { label: "Checkout Lift",         value: "+3.2x",     highlight: true },
 ];
 
 export const ResultsShowcase = () => {
   const [activeTab, setActiveTab] = useState("meta");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const tabsRef = useRef(null);
 
-  // Auto-slide for Meta screenshots
+  // Auto-slide Meta screenshots
   useEffect(() => {
-    if (activeTab !== "meta") return;
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % metaScreenshots.length);
-    }, 4000);
+    }, 3500);
     return () => clearInterval(interval);
-  }, [activeTab]);
+  }, []);
 
   return (
-    <section className="py-12 sm:py-20 bg-ink-bg relative overflow-hidden" id="results">
+    <section className="py-10 sm:py-20 bg-ink-bg relative overflow-hidden" id="results">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header — tighter on mobile */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="text-center mb-8 sm:mb-12"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="text-center mb-6 sm:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue/10 text-blue border border-blue/20 mb-3">
             End-To-End Growth
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight leading-tight max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-ink tracking-tight leading-tight">
             We Fix End-To-End In D2C:{" "}
             <span className="text-blue">Ads → Unit Economics → CRO</span>
           </h2>
-          <p className="mt-3 text-ink-2 text-sm sm:text-base max-w-xl mx-auto">
-            Raw dashboards. Real results. Zero vanity metrics.
-          </p>
         </motion.div>
 
-        {/* Tabs — horizontal scroll on mobile, no wrapping */}
-        <div
-          ref={tabsRef}
-          className="flex gap-2 mb-6 overflow-x-auto pb-1 scrollbar-hide snap-x"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {platforms.map((p) => {
-            const Icon = p.icon;
-            const isActive = activeTab === p.id;
-            return (
-              <button
-                key={p.id}
-                onClick={() => setActiveTab(p.id)}
-                className={`flex-shrink-0 snap-start flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  isActive
-                    ? "bg-blue text-white shadow-lg shadow-blue/30 scale-105"
-                    : "bg-white text-ink-2 hover:bg-ink-bg border border-line hover:border-line-dark hover:text-ink"
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-white" : "text-ink-3"}`} />
-                {p.label}
-              </button>
-            );
-          })}
+        {/* ── MOBILE: All-in-one view ── */}
+        <div className="sm:hidden space-y-3">
+
+          {/* Auto-rotating Meta proof image */}
+          <div className="relative rounded-xl overflow-hidden border border-line bg-white h-[200px] flex items-center justify-center shadow-soft">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImageIndex}
+                src={metaScreenshots[currentImageIndex]}
+                alt={`Meta Ads proof ${currentImageIndex + 1}`}
+                className="max-w-full max-h-full w-auto h-auto object-contain"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              />
+            </AnimatePresence>
+            {/* Auto badge */}
+            <div className="absolute top-2 left-2 bg-blue text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+              AUTO-PLAY
+            </div>
+            {/* Dots */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {metaScreenshots.map((_, i) => (
+                <div key={i} className={`h-1 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-4" : "bg-ink-3/50 w-1"}`} />
+              ))}
+            </div>
+          </div>
+
+          {/* Compact scorecard — all 5 platforms, no click needed */}
+          <div className="bg-white rounded-xl border border-line shadow-soft overflow-hidden">
+            <div className="px-3 py-2 border-b border-line bg-ink-bg">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-ink-3">Platform Results Snapshot</p>
+            </div>
+            {mobileSummary.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.label}
+                  className={`flex items-center gap-3 px-3 py-2.5 ${i < mobileSummary.length - 1 ? "border-b border-line/60" : ""}`}
+                >
+                  <div className="w-7 h-7 rounded-lg bg-blue/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-3.5 h-3.5 text-blue" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-semibold text-ink-2 truncate">{p.label}</p>
+                    <p className="text-[10px] text-ink-3 truncate">{p.sub}</p>
+                  </div>
+                  <div className={`text-sm font-bold ${p.color} flex-shrink-0`}>{p.metric}</div>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
-        {/* Content Card */}
-        <div className="bg-white rounded-2xl p-4 sm:p-8 shadow-[0_20px_60px_rgba(5,44,101,0.08)] border border-line">
-          <AnimatePresence mode="wait">
+        {/* ── DESKTOP: Full tab layout ── */}
+        <div className="hidden sm:block">
 
-            {/* META TAB */}
-            {activeTab === "meta" && (
-              <motion.div
-                key="meta"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-              >
-                {/* Image — fixed height so it never overflows screen */}
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={currentImageIndex}
-                      src={metaScreenshots[currentImageIndex]}
-                      alt={`Meta Ads Dashboard ${currentImageIndex + 1}`}
-                      className="max-w-full max-h-full w-auto h-auto object-contain"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </AnimatePresence>
-                  {/* Dot indicators */}
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-                    {metaScreenshots.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setCurrentImageIndex(i)}
-                        className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-5" : "bg-ink-3 w-1.5 hover:bg-ink"}`}
-                      />
+          {/* Tabs */}
+          <div className="flex gap-2 mb-6 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+            {platforms.map((p) => {
+              const Icon = p.icon;
+              const isActive = activeTab === p.id;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => setActiveTab(p.id)}
+                  className={`flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "bg-blue text-white shadow-lg shadow-blue/30 scale-105"
+                      : "bg-white text-ink-2 border border-line hover:border-line-dark hover:text-ink"
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-ink-3"}`} />
+                  {p.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Content */}
+          <div className="bg-white rounded-2xl p-8 shadow-[0_20px_60px_rgba(5,44,101,0.08)] border border-line">
+            <AnimatePresence mode="wait">
+
+              {activeTab === "meta" && (
+                <motion.div key="meta" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center">
+                    <AnimatePresence mode="wait">
+                      <motion.img key={currentImageIndex} src={metaScreenshots[currentImageIndex]} alt="Meta Ads" className="max-w-full max-h-full object-contain" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} />
+                    </AnimatePresence>
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                      {metaScreenshots.map((_, i) => (
+                        <button key={i} onClick={() => setCurrentImageIndex(i)} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-5" : "bg-ink-3 w-1.5"}`} />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-4 gap-4">
+                    {metaStats.map((s, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${s.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
+                        <p className="text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{s.label}</p>
+                        <p className={`text-2xl font-bold ${s.highlight ? "text-blue" : "text-ink"}`}>{s.value}</p>
+                      </div>
                     ))}
                   </div>
-                </div>
-                {/* Stats grid — 2x2 */}
-                <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  {metaStats.map((stat, i) => (
-                    <div key={i} className={`p-3 sm:p-4 rounded-xl border ${stat.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
-                      <p className="text-[10px] sm:text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{stat.label}</p>
-                      <p className={`text-xl sm:text-2xl font-bold ${stat.highlight ? "text-blue" : "text-ink"}`}>{stat.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
 
-            {/* GOOGLE TAB */}
-            {activeTab === "google" && (
-              <motion.div
-                key="google"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
-                  <img
-                    src="/images/google1.png"
-                    alt="Google Ads Dashboard"
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  {googleStats.map((stat, i) => (
-                    <div key={i} className={`p-3 sm:p-4 rounded-xl border ${stat.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
-                      <p className="text-[10px] sm:text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{stat.label}</p>
-                      <p className={`text-xl sm:text-2xl font-bold ${stat.highlight ? "text-blue" : "text-ink"}`}>{stat.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+              {activeTab === "google" && (
+                <motion.div key="google" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center">
+                    <img src="/images/google1.png" alt="Google Ads" className="max-w-full max-h-full object-contain" />
+                  </div>
+                  <div className="grid grid-cols-4 gap-4">
+                    {googleStats.map((s, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${s.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
+                        <p className="text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{s.label}</p>
+                        <p className={`text-2xl font-bold ${s.highlight ? "text-blue" : "text-ink"}`}>{s.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
-            {/* CRO TAB */}
-            {activeTab === "cro" && (
-              <motion.div
-                key="cro"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
-                  <img
-                    src="/images/cro1.png"
-                    alt="CRO Conversion Rates"
-                    className="max-w-full max-h-full w-auto h-auto object-contain"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                  {croStats.map((stat, i) => (
-                    <div key={i} className={`p-3 sm:p-4 rounded-xl border ${stat.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
-                      <p className="text-[10px] sm:text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{stat.label}</p>
-                      <p className={`text-xl sm:text-2xl font-bold ${stat.highlight ? "text-blue" : "text-ink"}`}>{stat.value}</p>
-                      {stat.note && <p className="text-[9px] sm:text-[10px] text-ink-3 mt-1 leading-tight">{stat.note}</p>}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+              {activeTab === "cro" && (
+                <motion.div key="cro" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center">
+                    <img src="/images/cro1.png" alt="CRO" className="max-w-full max-h-full object-contain" />
+                  </div>
+                  <div className="grid grid-cols-4 gap-4">
+                    {croStats.map((s, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${s.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
+                        <p className="text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{s.label}</p>
+                        <p className={`text-2xl font-bold ${s.highlight ? "text-blue" : "text-ink"}`}>{s.value}</p>
+                        {s.note && <p className="text-[10px] text-ink-3 mt-1">{s.note}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
-            {/* PLACEHOLDERS */}
-            {["amazon", "whatsapp"].includes(activeTab) && (
-              <motion.div
-                key="placeholder"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="flex flex-col items-center justify-center py-14 text-center"
-              >
-                <div className="w-16 h-16 rounded-full bg-ink-bg flex items-center justify-center mb-4">
-                  {activeTab === "amazon" && <ShoppingCart className="w-7 h-7 text-ink-3" />}
-                  {activeTab === "whatsapp" && <MessageCircle className="w-7 h-7 text-ink-3" />}
-                </div>
-                <h3 className="text-lg font-bold text-ink mb-2">Proof Uploading...</h3>
-                <p className="text-ink-2 text-sm max-w-xs">
-                  Save your {activeTab.toUpperCase()} dashboard screenshots in{" "}
-                  <code className="font-mono text-ink">public/images</code> to display them.
-                </p>
-              </motion.div>
-            )}
+              {["amazon", "whatsapp"].includes(activeTab) && (
+                <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center justify-center py-20 text-center">
+                  <div className="w-16 h-16 rounded-full bg-ink-bg flex items-center justify-center mb-4">
+                    {activeTab === "amazon" && <ShoppingCart className="w-7 h-7 text-ink-3" />}
+                    {activeTab === "whatsapp" && <MessageCircle className="w-7 h-7 text-ink-3" />}
+                  </div>
+                  <h3 className="text-lg font-bold text-ink mb-2">Proof Uploading...</h3>
+                  <p className="text-sm text-ink-2 max-w-xs">Save your {activeTab.toUpperCase()} screenshots in <code className="font-mono text-ink">public/images</code> to display them.</p>
+                </motion.div>
+              )}
 
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
         </div>
+
       </div>
     </section>
   );
