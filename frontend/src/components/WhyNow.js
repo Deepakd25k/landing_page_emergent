@@ -234,27 +234,31 @@ export const WhyNow = () => {
           </div>
         </Reveal>
 
-        {/* Premium Compact Closer Alert */}
+        {/* Ultra-Compact Premium Alert Strip */}
         <Reveal delay={0.2} className="mt-8 sm:mt-12">
-          <div className="relative rounded-2xl md:rounded-[2rem] bg-gradient-to-r from-red-950 via-red-900 to-red-950 p-[1px] shadow-[0_10px_30px_-10px_rgba(220,38,38,0.3)] group overflow-hidden max-w-4xl mx-auto">
-            {/* Animated glowing borders */}
+          <div className="relative rounded-2xl bg-gradient-to-r from-red-950 via-red-900 to-red-950 p-[1px] shadow-[0_4px_20px_-10px_rgba(220,38,38,0.4)] group overflow-hidden max-w-3xl mx-auto">
+            {/* Animated glowing border */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/40 to-transparent -translate-x-full group-hover:animate-[shimmer_2.5s_infinite] pointer-events-none" />
             
-            <div className="bg-[#0f0505] rounded-2xl md:rounded-[2rem] p-4 sm:p-5 md:p-6 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-5 md:gap-6 text-center md:text-left relative z-10">
+            <div className="bg-[#0f0505] rounded-2xl p-3 sm:p-4 flex flex-row items-center gap-3 sm:gap-4 relative z-10">
               
               <div className="relative shrink-0">
-                <div className="absolute inset-0 bg-red-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500 rounded-full" />
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 flex items-center justify-center relative z-10">
-                  <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-red-500" />
+                <div className="absolute inset-0 bg-red-500 blur-md opacity-20 group-hover:opacity-50 transition-opacity duration-500 rounded-full" />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center relative z-10">
+                  <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                 </div>
               </div>
               
-              <div className="flex-1 md:flex-initial">
-                <p className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight leading-snug" data-testid="why-now-closer">
+              <div className="flex-1 text-left min-w-0">
+                <p className="text-[13px] sm:text-base font-bold text-white tracking-tight leading-tight truncate md:whitespace-normal" data-testid="why-now-closer">
                   Brands that don't fix unit economics now <span className="text-red-400">won't survive 2027.</span>
-                  <span className="text-white/60 text-xs sm:text-sm font-normal md:ml-2 block md:inline mt-1 md:mt-0">Not a prediction. It's just math.</span>
+                  <span className="hidden md:inline text-white/50 font-normal ml-2">Not a prediction. It's just math.</span>
+                </p>
+                <p className="md:hidden text-white/50 text-[10px] sm:text-xs mt-0.5 truncate">
+                  Not a prediction. It's just math.
                 </p>
               </div>
+
             </div>
           </div>
         </Reveal>
