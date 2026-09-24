@@ -80,6 +80,27 @@ export const AuditComparison = () => {
                     <path d="M 20%,30% L 50%,50% M 80%,30% L 50%,50% M 50%,70% L 50%,50%" strokeWidth="2" strokeDasharray="4 4" />
                   </svg>
                 </div>
+
+                {/* Handwritten Pain Points */}
+                <div className="mt-2 sm:mt-4 px-1 sm:px-4 flex-1">
+                  <ul className="font-handwriting text-[11px] sm:text-xl text-ink-2 leading-tight sm:leading-snug space-y-1 sm:space-y-2">
+                    <li className="flex items-start gap-1">
+                      <span className="text-danger font-bold">×</span> Inflated ROAS (ignores returns)
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-danger font-bold">×</span> No creative mapping (ISPs, GTM)
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-danger font-bold">×</span> Can't map full D2C data
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-danger font-bold">×</span> No SKU-level CAC or Conv. Rate
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-danger font-bold">×</span> Don't know where the leak is
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               {/* RIGHT SIDE: THE FIX */}
@@ -88,7 +109,7 @@ export const AuditComparison = () => {
                   "With fox.ads"
                 </h3>
 
-                <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10 pb-4 sm:pb-8">
+                <div className="flex flex-col items-center justify-center w-full relative z-10 pb-4 sm:pb-8">
                   
                   {/* fox.ads central block */}
                   <div className="relative bg-ink text-white font-black font-mono text-sm sm:text-2xl px-4 py-2 sm:px-8 sm:py-4 shadow-[4px_4px_0_0_#3b82f6] sm:shadow-[6px_6px_0_0_#3b82f6] z-20 hover:-translate-y-1 transition-transform">
@@ -117,6 +138,28 @@ export const AuditComparison = () => {
                       <p className="font-mono text-[8px] sm:text-sm font-bold">CRO</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Handwritten Fixes */}
+                <div className="mt-2 sm:mt-4 px-1 sm:px-4 flex-1">
+                  <ul className="font-handwriting text-[11px] sm:text-xl text-ink font-bold leading-tight sm:leading-snug space-y-1 sm:space-y-2">
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> True CM2 tracking (factors RTO)
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Full Server/API creative mapping
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Unified D2C data architecture
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> SKU-level unit economics
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Surgical leak detection & fixes
+                    </li>
+                  </ul>
+                </div>
 
                   {/* Handwriting Note */}
                   <div className="mt-8 sm:mt-12 relative w-full text-center">
