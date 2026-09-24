@@ -117,14 +117,14 @@ export const ResultsShowcase = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                {/* Image — full width on mobile */}
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4">
+                {/* Image — fixed height so it never overflows screen */}
+                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentImageIndex}
                       src={metaScreenshots[currentImageIndex]}
                       alt={`Meta Ads Dashboard ${currentImageIndex + 1}`}
-                      className="w-full h-auto object-contain block"
+                      className="max-w-full max-h-full w-auto h-auto object-contain"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -163,11 +163,11 @@ export const ResultsShowcase = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4">
+                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
                   <img
                     src="/images/google1.png"
                     alt="Google Ads Dashboard"
-                    className="w-full h-auto object-contain block"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:gap-4">
@@ -190,11 +190,11 @@ export const ResultsShowcase = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4 }}
               >
-                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 flex justify-center py-2">
+                <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-3 h-[220px] sm:h-[340px] flex items-center justify-center">
                   <img
                     src="/images/cro1.png"
                     alt="CRO Conversion Rates"
-                    className="w-full max-h-[280px] object-contain block"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-2 sm:gap-4">
