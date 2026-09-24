@@ -30,7 +30,7 @@ export const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
         <a href="#top" onClick={go("#top")} className="flex items-center group" data-testid="nav-logo">
-          <span className="font-bold tracking-tight text-3xl lowercase"><span className="text-ink">fox</span><span className="text-[#FF6B00]">.ads</span></span>
+          <img src="/images/ival-logo.jpg" alt="iVal — Incremental Value" className="h-8 sm:h-10 w-auto object-contain" />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
