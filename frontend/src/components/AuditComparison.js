@@ -138,30 +138,7 @@ export const AuditComparison = () => {
                       <p className="font-mono text-[8px] sm:text-sm font-bold">CRO</p>
                     </div>
                   </div>
-                </div>
-
-                {/* Handwritten Fixes */}
-                <div className="mt-2 sm:mt-4 px-1 sm:px-4 flex-1">
-                  <ul className="font-handwriting text-[11px] sm:text-xl text-ink font-bold leading-tight sm:leading-snug space-y-1 sm:space-y-2">
-                    <li className="flex items-start gap-1">
-                      <span className="text-[#22c55e] font-black">✓</span> True CM2 tracking (factors RTO)
-                    </li>
-                    <li className="flex items-start gap-1">
-                      <span className="text-[#22c55e] font-black">✓</span> Full Server/API creative mapping
-                    </li>
-                    <li className="flex items-start gap-1">
-                      <span className="text-[#22c55e] font-black">✓</span> Unified D2C data architecture
-                    </li>
-                    <li className="flex items-start gap-1">
-                      <span className="text-[#22c55e] font-black">✓</span> SKU-level unit economics
-                    </li>
-                    <li className="flex items-start gap-1">
-                      <span className="text-[#22c55e] font-black">✓</span> Surgical leak detection & fixes
-                    </li>
-                  </ul>
-                </div>
-
-                  {/* Handwriting Note */}
+                  {/* Handwriting Note (Moved above the pointers) */}
                   <div className="mt-8 sm:mt-12 relative w-full text-center">
                     <p className="font-handwriting text-sm sm:text-2xl text-ink font-bold">
                       One System. Connected.
@@ -183,7 +160,27 @@ export const AuditComparison = () => {
                       />
                     </svg>
                   </div>
+                </div>
 
+                {/* Handwritten Fixes (Bottom of right side) */}
+                <div className="mt-2 sm:mt-4 px-1 sm:px-4 flex-1">
+                  <ul className="font-handwriting text-[11px] sm:text-xl text-ink font-bold leading-tight sm:leading-snug space-y-1 sm:space-y-2">
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> True CM2 tracking (factors RTO)
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Full Server/API creative mapping
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Unified D2C data architecture
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> SKU-level unit economics
+                    </li>
+                    <li className="flex items-start gap-1">
+                      <span className="text-[#22c55e] font-black">✓</span> Surgical leak detection & fixes
+                    </li>
+                  </ul>
                 </div>
               </div>
 
