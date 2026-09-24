@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
 import { PainPoints } from "@/components/PainPoints";
 import { PnlReveal } from "@/components/PnlReveal";
+import { FunnelChain } from "@/components/FunnelChain";
 import { ResultsShowcase } from "@/components/ResultsShowcase";
 import { AuditComparison } from "@/components/AuditComparison";
 import { WhatYouGet } from "@/components/WhatYouGet";
@@ -43,6 +44,7 @@ export default function Landing() {
           <HeroSection />
           <Marquee />
           <PainPoints />
+          <FunnelChain />
           <PnlReveal />
           <ResultsShowcase />
           <AuditComparison />
