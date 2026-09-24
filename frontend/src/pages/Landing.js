@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
 import { PnlReveal } from "@/components/PnlReveal";
+import { AttributionWar } from "@/components/AttributionWar";
 import { FunnelChain } from "@/components/FunnelChain";
 import { ResultsShowcase } from "@/components/ResultsShowcase";
 import { AuditComparison } from "@/components/AuditComparison";
@@ -42,6 +43,7 @@ export default function Landing() {
           <Marquee />
           <FunnelChain />
           <PnlReveal />
+          <AttributionWar />
           <ResultsShowcase />
           <AuditComparison />
           <WhatYouGet />
