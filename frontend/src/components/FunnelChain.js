@@ -128,9 +128,9 @@ export const FunnelChain = () => (
       </Reveal>
 
       {/* Chain */}
-      <div className="relative">
+      <div className="relative pl-1">
         {/* Vertical line */}
-        <div className="absolute left-[52px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#22c55e] via-[#f59e0b] to-[#f43f5e] opacity-40 rounded-full" />
+        <div className="absolute left-[13px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#22c55e] via-[#f59e0b] to-[#f43f5e] opacity-40 rounded-full" />
 
         {steps.map((step, i) => (
           <Reveal key={step.num} delay={i * 0.08}>
@@ -139,21 +139,21 @@ export const FunnelChain = () => (
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: EASE }}
-              className={`flex items-center gap-3 mb-3 last:mb-0`}
+              className={`flex items-center gap-3 mb-3 last:mb-0 relative z-10`}
               data-testid={`funnel-step-${i}`}
             >
-              {/* Left: preview card */}
-              <div className="w-[88px] h-[72px] flex-shrink-0 rounded-xl overflow-hidden border border-line shadow-soft">
-                {step.preview}
-              </div>
-
-              {/* Center: timeline dot */}
-              <div className="flex-shrink-0 flex flex-col items-center z-10">
-                <div className={`w-5 h-5 rounded-full ${step.status.dot} ${step.status.ring} flex items-center justify-center`}>
+              {/* Left: timeline dot */}
+              <div className="w-5 flex-shrink-0 flex flex-col items-center">
+                <div className={`w-5 h-5 rounded-full ${step.status.dot} ${step.status.ring} flex items-center justify-center bg-white`}>
                   {step.status === STATUS.BUILT && (
                     <span className="material-icons-round text-white text-[10px]">check</span>
                   )}
                 </div>
+              </div>
+
+              {/* Center: preview card */}
+              <div className="w-[88px] h-[72px] flex-shrink-0 rounded-xl overflow-hidden border border-line shadow-soft bg-white">
+                {step.preview}
               </div>
 
               {/* Right: content */}
