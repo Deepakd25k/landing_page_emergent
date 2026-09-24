@@ -13,7 +13,6 @@ import { BonusAutomations } from "@/components/BonusAutomations";
 import { WhyNow } from "@/components/WhyNow";
 import { HowItWorks } from "@/components/HowItWorks";
 import { FinalCTA } from "@/components/FinalCTA";
-import { CalEmbed } from "@/components/CalEmbed";
 import { Footer } from "@/components/Footer";
 import { MobileStickyButton } from "@/components/MobileStickyButton";
 
@@ -50,7 +49,6 @@ export default function Landing() {
           <WhyNow />
           <HowItWorks />
           <FinalCTA />
-          <CalEmbed />
         </main>
         <Footer />
         <MobileStickyButton />

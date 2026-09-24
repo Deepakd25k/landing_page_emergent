@@ -1,54 +1,109 @@
 import { motion } from "framer-motion";
-import { Bot, Gift } from "lucide-react";
+import { Gift, Zap, LineChart, ShieldAlert, FileSearch } from "lucide-react";
 import { bonuses } from "@/data/content";
-import { Reveal, SectionHeader } from "@/components/shared";
+import { Reveal } from "@/components/shared";
+
+const EASE = [0.22, 1, 0.36, 1];
+
+// Assign distinct icons for each automation based on their typical order
+const icons = [FileSearch, LineChart, Zap, ShieldAlert];
 
 export const BonusAutomations = () => (
-  <section id="bonus" data-section="bonuses" className="relative bg-night text-white py-10 sm:py-16 overflow-hidden noise">
-    <div className="absolute top-0 left-1/3 w-[500px] h-[500px] rounded-full bg-blue/20 blur-[140px]" />
+  <section id="bonus" data-section="bonuses" className="relative bg-[#050505] text-white py-16 sm:py-28 overflow-hidden">
+    
+    {/* Premium Background Effects */}
+    <div className="absolute top-0 inset-x-0 h-[500px] opacity-30 pointer-events-none" style={{ backgroundImage: "radial-gradient(ellipse at 50% 0%, #1e3a8a 0%, transparent 70%)" }} />
+    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
+    
     <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeader number="04" eyebrow="Bonus Stack" title={bonuses.title} light>
-        <p className="mt-2 text-sm sm:text-base text-white/60">{bonuses.subtitle}</p>
-      </SectionHeader>
-
-      {/* 2-col grid on mobile too */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-5">
-        {bonuses.items.map((item, i) => (
-          <Reveal key={item.name} delay={i * 0.06}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 24 }}
-              className="h-full rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-3.5 sm:p-6 hover:border-blue/60 hover:bg-white/[0.07] transition-[border-color,background-color] duration-300"
-              data-testid={`bonus-${i}`}
-            >
-              {/* Icon + value in one row */}
-              <div className="flex items-center justify-between gap-2 mb-2.5">
-                <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-blue/20 text-blue-300 grid place-items-center flex-shrink-0">
-                  <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
-                </span>
-                <span className="font-mono text-[9px] sm:text-xs font-bold text-white/60 border border-white/15 px-1.5 py-0.5 rounded text-right">
-                  ₹{item.value}
-                </span>
-              </div>
-              <h3 className="font-bold text-sm sm:text-base tracking-tight leading-snug">{item.name}</h3>
-              <p className="mt-1 text-xs text-white/60 leading-relaxed line-clamp-2">{item.desc}</p>
-            </motion.div>
-          </Reveal>
-        ))}
-      </div>
-
-      {/* Total value strip — compact */}
-      <Reveal delay={0.2} className="mt-6 sm:mt-10">
-        <div
-          className="flex flex-wrap items-center gap-3 rounded-xl bg-blue px-4 py-3 sm:px-6 sm:py-4 shadow-[0_20px_50px_rgba(13,110,253,0.4)]"
-          data-testid="bonus-total"
-        >
-          <Gift className="w-5 h-5 flex-shrink-0" />
-          <span className="font-semibold text-sm sm:text-base">Total bonus value</span>
-          <span className="font-mono text-xl sm:text-2xl font-bold">₹{bonuses.totalValue}</span>
-          <span className="text-xs sm:text-sm text-white/80">— included at ₹0</span>
+      
+      {/* Header */}
+      <Reveal>
+        <div className="mb-12 md:mb-20 md:text-center">
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 mb-5 backdrop-blur-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse" />
+            <span className="text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-widest">Bonus Stack</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+            {bonuses.title.split('.').map((part, i, arr) => (
+              i < arr.length - 1 ? <span key={i}>{part}.<br className="hidden sm:block" /></span> : <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{part}</span>
+            ))}
+          </h2>
+          <p className="text-sm md:text-base text-white/50 max-w-2xl mx-auto font-mono tracking-tight">
+            {bonuses.subtitle}
+          </p>
         </div>
       </Reveal>
+
+      {/* Grid: 1 col on mobile, 2 col on tablet/desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        {bonuses.items.map((item, i) => {
+          const Icon = icons[i] || Zap;
+          return (
+            <Reveal key={item.name} delay={i * 0.1}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease: EASE }}
+                className="group relative p-[1px] rounded-[1.5rem] bg-gradient-to-b from-white/15 to-white/5 hover:from-blue-500/50 hover:to-purple-500/30 transition-all duration-500"
+                data-testid={`bonus-${i}`}
+              >
+                <div className="h-full rounded-[1.5rem] bg-[#0a0a0a] p-5 sm:p-7 relative overflow-hidden">
+                  
+                  {/* Hover Glow */}
+                  <div className="absolute -inset-px bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-blue-500/20 group-hover:border-blue-500/40 transition-all duration-300 shadow-inner">
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <span className="text-[10px] text-white/40 uppercase tracking-widest font-semibold mb-0.5">Value</span>
+                        <span className="font-mono text-xs sm:text-sm font-bold text-white/80 bg-white/5 border border-white/10 px-2 py-1 rounded-md group-hover:border-white/20 transition-colors">
+                          ₹{item.value}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="font-bold text-lg sm:text-xl tracking-tight leading-snug mb-2 group-hover:text-blue-100 transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+          );
+        })}
+      </div>
+
+      {/* Total value strip */}
+      <Reveal delay={0.3} className="mt-8 sm:mt-12">
+        <div className="relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-600/50 via-purple-500/50 to-blue-600/50" data-testid="bonus-total">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl bg-black/40 backdrop-blur-xl px-6 py-5 sm:px-8 sm:py-6">
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                <Gift className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-bold text-white/90 text-sm sm:text-base tracking-wide uppercase">Total Bonus Stack Value</span>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                ₹{bonuses.totalValue}
+              </span>
+              <span className="text-xs sm:text-sm font-bold text-white bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
+                INCLUDED FREE
+              </span>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
     </div>
   </section>
 );
