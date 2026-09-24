@@ -40,21 +40,69 @@ export const CalEmbed = () => {
   }, [track]);
 
   return (
-    <section id="book" data-section="booking" data-track-event="CalendarOpen" className="bg-white py-16 sm:py-24">
+    <section id="book" data-section="booking" data-track-event="CalendarOpen" className="bg-white py-10 sm:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader number="09" eyebrow={booking.eyebrow} title={booking.title} align="center">
-          <p className="mt-4 text-base sm:text-lg text-ink-2">{booking.subtitle}</p>
-        </SectionHeader>
+
+        {/* Compact header */}
+        <Reveal>
+          <div className="text-center mb-6 sm:mb-10">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue border border-blue/30 bg-blue/8 px-2.5 py-1 rounded-full">
+              09 — {booking.eyebrow}
+            </span>
+            <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-ink tracking-tight">{booking.title}</h2>
+            <p className="mt-2 text-sm sm:text-base text-ink-2 max-w-md mx-auto">{booking.subtitle}</p>
+          </div>
+        </Reveal>
 
         {isPlaceholder && (
-          <Reveal className="mb-6">
-            <div className="flex items-start gap-3 rounded-xl bg-danger-bg/60 border border-danger/30 text-danger px-5 py-4 text-sm" data-testid="cal-placeholder-notice">
-              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" /> {booking.placeholderNotice}
+          <Reveal className="mb-4">
+            <div className="flex items-start gap-3 rounded-xl bg-danger-bg/60 border border-danger/30 text-danger px-4 py-3 text-xs" data-testid="cal-placeholder-notice">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {booking.placeholderNotice}
             </div>
           </Reveal>
         )}
 
-        <Reveal delay={0.1}>
+        {/* MOBILE: premium compact booking card — no giant calendar */}
+        <Reveal delay={0.1} className="sm:hidden">
+          <div className="bg-ink text-white rounded-2xl p-6 text-center relative overflow-hidden shadow-[0_20px_60px_rgba(5,44,101,0.25)]">
+            <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-blue/30 blur-3xl" />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-semibold mb-4">
+                <CalendarCheck className="w-3.5 h-3.5 text-blue-300" />
+                Only 8 slots/month
+              </div>
+              <p className="text-3xl font-bold font-mono mb-1">₹1,999</p>
+              <p className="text-white/60 text-xs mb-5 line-through">₹4,999</p>
+              <ul className="text-sm text-white/80 space-y-1.5 mb-6 text-left">
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-300">✓</span> 60-min live P&L deep dive
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-300">✓</span> 6 deliverables on call
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-300">✓</span> 4 AI automations — free
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-300">✓</span> Zero insights? Full refund.
+                </li>
+              </ul>
+              <a
+                href={`https://${siteConfig.calOrigin.replace("https://", "")}/${siteConfig.calLink}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-blue hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl text-base transition-colors duration-200 shadow-[0_8px_20px_rgba(13,110,253,0.4)]"
+                onClick={() => track("Schedule", { section: "booking-mobile", sendCapi: false })}
+              >
+                Book Your Slot — ₹1,999 →
+              </a>
+              <p className="text-white/40 text-[10px] mt-3">Secure payment via Razorpay</p>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* DESKTOP: full cal embed */}
+        <Reveal delay={0.1} className="hidden sm:block">
           <div className="cal-embed-wrap rounded-3xl border border-line bg-alt shadow-card overflow-hidden min-h-[640px]" data-testid="cal-embed" data-lenis-prevent>
             <div className="flex items-center gap-2 px-5 py-3 bg-white border-b border-line text-xs font-semibold text-ink-3">
               <CalendarCheck className="w-4 h-4 text-blue" /> Secure booking · Razorpay · {siteConfig.calOrigin.replace("https://", "")}
@@ -71,6 +119,7 @@ export const CalEmbed = () => {
             )}
           </div>
         </Reveal>
+
       </div>
     </section>
   );
