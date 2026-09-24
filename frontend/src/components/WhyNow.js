@@ -250,11 +250,11 @@ export const WhyNow = () => {
               </div>
               
               <div className="flex-1 text-left min-w-0">
-                <p className="text-[13px] sm:text-base font-bold text-white tracking-tight leading-tight truncate md:whitespace-normal" data-testid="why-now-closer">
+                <p className="text-[13px] sm:text-base font-bold text-white tracking-tight leading-tight" data-testid="why-now-closer">
                   Brands that don't fix unit economics now <span className="text-red-400">won't survive 2027.</span>
                   <span className="hidden md:inline text-white/50 font-normal ml-2">Not a prediction. It's just math.</span>
                 </p>
-                <p className="md:hidden text-white/50 text-[10px] sm:text-xs mt-0.5 truncate">
+                <p className="md:hidden text-white/50 text-[10px] sm:text-xs mt-0.5">
                   Not a prediction. It's just math.
                 </p>
               </div>
