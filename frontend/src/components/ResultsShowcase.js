@@ -11,6 +11,13 @@ const metaScreenshots = [
   "/images/meta4.png",
 ];
 
+const allMobileScreenshots = [
+  ...metaScreenshots,
+  "/images/google1.png",
+  "/images/amazon-dashboard.png",
+  "/images/cro1.png"
+];
+
 // Mobile scorecard: 1 headline stat per platform
 const mobileSummary = [
   { icon: BarChart3,        label: "Meta Ads",    metric: "6.59x ROAS",   sub: "₹1.49 Cr Revenue",  color: "text-blue" },
@@ -59,12 +66,21 @@ const amazonStats = [
 
 export const ResultsShowcase = () => {
   const [activeTab, setActiveTab] = useState("meta");
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentMetaIndex, setCurrentMetaIndex] = useState(0);
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
 
-  // Auto-slide Meta screenshots
+  // Auto-slide Meta screenshots (Desktop)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % metaScreenshots.length);
+      setCurrentMetaIndex((prev) => (prev + 1) % metaScreenshots.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-slide All screenshots (Mobile)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMobileIndex((prev) => (prev + 1) % allMobileScreenshots.length);
     }, 3500);
     return () => clearInterval(interval);
   }, []);
@@ -93,14 +109,14 @@ export const ResultsShowcase = () => {
         {/* ── MOBILE: All-in-one view ── */}
         <div className="sm:hidden space-y-3">
 
-          {/* Auto-rotating Meta proof image */}
-          <div className="relative rounded-xl overflow-hidden border border-line bg-white h-[200px] flex items-center justify-center shadow-soft">
+          {/* Auto-rotating All proof images */}
+          <div className="relative rounded-xl overflow-hidden border border-line bg-white h-[200px] flex items-center justify-center shadow-soft p-2">
             <AnimatePresence mode="wait">
               <motion.img
-                key={currentImageIndex}
-                src={metaScreenshots[currentImageIndex]}
-                alt={`Meta Ads proof ${currentImageIndex + 1}`}
-                className="max-w-full max-h-full w-auto h-auto object-contain"
+                key={currentMobileIndex}
+                src={allMobileScreenshots[currentMobileIndex]}
+                alt={`Proof screenshot ${currentMobileIndex + 1}`}
+                className="max-w-full max-h-full w-auto h-auto object-contain rounded"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -108,13 +124,13 @@ export const ResultsShowcase = () => {
               />
             </AnimatePresence>
             {/* Auto badge */}
-            <div className="absolute top-2 left-2 bg-blue text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+            <div className="absolute top-2 left-2 bg-blue text-white text-[9px] font-bold px-2 py-0.5 rounded-full z-10 shadow-sm">
               AUTO-PLAY
             </div>
             {/* Dots */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-              {metaScreenshots.map((_, i) => (
-                <div key={i} className={`h-1 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-4" : "bg-ink-3/50 w-1"}`} />
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-white/80 px-2 py-1 rounded-full">
+              {allMobileScreenshots.map((_, i) => (
+                <div key={i} className={`h-1 rounded-full transition-all ${i === currentMobileIndex ? "bg-blue w-4" : "bg-ink-3/50 w-1"}`} />
               ))}
             </div>
           </div>
@@ -177,13 +193,13 @@ export const ResultsShowcase = () => {
 
               {activeTab === "meta" && (
                 <motion.div key="meta" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
-                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center">
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center p-2">
                     <AnimatePresence mode="wait">
-                      <motion.img key={currentImageIndex} src={metaScreenshots[currentImageIndex]} alt="Meta Ads" className="max-w-full max-h-full object-contain" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} />
+                      <motion.img key={currentMetaIndex} src={metaScreenshots[currentMetaIndex]} alt="Meta Ads" className="max-w-full max-h-full object-contain rounded-lg shadow-sm border border-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} />
                     </AnimatePresence>
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-white/80 px-2 py-1 rounded-full">
                       {metaScreenshots.map((_, i) => (
-                        <button key={i} onClick={() => setCurrentImageIndex(i)} className={`h-1.5 rounded-full transition-all ${i === currentImageIndex ? "bg-blue w-5" : "bg-ink-3 w-1.5"}`} />
+                        <button key={i} onClick={() => setCurrentMetaIndex(i)} className={`h-1.5 rounded-full transition-all ${i === currentMetaIndex ? "bg-blue w-5" : "bg-ink-3/50 w-1.5"}`} />
                       ))}
                     </div>
                   </div>
