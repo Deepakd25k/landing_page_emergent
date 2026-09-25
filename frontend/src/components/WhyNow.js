@@ -70,7 +70,7 @@ export const WhyNow = () => {
         <Reveal>
           <div className="mb-8 sm:mb-12 md:text-center">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-blue border border-blue/30 bg-blue/8 px-3 py-1.5 rounded-full inline-block mb-3 sm:mb-4">
-              06 — The Reality Check
+              07 — The Reality Check
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight leading-tight max-w-3xl mx-auto">
               {whyNow.title.split('Every Year.').map((part, i) => (
@@ -121,7 +121,7 @@ export const WhyNow = () => {
                     )}
                     {activeStat.visual === "counter" && (
                       <div className="font-mono text-6xl md:text-7xl font-black text-ink-3 mix-blend-multiply tracking-tighter opacity-20 select-none">
-                        $$$
+                        ₹₹₹
                       </div>
                     )}
                     {activeStat.visual === "nodes" && (

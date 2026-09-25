@@ -16,7 +16,7 @@ export const AuditComparison = () => {
         <Reveal>
           <div className="mb-6 sm:mb-10 text-center">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-blue border border-blue/30 bg-blue/8 px-3 py-1.5 rounded-full inline-block mb-3 sm:mb-4">
-              03 — The Whiteboard Truth
+              05 — The Whiteboard Truth
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight">
               Most Setups vs <span className="text-blue">incrementalvalue.in</span>
@@ -88,7 +88,7 @@ export const AuditComparison = () => {
                       <span className="text-danger font-bold">×</span> Inflated ROAS (ignores returns)
                     </li>
                     <li className="flex items-start gap-1">
-                      <span className="text-danger font-bold">×</span> No creative mapping (ISPs, GTM)
+                      <span className="text-danger font-bold">×</span> No creative mapping (UTMs, GTM)
                     </li>
                     <li className="flex items-start gap-1">
                       <span className="text-danger font-bold">×</span> Can't map full D2C data

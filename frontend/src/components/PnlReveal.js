@@ -19,9 +19,9 @@ export const PnlReveal = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: EASE }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-danger/20 text-danger-light border border-danger/30 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] bg-danger/20 text-danger-light border border-danger/30 mb-4">
               <AlertTriangle className="w-3.5 h-3.5" />
-              The Silent Margin Killers
+              03 — The Silent Margin Killers
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4">
@@ -85,7 +85,7 @@ export const PnlReveal = () => {
               className="absolute -bottom-5 -left-4 sm:-left-8 bg-danger text-white px-4 py-2.5 rounded-xl shadow-xl border border-danger-light/30"
             >
               <p className="text-[10px] font-bold uppercase tracking-wider opacity-90 mb-0.5">The Real Audit</p>
-              <p className="font-mono text-base font-bold">CM2 = -₹114</p>
+              <p className="font-mono text-base font-bold">CM2 = -₹23</p>
             </motion.div>
           </motion.div>
 

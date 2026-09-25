@@ -31,7 +31,10 @@ export const SectionHeader = ({ number, eyebrow, title, align = "left", light = 
 
 export function scrollToBooking() {
   const target = document.getElementById("book");
-  if (!target) return;
+  if (!target) {
+    window.open("https://rzp.io/l/foxads", "_blank");
+    return;
+  }
   if (window.__lenis) window.__lenis.scrollTo(target, { offset: -72, duration: 1.4 });
   else target.scrollIntoView({ behavior: "smooth", block: "start" });
 }

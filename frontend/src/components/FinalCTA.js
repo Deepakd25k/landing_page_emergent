@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Facebook, Instagram, MessageCircle, Calendar, Zap } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, MessageCircle, Calendar, Zap, ShieldCheck, AlertCircle } from "lucide-react";
 import { Reveal } from "@/components/shared";
+import { finalCta } from "@/data/content";
+import { CTAButton } from "@/components/CTAButton";
 
 const floatingIcons = [
   { icon: Facebook, color: "text-blue", delay: 0, x: -60, y: 10, rotate: -6 },
@@ -31,19 +33,31 @@ export const FinalCTA = () => (
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-5xl font-extrabold text-ink tracking-tight leading-[1.1] mb-4 sm:mb-6">
-              Your business deserves growth that scales, <span className="whitespace-nowrap">not just ROAS.</span>
+              {finalCta.line1}
             </h2>
 
             {/* Text */}
-            <p className="text-sm sm:text-lg text-ink-2 leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10">
-              Let's fix the tracking, plug the RTO leaks, and map out your actual unit economics, <span className="bg-blue/10 px-1 py-0.5 rounded text-blue font-semibold">right on the call</span>, so you stop losing money on every order.
+            <p className="text-sm sm:text-lg text-ink-2 leading-relaxed max-w-xl mx-auto mb-4 font-semibold">
+              {finalCta.line2}
+            </p>
+            <p className="text-sm sm:text-lg text-ink-2 leading-relaxed max-w-xl mx-auto mb-8 sm:mb-10 font-bold bg-blue/10 px-3 py-1.5 rounded text-blue">
+              {finalCta.line3}
             </p>
 
             {/* CTA Button */}
-            <a href="https://rzp.io/l/foxads" target="_blank" rel="noopener noreferrer" className="group w-full max-w-md bg-blue text-white rounded-xl py-4 px-6 flex items-center justify-center gap-2 text-sm sm:text-base font-bold shadow-[0_8px_20px_-4px_rgba(13,110,253,0.4)] hover:shadow-[0_12px_24px_-4px_rgba(13,110,253,0.5)] hover:-translate-y-0.5 transition-all duration-300">
-              Book Your Diagnostic — ₹1,999
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="w-full max-w-md">
+              <CTAButton label={finalCta.cta} location="final" className="w-full py-4 text-sm sm:text-base shadow-[0_8px_20px_-4px_rgba(13,110,253,0.4)] hover:shadow-[0_12px_24px_-4px_rgba(13,110,253,0.5)]" />
+              <div className="mt-4 flex flex-col items-center justify-center gap-2">
+                <p className="flex items-center gap-1.5 text-xs text-ink-2 font-semibold bg-white border border-line px-3 py-1.5 rounded-full shadow-sm">
+                  <AlertCircle className="w-3.5 h-3.5 text-orange-500" />
+                  {finalCta.scarcity}
+                </p>
+                <p className="flex items-center gap-1.5 text-xs text-ink-3">
+                  <ShieldCheck className="w-3.5 h-3.5 text-success" />
+                  Full refund. No questions.
+                </p>
+              </div>
+            </div>
 
             {/* Floating Icons */}
             <div className="mt-10 sm:mt-12 flex items-center justify-center h-12 relative w-full max-w-[280px]">

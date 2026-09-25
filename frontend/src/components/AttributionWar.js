@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { Reveal } from "@/components/shared";
+import { CTAButton } from "@/components/CTAButton";
 
 // Simple Meta Logo SVG
 const MetaLogo = () => (
@@ -112,10 +113,7 @@ export const AttributionWar = () => {
 
               {/* CTA Button */}
               <div className="mt-10 w-full flex justify-center">
-                <a href="https://rzp.io/l/foxads" target="_blank" rel="noopener noreferrer" className="group w-full max-w-md bg-blue text-white rounded-xl py-4 px-6 flex items-center justify-center gap-2 text-sm sm:text-base font-bold shadow-[0_8px_20px_-4px_rgba(13,110,253,0.4)] hover:shadow-[0_12px_24px_-4px_rgba(13,110,253,0.5)] hover:-translate-y-0.5 transition-all duration-300">
-                  Find Your True Discovery Source — ₹1,999
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+                <CTAButton label="Find Your True Discovery Source — ₹1,999" location="attribution" className="w-full max-w-md shadow-[0_8px_20px_-4px_rgba(13,110,253,0.4)] hover:shadow-[0_12px_24px_-4px_rgba(13,110,253,0.5)]" />
               </div>
 
             </div>

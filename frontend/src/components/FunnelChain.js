@@ -94,13 +94,13 @@ const steps = [
     icon: "repeat",
     preview: (
       <div className="w-full h-full flex flex-col justify-between p-2 bg-[#fffbeb] rounded-lg border border-[#fde68a]">
-        <p className="text-[7px] text-[#92400e] leading-tight font-semibold">Leads → clients?</p>
+        <p className="text-[7px] text-[#92400e] leading-tight font-semibold">First Order → Repeat Customer</p>
         <div className="w-full bg-[#fde68a] rounded-full h-1 mt-1">
           <div className="bg-[#f59e0b] h-1 rounded-full w-2/5" />
         </div>
         <div className="flex gap-1 mt-1">
-          <span className="text-[6px] bg-[#dcfce7] text-[#166534] font-bold px-1 py-0.5 rounded">Booked</span>
-          <span className="text-[6px] bg-[#fff1f2] text-[#f43f5e] font-bold px-1 py-0.5 rounded">No-show</span>
+          <span className="text-[6px] bg-[#dcfce7] text-[#166534] font-bold px-1 py-0.5 rounded">Repeat</span>
+          <span className="text-[6px] bg-[#fff1f2] text-[#f43f5e] font-bold px-1 py-0.5 rounded">Churned</span>
         </div>
       </div>
     ),
@@ -115,7 +115,7 @@ export const FunnelChain = () => (
       <Reveal>
         <div className="mb-10 md:mb-16 md:text-center">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-blue border border-blue/30 bg-blue/8 px-3 py-1.5 rounded-full inline-block mb-3">
-            The Funnel Gap
+            02 — The Funnel Gap
           </span>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight leading-tight">
             "Ads → Orders → Profit" sounds simple.<br className="hidden md:block" />
@@ -206,9 +206,6 @@ export const FunnelChain = () => (
               MISSING
             </div>
           </div>
-          <p className="text-[11px] md:text-xs text-ink-3 italic">
-            Tap a missing link to see what belongs there.
-          </p>
         </div>
       </Reveal>
 

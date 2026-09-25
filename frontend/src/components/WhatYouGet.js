@@ -6,7 +6,7 @@ import { CTAButton } from "@/components/CTAButton";
 export const WhatYouGet = () => (
   <section id="pricing" data-section="pricing" data-track-event="ViewContent" className="bg-alt py-10 sm:py-16">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeader number="03" eyebrow="What You Get" title={deliverables.title} />
+      <SectionHeader number="06" eyebrow="What You Get" title={deliverables.title} />
 
       <div className="grid lg:grid-cols-[1.4fr_0.9fr] gap-6 lg:gap-12 items-start">
 
@@ -51,7 +51,7 @@ export const WhatYouGet = () => (
                   <span className="font-mono text-[9px] sm:text-[10px] font-bold text-ink-3 bg-white px-1.5 py-0.5 rounded">₹{item.value}</span>
                 </div>
                 <h3 className="mt-2.5 font-bold text-ink text-sm sm:text-base tracking-tight leading-snug">{item.name}</h3>
-                <p className="mt-1 text-xs text-ink-2 leading-relaxed line-clamp-2">{item.desc}</p>
+                <p className="mt-1 text-xs text-ink-2 leading-relaxed">{item.desc}</p>
               </motion.div>
             </Reveal>
           ))}
