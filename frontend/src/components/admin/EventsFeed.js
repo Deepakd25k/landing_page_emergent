@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { usePolling, fmtTime, shortId } from "@/hooks/usePolling";
 import { PageTitle, Panel, Badge, Empty } from "@/components/admin/ui";
 
-const EVENT_NAMES = ["", "PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "CalendarOpen", "Purchase", "Schedule"];
+const EVENT_NAMES = ["", "PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "CalendarOpen", "AddPaymentInfo", "Purchase", "Schedule"];
 
 export const EventsFeed = () => {
   const [filter, setFilter] = useState("");

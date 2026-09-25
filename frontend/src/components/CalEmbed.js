@@ -28,6 +28,7 @@ export const CalEmbed = () => {
         theme: "light",
       });
       cal("on", { action: "linkReady", callback: () => track("CalendarOpen", { once: true, section: "booking", customData: { trigger: "linkReady" } }) });
+      cal("on", { action: "eventTypeSelected", callback: () => track("AddPaymentInfo", { once: true, section: "booking_calendar", customData: { source: "time_selected" } }) });
       cal("on", {
         action: "bookingSuccessfulV2",
         callback: (e) => {

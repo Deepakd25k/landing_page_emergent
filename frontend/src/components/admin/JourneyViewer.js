@@ -6,7 +6,7 @@ import { useAuth } from "@/context/AuthContext";
 import { usePolling, fmtTime, shortId, fmtINR } from "@/hooks/usePolling";
 import { PageTitle, Panel, Badge, Empty } from "@/components/admin/ui";
 
-const ICONS = { PageView: Globe, ViewContent: Eye, ViewContent_CaseStudy: Eye, InitiateCheckout: MousePointerClick, CalendarOpen: CalendarDays, Purchase: BadgeIndianRupee, Schedule: CalendarDays };
+const ICONS = { PageView: Globe, ViewContent: Eye, ViewContent_CaseStudy: Eye, InitiateCheckout: MousePointerClick, CalendarOpen: CalendarDays, AddPaymentInfo: BadgeIndianRupee, Purchase: BadgeIndianRupee, Schedule: CalendarDays };
 
 const Field = ({ label, value }) => (
   <div>
