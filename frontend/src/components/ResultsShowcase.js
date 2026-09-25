@@ -15,7 +15,7 @@ const metaScreenshots = [
 const mobileSummary = [
   { icon: BarChart3,        label: "Meta Ads",    metric: "6.59x ROAS",   sub: "₹1.49 Cr Revenue",  color: "text-blue" },
   { icon: Search,           label: "Google Ads",  metric: "4.20x ROAS",   sub: "₹5.46L Conv. Value", color: "text-blue" },
-  { icon: ShoppingCart,     label: "Amazon Ads",  metric: "Coming Soon",  sub: "Upload screenshots", color: "text-ink-3" },
+  { icon: ShoppingCart,     label: "Amazon Ads",  metric: "₹12.72L Rev",  sub: "1,824 Orders", color: "text-blue" },
   { icon: MessageCircle,    label: "WhatsApp",    metric: "Coming Soon",  sub: "Upload screenshots", color: "text-ink-3" },
   { icon: MousePointerClick,label: "CRO",         metric: "16.67%",       sub: "vs 1.5–2.5% avg",   color: "text-blue" },
 ];
@@ -48,6 +48,13 @@ const croStats = [
   { label: "Industry Avg (India)",  value: "1.5–2.5%",  highlight: false, note: "Source: Cognito IT & PulseCRO 2026" },
   { label: "Mobile Drop-off",       value: "–40%",      highlight: false },
   { label: "Checkout Lift",         value: "+3.2x",     highlight: true },
+];
+
+const amazonStats = [
+  { label: "Product Sales", value: "₹12.72L", highlight: true },
+  { label: "Total Orders",  value: "1,824",   highlight: false },
+  { label: "Units Ordered", value: "1,899",   highlight: false },
+  { label: "Avg Sales/Order", value: "₹697",  highlight: true },
 ];
 
 export const ResultsShowcase = () => {
@@ -224,10 +231,25 @@ export const ResultsShowcase = () => {
                 </motion.div>
               )}
 
-              {["amazon", "whatsapp"].includes(activeTab) && (
+              {activeTab === "amazon" && (
+                <motion.div key="amazon" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center p-2">
+                    <img src="/images/amazon-dashboard.png" alt="Amazon Ads Sales Dashboard" className="max-w-full max-h-full object-contain rounded-lg shadow-sm border border-line" />
+                  </div>
+                  <div className="grid grid-cols-4 gap-4">
+                    {amazonStats.map((s, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${s.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
+                        <p className="text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{s.label}</p>
+                        <p className={`text-2xl font-bold ${s.highlight ? "text-blue" : "text-ink"}`}>{s.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {["whatsapp"].includes(activeTab) && (
                 <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center justify-center py-20 text-center">
                   <div className="w-16 h-16 rounded-full bg-ink-bg flex items-center justify-center mb-4">
-                    {activeTab === "amazon" && <ShoppingCart className="w-7 h-7 text-ink-3" />}
                     {activeTab === "whatsapp" && <MessageCircle className="w-7 h-7 text-ink-3" />}
                   </div>
                   <h3 className="text-lg font-bold text-ink mb-2">Proof Uploading...</h3>
