@@ -19,7 +19,7 @@ export const AuditComparison = () => {
               03 — The Whiteboard Truth
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight">
-              Most Setups vs <span className="text-blue">iVal</span>
+              Most Setups vs <span className="text-blue">incrementalvalue.in</span>
             </h2>
           </div>
         </Reveal>
@@ -106,14 +106,14 @@ export const AuditComparison = () => {
               {/* RIGHT SIDE: THE FIX */}
               <div className="flex-1 flex flex-col relative p-2 sm:p-8">
                 <h3 className="font-handwriting text-lg sm:text-4xl text-blue font-bold text-center mb-6 sm:mb-10 rotate-[2deg]">
-                  "With iVal"
+                  "With incrementalvalue.in"
                 </h3>
 
                 <div className="flex flex-col items-center justify-center w-full relative z-10 pb-4 sm:pb-8">
                   
-                  {/* iVal central block */}
+                  {/* incrementalvalue.in central block */}
                   <div className="relative bg-ink text-white font-black font-mono text-sm sm:text-2xl px-4 py-2 sm:px-8 sm:py-4 shadow-[4px_4px_0_0_#3b82f6] sm:shadow-[6px_6px_0_0_#3b82f6] z-20 hover:-translate-y-1 transition-transform">
-                    iVal
+                    incrementalvalue.in
                     <div className="absolute -inset-2 bg-blue-500/20 blur-lg sm:blur-xl -z-10 rounded-full" />
                   </div>
 

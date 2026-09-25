@@ -6,8 +6,10 @@ export const Footer = () => (
   <footer className="bg-night text-white/70 py-14" data-testid="footer">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
       <div>
-        <div className="flex items-center text-white">
-          <span className="font-bold tracking-tight text-3xl"><span className="text-blue">i</span><span className="text-white">Val</span></span>
+        <div className="flex items-center">
+          <span className="tracking-tight text-lg sm:text-xl">
+            <span className="font-normal text-white/50">incremental</span><span className="font-extrabold text-white">value</span><span className="font-extrabold text-blue">.in</span>
+          </span>
         </div>
         <p className="mt-4 text-sm max-w-sm leading-relaxed">{footer.tagline}</p>
         <div className="mt-6 flex flex-wrap gap-2">
