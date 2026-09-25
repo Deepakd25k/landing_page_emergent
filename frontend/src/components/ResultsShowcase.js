@@ -15,6 +15,7 @@ const allMobileScreenshots = [
   ...metaScreenshots,
   "/images/google1.png",
   "/images/amazon-dashboard.png",
+  "/images/whatsapp-dashboard.png",
   "/images/cro1.png"
 ];
 
@@ -23,7 +24,7 @@ const mobileSummary = [
   { icon: BarChart3,        label: "Meta Ads",    metric: "6.59x ROAS",   sub: "₹1.49 Cr Revenue",  color: "text-blue" },
   { icon: Search,           label: "Google Ads",  metric: "4.20x ROAS",   sub: "₹5.46L Conv. Value", color: "text-blue" },
   { icon: ShoppingCart,     label: "Amazon Ads",  metric: "₹12.72L Rev",  sub: "1,824 Orders", color: "text-blue" },
-  { icon: MessageCircle,    label: "WhatsApp",    metric: "Coming Soon",  sub: "Upload screenshots", color: "text-ink-3" },
+  { icon: MessageCircle,    label: "WhatsApp",    metric: "₹2.59L Rev",   sub: "Via Journeys", color: "text-blue" },
   { icon: MousePointerClick,label: "CRO",         metric: "16.67%",       sub: "vs 1.5–2.5% avg",   color: "text-blue" },
 ];
 
@@ -62,6 +63,13 @@ const amazonStats = [
   { label: "Total Orders",  value: "1,824",   highlight: false },
   { label: "Units Ordered", value: "1,899",   highlight: false },
   { label: "Avg Sales/Order", value: "₹697",  highlight: true },
+];
+
+const whatsappStats = [
+  { label: "Journey Revenue", value: "₹2.59L", highlight: true },
+  { label: "Auto-Recovery",   value: "Active", highlight: false },
+  { label: "Open Rate",       value: "60%+",   highlight: false },
+  { label: "Drop-off Saved",  value: "High",   highlight: true },
 ];
 
 export const ResultsShowcase = () => {
@@ -263,13 +271,19 @@ export const ResultsShowcase = () => {
                 </motion.div>
               )}
 
-              {["whatsapp"].includes(activeTab) && (
-                <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col items-center justify-center py-20 text-center">
-                  <div className="w-16 h-16 rounded-full bg-ink-bg flex items-center justify-center mb-4">
-                    {activeTab === "whatsapp" && <MessageCircle className="w-7 h-7 text-ink-3" />}
+              {activeTab === "whatsapp" && (
+                <motion.div key="whatsapp" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+                  <div className="relative rounded-xl overflow-hidden border border-line bg-ink-bg mb-4 h-[340px] flex items-center justify-center p-2">
+                    <img src="/images/whatsapp-dashboard.png" alt="WhatsApp Journeys Dashboard" className="max-w-full max-h-full object-contain rounded-lg shadow-sm border border-line" />
                   </div>
-                  <h3 className="text-lg font-bold text-ink mb-2">Proof Uploading...</h3>
-                  <p className="text-sm text-ink-2 max-w-xs">Save your {activeTab.toUpperCase()} screenshots in <code className="font-mono text-ink">public/images</code> to display them.</p>
+                  <div className="grid grid-cols-4 gap-4">
+                    {whatsappStats.map((s, i) => (
+                      <div key={i} className={`p-4 rounded-xl border ${s.highlight ? "bg-blue/5 border-blue/20" : "bg-ink-bg border-line"}`}>
+                        <p className="text-xs font-semibold text-ink-3 uppercase tracking-wide mb-1">{s.label}</p>
+                        <p className={`text-2xl font-bold ${s.highlight ? "text-blue" : "text-ink"}`}>{s.value}</p>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               )}
 
