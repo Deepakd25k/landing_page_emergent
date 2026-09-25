@@ -92,7 +92,7 @@ export const CalEmbed = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-blue hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl text-base transition-colors duration-200 shadow-[0_8px_20px_rgba(13,110,253,0.4)]"
-                onClick={() => track("Schedule", { section: "booking-mobile", sendCapi: false })}
+                onClick={() => track("CalendarOpen", { section: "booking-mobile", sendCapi: false })}
               >
                 Book Your Slot — ₹1,999 →
               </a>
