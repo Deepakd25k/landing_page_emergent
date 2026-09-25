@@ -10,6 +10,7 @@ import { AttributionWar } from "@/components/AttributionWar";
 import { FunnelChain } from "@/components/FunnelChain";
 import { ResultsShowcase } from "@/components/ResultsShowcase";
 import { AuditComparison } from "@/components/AuditComparison";
+import { AdvisoryPillars } from "@/components/AdvisoryPillars";
 import { WhatYouGet } from "@/components/WhatYouGet";
 import { BonusAutomations } from "@/components/BonusAutomations";
 import { WhyNow } from "@/components/WhyNow";
@@ -48,6 +49,7 @@ export default function Landing() {
           <AttributionWar />
           <ResultsShowcase />
           <AuditComparison />
+          <AdvisoryPillars />
           <WhatYouGet />
           <BonusAutomations />
           <WhyNow />

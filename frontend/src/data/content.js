@@ -85,12 +85,12 @@ export const comparison = {
 export const deliverables = {
   title: "60 Minutes. One Call. Full Business X-Ray.",
   items: [
-    { name: "Per-Order P&L Breakdown", desc: "Every cost: COGS, packaging, PG fees, COD charges, shipping, RTO, discounts.", value: "5,000" },
-    { name: "Unit Economics Health Score", desc: "CM1, CM2, LTV:CAC ratio, Repeat Purchase Rate — benchmarked for your category.", value: "3,000" },
-    { name: "RTO Leakage Report", desc: "Category RTO benchmarks. PIN code risk map. Prepaid shift strategy.", value: "3,000" },
-    { name: "Meta Ads Reality Check", desc: "Blended MER vs Platform ROAS gap. 2026 CPM benchmarks. CAPI audit.", value: "4,000" },
-    { name: "PG and Vendor Optimization", desc: "Multi-gateway routing. UPI incentive structure. Settlement reconciliation.", value: "3,000" },
-    { name: "90-Day Profitability Roadmap", desc: "Prioritized actions: Week 1-4, 5-8, 9-12. What to fix first.", value: "5,000" },
+    { name: "Dashboard vs. Bank Check", desc: "Learn how to verify your agency's dashboard claims against your actual bank balance in under 1 minute.", value: "5,000" },
+    { name: "The 'Agency B.S.' Detector", desc: "Exactly what questions to ask your agency so you never blindly accept 'ROAS is 4x' again.", value: "3,000" },
+    { name: "True Scale vs Fake Scale", desc: "Are you scaling on data that actually works? We'll pinpoint what to solve before you increase budgets.", value: "4,000" },
+    { name: "The 3 Metrics That Matter", desc: "Forget 15 vanity metrics. We isolate True CM2, Blended CAC, and 60-Day Repeat Rate.", value: "3,000" },
+    { name: "Actionable Fixes (Not Reports)", desc: "No useless PDFs. I'll show you exactly where the leak is and give you 3 concrete solutions you can try today.", value: "5,000" },
+    { name: "Direct Founder Insights", desc: "My unfiltered experience. What's working in D2C right now, what's broken, and how to plug your specific leaks.", value: "5,000" },
   ],
   stackLabel: "Total value",
   payLabel: "You pay today",
