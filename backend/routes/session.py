@@ -156,7 +156,6 @@ async def create_lead(body: LeadRequest, request: Request):
         "webhook_history": [{"trigger": "LEAD_SUBMITTED", "at": now}],
         "capi_events": [{"event_name": "Lead", "status": capi_result.get("status")}] if capi_result else []
     }
-    
     # Upsert to prevent duplicates if they click submit multiple times
     await bookings.update_one(
         {"booking_uid": booking_doc["booking_uid"]},
@@ -164,4 +163,37 @@ async def create_lead(body: LeadRequest, request: Request):
         upsert=True
     )
 
-    return {"ok": True, "session_id": body.session_id}
+    payment_link = "https://rzp.io/rzp/mFuxe8ep"
+    if RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET:
+        try:
+            async with httpx.AsyncClient() as client:
+                resp = await client.post(
+                    "https://api.razorpay.com/v1/payment_links",
+                    auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET),
+                    json={
+                        "amount": 100,
+                        "currency": "INR",
+                        "description": "Payment for Cohort",
+                        "customer": {
+                            "name": booking_doc["name"],
+                            "email": booking_doc["email"],
+                            "contact": booking_doc["phone"]
+                        },
+                        "notify": {
+                            "sms": False,
+                            "email": False
+                        },
+                        "notes": {
+                            "session_id": booking_doc["session_id"],
+                            "booking_uid": booking_doc["booking_uid"]
+                        }
+                    }
+                )
+                if resp.status_code == 200:
+                    payment_link = resp.json().get("short_url", payment_link)
+                else:
+                    print(f"Razorpay link creation failed: {resp.text}")
+        except Exception as e:
+            print(f"Razorpay link exception: {e}")
+
+    return {"ok": True, "session_id": body.session_id, "payment_link": payment_link}

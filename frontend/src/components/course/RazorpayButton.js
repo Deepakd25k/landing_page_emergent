@@ -30,8 +30,12 @@ export const RazorpayButton = () => {
       
       toast.success("Redirecting to payment gateway...");
       
-      // Redirect to the simple Razorpay Payment Link
-      window.location.href = "https://rzp.io/rzp/mFuxe8ep";
+      // Redirect to the dynamic Razorpay Payment Link
+      if (res.data.payment_link) {
+        window.location.href = res.data.payment_link;
+      } else {
+        window.location.href = "https://rzp.io/rzp/mFuxe8ep";
+      }
       
     } catch (err) {
       toast.error(err.message || "An error occurred");
