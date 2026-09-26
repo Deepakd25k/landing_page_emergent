@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMMechanism = () => {
   return (
-    <section className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="pt-10 pb-20 sm:pt-16 sm:pb-32 bg-white relative overflow-hidden border-b border-slate-100">
       {/* Subtle Dotted Background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.3]" 
@@ -15,42 +15,42 @@ export const PMMechanism = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#5D5FEF]/10 text-[#5D5FEF] text-[11px] sm:text-xs font-bold tracking-widest uppercase mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#5D5FEF]/10 text-[#5D5FEF] text-[11px] font-bold tracking-widest uppercase mb-3">
             The 48-Hour Trap
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 mb-4 leading-tight">
-            They are blindly killing your winning ads.
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3 leading-tight">
+            Stop killing your winning ads.
           </h2>
-          <p className="text-base sm:text-lg text-slate-500 font-medium">
-            In 2026, D2C is all about <strong className="text-slate-800">data</strong>. Yet, average agencies still kill ads based on 3-day CTRs, completely ignoring the attribution lag.
+          <p className="text-sm sm:text-base text-slate-500 font-medium px-4">
+            In 2026, D2C is data-driven. Agencies panic and kill ads on Day 3—ignoring the massive attribution lag.
           </p>
         </div>
 
         {/* The Single Premium Card */}
-        <div className="bg-white rounded-[2rem] p-6 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-slate-100 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+        <div className="bg-white rounded-[2rem] p-6 sm:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] border border-slate-100 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
           
           {/* Left: Punchy Copy */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-6">
             <div>
-              <span className="text-red-500 font-bold text-xs uppercase tracking-widest mb-1.5 block">What they do</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Kill ads prematurely.</h3>
-              <p className="text-slate-500 font-medium mt-2">Panic sets in on day 3 when initial CTRs look low.</p>
+              <span className="text-red-500 font-bold text-[11px] uppercase tracking-widest mb-1.5 block">What they do</span>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Panic on Day 3.</h3>
+              <p className="text-sm text-slate-500 font-medium mt-1">Killing ads early because of low initial CTRs.</p>
             </div>
             
-            <div className="w-12 h-1 bg-slate-100 rounded-full"></div>
+            <div className="w-10 h-1 bg-slate-100 rounded-full"></div>
 
             <div>
-              <span className="text-emerald-500 font-bold text-xs uppercase tracking-widest mb-1.5 block">The Reality</span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">40-60% of signals are lost.</h3>
-              <p className="text-slate-500 font-medium mt-3 leading-relaxed">
-                Due to iOS restrictions and complex cross-device journeys, the algorithm hasn't seen the full picture. <strong className="text-slate-800">They are pulling the plug on your actual winners.</strong>
+              <span className="text-emerald-500 font-bold text-[11px] uppercase tracking-widest mb-1.5 block">The Reality</span>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">60% Data is Missing.</h3>
+              <p className="text-sm text-slate-500 font-medium mt-2 leading-relaxed">
+                Cross-device drops and iOS privacy blocks delay signals. You are pulling the plug on <strong className="text-slate-800">profitable winners</strong> before the algorithm optimizes.
               </p>
               
               {/* Source Citation */}
-              <div className="mt-5 inline-block bg-slate-50 border border-slate-200 rounded-lg px-3 py-2">
-                <p className="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-wider">
-                  *Source: Meta Business Insights (Post iOS-14 Attribution Impact Report)
+              <div className="mt-4 inline-block bg-slate-50 border border-slate-200 rounded-md px-2.5 py-1.5">
+                <p className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                  *Source: Meta iOS Attribution Impact Report
                 </p>
               </div>
             </div>
