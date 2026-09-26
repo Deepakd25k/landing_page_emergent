@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/shared";
 import { courseHero } from "@/data/courseContent";
+import { useTracking } from "@/context/TrackingContext";
 
-export const CourseHero = () => (
+export const CourseHero = () => {
+  const { track } = useTracking();
+  
+  return (
   <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-ink">
     {/* Grid Background */}
     <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none"></div>
@@ -33,7 +37,10 @@ export const CourseHero = () => (
       <Reveal delay={0.3}>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button 
-            onClick={() => document.getElementById('book').scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              track("InitiateCheckout", { section: "course_hero" });
+              document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="w-full sm:w-auto px-8 py-4 bg-blue hover:bg-blue-hover text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)] hover:-translate-y-1"
           >
             {courseHero.ctaText}
@@ -45,4 +52,5 @@ export const CourseHero = () => (
       </Reveal>
     </div>
   </section>
-);
+  );
+};

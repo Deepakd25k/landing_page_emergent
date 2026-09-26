@@ -5,6 +5,8 @@ import { hero } from "@/data/content";
 
 export const MobileStickyButton = () => {
   const [show, setShow] = useState(false);
+  const isCourse = typeof window !== "undefined" && window.location.pathname.includes("/course");
+  const label = isCourse ? "Secure Your Spot (₹4,999)" : hero.cta;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +38,7 @@ export const MobileStickyButton = () => {
         >
           <div className="bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-[0_12px_40px_rgba(5,44,101,0.25)] border border-blue/10 flex justify-center">
             <CTAButton
-              label={hero.cta}
+              label={label}
               location="mobile_sticky"
               className="w-full text-base py-3"
             />

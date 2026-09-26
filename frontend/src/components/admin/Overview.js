@@ -72,7 +72,7 @@ export const Overview = () => {
         <Stat icon={Users} label="Visitors" value={stats?.sessions ?? "—"} sub="Unique sessions" testId="stat-visitors" />
         <Stat icon={Zap} label="Events" value={stats?.events ?? "—"} sub="Stored in MongoDB" testId="stat-events" />
         <Stat icon={CalendarCheck} label="Paid bookings" value={stats?.paid_bookings ?? "—"} sub={`${stats?.conversion_rate ?? 0}% visitor → paid`} testId="stat-paid" tone="text-success" />
-        <Stat icon={IndianRupee} label="Revenue" value={stats ? fmtINR(stats.revenue) : "—"} sub={`@ ${stats ? fmtINR(stats.price) : ""} each`} testId="stat-revenue" tone="text-success" />
+        <Stat icon={IndianRupee} label="Revenue" value={stats ? fmtINR(stats.revenue) : "—"} testId="stat-revenue" tone="text-success" />
         <Stat icon={Repeat} label="Retainers" value={stats?.retainers ?? "—"} sub={`${stats?.retainer_rate ?? 0}% of paid`} testId="stat-retainers" />
         <div className="bg-white rounded-2xl border border-line p-5 shadow-soft" data-testid="stat-capi">
           <div className="flex items-center justify-between">
