@@ -12,7 +12,7 @@ export const CourseReality = () => (
             {courseReality.title}
           </h2>
           <p className="text-lg text-ink-2 max-w-2xl mx-auto font-medium">
-            Stop learning features. Start learning business mechanics.
+            Don't get stuck in a loop of "secret ad account setups". Real growth requires mapping the customer journey.
           </p>
         </div>
       </Reveal>

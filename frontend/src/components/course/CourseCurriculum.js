@@ -24,7 +24,7 @@ export const CourseCurriculum = () => (
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-24">
         {courseCurriculum.modules.map((mod, i) => (
-          <Reveal key={i} delay={i * 0.1}>
+          <Reveal key={i} delay={i * 0.1} className={i === 4 ? "md:col-span-2 md:max-w-2xl md:mx-auto w-full" : ""}>
             <div className="group relative p-6 sm:p-8 bg-[#f8f9fb] rounded-2xl border border-line hover:border-blue hover:shadow-card transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 shrink-0 rounded-full bg-white shadow-soft flex items-center justify-center text-blue group-hover:scale-110 transition-transform duration-300">

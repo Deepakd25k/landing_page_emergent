@@ -1,35 +1,35 @@
 export const courseHero = {
   badge: "INTIMATE LIVE COHORT • STRICTLY LIMITED TO 50 SEATS",
-  headline: "2026 Onwards, No Brand Will Hire A Marketer Who Only Knows 'Meta Checkboxes'.",
-  subheadline: "Stop learning basic FB Ads. Learn the real Indian D2C Tech Stack. See exactly how decisions are made inside ₹10L - ₹40L/month ad accounts.",
+  headline: "In 2026, ChatGPT Won't Manage Your ₹1Cr Ad Account. You Have To.",
+  subheadline: "AI will show you the data, but it can't make high-stakes financial decisions. Stop looking for generic targeting hacks. Learn end-to-end D2C operations, n8n automation, and true business growth strategy.",
   ctaText: "Apply For The Cohort",
-  ctaSubtext: "Live on Sat & Sun. High-touch Q&A.",
+  ctaSubtext: "Live on Sat & Sun. Only 50 spots. High-touch Q&A.",
 };
 
 export const courseReality = {
-  title: "The Performance Marketing Illusion",
+  title: "Why 90% of Performance Marketers Fail My Interviews",
   cards: [
-    { agencySays: "I know how to run CBO & ABO.", reality: "Brands don't care. They care if you can read SKU-level P&L and fix Contribution Margins." },
-    { agencySays: "I can lower your CPC & CPM.", reality: "If the landing page conversion is 0.5% and RTO is 40%, cheap traffic still burns money." },
-    { agencySays: "Meta is reporting 4x ROAS.", reality: "If you don't know Server-Side Tracking (CAPI), you are optimizing on 40% fake data." },
+    { agencySays: "I know the 'Best Strategy' for Meta Ads.", reality: "There is no 'secret ad account setup'. It's about how deeply you map customer pain points and their buying journey." },
+    { agencySays: "I can lower your CPA by tweaking targeting.", reality: "Not everything is solved through Meta Ads. Real D2C growth happens when you reduce operational costs and fix funnel leaks." },
+    { agencySays: "I optimize based on Meta Dashboard ROAS.", reality: "If you don't understand multi-touch Attribution, you are flying blind. Dashboards lie. Business P&L doesn't." },
   ],
-  closer: "70% of candidates we interview have outdated knowledge. They think marketing is just pressing buttons in Ads Manager.",
+  closer: "Whenever I take interviews, people give the same generic answers. D2C is changing incredibly fast. You need a data and strategy mindset, not a button-pushing one.",
 };
 
 export const courseCurriculum = {
-  title: "What Happens Inside A ₹40L/Month Account?",
-  subtitle: "We don't teach theory. We open live dashboards and break down the real D2C mechanics.",
+  title: "The 2026 D2C Growth Curriculum",
+  subtitle: "This is not a normal classroom where things are left to AI. This is a real, end-to-end D2C blueprint for the top 1%.",
   modules: [
-    { num: "01", title: "The Indian D2C Tech Stack", desc: "How Shopify, Meta, Analytics, and Logistics talk to each other.", icon: "account_tree" },
-    { num: "02", title: "SKU-Level Profitability", desc: "Stop optimizing for 'Campaign ROAS'. Learn how to scale based on per-product margins.", icon: "inventory" },
-    { num: "03", title: "Tracking & CAPI Mastery", desc: "How to fix iOS signal loss. Setting up server-side events so the algorithm actually learns.", icon: "dns" },
-    { num: "04", title: "CRO & Offer Engineering", desc: "If the ad works but the site doesn't, you lose. Learn to build offers that convert at 3%+.", icon: "local_offer" },
-    { num: "05", title: "The RTO Defense", desc: "Tier-2 scaling without the return-to-origin bloodbath. PIN-code level filtering.", icon: "shield" },
-    { num: "06", title: "Reporting Like A CMO", desc: "How to present data to founders so they trust you with infinite budgets.", icon: "insights" },
+    { num: "01", title: "Strategy & Attribution", desc: "Thinking in business growth. Mapping customer pain points to their journey. Solving the attribution puzzle nobody talks about.", icon: "account_tree" },
+    { num: "02", title: "D2C Operational Mastery", desc: "How to negotiate with vendors to get the best deal. Reducing extra costs at the operational level beyond the ad account.", icon: "inventory" },
+    { num: "03", title: "End-to-End Automation", desc: "Learn to build real D2C automation workflows using n8n. Make your life easier and your operations infinitely scalable.", icon: "dns" },
+    { num: "04", title: "Creative Team Leadership", desc: "Media buying is nothing without creatives. Learn how to lead and manage a high-performance team of Video Editors and Graphic Designers.", icon: "local_offer" },
+    { num: "05", title: "The Career Playbook", desc: "How to stay relevant in the AI domain. Job suggestions, LinkedIn optimization, Resume help, and how to reach out directly to D2C founders.", icon: "shield" },
   ]
 };
 
 export const courseScarcity = {
-  title: "Why Only 50 Students?",
-  desc: "This isn't a pre-recorded course where you buy it and never watch it. This is a live, interactive weekend intensive. We will open real data, answer your specific bottlenecks, and rebuild your approach to performance marketing. 50 seats ensures everyone gets personal attention.",
+  title: "Why Strictly 50 Seats?",
+  desc: "90% of marketers in India are doing the same generic courses. I only want the ambitious 50 who are ready to move beyond ROAS and dashboards. This is a highly interactive, intense cohort where we solve real leaks in D2C businesses. We cannot scale personal attention.",
 };
+

@@ -22,9 +22,8 @@ export const CourseHero = () => {
 
       <Reveal delay={0.1}>
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter leading-[1.1] mb-8">
-          {courseHero.headline.split('No Brand').map((part, i) => (
-            i === 0 ? <span key={i}>{part}<br className="hidden md:block"/>No Brand</span> : <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-cyan-400">{part}</span>
-          ))}
+          In 2026, ChatGPT Won't Manage Your<br className="hidden md:block"/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-cyan-400">₹1Cr Ad Account. You Have To.</span>
         </h1>
       </Reveal>
 
