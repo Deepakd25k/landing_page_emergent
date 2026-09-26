@@ -23,7 +23,10 @@ FUNNEL = [
 def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Optional[str] = None) -> dict:
     match = {}
     if campaign:
-        match["campaign"] = campaign
+        if campaign == "diagnostic":
+            match["$or"] = [{"campaign": "diagnostic"}, {"campaign": {"$exists": False}}]
+        else:
+            match["campaign"] = campaign
     if start_date or end_date:
         created_at = {}
         if start_date:
