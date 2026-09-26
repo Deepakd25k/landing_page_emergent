@@ -94,7 +94,8 @@ async def create_lead(body: LeadRequest, request: Request):
         "email": body.email.strip().lower(),
         "phone": body.phone.strip(),
         "role": body.role,
-        "lead_captured_at": now
+        "lead_captured_at": now,
+        "funnel.Lead": now
     }
     await sessions.update_one({"session_id": body.session_id}, {"$set": update})
 
