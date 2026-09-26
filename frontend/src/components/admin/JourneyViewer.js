@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, MousePointerClick, Eye, CalendarDays, BadgeIndianRupee, Globe, Smartphone } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
@@ -22,7 +22,9 @@ export const JourneyViewer = () => {
   const [query, setQuery] = useState(sessionId || "");
   const [journey, setJourney] = useState(null);
   const [error, setError] = useState("");
-  const { data: sessions } = usePolling("/admin/sessions", { interval: 15000, params: { limit: 30 } });
+  const [searchParams] = useSearchParams();
+  const campaign = searchParams.get("campaign") || undefined;
+  const { data: sessions } = usePolling("/admin/sessions", { interval: 15000, params: { limit: 30, campaign } });
 
   useEffect(() => {
     if (!sessionId) {

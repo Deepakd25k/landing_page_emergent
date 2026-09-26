@@ -48,9 +48,10 @@ export const Overview = () => {
   const [searchParams] = useSearchParams();
   const start_date = searchParams.get("start") || undefined;
   const end_date = searchParams.get("end") || undefined;
+  const campaign = searchParams.get("campaign") || undefined;
 
-  const { data: stats } = usePolling("/admin/stats", { interval: 10000, params: { start_date, end_date } });
-  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000, params: { start_date, end_date } });
+  const { data: stats } = usePolling("/admin/stats", { interval: 10000, params: { start_date, end_date, campaign } });
+  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000, params: { start_date, end_date, campaign } });
 
   return (
     <div>

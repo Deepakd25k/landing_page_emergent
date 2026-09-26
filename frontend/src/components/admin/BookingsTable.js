@@ -13,8 +13,9 @@ export const BookingsTable = () => {
   const [searchParams] = useSearchParams();
   const start_date = searchParams.get("start") || undefined;
   const end_date = searchParams.get("end") || undefined;
+  const campaign = searchParams.get("campaign") || undefined;
   
-  const { data, refresh } = usePolling("/admin/bookings", { interval: 15000, params: { start_date, end_date } });
+  const { data, refresh } = usePolling("/admin/bookings", { interval: 15000, params: { start_date, end_date, campaign } });
   const [q, setQ] = useState("");
 
   const rows = (data || []).filter((b) => {

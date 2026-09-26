@@ -12,8 +12,9 @@ export const EventsFeed = () => {
   const [searchParams] = useSearchParams();
   const start_date = searchParams.get("start") || undefined;
   const end_date = searchParams.get("end") || undefined;
+  const campaign = searchParams.get("campaign") || undefined;
   
-  const { data } = usePolling("/admin/events", { interval: 5000, params: { limit: 100, event_name: filter || undefined, start_date, end_date } });
+  const { data } = usePolling("/admin/events", { interval: 5000, params: { limit: 100, event_name: filter || undefined, start_date, end_date, campaign } });
   const seen = useRef(null);
 
   useEffect(() => {

@@ -10,7 +10,12 @@ import { sendTrack } from "@/lib/tracking";
 
 const TrackingContext = createContext({ sessionId: null, track: () => {}, pixelEnabled: false });
 
-const PRODUCT = { content_name: "D2C Profitability Diagnostic", content_category: "Consulting", value: 1999, currency: "INR" };
+const getProductContext = () => {
+  if (typeof window !== "undefined" && window.location.pathname.includes("/course")) {
+    return { content_name: "D2C Performance Marketing Course", content_category: "Training", value: 4999, currency: "INR" };
+  }
+  return { content_name: "D2C Profitability Diagnostic", content_category: "Consulting", value: 1999, currency: "INR" };
+};
 
 export function TrackingProvider({ children }) {
   const attribution = useCookieCapture();
@@ -29,13 +34,14 @@ export function TrackingProvider({ children }) {
         firedOnce.current.add(eventName);
       }
       const id = eventId || `${eventName.toLowerCase()}_${uuid()}`;
-      const pixelParams = eventName === "PageView" ? {} : { ...PRODUCT, ...customData };
+      const product = getProductContext();
+      const pixelParams = eventName === "PageView" ? {} : { ...product, ...customData };
       pixel.fire(eventName, pixelParams, id);
       const payload = {
         event_name: eventName,
         event_id: id,
         section: section || null,
-        custom_data: customData,
+        custom_data: { ...product, ...customData },
         source_url: window.location.href,
         fbp: getCookie("_fbp"),
         fbc: getCookie("_fbc"),

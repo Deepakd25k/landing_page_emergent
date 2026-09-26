@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, Request
 from pymongo.errors import DuplicateKeyError
 
-from config import CURRENCY, DIAGNOSTIC_PRICE, PRODUCT_CATEGORY, PRODUCT_NAME
+from config import CURRENCY
 from models.event import TrackRequest
 from routes.session import client_ip
 from services.hash_utils import sha256
@@ -35,15 +35,7 @@ async def track_event(body: TrackRequest, request: Request):
         "fbc": fbc,
         "external_id": [sha256(body.session_id)],
     }
-    custom_data = {
-        "content_name": PRODUCT_NAME,
-        "content_category": PRODUCT_CATEGORY,
-        "currency": CURRENCY,
-        "value": DIAGNOSTIC_PRICE,
-        **body.custom_data,
-    }
-    if body.event_name == "PageView":
-        custom_data = {k: v for k, v in body.custom_data.items()}
+    custom_data = body.custom_data
 
     event_doc = {
         "event_id": body.event_id,
@@ -78,6 +70,12 @@ async def track_event(body: TrackRequest, request: Request):
     await events.update_one({"event_id": body.event_id}, {"$set": {"capi": capi_result}})
 
     session_update = {"$inc": {"events_count": 1}, "$set": {"last_seen_at": now.isoformat()}}
+    
+    # Tag campaign based on source URL on first event or if missing
+    if not session.get("campaign") and body.source_url:
+        campaign_name = "course" if "/course" in body.source_url else "diagnostic"
+        session_update["$set"]["campaign"] = campaign_name
+
     if body.event_name in FUNNEL_STEPS:
         session_update["$set"][f"funnel.{body.event_name}"] = now.isoformat()
     if fbp and not session.get("fbp"):

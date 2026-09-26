@@ -20,8 +20,10 @@ FUNNEL = [
 ]
 
 
-def date_filter(start_date: Optional[str], end_date: Optional[str]) -> dict:
+def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Optional[str] = None) -> dict:
     match = {}
+    if campaign:
+        match["campaign"] = campaign
     if start_date or end_date:
         created_at = {}
         if start_date:
@@ -38,8 +40,8 @@ def pct(part, whole):
 
 
 @router.get("/stats")
-async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None):
-    match = date_filter(start_date, end_date)
+async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    match = get_filter(start_date, end_date, campaign)
     b_match = {**match, "status": {"$in": ["paid", "completed", "rescheduled"]}}
     
     total_sessions = await sessions.count_documents(match)
@@ -69,8 +71,8 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
 
 
 @router.get("/funnel")
-async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
-    match = date_filter(start_date, end_date)
+async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    match = get_filter(start_date, end_date, campaign)
     if utm_content:
         match["utm_content"] = utm_content
     total = await sessions.count_documents(match)
@@ -89,8 +91,8 @@ async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = 
 
 
 @router.get("/bookings")
-async def list_bookings(limit: int = Query(100, le=500), status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
-    query = date_filter(start_date, end_date)
+async def list_bookings(limit: int = Query(100, le=500), status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    query = get_filter(start_date, end_date, campaign)
     if status:
         query["status"] = status
     cursor = bookings.find(query).sort("created_at", -1).limit(limit)
@@ -110,8 +112,8 @@ async def update_booking(booking_uid: str, body: BookingUpdateRequest):
 
 
 @router.get("/events")
-async def list_events(limit: int = Query(100, le=500), since: Optional[str] = None, event_name: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None):
-    query = date_filter(start_date, end_date)
+async def list_events(limit: int = Query(100, le=500), since: Optional[str] = None, event_name: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    query = get_filter(start_date, end_date, campaign)
     if since:
         if "created_at" not in query:
             query["created_at"] = {}
@@ -123,15 +125,15 @@ async def list_events(limit: int = Query(100, le=500), since: Optional[str] = No
 
 
 @router.get("/sessions")
-async def list_sessions(limit: int = Query(100, le=500), start_date: Optional[str] = None, end_date: Optional[str] = None):
-    query = date_filter(start_date, end_date)
+async def list_sessions(limit: int = Query(100, le=500), start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    query = get_filter(start_date, end_date, campaign)
     cursor = sessions.find(query).sort("created_at", -1).limit(limit)
     return [strip_id(s) async for s in cursor]
 
 
 @router.get("/utm")
-async def utm_performance(start_date: Optional[str] = None, end_date: Optional[str] = None):
-    match = date_filter(start_date, end_date)
+async def utm_performance(start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    match = get_filter(start_date, end_date, campaign)
     pipeline = []
     if match:
         pipeline.append({"$match": match})

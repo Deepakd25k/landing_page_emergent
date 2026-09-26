@@ -7,6 +7,7 @@ import { EventsFeed } from "@/components/admin/EventsFeed";
 import { UtmTable } from "@/components/admin/UtmTable";
 import { JourneyViewer } from "@/components/admin/JourneyViewer";
 import { DateFilter } from "@/components/admin/DateFilter";
+import { CampaignFilter } from "@/components/admin/CampaignFilter";
 
 const NAV = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
@@ -64,7 +65,8 @@ export default function AdminDashboard() {
           <button onClick={async () => { await logout(); navigate("/admin/login"); }} className="ml-auto px-3 py-1.5 rounded-full bg-white/5">Out</button>
         </div>
         <main className="p-4 sm:p-8 max-w-7xl mx-auto">
-          <div className="flex justify-end mb-6">
+          <div className="flex justify-end gap-3 mb-6">
+            <CampaignFilter />
             <DateFilter />
           </div>
           <Routes>
