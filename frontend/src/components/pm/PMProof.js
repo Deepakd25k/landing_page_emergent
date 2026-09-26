@@ -12,10 +12,10 @@ export const PMProof = () => {
     },
     { 
       name: "Google", 
-      tabText: "Google Search • Live",
-      headline: "Dominating Search",
-      subhead: "Captured high-intent bottom funnel.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600", // Temp placeholder
+      tabText: "Google Ads • Live",
+      headline: "46x ROAS on Google",
+      subhead: "9,620 sales at just $3.30 CPA.",
+      img: "/images/proof-google.png", 
       icon: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
     },
     { 
