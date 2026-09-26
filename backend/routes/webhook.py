@@ -66,7 +66,7 @@ def extract_booking(payload: dict) -> dict:
         "brand": _response_value(responses, "brand", "company", "brandName", "notes"),
         "session_id": metadata.get("session_id") or metadata.get("sessionId"),
         "payment_id": payload.get("paymentId") or payment.get("id") or payment.get("externalId"),
-        "payment_amount": (payment.get("amount") / 100) if isinstance(payment.get("amount"), (int, float)) and payment.get("amount") > 10000 else payment.get("amount") or DIAGNOSTIC_PRICE,
+        "payment_amount": (payment.get("amount") / 100) if isinstance(payment.get("amount"), (int, float)) else 0,
         "payment_currency": payment.get("currency") or CURRENCY,
         "payment_success": payment.get("success", True),
         "meeting_url": payload.get("videoCallData", {}).get("url") if isinstance(payload.get("videoCallData"), dict) else payload.get("location"),
@@ -106,7 +106,7 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
     default_price = 4999 if is_course else DIAGNOSTIC_PRICE
 
     custom_data = {
-        "value": booking.get("payment_amount") or default_price,
+        "value": booking.get("payment_amount") or 0,
         "currency": booking.get("payment_currency") or CURRENCY,
         "content_name": content_name,
         "content_category": content_category,

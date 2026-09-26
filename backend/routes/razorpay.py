@@ -38,8 +38,8 @@ async def razorpay_webhook(request: Request):
         raise HTTPException(status_code=400, detail="Invalid JSON")
 
     event = body.get("event")
-    # Only process successful payments or orders
-    if event not in ("payment.captured", "order.paid"):
+    # Only process successful payments
+    if event != "payment.captured":
         return {"ok": True, "msg": "ignored event"}
 
     payload = body.get("payload", {})
