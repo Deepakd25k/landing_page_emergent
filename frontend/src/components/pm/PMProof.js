@@ -10,7 +10,7 @@ export const PMProof = () => {
   ];
 
   return (
-    <section className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-12 sm:py-16 bg-white relative overflow-hidden border-b border-slate-100">
       {/* Subtle Dotted Background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.3]" 
@@ -23,11 +23,11 @@ export const PMProof = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-16 px-4">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-6 leading-tight text-slate-900">
+        <div className="text-center max-w-4xl mx-auto mb-8 px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-tight text-slate-900">
             Don't take our word for it.<br />
             Look at {" "}
-            <span className="relative inline-block px-2">
+            <span className="relative inline-block px-1">
               <span className="relative z-10">the math.</span>
               <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
             </span>
@@ -38,7 +38,7 @@ export const PMProof = () => {
         <div className="w-full overflow-hidden">
           {/* Hiding scrollbar using standard tailwind utilities if available, or inline style fallback */}
           <div 
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-8 px-6 sm:px-12 pb-12 pt-4"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 px-6 sm:px-12 pb-4 pt-2"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style>{`
@@ -76,43 +76,43 @@ export const PMProof = () => {
 
         {/* Swipe Indicators */}
         <div className="flex flex-col items-center justify-center mt-2">
-          <div className="flex gap-2 mb-3">
-            <div className="w-5 h-2 rounded-full bg-[#5D5FEF]"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+          <div className="flex gap-2 mb-2">
+            <div className="w-5 h-1.5 rounded-full bg-[#5D5FEF]"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
           </div>
-          <p className="text-slate-400 text-xs sm:text-sm font-medium tracking-wide">
+          <p className="text-slate-400 text-xs font-medium tracking-wide">
             Swipe to see the whole system
           </p>
         </div>
 
         {/* Backed By Footer */}
-        <div className="mt-20 pt-10 px-4">
-          <div className="flex flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-x-6 gap-y-3 text-sm sm:text-base font-bold text-slate-800">
-            <div className="flex items-center gap-2 text-slate-400 tracking-widest text-[10px] sm:text-xs uppercase mr-2">
+        <div className="mt-10 px-4">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-2 text-xs sm:text-sm font-bold text-slate-800">
+            <div className="flex items-center text-slate-400 tracking-widest text-[9px] sm:text-[10px] uppercase mr-1">
               Backed By
             </div>
             
-            <div className="flex items-center gap-1.5">
-              <div className="w-5 h-5 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[10px] leading-none">
+            <div className="flex items-center gap-1">
+              <div className="w-4 h-4 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[9px] leading-none">
                 Y
               </div>
               <span>Y Combinator</span>
             </div>
             
-            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div className="text-slate-300">•</div>
             <div>Lightspeed</div>
             
-            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div className="text-slate-300">•</div>
             <div>Chiratae</div>
             
-            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div className="text-slate-300">•</div>
             <div>Kunal Shah</div>
           </div>
           
-          <div className="text-center mt-4 text-slate-500 font-medium text-xs sm:text-sm">
+          <div className="text-center mt-3 text-slate-500 font-medium text-[11px] sm:text-xs">
             1,00,000+ creators & experts supported
           </div>
         </div>
