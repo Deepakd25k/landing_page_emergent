@@ -30,6 +30,7 @@ META_GRAPH_API_VERSION = os.environ.get("META_GRAPH_API_VERSION", "v21.0").strip
 META_TEST_EVENT_CODE = os.environ.get("META_TEST_EVENT_CODE", "").strip()
 
 CALID_WEBHOOK_SECRET = os.environ.get("CALID_WEBHOOK_SECRET", "").strip()
+RAZORPAY_WEBHOOK_SECRET = os.environ.get("RAZORPAY_WEBHOOK_SECRET", "").strip()
 
 DIAGNOSTIC_PRICE = float(os.environ.get("DIAGNOSTIC_PRICE", "1999"))
 PREDICTED_LTV = float(os.environ.get("PREDICTED_LTV", "30000"))

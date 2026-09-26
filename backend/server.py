@@ -14,7 +14,7 @@ app = FastAPI(title="D2C Diagnostic - Booting...")
 
 try:
     import config
-    from routes import admin, auth, session, track, webhook
+    from routes import admin, auth, session, track, webhook, razorpay
     from services.auth import seed_admin
     from services.mongo import client, ensure_indexes
 
@@ -32,6 +32,7 @@ try:
     app.include_router(session.router)
     app.include_router(track.router)
     app.include_router(webhook.router)
+    app.include_router(razorpay.router)
     app.include_router(admin.router)
     app.include_router(auth.router)
 

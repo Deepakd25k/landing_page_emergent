@@ -3,7 +3,7 @@ import Lenis from "lenis";
 import { TrackingProvider } from "@/context/TrackingContext";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { CalEmbed } from "@/components/CalEmbed";
+import { RazorpayButton } from "@/components/course/RazorpayButton";
 import { MobileStickyButton } from "@/components/MobileStickyButton";
 
 import { CourseHero } from "@/components/course/CourseHero";
@@ -38,7 +38,7 @@ export default function CourseLanding() {
           <CourseCurriculum />
           {/* Reusing the highly effective PnL reveal to demonstrate what they will learn */}
           <PnlReveal />
-          <CalEmbed />
+          <RazorpayButton />
         </main>
         <Footer />
         <MobileStickyButton />
