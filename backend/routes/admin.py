@@ -1,7 +1,10 @@
+import csv
+import io
 from datetime import datetime, timezone
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import StreamingResponse
 
 from config import DIAGNOSTIC_PRICE, META_CONFIGURED, META_PIXEL_ID, CALID_WEBHOOK_SECRET
 from models.booking import AdSpendRequest, BookingUpdateRequest
@@ -10,14 +13,22 @@ from services.mongo import ad_spend, bookings, events, sessions, strip_id
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
-FUNNEL = [
-    ("visitors", "PageView", "Visitors"),
-    ("scrolled", "ViewContent", "Scrolled to Offer"),
-    ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
-    ("calendar_open", "CalendarOpen", "Opened Calendar"),
-    ("paid", "Purchase", "Paid ₹1,999"),
-    ("booked", "Schedule", "Booked Slot"),
-]
+def get_funnel(campaign: Optional[str] = None):
+    if campaign == "course":
+        return [
+            ("visitors", "PageView", "Visitors"),
+            ("scrolled", "ViewContent", "Scrolled to Offer"),
+            ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
+            ("paid", "razorpay_course_payment", "Seats Booked"),
+        ]
+    return [
+        ("visitors", "PageView", "Visitors"),
+        ("scrolled", "ViewContent", "Scrolled to Offer"),
+        ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
+        ("calendar_open", "CalendarOpen", "Opened Calendar"),
+        ("paid", "Purchase", "Purchase"),
+        ("booked", "Schedule", "Booked Slot"),
+    ]
 
 
 def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Optional[str] = None) -> dict:
@@ -61,6 +72,12 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
     since = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
     today_visitors = await sessions.count_documents({"created_at": {"$gte": since}})
     today_events = await events.count_documents({"created_at": {"$gte": since}})
+    
+    one_hour_ago = (datetime.now(timezone.utc) - __import__("datetime").timedelta(hours=1)).isoformat()
+    twentyfour_hours_ago = (datetime.now(timezone.utc) - __import__("datetime").timedelta(hours=24)).isoformat()
+    
+    velocity_1h = await bookings.count_documents({**b_match, "created_at": {"$gte": one_hour_ago}})
+    velocity_24h = await bookings.count_documents({**b_match, "created_at": {"$gte": twentyfour_hours_ago}})
     return {
         "sessions": total_sessions, "events": total_events, "bookings": total_bookings, "paid_bookings": paid,
         "revenue": revenue[0]["sum"] if revenue else 0, "conversion_rate": pct(paid, total_sessions),
@@ -69,7 +86,8 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
                  "configured": META_CONFIGURED, "pixel_id": META_PIXEL_ID[:4] + "…" if META_PIXEL_ID else None},
         "webhook_signature": bool(CALID_WEBHOOK_SECRET),
         "today": {"visitors": today_visitors, "events": today_events},
-        "price": DIAGNOSTIC_PRICE,
+        "velocity_1h": velocity_1h,
+        "velocity_24h": velocity_24h,
     }
 
 
@@ -81,7 +99,8 @@ async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = 
     total = await sessions.count_documents(match)
     steps = []
     prev = total
-    for key, event_name, label in FUNNEL:
+    funnel_config = get_funnel(campaign)
+    for key, event_name, label in funnel_config:
         if key == "visitors":
             count = total
         else:
@@ -91,6 +110,36 @@ async def funnel(utm_content: Optional[str] = None, start_date: Optional[str] = 
                       "drop_off": round(100 - pct(count, prev), 1) if prev else 0.0})
         prev = count
     return {"total": total, "steps": steps}
+
+
+@router.get("/export/bookings")
+async def export_bookings(status: Optional[str] = None, start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    query = get_filter(start_date, end_date, campaign)
+    if status:
+        query["status"] = status
+    
+    cursor = bookings.find(query).sort("created_at", -1)
+    
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["Date", "Campaign", "Name", "Email", "Phone", "Status", "Amount", "UTM Source", "UTM Campaign", "UTM Content"])
+    
+    async for b in cursor:
+        writer.writerow([
+            b.get("created_at", ""),
+            b.get("campaign", ""),
+            b.get("name") or f"{b.get('first_name', '')} {b.get('last_name', '')}".strip(),
+            b.get("email", ""),
+            b.get("phone", ""),
+            b.get("status", ""),
+            b.get("payment_amount", 0),
+            b.get("attribution", {}).get("utm_source", ""),
+            b.get("attribution", {}).get("utm_campaign", ""),
+            b.get("attribution", {}).get("utm_content", "")
+        ])
+    
+    output.seek(0)
+    return StreamingResponse(iter([output.getvalue()]), media_type="text/csv", headers={"Content-Disposition": f"attachment; filename=bookings_{datetime.now(timezone.utc).strftime('%Y%m%d')}.csv"})
 
 
 @router.get("/bookings")

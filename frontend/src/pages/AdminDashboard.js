@@ -8,6 +8,7 @@ import { UtmTable } from "@/components/admin/UtmTable";
 import { JourneyViewer } from "@/components/admin/JourneyViewer";
 import { DateFilter } from "@/components/admin/DateFilter";
 import { CampaignFilter } from "@/components/admin/CampaignFilter";
+import { CsvExportButton } from "@/components/admin/CsvExportButton";
 
 const NAV = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
@@ -66,6 +67,7 @@ export default function AdminDashboard() {
         </div>
         <main className="p-4 sm:p-8 max-w-7xl mx-auto">
           <div className="flex justify-end gap-3 mb-6">
+            <CsvExportButton />
             <CampaignFilter />
             <DateFilter />
           </div>

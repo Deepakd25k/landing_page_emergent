@@ -71,9 +71,14 @@ export const Overview = () => {
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <Stat icon={Users} label="Visitors" value={stats?.sessions ?? "—"} sub="Unique sessions" testId="stat-visitors" />
         <Stat icon={Zap} label="Events" value={stats?.events ?? "—"} sub="Stored in MongoDB" testId="stat-events" />
-        <Stat icon={CalendarCheck} label="Paid bookings" value={stats?.paid_bookings ?? "—"} sub={`${stats?.conversion_rate ?? 0}% visitor → paid`} testId="stat-paid" tone="text-success" />
+        <Stat icon={CalendarCheck} label={campaign === "course" ? "Seats Booked" : "Paid bookings"} value={stats?.paid_bookings ?? "—"} sub={`${stats?.conversion_rate ?? 0}% visitor → paid`} testId="stat-paid" tone="text-success" />
         <Stat icon={IndianRupee} label="Revenue" value={stats ? fmtINR(stats.revenue) : "—"} testId="stat-revenue" tone="text-success" />
-        <Stat icon={Repeat} label="Retainers" value={stats?.retainers ?? "—"} sub={`${stats?.retainer_rate ?? 0}% of paid`} testId="stat-retainers" />
+        
+        {campaign === "course" ? (
+          <Stat icon={Zap} label="Velocity (1h)" value={stats?.velocity_1h ?? "—"} sub={`${stats?.velocity_24h ?? 0} booked in 24h`} testId="stat-velocity" tone="text-orange-500" />
+        ) : (
+          <Stat icon={Repeat} label="Retainers" value={stats?.retainers ?? "—"} sub={`${stats?.retainer_rate ?? 0}% of paid`} testId="stat-retainers" />
+        )}
         <div className="bg-white rounded-2xl border border-line p-5 shadow-soft" data-testid="stat-capi">
           <div className="flex items-center justify-between">
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-ink-3">Meta CAPI</p>
