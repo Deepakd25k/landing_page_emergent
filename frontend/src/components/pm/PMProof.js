@@ -23,10 +23,9 @@ export const PMProof = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-8 px-4">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 leading-tight text-slate-900">
-            Don't take our word for it.<br />
-            Look at {" "}
+        <div className="text-center max-w-4xl mx-auto mb-6 px-4">
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 leading-snug text-slate-900">
+            Don't take our word for it. Look at {" "}
             <span className="relative inline-block px-1">
               <span className="relative z-10">the math.</span>
               <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
