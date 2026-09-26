@@ -2,36 +2,12 @@ import { motion } from "framer-motion";
 
 export const PMProof = () => {
   const platforms = [
-  const platforms = [
     { 
       name: "Meta", 
       tabText: "Meta Ads • Live",
       headline: "₹2.63 Cr Ad Spend",
       subhead: "Scaled profitably in just 7 months.",
-      customRender: (
-        <div className="w-[180px] sm:w-[220px] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col text-slate-800 font-sans text-sm sm:text-base h-full max-h-[300px]">
-           <div className="border-b-2 border-blue-600 p-2 sm:p-3 text-[#1866C0] font-bold text-sm flex justify-between items-center">
-              <span>Amount spent</span>
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-           </div>
-           <div className="flex-1 overflow-hidden flex flex-col font-medium tracking-tight text-[13px] sm:text-[15px]">
-             <div className="py-1.5 px-3 border-b border-slate-100 text-right">₹2,660,981.21</div>
-             <div className="py-1.5 px-3 border-b border-slate-100 bg-[#F5F5F5] text-right">₹1,545,494.43</div>
-             <div className="py-1.5 px-3 border-b border-slate-100 text-right text-[#1866C0] flex justify-end gap-1.5 items-center">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                <span className="border-b border-dotted border-[#1866C0]">₹1,103,203.89</span>
-             </div>
-             <div className="py-1.5 px-3 border-b border-slate-100 bg-[#F5F5F5] text-right">₹1,062,005.31</div>
-             <div className="py-1.5 px-3 border-b border-slate-100 text-right">₹817,565.92</div>
-             <div className="py-1.5 px-3 border-b border-slate-100 bg-[#F5F5F5] text-right">₹727,820.76</div>
-             <div className="py-1.5 px-3 border-b border-slate-100 text-right">₹697,167.24</div>
-           </div>
-           <div className="p-2 sm:p-3 bg-white border-t-2 border-slate-200 text-right shrink-0">
-              <div className="font-bold text-[15px] sm:text-[17px]">₹26,328,807.54</div>
-              <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5">Total spent</div>
-           </div>
-        </div>
-      ),
+      img: "/images/proof-meta.png", 
       icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
     },
     { 
@@ -127,28 +103,22 @@ export const PMProof = () => {
 
                   {/* Image Container */}
                   <div className="w-full flex-1 bg-slate-50/50 flex items-center justify-center p-4 relative">
-                    {platform.customRender ? (
-                      platform.customRender
-                    ) : (
-                      <>
-                        <img 
-                          src={platform.img} 
-                          alt={`${platform.name} Proof`} 
-                          className="w-full max-h-[300px] object-contain rounded-xl shadow-sm border border-slate-200/50 bg-white"
-                          onError={(e) => {
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                        {/* Fallback if image not uploaded yet */}
-                        <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
-                          <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          Upload {platform.img?.split('/').pop() || 'image'}
-                        </div>
-                      </>
-                    )}
+                    <img 
+                      src={platform.img} 
+                      alt={`${platform.name} Proof`} 
+                      className="w-full max-h-[300px] object-contain rounded-xl shadow-sm border border-slate-200/50 bg-white"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    {/* Fallback if image not uploaded yet */}
+                    <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
+                      <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      Upload {platform.img?.split('/').pop() || 'image'}
+                    </div>
                   </div>
                 </div>
 
