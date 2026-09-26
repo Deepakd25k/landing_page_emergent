@@ -37,7 +37,7 @@ export const PMProof = () => {
         <div className="w-full overflow-hidden">
           {/* Hiding scrollbar using standard tailwind utilities if available, or inline style fallback */}
           <div 
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 px-6 sm:px-12 pb-4 pt-2"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-10 px-6 sm:px-12 pb-12 pt-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style>{`
@@ -47,26 +47,43 @@ export const PMProof = () => {
             {platforms.map((platform, index) => (
               <div 
                 key={index}
-                className="snap-center shrink-0 w-[85vw] sm:w-[450px] bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden relative flex flex-col group transition-transform hover:-translate-y-1"
+                className="snap-center shrink-0 w-[85vw] sm:w-[450px] relative flex flex-col group transition-transform hover:-translate-y-1"
               >
-                {/* Image Container - fits the uploaded screenshots perfectly */}
-                <div className="w-full aspect-[4/5] sm:aspect-square bg-slate-50 flex items-center justify-center overflow-hidden relative">
+                {/* Main Card Container */}
+                <div className="w-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden relative">
+                  {/* Image Container */}
+                  <div className="w-full aspect-[4/5] sm:aspect-square bg-slate-50 flex items-center justify-center relative">
+                    <img 
+                      src={platform.img} 
+                      alt={`${platform.name} Proof`} 
+                      className="w-full h-full object-contain sm:object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    {/* Fallback if image not uploaded yet */}
+                    <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
+                      <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      Upload {platform.img.split('/').pop()}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Attached Floating Platform Icon */}
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-slate-100 flex items-center justify-center z-20">
                   <img 
-                    src={platform.img} 
-                    alt={`${platform.name} Proof`} 
-                    className="w-full h-full object-contain sm:object-cover"
+                    src={`/images/icon-${platform.name.toLowerCase()}.png`} 
+                    alt={platform.name}
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
+                      e.target.nextSibling.style.display = 'block';
                     }}
                   />
-                  {/* Fallback if image not uploaded yet */}
-                  <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
-                    <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    Upload {platform.img.split('/').pop()}
-                  </div>
+                  <div className="text-[10px] sm:text-xs font-bold text-slate-400 hidden">{platform.name}</div>
                 </div>
               </div>
             ))}
