@@ -1,11 +1,11 @@
 import uuid
 from datetime import datetime, timezone
-
 from fastapi import APIRouter, Request
 
 import httpx
+import time
 from models.session import SessionInitRequest, SessionUpdateRequest, LeadRequest
-from services.mongo import sessions
+from services.mongo import sessions, bookings
 from config import RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET
 from services.meta_capi import send_event
 from services.hash_utils import sha256
@@ -108,26 +108,59 @@ async def create_lead(body: LeadRequest, request: Request):
         "ph": [sha256(update["phone"])],
         "external_id": [sha256(body.session_id)],
     }
-    await send_event(
+    capi_result = await send_event(
         event_name="Lead",
         event_id=f"lead_{body.session_id}",
         event_source_url=session.get("landing_url") or "",
         user_data={k: v for k, v in user_data.items() if v},
     )
 
-    # Create Razorpay Order
-    order_id = None
-    if RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET:
-        auth = (RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET)
-        data = {
-            "amount": 199900,  # ₹1999.00
-            "currency": "INR",
-            "receipt": f"rcpt_{body.session_id[:10]}",
-            "notes": {"session_id": body.session_id, "campaign": "course"}
-        }
-        async with httpx.AsyncClient() as client:
-            resp = await client.post("https://api.razorpay.com/v1/orders", json=data, auth=auth)
-            if resp.status_code == 200:
-                order_id = resp.json().get("id")
+    # Insert into bookings as a lead
+    booking_doc = {
+        "booking_uid": f"lead_{body.session_id}",
+        "booking_id": None,
+        "title": "D2C Performance Marketing Course (Lead)",
+        "start_time": None,
+        "end_time": None,
+        "timezone": None,
+        "email": update["email"],
+        "name": update["name"],
+        "first_name": update["name"].split()[0] if update["name"] else "",
+        "last_name": " ".join(update["name"].split()[1:]) if update["name"] else "",
+        "phone": update["phone"],
+        "brand": update["role"],
+        "session_id": body.session_id,
+        "payment_id": None,
+        "payment_amount": 0,
+        "payment_currency": "INR",
+        "payment_success": False,
+        "meeting_url": None,
+        "status": "lead",
+        "campaign": "course",
+        "attribution": {
+            "utm_source": session.get("utm_source"),
+            "utm_medium": session.get("utm_medium"),
+            "utm_campaign": session.get("utm_campaign"),
+            "utm_content": session.get("utm_content"),
+            "utm_term": session.get("utm_term"),
+            "fbclid": session.get("fbclid"),
+            "referrer": session.get("referrer"),
+            "matched": True,
+        },
+        "created_at": now,
+        "updated_at": now,
+        "retainer_status": "none",
+        "retainer_value": 0,
+        "notes": "Lead submitted, pending payment",
+        "webhook_history": [{"trigger": "LEAD_SUBMITTED", "at": now}],
+        "capi_events": [{"event_name": "Lead", "status": capi_result.get("status")}] if capi_result else []
+    }
+    
+    # Upsert to prevent duplicates if they click submit multiple times
+    await bookings.update_one(
+        {"booking_uid": booking_doc["booking_uid"]},
+        {"$set": booking_doc},
+        upsert=True
+    )
 
-    return {"ok": True, "order_id": order_id, "key": RAZORPAY_KEY_ID}
+    return {"ok": True, "session_id": body.session_id}

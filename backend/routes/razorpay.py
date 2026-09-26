@@ -86,6 +86,10 @@ async def razorpay_webhook(request: Request):
     if existing:
         return {"ok": True, "msg": "already processed"}
 
+    # Remove the unpaid lead record if it exists so we don't have duplicates
+    if email:
+        await bookings.delete_one({"email": email, "status": "lead", "campaign": "course"})
+
     doc = {
         **booking,
         "status": "paid",
