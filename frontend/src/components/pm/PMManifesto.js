@@ -38,24 +38,24 @@ export const PMManifesto = () => {
           className="bg-[#FAFAFA] border border-slate-100 rounded-[2rem] p-4 sm:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.02)]"
         >
           
-          <div className="flex flex-col gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
             
             {/* Card 1 */}
             <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">You own the ad accounts.</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">The Siloed Trap.</h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-sm sm:text-base">
-                  Meta, {" "}
-                  <span className="relative inline-block text-slate-900 px-1 font-semibold">
-                    <span className="relative z-10">in your name, on your login.</span>
+                  2-3 months to <br />
+                  <span className="relative inline-block text-slate-900 px-1 font-semibold my-0.5">
+                    <span className="relative z-10">read your data.</span>
                     <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-                  </span>{" "}
-                  We work inside your accounts, not ours.
+                  </span> <br />
+                  Teams work apart.
                 </p>
               </div>
             </div>
@@ -64,34 +64,16 @@ export const PMManifesto = () => {
             <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">You own the pages, funnel & data.</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">The Excuse Machine.</h3>
                 <p className="text-slate-500 font-medium leading-relaxed text-sm sm:text-base">
-                  Every landing page, every lead, every automation flow. {" "}
-                  <span className="relative inline-block text-slate-900 px-1 font-semibold">
-                    <span className="relative z-10">Exportable, and always yours.</span>
-                    <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
-              <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">You stay the expert.</h3>
-                <p className="text-slate-500 font-medium leading-relaxed text-sm sm:text-base">
-                  You focus on your sessions and your clients. We build the system around it {" "}
-                  <span className="relative inline-block text-slate-900 px-1 font-semibold">
-                    <span className="relative z-10">together, not instead of you.</span>
+                  Brand as experiment. <br />
+                  When numbers drop, <br />
+                  <span className="relative inline-block text-slate-900 px-1 font-semibold mt-0.5">
+                    <span className="relative z-10">they blame CPMs.</span>
                     <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
                   </span>
                 </p>
