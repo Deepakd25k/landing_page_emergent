@@ -41,7 +41,7 @@ export const PMManifesto = () => {
           <div className="flex flex-col gap-4 mb-6">
             
             {/* Card 1 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-5 shadow-sm border border-slate-50 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
@@ -61,7 +61,7 @@ export const PMManifesto = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-5 shadow-sm border border-slate-50 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
@@ -80,7 +80,7 @@ export const PMManifesto = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-5 shadow-sm border border-slate-50 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-50 items-start">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 text-slate-700">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
