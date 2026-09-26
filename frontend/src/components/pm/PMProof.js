@@ -1,64 +1,120 @@
 import { motion } from "framer-motion";
 
 export const PMProof = () => {
+  const platforms = [
+    { name: "Meta", img: "/images/proof-meta.png" },
+    { name: "Google", img: "/images/proof-google.png" },
+    { name: "Amazon", img: "/images/proof-amazon.png" },
+    { name: "WhatsApp", img: "/images/proof-whatsapp.png" },
+    { name: "CRO", img: "/images/proof-cro.png" },
+  ];
+
   return (
-    <section className="py-8 sm:py-12 bg-[#FFD500] relative text-[#0A192F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+      {/* Subtle Dotted Background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.3]" 
+        style={{ 
+          backgroundImage: 'radial-gradient(#cbd5e1 1.5px, transparent 1.5px)', 
+          backgroundSize: '24px 24px' 
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-6 leading-tight">
+        {/* Section Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-16 px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-6 leading-tight text-slate-900">
             Don't take our word for it.<br />
-            Look at the math.
+            Look at {" "}
+            <span className="relative inline-block px-2">
+              <span className="relative z-10">the math.</span>
+              <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
+            </span>
           </h2>
-          <p className="text-[#0A192F]/70 text-xl font-bold tracking-tight">
-            We stripped away the bloated model. And the numbers speak for themselves.
+        </div>
+
+        {/* Horizontal Swipe Carousel */}
+        <div className="w-full overflow-hidden">
+          {/* Hiding scrollbar using standard tailwind utilities if available, or inline style fallback */}
+          <div 
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-8 px-6 sm:px-12 pb-12 pt-4"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <style>{`
+              .flex::-webkit-scrollbar { display: none; }
+            `}</style>
+            
+            {platforms.map((platform, index) => (
+              <div 
+                key={index}
+                className="snap-center shrink-0 w-[85vw] sm:w-[450px] bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden relative flex flex-col group transition-transform hover:-translate-y-1"
+              >
+                {/* Image Container - fits the uploaded screenshots perfectly */}
+                <div className="w-full aspect-[4/5] sm:aspect-square bg-slate-50 flex items-center justify-center overflow-hidden relative">
+                  <img 
+                    src={platform.img} 
+                    alt={`${platform.name} Proof`} 
+                    className="w-full h-full object-contain sm:object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback if image not uploaded yet */}
+                  <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
+                    <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Upload {platform.img.split('/').pop()}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Swipe Indicators */}
+        <div className="flex flex-col items-center justify-center mt-2">
+          <div className="flex gap-2 mb-3">
+            <div className="w-5 h-2 rounded-full bg-[#5D5FEF]"></div>
+            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+            <div className="w-2 h-2 rounded-full bg-slate-200"></div>
+          </div>
+          <p className="text-slate-400 text-xs sm:text-sm font-medium tracking-wide">
+            Swipe to see the whole system
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              brand: "D2C Skincare",
-              metric: "3x",
-              desc: "Scaled ad spend in 45 days while maintaining a strict blended ROAS target.",
-            },
-            {
-              brand: "Premium Apparel",
-              metric: "-42%",
-              desc: "Drop in blended CAC after deploying custom tracking and fixing attribution loss.",
-            },
-            {
-              brand: "Health Supplements",
-              metric: "2.8x",
-              desc: "Increase in bottom-funnel conversion rate within 14 days of onboarding.",
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-[#0A192F] text-white p-8 sm:p-10 rounded-[2rem] hover:-translate-y-2 transition-transform shadow-2xl shadow-black/10"
-            >
-              <div className="text-[#FFD500] font-black tracking-tighter text-sm uppercase mb-8">
-                {item.brand}
+        {/* Backed By Footer */}
+        <div className="mt-20 pt-10 px-4">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-x-6 gap-y-3 text-sm sm:text-base font-bold text-slate-800">
+            <div className="flex items-center gap-2 text-slate-400 tracking-widest text-[10px] sm:text-xs uppercase mr-2">
+              Backed By
+            </div>
+            
+            <div className="flex items-center gap-1.5">
+              <div className="w-5 h-5 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[10px] leading-none">
+                Y
               </div>
-              <div className="text-6xl sm:text-7xl font-black tracking-tighter mb-4 leading-none">
-                {item.metric}
-              </div>
-              <p className="text-white/70 font-medium leading-relaxed">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <p className="text-2xl font-black tracking-tighter">
-            How did we achieve this when traditional marketers failed? <br className="hidden sm:block" />
-            Because we know something they don't.
-          </p>
+              <span>Y Combinator</span>
+            </div>
+            
+            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div>Lightspeed</div>
+            
+            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div>Chiratae</div>
+            
+            <div className="w-1 h-1 rounded-full bg-slate-300"></div>
+            <div>Kunal Shah</div>
+          </div>
+          
+          <div className="text-center mt-4 text-slate-500 font-medium text-xs sm:text-sm">
+            1,00,000+ creators & experts supported
+          </div>
         </div>
 
       </div>
