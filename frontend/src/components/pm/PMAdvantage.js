@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMAdvantage = () => {
   return (
-    <section className="py-20 sm:py-32 bg-[#0A0A0A] relative border-t border-white/5">
+    <section className="py-12 sm:py-16 bg-[#0A0A0A] relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white mb-6 leading-tight max-w-4xl mx-auto">

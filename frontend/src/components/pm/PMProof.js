@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMProof = () => {
   return (
-    <section className="py-20 sm:py-32 bg-[#FFD500] relative text-[#0A192F]">
+    <section className="py-12 sm:py-16 bg-[#FFD500] relative text-[#0A192F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-4xl mx-auto mb-16">

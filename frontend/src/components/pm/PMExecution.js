@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMExecution = () => {
   return (
-    <section className="py-20 sm:py-32 bg-ink relative">
+    <section className="py-12 sm:py-16 bg-ink relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           
