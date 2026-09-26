@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { PMHero } from "../components/pm/PMHero";
 import { PMManifesto } from "../components/pm/PMManifesto";
 import { PMProof } from "../components/pm/PMProof";
-import { PMAttribution } from "../components/pm/PMAttribution";
+import { PMMechanism } from "../components/pm/PMMechanism";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMAdvantage } from "../components/pm/PMAdvantage";
 import { PMAbout } from "../components/pm/PMAbout";
@@ -24,7 +24,7 @@ export const PerformanceMarketing = () => {
       <PMHero />
       <PMManifesto />
       <PMProof />
-      <PMAttribution />
+      <PMMechanism />
       <PMExecution />
       <PMAdvantage />
       <PMAbout />
