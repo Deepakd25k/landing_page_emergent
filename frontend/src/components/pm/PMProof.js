@@ -7,7 +7,7 @@ export const PMProof = () => {
       tabText: "Meta Ads • Live",
       headline: "₹2.63 Cr Ad Spend",
       subhead: "Scaled profitably in just 7 months.",
-      img: "/images/proof-meta.png", 
+      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600", // Temp placeholder
       icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
     },
     { 
@@ -15,7 +15,7 @@ export const PMProof = () => {
       tabText: "Google Search • Live",
       headline: "Dominating Search",
       subhead: "Captured high-intent bottom funnel.",
-      img: "/images/proof-google.png", 
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600", // Temp placeholder
       icon: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
     },
     { 
@@ -23,7 +23,7 @@ export const PMProof = () => {
       tabText: "Amazon Ads • Scaling",
       headline: "Marketplace Scaling",
       subhead: "Outbidding competitors efficiently.",
-      img: "/images/proof-amazon.png", 
+      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600", // Temp placeholder
       icon: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" 
     },
     { 
@@ -31,7 +31,7 @@ export const PMProof = () => {
       tabText: "Retention • Active",
       headline: "WhatsApp Funnels",
       subhead: "Recovered 24% of abandoned carts.",
-      img: "/images/proof-whatsapp.png", 
+      img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=600", // Temp placeholder
       icon: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
     },
     { 
@@ -39,7 +39,7 @@ export const PMProof = () => {
       tabText: "Store CRO • Active",
       headline: "Conversion Boost",
       subhead: "Optimized landing pages for CVR.",
-      img: "/images/proof-cro.png", 
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600", // Temp placeholder
       icon: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
     },
   ];
