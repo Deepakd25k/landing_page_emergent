@@ -158,10 +158,10 @@ export const festiveReality = {
   title: "The 80-Day Festive Marathon Is Here. Are Your Margins Ready?",
   subtitle: "You cannot scale on bad unit economics. Here is the math.",
   facts: [
-    { num: "01", title: "60-110% Ad Cost Spike", reality: "Diwali auction costs will skyrocket. If your Contribution Margin (CM2) is bleeding now, you will burn cash 2x faster during the marathon.", icon: "trending_up" },
-    { num: "02", title: "The 30-40% Tracking Illusion", reality: "Agencies will tell you to kill winning ads because CTR looks bad. Reality? Your pixel is just missing 40% of the conversions.", icon: "visibility_off" },
-    { num: "03", title: "The Vernacular & RTO Trap", reality: "60-65% of festive shoppers are from Tier-2 cities. High intent, but massive RTO risk. Without a PIN-code blocking strategy, you lose it all to logistics.", icon: "public" },
-    { num: "04", title: "The CAPI Auction War", reality: "The marathon is 80 days long. Brands without Server-Side Tracking will pay Meta twice for the same customer. First-party data is survival.", icon: "dns" },
+    { num: "01", title: "60-110% Ad Cost Spike", reality: "Diwali auction costs skyrocket. You'll burn cash 2x faster.", icon: "trending_up" },
+    { num: "02", title: "30-40% Tracking Illusion", reality: "Killing winning ads? Your pixel is just missing 40% of conversions.", icon: "visibility_off" },
+    { num: "03", title: "The Tier-2 RTO Trap", reality: "65% shoppers from Tier-2. Massive RTO risk without PIN blocking.", icon: "public" },
+    { num: "04", title: "The CAPI Auction War", reality: "No server-side tracking? Pay Meta twice for the exact same customer.", icon: "dns" },
   ]
 };
 

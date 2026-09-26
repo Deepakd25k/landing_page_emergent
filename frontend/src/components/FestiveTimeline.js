@@ -41,24 +41,24 @@ export const FestiveTimeline = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.05, ease: EASE }}
-                className={`group relative flex items-start gap-4 mb-8 md:mb-16 z-10 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-12 md:items-center`}
+                className={`group relative flex items-center gap-3 mb-6 md:mb-10 z-10 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-12`}
               >
                 {/* CARD */}
-                <div className={`flex-1 md:flex-none p-5 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 group-hover:bg-white/10 group-hover:border-danger/30 ${isEven ? 'md:col-start-1 md:text-right' : 'md:col-start-3 md:text-left'} order-2 md:order-none`}>
-                  <div className={`flex items-center gap-2 mb-3 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
-                    <span className="material-icons-round text-danger text-xl md:text-2xl">{step.icon}</span>
-                    <h3 className="text-base md:text-xl font-bold text-white leading-tight">
+                <div className={`flex-1 md:flex-none flex flex-col justify-center ${isEven ? 'md:col-start-1 md:items-end md:text-right' : 'md:col-start-3 md:items-start md:text-left'} order-2 md:order-none`}>
+                  <div className={`flex items-center gap-2 mb-1.5 ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                    <span className="material-icons-round text-danger text-lg md:text-2xl">{step.icon}</span>
+                    <h3 className="text-sm md:text-xl font-bold text-white leading-tight">
                       {step.title}
                     </h3>
                   </div>
-                  <p className="text-sm md:text-base text-white/60 leading-relaxed">
+                  <p className="text-xs md:text-sm text-white/60 leading-snug">
                     {step.reality}
                   </p>
                 </div>
 
                 {/* DOT */}
                 <div className="w-8 flex-shrink-0 flex flex-col items-center col-start-2 order-1 md:order-none mt-1 md:mt-0">
-                  <div className={`w-8 h-8 rounded-full shadow-[0_0_0_6px_rgba(239,68,68,0.2)] flex items-center justify-center bg-danger z-10 transition-transform duration-500 group-hover:scale-125`}>
+                  <div className={`w-8 h-8 rounded-full bg-danger shadow-[0_0_0_6px_rgba(239,68,68,0.2)] flex items-center justify-center transition-transform duration-500 group-hover:scale-125`}>
                      <span className="text-[10px] font-bold text-white">{step.num}</span>
                   </div>
                 </div>
