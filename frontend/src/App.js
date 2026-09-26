@@ -5,6 +5,7 @@ import Landing from "@/pages/Landing";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
 import CourseLanding from "@/pages/CourseLanding";
+import { PerformanceMarketing } from "@/pages/PerformanceMarketing";
 import { AuthProvider, RequireAdmin } from "@/context/AuthContext";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/course" element={<CourseLanding />} />
+          <Route path="/pm" element={<PerformanceMarketing />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin/*"

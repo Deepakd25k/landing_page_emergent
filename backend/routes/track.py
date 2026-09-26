@@ -36,7 +36,13 @@ async def track_event(body: TrackRequest, request: Request):
         "external_id": [sha256(body.session_id)],
     }
     custom_data = body.custom_data
-    campaign_name = "course" if "/course" in (body.source_url or session.get("landing_url") or "") else "diagnostic"
+    url_to_check = body.source_url or session.get("landing_url") or ""
+    if "/pm" in url_to_check:
+        campaign_name = "pm"
+    elif "/course" in url_to_check:
+        campaign_name = "course"
+    else:
+        campaign_name = "diagnostic"
 
     event_doc = {
         "event_id": body.event_id,
