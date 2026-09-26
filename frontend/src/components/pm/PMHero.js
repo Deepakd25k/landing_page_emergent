@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMHero = () => {
   return (
-    <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden flex flex-col justify-center items-center min-h-[85vh]">
+    <section className="relative pt-12 pb-12 sm:pt-16 sm:pb-16 overflow-hidden flex flex-col items-center">
       {/* Background ambient glow - Linear/Vercel style */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[600px] bg-blue/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
