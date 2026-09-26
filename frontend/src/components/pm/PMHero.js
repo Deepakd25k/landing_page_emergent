@@ -43,9 +43,9 @@ export const PMHero = () => {
         >
           Stop paying retainers <br className="hidden sm:block" />
           for {" "}
-          <span className="relative inline-block text-blue">
+          <span className="relative inline-block text-slate-900 px-2">
             <span className="relative z-10">interns to learn</span>
-            <span className="absolute bottom-2 left-0 w-full h-4 bg-blue/20 -z-10 rounded-sm"></span>
+            <span className="absolute bottom-[8%] left-0 w-full h-[45%] bg-indigo-100/80 -z-10 rounded-lg"></span>
           </span>
           <br className="hidden sm:block" />
           on your budget.
