@@ -3,8 +3,12 @@ from datetime import datetime, timezone
 
 from fastapi import APIRouter, Request
 
-from models.session import SessionInitRequest, SessionUpdateRequest
+import httpx
+from models.session import SessionInitRequest, SessionUpdateRequest, LeadRequest
 from services.mongo import sessions
+from config import RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET
+from services.meta_capi import send_event
+from services.hash_utils import sha256
 
 router = APIRouter(prefix="/api/session", tags=["session"])
 
@@ -76,3 +80,54 @@ async def update_session(body: SessionUpdateRequest):
         del update["$max"]
     result = await sessions.update_one({"session_id": body.session_id}, update)
     return {"ok": result.matched_count == 1}
+
+@router.post("/lead")
+async def create_lead(body: LeadRequest, request: Request):
+    session = await sessions.find_one({"session_id": body.session_id})
+    if not session:
+        return {"ok": False, "error": "session_not_found"}
+
+    now = datetime.now(timezone.utc).isoformat()
+    # Save lead data to session
+    update = {
+        "name": body.name,
+        "email": body.email.strip().lower(),
+        "phone": body.phone.strip(),
+        "role": body.role,
+        "lead_captured_at": now
+    }
+    await sessions.update_one({"session_id": body.session_id}, {"$set": update})
+
+    # Send CAPI Lead Event
+    user_data = {
+        "client_ip_address": session.get("ip") or client_ip(request),
+        "client_user_agent": session.get("user_agent") or request.headers.get("user-agent"),
+        "fbp": session.get("fbp"),
+        "fbc": session.get("fbc"),
+        "em": [sha256(update["email"])],
+        "ph": [sha256(update["phone"])],
+        "external_id": [sha256(body.session_id)],
+    }
+    await send_event(
+        event_name="Lead",
+        event_id=f"lead_{body.session_id}",
+        event_source_url=session.get("landing_url") or "",
+        user_data={k: v for k, v in user_data.items() if v},
+    )
+
+    # Create Razorpay Order
+    order_id = None
+    if RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET:
+        auth = (RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET)
+        data = {
+            "amount": 199900,  # ₹1999.00
+            "currency": "INR",
+            "receipt": f"rcpt_{body.session_id[:10]}",
+            "notes": {"session_id": body.session_id, "campaign": "course"}
+        }
+        async with httpx.AsyncClient() as client:
+            resp = await client.post("https://api.razorpay.com/v1/orders", json=data, auth=auth)
+            if resp.status_code == 200:
+                order_id = resp.json().get("id")
+
+    return {"ok": True, "order_id": order_id, "key": RAZORPAY_KEY_ID}

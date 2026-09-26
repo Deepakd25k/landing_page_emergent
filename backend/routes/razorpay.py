@@ -67,7 +67,7 @@ async def razorpay_webhook(request: Request):
         "last_name": last_name,
         "phone": phone,
         "brand": None,
-        "session_id": None, # Razorpay button snippet doesn't pass this
+        "session_id": notes.get("session_id"), # Now passed via API order creation
         "payment_id": payment_id,
         "payment_amount": amount,
         "payment_currency": payment_entity.get("currency", CURRENCY),
@@ -111,7 +111,7 @@ async def razorpay_webhook(request: Request):
     }
     await bookings.insert_one(doc)
 
-    capi_results, fields = await fire_purchase_and_schedule(booking, session or {"campaign": "course"}, "RAZORPAY_PAID")
+    capi_results, fields = await fire_purchase_and_schedule(booking, session or {"campaign": "course"}, "COHORT_BOOKED")
     
     if capi_results:
         await bookings.update_one(

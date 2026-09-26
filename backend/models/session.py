@@ -32,3 +32,10 @@ class SessionUpdateRequest(BaseModel):
     time_on_page: Optional[int] = None
     fbp: Optional[str] = None
     fbc: Optional[str] = None
+
+class LeadRequest(BaseModel):
+    session_id: str
+    name: str
+    email: str
+    phone: str
+    role: str

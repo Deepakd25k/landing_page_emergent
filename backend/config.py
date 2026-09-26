@@ -31,6 +31,8 @@ META_TEST_EVENT_CODE = os.environ.get("META_TEST_EVENT_CODE", "").strip()
 
 CALID_WEBHOOK_SECRET = os.environ.get("CALID_WEBHOOK_SECRET", "").strip()
 RAZORPAY_WEBHOOK_SECRET = os.environ.get("RAZORPAY_WEBHOOK_SECRET", "").strip()
+RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID", "rzp_test_YourKeyId").strip()
+RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET", "YourKeySecret").strip()
 
 DIAGNOSTIC_PRICE = float(os.environ.get("DIAGNOSTIC_PRICE", "1999"))
 PREDICTED_LTV = float(os.environ.get("PREDICTED_LTV", "30000"))

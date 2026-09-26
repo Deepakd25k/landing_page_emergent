@@ -122,8 +122,10 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
         to_send.append(("Purchase", f"purchase_{booking['booking_uid']}", custom_data))
     elif trigger == "RAZORPAY_PAID":
         to_send.append(("razorpay_course_payment", f"razorpay_{booking['booking_uid']}", custom_data))
+    elif trigger == "COHORT_BOOKED":
+        to_send.append(("cohort_booked", f"cohort_{booking['booking_uid']}", custom_data))
         
-    if trigger != "RAZORPAY_PAID":
+    if trigger not in ("RAZORPAY_PAID", "COHORT_BOOKED"):
         to_send.append(("booking_scheduled", f"booking_scheduled_{booking['booking_uid']}",
                         {**custom_data, "appointment_time": booking.get("start_time")}))
 
