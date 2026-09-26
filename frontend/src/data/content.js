@@ -58,8 +58,8 @@ export const hero = {
 export const painPoints = {
   title: "This Is Happening To Your Brand Right Now.",
   cards: [
-    { agencySays: '"ROAS is 4x sir!"', reality: "Platform ROAS is 20-40% inflated after iOS signal loss. Your real ROAS is 2.1-2.8x." },
-    { agencySays: '"CPM is normal range."', reality: "Meta CPM is ₹90-₹320 in 2026. Up 40-60% since 2023. Rising every quarter." },
+    { agencySays: '"Kill this video ad, ROAS is dropping."', reality: "The ad is actually profitable. Your pixel is missing 30-40% of real conversions. You are killing winning ads based on broken tracking." },
+    { agencySays: '"ROAS is 4x sir!"', reality: "Platform ROAS is 20-40% inflated by view-through attribution. Your real ROAS is 2.1-2.8x." },
     { agencySays: '"CAC is ₹400, very good."', reality: "Add RTO, returns, PG fees, packaging. Real CAC is ₹650-₹900. Acquiring at a loss." },
     { agencySays: '"We are scaling well."', reality: "Your CM2 is negative. Scaling means losing faster. Every ₹1L extra = ₹15-25K extra loss." },
   ],
@@ -152,6 +152,17 @@ export const whyNow = {
     { stat: "22-34%", label: "Better match rates with first-party data" },
   ],
   closer: "Brands that don't fix unit economics now won't survive 2027. Not a prediction. Math.",
+};
+
+export const festiveReality = {
+  title: "The 80-Day Festive Marathon Is Here. Are Your Margins Ready?",
+  subtitle: "You cannot scale on bad unit economics. Here is the math.",
+  facts: [
+    { num: "01", title: "60-110% Ad Cost Spike", reality: "Diwali auction costs will skyrocket. If your Contribution Margin (CM2) is bleeding now, you will burn cash 2x faster during the marathon.", icon: "trending_up" },
+    { num: "02", title: "The 30-40% Tracking Illusion", reality: "Agencies will tell you to kill winning ads because CTR looks bad. Reality? Your pixel is just missing 40% of the conversions.", icon: "visibility_off" },
+    { num: "03", title: "The Vernacular & RTO Trap", reality: "60-65% of festive shoppers are from Tier-2 cities. High intent, but massive RTO risk. Without a PIN-code blocking strategy, you lose it all to logistics.", icon: "public" },
+    { num: "04", title: "The CAPI Auction War", reality: "The marathon is 80 days long. Brands without Server-Side Tracking will pay Meta twice for the same customer. First-party data is survival.", icon: "dns" },
+  ]
 };
 
 export const about = {

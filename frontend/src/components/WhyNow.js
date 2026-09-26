@@ -251,7 +251,7 @@ export const WhyNow = () => {
               
               <div className="flex-1 text-left min-w-0">
                 <p className="text-[13px] sm:text-base font-bold text-white tracking-tight leading-tight" data-testid="why-now-closer">
-                  Brands that don't fix unit economics now <span className="text-red-400">won't survive 2027.</span>
+                  Scale without fixing data & unit economics, and you <span className="text-red-400">won't survive the auction war.</span>
                   <span className="hidden md:inline text-white/50 font-normal ml-2">Not a prediction. It's just math.</span>
                 </p>
                 <p className="md:hidden text-white/50 text-[10px] sm:text-xs mt-0.5">

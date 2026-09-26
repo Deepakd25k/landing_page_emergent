@@ -4,6 +4,7 @@ import { TrackingProvider } from "@/context/TrackingContext";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
+import { FestiveTimeline } from "@/components/FestiveTimeline";
 import { PainPoints } from "@/components/PainPoints";
 import { PnlReveal } from "@/components/PnlReveal";
 import { AttributionWar } from "@/components/AttributionWar";
@@ -44,6 +45,7 @@ export default function Landing() {
         <main>
           <HeroSection />
           <Marquee />
+          <FestiveTimeline />
           <PainPoints />
           <FunnelChain />
           <PnlReveal />
