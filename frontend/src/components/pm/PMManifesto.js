@@ -101,17 +101,17 @@ export const PMManifesto = () => {
           </div>
 
           {/* Footer list */}
-          <div className="pt-6 border-t border-slate-200 flex flex-row flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-3 px-2">
-            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <div className="pt-5 border-t border-slate-200 flex flex-row flex-nowrap justify-between sm:justify-center items-center gap-1 sm:gap-12 w-full px-1">
+            <div className="flex items-center gap-1 sm:gap-2 text-slate-500 font-bold text-[9px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
               7 Days Action
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <div className="flex items-center gap-1 sm:gap-2 text-slate-500 font-bold text-[9px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
               Integrated PM Teams
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <div className="flex items-center gap-1 sm:gap-2 text-slate-500 font-bold text-[9px] sm:text-[11px] tracking-wider uppercase whitespace-nowrap">
+              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
               Direct Slack Channel
             </div>
           </div>
