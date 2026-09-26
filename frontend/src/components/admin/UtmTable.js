@@ -55,7 +55,7 @@ export const UtmTable = () => {
             <table className="w-full text-sm" data-testid="utm-table">
               <thead className="bg-alt text-[11px] uppercase tracking-[0.15em] text-ink-3">
                 <tr>
-                  {["Creative (utm_content)", "Source / Campaign", "Visitors", "Scrolled", "CTA", "Calendar", "Paid", "CVR", "Revenue", "Spend", "Cost / booking"].map((h) => (
+                  {["Creative (utm_content)", "UTMs (Source/Medium/Campaign/Term)", "Visitors", "Scrolled", "CTA", "Calendar", "Paid", "CVR", "Revenue", "Spend", "Cost / booking"].map((h) => (
                     <th key={h} className="text-left font-bold px-4 py-3 whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
@@ -64,7 +64,11 @@ export const UtmTable = () => {
                 {data.map((r) => (
                   <tr key={r.utm_content} className="hover:bg-blue-tint/40" data-testid={`utm-row-${r.utm_content}`}>
                     <td className="px-4 py-3 font-mono text-xs font-bold text-ink">{r.utm_content}</td>
-                    <td className="px-4 py-3 text-xs text-ink-3">{r.utm_source || "—"} {r.utm_campaign ? `· ${r.utm_campaign}` : ""}</td>
+                    <td className="px-4 py-3 text-[11px] text-ink-3 leading-tight">
+                      <div className="font-semibold text-ink-2">{r.utm_source || "—"} / {r.utm_medium || "—"}</div>
+                      <div className="mt-0.5">{r.utm_campaign || "—"}</div>
+                      {r.utm_term && <div className="text-[10px] text-ink-4 opacity-75 mt-0.5">Term: {r.utm_term}</div>}
+                    </td>
                     <td className="px-4 py-3 font-mono">{r.visitors}</td>
                     <td className="px-4 py-3 font-mono">{r.scrolled}</td>
                     <td className="px-4 py-3 font-mono">{r.clicked_cta}</td>

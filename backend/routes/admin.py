@@ -122,7 +122,7 @@ async def export_bookings(status: Optional[str] = None, start_date: Optional[str
     
     output = io.StringIO()
     writer = csv.writer(output)
-    writer.writerow(["Date", "Campaign", "Name", "Email", "Phone", "Status", "Amount", "UTM Source", "UTM Campaign", "UTM Content"])
+    writer.writerow(["Date", "Campaign", "Name", "Email", "Phone", "Status", "Amount", "UTM Source", "UTM Medium", "UTM Campaign", "UTM Content", "UTM Term"])
     
     async for b in cursor:
         writer.writerow([
@@ -134,8 +134,10 @@ async def export_bookings(status: Optional[str] = None, start_date: Optional[str
             b.get("status", ""),
             b.get("payment_amount", 0),
             b.get("attribution", {}).get("utm_source", ""),
+            b.get("attribution", {}).get("utm_medium", ""),
             b.get("attribution", {}).get("utm_campaign", ""),
-            b.get("attribution", {}).get("utm_content", "")
+            b.get("attribution", {}).get("utm_content", ""),
+            b.get("attribution", {}).get("utm_term", "")
         ])
     
     output.seek(0)
@@ -189,16 +191,21 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
     pipeline = []
     if match:
         pipeline.append({"$match": match})
+        
+    paid_event = "funnel.razorpay_course_payment" if campaign == "course" else "funnel.Purchase"
+    
     pipeline.extend([
         {"$group": {
             "_id": {"$ifNull": ["$utm_content", "(direct / none)"]},
             "visitors": {"$sum": 1},
             "utm_source": {"$first": "$utm_source"},
+            "utm_medium": {"$first": "$utm_medium"},
             "utm_campaign": {"$first": "$utm_campaign"},
+            "utm_term": {"$first": "$utm_term"},
             "scrolled": {"$sum": {"$cond": [{"$ifNull": ["$funnel.ViewContent", False]}, 1, 0]}},
             "clicked_cta": {"$sum": {"$cond": [{"$ifNull": ["$funnel.InitiateCheckout", False]}, 1, 0]}},
             "calendar_open": {"$sum": {"$cond": [{"$ifNull": ["$funnel.CalendarOpen", False]}, 1, 0]}},
-            "paid": {"$sum": {"$cond": [{"$ifNull": ["$funnel.Purchase", False]}, 1, 0]}},
+            "paid": {"$sum": {"$cond": [{"$ifNull": [f"${paid_event}", False]}, 1, 0]}},
         }},
         {"$sort": {"paid": -1, "visitors": -1}},
     ])
@@ -209,7 +216,8 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
         key = r["_id"]
         spend = spend_map.get(key, 0)
         out.append({
-            "utm_content": key, "utm_source": r.get("utm_source"), "utm_campaign": r.get("utm_campaign"),
+            "utm_content": key, "utm_source": r.get("utm_source"), "utm_medium": r.get("utm_medium"), 
+            "utm_campaign": r.get("utm_campaign"), "utm_term": r.get("utm_term"),
             "visitors": r["visitors"], "scrolled": r["scrolled"], "clicked_cta": r["clicked_cta"],
             "calendar_open": r["calendar_open"], "paid": r["paid"],
             "cvr": pct(r["paid"], r["visitors"]), "spend": spend,
