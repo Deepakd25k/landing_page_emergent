@@ -19,7 +19,8 @@ def get_funnel(campaign: Optional[str] = None):
             ("visitors", "PageView", "Landing Page View"),
             ("scrolled", "ViewContent", "Content Scroll"),
             ("clicked_cta", "InitiateCheckout", "Checkout Initiated"),
-            ("paid", "razorpay_course_payment", "Book the Cohort"),
+            ("lead", "Lead", "Application Submitted"),
+            ("paid", "cohort_booked", "Cohort Booked"),
         ]
     return [
         ("visitors", "PageView", "Visitors"),
@@ -192,7 +193,7 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
     if match:
         pipeline.append({"$match": match})
         
-    paid_event = "funnel.razorpay_course_payment" if campaign == "course" else "funnel.Purchase"
+    paid_event = "funnel.cohort_booked" if campaign == "course" else "funnel.Purchase"
     
     pipeline.extend([
         {"$group": {
@@ -205,6 +206,7 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
             "scrolled": {"$sum": {"$cond": [{"$ifNull": ["$funnel.ViewContent", False]}, 1, 0]}},
             "clicked_cta": {"$sum": {"$cond": [{"$ifNull": ["$funnel.InitiateCheckout", False]}, 1, 0]}},
             "calendar_open": {"$sum": {"$cond": [{"$ifNull": ["$funnel.CalendarOpen", False]}, 1, 0]}},
+            "leads": {"$sum": {"$cond": [{"$ifNull": ["$funnel.Lead", False]}, 1, 0]}},
             "paid": {"$sum": {"$cond": [{"$ifNull": [f"${paid_event}", False]}, 1, 0]}},
         }},
         {"$sort": {"paid": -1, "visitors": -1}},

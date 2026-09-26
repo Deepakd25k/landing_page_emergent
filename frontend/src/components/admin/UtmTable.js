@@ -55,7 +55,7 @@ export const UtmTable = () => {
             <table className="w-full text-sm" data-testid="utm-table">
               <thead className="bg-alt text-[11px] uppercase tracking-[0.15em] text-ink-3">
                 <tr>
-                  {["Creative (utm_content)", "UTMs (Source/Medium/Campaign/Term)", "Visitors", "Scrolled", "CTA", "Calendar", "Paid", "CVR", "Revenue", "Spend", "Cost / booking"].map((h) => (
+                  {["Creative (utm_content)", "UTMs (Source/Medium/Campaign/Term)", "Visitors", "Scrolled", "CTA", "Calendar", "Leads", "Paid", "CVR", "Revenue", "Spend", "Cost / booking"].map((h) => (
                     <th key={h} className="text-left font-bold px-4 py-3 whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
@@ -73,6 +73,7 @@ export const UtmTable = () => {
                     <td className="px-4 py-3 font-mono">{r.scrolled}</td>
                     <td className="px-4 py-3 font-mono">{r.clicked_cta}</td>
                     <td className="px-4 py-3 font-mono">{r.calendar_open}</td>
+                    <td className="px-4 py-3 font-mono font-bold text-blue">{r.leads}</td>
                     <td className="px-4 py-3 font-mono font-bold text-success">{r.paid}</td>
                     <td className="px-4 py-3 font-mono">{r.cvr}%</td>
                     <td className="px-4 py-3 font-mono">{fmtINR(r.revenue)}</td>
