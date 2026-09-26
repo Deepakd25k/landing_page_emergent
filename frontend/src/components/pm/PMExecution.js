@@ -7,29 +7,29 @@ export const PMExecution = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           
           <div className="order-2 md:order-1">
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
-              When things break, we don't say <br />
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tighter text-white mb-6 leading-tight">
+              We don't say <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-purple-400">
                 "We are figuring it out."
               </span>
             </h2>
-            <p className="text-white/70 text-lg mb-8 leading-relaxed">
-              We have seen enough D2C data to know exactly what breaks and how to fix it. We don't just stare at high CPMs and blame the algorithm. We read the math, identify the bottleneck, and show you real impact in 2-3 days.
+            <p className="text-white/70 text-lg font-medium mb-8 leading-relaxed">
+              We have seen enough D2C data to know exactly what breaks and how to fix it. We don't just stare at high CPMs and blame the algorithm. We fix the math.
             </p>
 
             <ul className="space-y-6">
               {[
                 {
-                  title: "1-Week Lock In",
-                  desc: "We either hear the problem straight from the founder, or we diagnose it in less than 7 days. We lock in the math, stabilize the account, and begin scaling immediately."
+                  title: "7-Day Onboarding",
+                  desc: "We lock in your core math in 7 days or less. We stabilize the account, and begin scaling immediately."
                 },
                 {
-                  title: "Speed is the New Edge",
-                  desc: "2026 onwards is all about efficiency and speed with AI. We have an integrated team that creates, publishes, and tests fast. No silos between strategy and creative."
+                  title: "No Creative Silos",
+                  desc: "Your creatives are built by performance marketers who see real data daily, not just artists who want things to 'look good'."
                 },
                 {
-                  title: "Integrated Performance Creative",
-                  desc: "Your creatives aren't built by artists. They are built by performance marketers who see data daily and know exactly what metric drives conversions."
+                  title: "Real Impact in 48 Hrs",
+                  desc: "When numbers drop, we diagnose the exact bottleneck and deploy fixes that show impact in 2-3 days."
                 }
               ].map((item, i) => (
                 <li key={i} className="flex gap-4">
@@ -39,8 +39,8 @@ export const PMExecution = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-bold mb-1">{item.title}</h4>
-                    <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+                    <h4 className="text-white font-black tracking-tight text-xl mb-1">{item.title}</h4>
+                    <p className="text-white/60 font-medium leading-relaxed">{item.desc}</p>
                   </div>
                 </li>
               ))}
@@ -48,13 +48,16 @@ export const PMExecution = () => {
           </div>
 
           <div className="order-1 md:order-2">
-            <div className="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-8 aspect-square flex items-center justify-center">
+            <div className="relative rounded-[3rem] overflow-hidden bg-white/5 border border-white/10 p-12 aspect-square flex flex-col items-center justify-center shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue/20 to-purple-500/20 blur-3xl" />
-              <div className="relative z-10 text-center">
-                <div className="text-6xl font-black text-white mb-2">7 Days</div>
-                <div className="text-blue font-bold uppercase tracking-widest text-sm mb-8">Maximum Onboarding Time</div>
-                <div className="text-6xl font-black text-white mb-2">48 Hrs</div>
-                <div className="text-blue font-bold uppercase tracking-widest text-sm">To Show Real Impact</div>
+              <div className="relative z-10 text-center w-full">
+                <div className="text-7xl sm:text-8xl font-black tracking-tighter text-white mb-2">7</div>
+                <div className="text-blue font-black uppercase tracking-widest text-sm mb-12">Days To Scale</div>
+                
+                <div className="h-px w-full bg-white/10 mb-12"></div>
+                
+                <div className="text-7xl sm:text-8xl font-black tracking-tighter text-white mb-2">48</div>
+                <div className="text-blue font-black uppercase tracking-widest text-sm">Hrs To Fix Bottlenecks</div>
               </div>
             </div>
           </div>
