@@ -27,14 +27,14 @@ export const PMExecution = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 relative z-10">
             
             {/* Pillar 1 */}
-            <div className="flex flex-col gap-4 group">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+            <div className="flex items-start gap-4 sm:gap-5 group">
+              <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">7 Days to Core Math.</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">7 Days to Core Math.</h3>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">
                   We don't take 3 months to "learn your brand". We lock in your profitable unit economics in 7 days or less.
                 </p>
@@ -42,14 +42,14 @@ export const PMExecution = () => {
             </div>
 
             {/* Pillar 2 */}
-            <div className="flex flex-col gap-4 group">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+            <div className="flex items-start gap-4 sm:gap-5 group">
+              <div className="w-12 h-12 shrink-0 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">48-Hour Fixes.</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">48-Hour Fixes.</h3>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">
                   When ROAS drops, we don't say "we're figuring it out." We know exactly what broke in the funnel and deploy fixes in 2 days.
                 </p>
@@ -57,14 +57,14 @@ export const PMExecution = () => {
             </div>
 
             {/* Pillar 3 */}
-            <div className="flex flex-col gap-4 group">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+            <div className="flex items-start gap-4 sm:gap-5 group">
+              <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Data-Native Creatives.</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">Data-Native Creatives.</h3>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">
                   Your creatives aren't made by isolated artists. They are built by performance marketers who analyze live spend data daily.
                 </p>
@@ -72,20 +72,20 @@ export const PMExecution = () => {
             </div>
 
             {/* Pillar 4 */}
-            <div className="flex flex-col gap-4 group">
-              <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+            <div className="flex items-start gap-4 sm:gap-5 group">
+              <div className="w-12 h-12 shrink-0 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Proprietary D2C AI.</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">n8n AI + Human Intel.</h3>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  We don't blindly ask ChatGPT to write ads like 50,000 others do. Our AI workflows are trained exclusively on proprietary D2C conversion data.
+                  We don't blindly copy-paste ChatGPT. We use custom n8n multi-layer AI trained on actual data, validated strictly by human experts.
                 </p>
-                <div className="mt-3 bg-slate-50 border border-slate-100 rounded-md p-2.5 inline-block shadow-sm">
+                <div className="mt-2.5 bg-slate-50 border border-slate-100 rounded-md p-2 inline-block shadow-sm">
                   <p className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                    *Fact: Generic AI ad copy sees a 41% lower conversion rate. (Source: 2025 AI Marketing Index)
+                    *Fact: Generic AI ad copy sees a 41% lower conversion rate.
                   </p>
                 </div>
               </div>
