@@ -101,18 +101,18 @@ export const PMManifesto = () => {
           </div>
 
           {/* Footer list */}
-          <div className="pt-5 border-t border-slate-200 flex flex-row flex-wrap justify-center gap-x-6 sm:gap-x-10 gap-y-2 px-2">
-            <div className="flex items-center gap-2 text-slate-500 font-medium text-sm sm:text-base">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              7-Day Action
+          <div className="pt-6 border-t border-slate-200 flex flex-row flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-3 px-2">
+            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              7 Days Action
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-medium text-sm sm:text-base">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Integrated Teams
+            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Integrated PM Teams
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-medium text-sm sm:text-base">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Full Accountability
+            <div className="flex items-center gap-2 text-slate-500 font-bold text-[11px] sm:text-xs tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Direct Slack Channel
             </div>
           </div>
 
