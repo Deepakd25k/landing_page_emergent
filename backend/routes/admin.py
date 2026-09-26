@@ -16,10 +16,10 @@ router = APIRouter(prefix="/api/admin", tags=["admin"])
 def get_funnel(campaign: Optional[str] = None):
     if campaign == "course":
         return [
-            ("visitors", "PageView", "Visitors"),
-            ("scrolled", "ViewContent", "Scrolled to Offer"),
-            ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
-            ("paid", "razorpay_course_payment", "Seats Booked"),
+            ("visitors", "PageView", "Landing Page View"),
+            ("scrolled", "ViewContent", "Content Scroll"),
+            ("clicked_cta", "InitiateCheckout", "Checkout Initiated"),
+            ("paid", "razorpay_course_payment", "Book the Cohort"),
         ]
     return [
         ("visitors", "PageView", "Visitors"),
