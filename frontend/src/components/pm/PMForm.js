@@ -44,7 +44,7 @@ export const PMForm = () => {
   };
 
   return (
-    <section id="apply" className="py-12 sm:py-16 bg-[#050505] border-t border-white/5 overflow-hidden">
+    <section id="apply" className="py-8 sm:py-12 bg-[#050505] border-t border-white/5 overflow-hidden">
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <div className="mb-10">
           <h2 className="text-4xl sm:text-5xl font-black tracking-tighter text-white mb-4">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMAbout = () => {
   return (
-    <section className="py-12 sm:py-16 bg-ink relative">
+    <section className="py-8 sm:py-12 bg-ink relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         
         <div className="w-20 h-20 bg-white/5 rounded-full mx-auto mb-8 flex items-center justify-center border border-white/10">
