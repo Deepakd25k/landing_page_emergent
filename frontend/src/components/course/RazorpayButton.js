@@ -4,8 +4,8 @@ import { useAuth } from "@/context/AuthContext";
 import { useTracking } from "@/context/TrackingContext";
 
 export const RazorpayButton = () => {
-  const { api, session } = useAuth();
-  const { track } = useTracking();
+  const { api } = useAuth();
+  const { track, sessionId } = useTracking();
   const formRef = useRef(null);
   
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", role: "job" });
@@ -33,7 +33,7 @@ export const RazorpayButton = () => {
     setLoading(true);
     try {
       const res = await api.post("/session/lead", {
-        session_id: session?.session_id,
+        session_id: sessionId || null,
         ...formData,
       });
 

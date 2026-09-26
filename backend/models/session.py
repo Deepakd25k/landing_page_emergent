@@ -34,7 +34,7 @@ class SessionUpdateRequest(BaseModel):
     fbc: Optional[str] = None
 
 class LeadRequest(BaseModel):
-    session_id: str
+    session_id: Optional[str] = None
     name: str
     email: str
     phone: str
