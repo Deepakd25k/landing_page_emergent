@@ -18,6 +18,11 @@ export const RazorpayButton = () => {
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/payment-button.js";
       script.setAttribute("data-payment_button_id", "pl_TgaMXeEjEYnzcd");
+      if (sessionId) {
+        script.setAttribute("data-notes.session_id", sessionId);
+      }
+      script.setAttribute("data-prefill.email", formData.email);
+      script.setAttribute("data-prefill.contact", formData.phone);
       script.async = true;
       formRef.current.appendChild(script);
     }

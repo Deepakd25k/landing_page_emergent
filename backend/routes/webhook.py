@@ -79,10 +79,21 @@ async def resolve_session(booking: dict):
         session = await sessions.find_one({"session_id": booking["session_id"]})
         if session:
             return session
+    queries = []
     if booking.get("email"):
-        prior = await bookings.find_one({"email": booking["email"], "session_id": {"$ne": None}}, sort=[("created_at", -1)])
+        queries.append({"email": booking["email"]})
+    if booking.get("phone"):
+        # Strip all non-digit characters for robust phone matching
+        phone_digits = ''.join(filter(str.isdigit, booking["phone"]))
+        if len(phone_digits) >= 10:
+            # Match last 10 digits to handle country codes
+            queries.append({"phone": {"$regex": f"{phone_digits[-10:]}$"}})
+
+    if queries:
+        prior = await bookings.find_one({"$or": queries, "session_id": {"$ne": None}}, sort=[("created_at", -1)])
         if prior:
             return await sessions.find_one({"session_id": prior["session_id"]})
+            
     return None
 
 
