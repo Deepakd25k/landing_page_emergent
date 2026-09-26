@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Landing from "@/pages/Landing";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
+import CourseLanding from "@/pages/CourseLanding";
 import { AuthProvider, RequireAdmin } from "@/context/AuthContext";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/course" element={<CourseLanding />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin/*"
