@@ -36,11 +36,11 @@ export const PMHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-[4rem] font-bold tracking-tight leading-[1.1] mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto"
           >
-            <span className="text-slate-900 block mb-1">Stop paying retainers.</span>
-            <span className="text-slate-400 block mb-1">for interns to learn on</span>
-            <span className="text-blue-600 block">your budget.</span>
+            <span className="text-slate-900">Stop paying retainers </span>
+            <span className="text-slate-400">for interns to learn on </span>
+            <span className="text-blue-600 whitespace-nowrap">your budget.</span>
           </motion.h1>
 
           {/* Paragraph with inline highlights */}
