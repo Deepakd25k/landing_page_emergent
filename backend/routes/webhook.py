@@ -99,13 +99,19 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
         "client_ip_address": session.get("ip"), "client_user_agent": session.get("user_agent"),
     })
     order_id = booking.get("payment_id") or booking["booking_uid"]
+    is_course = session.get("campaign") == "course"
+    content_name = "D2C Performance Marketing Course" if is_course else PRODUCT_NAME
+    content_category = "Training" if is_course else PRODUCT_CATEGORY
+    content_ids = ["d2c-course"] if is_course else ["d2c-diagnostic"]
+    default_price = 4999 if is_course else DIAGNOSTIC_PRICE
+
     custom_data = {
-        "value": booking.get("payment_amount") or DIAGNOSTIC_PRICE,
+        "value": booking.get("payment_amount") or default_price,
         "currency": booking.get("payment_currency") or CURRENCY,
-        "content_name": PRODUCT_NAME,
-        "content_category": PRODUCT_CATEGORY,
+        "content_name": content_name,
+        "content_category": content_category,
         "content_type": "product",
-        "content_ids": ["d2c-diagnostic"],
+        "content_ids": content_ids,
         "num_items": 1,
         "order_id": order_id,
         "predicted_ltv": PREDICTED_LTV,
@@ -130,6 +136,7 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
             "session_id": session.get("session_id"), "source": "server_webhook",
             "booking_uid": booking["booking_uid"], "source_url": source_url,
             "created_at": datetime.now(timezone.utc).isoformat(), "event_time": now_ts,
+            "campaign": session.get("campaign") or "diagnostic",
             "user_data_fields": sorted(k for k, v in user_data.items() if v),
             "custom_data": cdata, "utm_content": session.get("utm_content"), "capi": capi_result,
         })
@@ -169,6 +176,7 @@ async def handle_webhook(request: Request):
         **{k: v for k, v in booking.items() if k != "raw_metadata"},
         "status": status,
         "session_id": session.get("session_id") if session else booking.get("session_id"),
+        "campaign": session.get("campaign") if session else "diagnostic",
         "attribution": {
             "utm_source": session.get("utm_source") if session else None,
             "utm_medium": session.get("utm_medium") if session else None,

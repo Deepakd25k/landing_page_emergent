@@ -36,11 +36,13 @@ async def track_event(body: TrackRequest, request: Request):
         "external_id": [sha256(body.session_id)],
     }
     custom_data = body.custom_data
+    campaign_name = "course" if "/course" in (body.source_url or session.get("landing_url") or "") else "diagnostic"
 
     event_doc = {
         "event_id": body.event_id,
         "event_name": body.event_name,
         "session_id": body.session_id,
+        "campaign": campaign_name,
         "source": "browser",
         "section": body.section,
         "source_url": body.source_url,
@@ -72,8 +74,7 @@ async def track_event(body: TrackRequest, request: Request):
     session_update = {"$inc": {"events_count": 1}, "$set": {"last_seen_at": now.isoformat()}}
     
     # Tag campaign based on source URL on first event or if missing
-    if not session.get("campaign") and body.source_url:
-        campaign_name = "course" if "/course" in body.source_url else "diagnostic"
+    if not session.get("campaign"):
         session_update["$set"]["campaign"] = campaign_name
 
     if body.event_name in FUNNEL_STEPS:
