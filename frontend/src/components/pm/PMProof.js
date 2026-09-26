@@ -1,12 +1,44 @@
-import { motion } from "framer-motion";
-
-export const PMProof = () => {
   const platforms = [
-    { name: "Meta", img: "/images/proof-meta.png" },
-    { name: "Google", img: "/images/proof-google.png" },
-    { name: "Amazon", img: "/images/proof-amazon.png" },
-    { name: "WhatsApp", img: "/images/proof-whatsapp.png" },
-    { name: "CRO", img: "/images/proof-cro.png" },
+    { 
+      name: "Meta", 
+      tabText: "Meta Ads • Live",
+      headline: "₹2.63 Cr Ad Spend",
+      subhead: "Scaled profitably in just 7 months.",
+      img: "/images/proof-meta.png", 
+      icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
+    },
+    { 
+      name: "Google", 
+      tabText: "Google Search • Live",
+      headline: "Dominating Search",
+      subhead: "Captured high-intent bottom funnel.",
+      img: "/images/proof-google.png", 
+      icon: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
+    },
+    { 
+      name: "Amazon", 
+      tabText: "Amazon Ads • Scaling",
+      headline: "Marketplace Scaling",
+      subhead: "Outbidding competitors efficiently.",
+      img: "/images/proof-amazon.png", 
+      icon: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" 
+    },
+    { 
+      name: "WhatsApp", 
+      tabText: "Retention • Active",
+      headline: "WhatsApp Funnels",
+      subhead: "Recovered 24% of abandoned carts.",
+      img: "/images/proof-whatsapp.png", 
+      icon: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+    },
+    { 
+      name: "CRO", 
+      tabText: "Store CRO • Active",
+      headline: "Conversion Boost",
+      subhead: "Optimized landing pages for CVR.",
+      img: "/images/proof-cro.png", 
+      icon: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+    },
   ];
 
   return (
@@ -47,16 +79,31 @@ export const PMProof = () => {
             {platforms.map((platform, index) => (
               <div 
                 key={index}
-                className="snap-center shrink-0 w-[85vw] sm:w-[450px] relative flex flex-col group transition-transform hover:-translate-y-1"
+                className="snap-center shrink-0 w-[85vw] sm:w-[450px] relative flex flex-col group transition-transform hover:-translate-y-1 drop-shadow-[0_8px_20px_rgba(0,0,0,0.06)]"
               >
-                {/* Main Card Container */}
-                <div className="w-full bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-slate-100 overflow-hidden relative">
+                {/* Folder Tab */}
+                <div className="bg-white h-10 w-48 rounded-t-2xl flex items-center px-5 relative z-10 border-b-0">
+                   <div className="flex items-center gap-2">
+                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                     <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">{platform.tabText}</span>
+                   </div>
+                </div>
+                
+                {/* Main Folder Body */}
+                <div className="w-full bg-white rounded-b-[2rem] rounded-tr-[2rem] rounded-tl-none relative z-20 overflow-hidden flex flex-col" style={{ minHeight: '400px' }}>
+                  
+                  {/* Content Header */}
+                  <div className="px-6 py-5 border-b border-slate-100 bg-white">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{platform.headline}</h3>
+                    <p className="text-sm font-bold text-slate-500 mt-1">{platform.subhead}</p>
+                  </div>
+
                   {/* Image Container */}
-                  <div className="w-full aspect-[4/5] sm:aspect-square bg-slate-50 flex items-center justify-center relative">
+                  <div className="w-full flex-1 bg-slate-50/50 flex items-center justify-center p-4 relative">
                     <img 
                       src={platform.img} 
                       alt={`${platform.name} Proof`} 
-                      className="w-full h-full object-contain sm:object-cover"
+                      className="w-full max-h-[300px] object-contain rounded-xl shadow-sm border border-slate-200/50 bg-white"
                       onError={(e) => {
                         e.target.style.display = 'none';
                         e.target.nextSibling.style.display = 'flex';
@@ -73,17 +120,12 @@ export const PMProof = () => {
                 </div>
 
                 {/* Attached Floating Platform Icon */}
-                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-slate-100 flex items-center justify-center z-20">
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-slate-50 flex items-center justify-center z-30">
                   <img 
-                    src={`/images/icon-${platform.name.toLowerCase()}.png`} 
+                    src={platform.icon} 
                     alt={platform.name}
                     className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
                   />
-                  <div className="text-[10px] sm:text-xs font-bold text-slate-400 hidden">{platform.name}</div>
                 </div>
               </div>
             ))}
