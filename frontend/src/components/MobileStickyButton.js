@@ -47,16 +47,31 @@ export const MobileStickyButton = () => {
           className="fixed bottom-4 left-4 right-4 z-50 md:hidden pointer-events-auto"
           data-testid="mobile-sticky-cta"
         >
-          <div className="bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-[0_12px_40px_rgba(5,44,101,0.25)] border border-blue/10 flex justify-center items-center">
-            {isCourse ? (
-              <form ref={formRef} className="w-full flex items-center justify-center m-0 p-0 [&>button]:w-full [&>button]:py-3"></form>
-            ) : (
-              <CTAButton
-                label={label}
-                location="mobile_sticky"
-                className="w-full text-base py-3"
-              />
-            )}
+          <div className="bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-[0_-12px_40px_rgba(5,44,101,0.15)] border border-blue/10 flex flex-col gap-2">
+            {/* Top Strip */}
+            <div className="flex items-center justify-center gap-1.5 bg-blue/5 py-1.5 px-3 rounded-lg border border-blue/10">
+              <span className="material-icons-round text-blue text-[14px]">bolt</span>
+              <span className="text-xs font-bold text-blue-dark tracking-wide uppercase">Market Fit & Extreme Value</span>
+            </div>
+            
+            {/* 2-Column Content */}
+            <div className="flex items-center justify-between gap-3 px-1">
+              <div className="flex flex-col">
+                <span className="text-sm font-black text-ink leading-tight">Book The Cohort</span>
+                <span className="text-[10px] font-bold text-green-600">Secure Your Spot</span>
+              </div>
+              <div className="shrink-0 w-[140px]">
+                {isCourse ? (
+                  <form ref={formRef} className="w-full flex items-center justify-end m-0 p-0 [&>button]:w-full [&>button]:py-2"></form>
+                ) : (
+                  <CTAButton
+                    label="Enroll V3"
+                    location="mobile_sticky"
+                    className="w-full text-sm py-2"
+                  />
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       )}

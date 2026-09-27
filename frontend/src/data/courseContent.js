@@ -2,7 +2,7 @@ export const courseHero = {
   badge: "1-MONTH WEEKEND COHORT",
   headline: "Stop Being A Platform Operator. Learn The Real D2C Tech Stack.",
   subheadline: "If you only know Meta Ads, AI will replace you. Go from Zero to Advanced. Learn from LIVE dashboards spending ₹3 Lakh/day and become the D2C Growth Partner that founders desperately need.",
-  ctaText: "Enroll In The Cohort",
+  ctaText: "Enroll For The Cohort V3",
   ctaSubtext: "Limited seats. High-touch interactive weekend sessions.",
 };
 
