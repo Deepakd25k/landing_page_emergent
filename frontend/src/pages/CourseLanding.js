@@ -11,6 +11,7 @@ import { CourseReality } from "@/components/course/CourseReality";
 import { CourseCurriculum } from "@/components/course/CourseCurriculum";
 import { CourseSystem } from "@/components/course/CourseSystem";
 import { CourseResults } from "@/components/course/CourseResults";
+import { CourseTransformation } from "@/components/course/CourseTransformation";
 import { PnlReveal } from "@/components/PnlReveal";
 
 export default function CourseLanding() {
@@ -40,6 +41,7 @@ export default function CourseLanding() {
           <CourseSystem />
           <CourseCurriculum />
           <CourseResults />
+          <CourseTransformation />
           {/* Reusing the highly effective PnL reveal to demonstrate what they will learn */}
           <PnlReveal />
           <RazorpayButton />
