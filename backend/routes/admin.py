@@ -22,6 +22,15 @@ def get_funnel(campaign: Optional[str] = None):
             ("lead", "Lead", "Application Submitted"),
             ("paid", "cohort_booked", "Cohort Booked"),
         ]
+    elif campaign == "d2c_growth":
+        return [
+            ("visitors", "PageView", "Landing Page View"),
+            ("scrolled", "ViewContent", "Content Scroll"),
+            ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
+            ("calendar_open", "CalendarOpen", "Opened Calendar"),
+            ("lead", "CalendarTimeSelected", "Selected Time"),
+            ("booked", "d2c_session_booked", "Confirmed Session"),
+        ]
     return [
         ("visitors", "PageView", "Visitors"),
         ("scrolled", "ViewContent", "Scrolled to Offer"),
@@ -58,6 +67,8 @@ def pct(part, whole):
 async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
     match = get_filter(start_date, end_date, campaign)
     b_match = {**match, "status": {"$in": ["paid", "completed", "rescheduled"]}}
+    if campaign == "d2c_growth":
+        b_match["status"]["$in"].append("created")
     
     total_sessions = await sessions.count_documents(match)
     total_events = await events.count_documents(match)

@@ -45,6 +45,8 @@ const PMContent = () => {
         callback: (e) => {
           if (e.detail.type === "linkReady") {
             track("CalendarOpen", { section: "floating-cal-button", customData: { source: "pm_page" } });
+          } else if (e.detail.type === "timeSelected") {
+            track("CalendarTimeSelected", { section: "floating-cal-button" });
           } else if (e.detail.type === "bookingSuccessful") {
             track("d2c_session_booked", { section: "floating-cal-button", send_capi: true });
           }
