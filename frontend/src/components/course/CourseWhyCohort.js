@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { courseWhyCohort } from "@/data/courseContent";
-import { Container, SectionHeader, Reveal } from "@/components/shared";
+import { SectionHeader, Reveal } from "@/components/shared";
 
 export const CourseWhyCohort = () => {
   return (
@@ -9,7 +9,7 @@ export const CourseWhyCohort = () => {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue/20 to-transparent" />
       <div className="absolute -left-[20%] top-[10%] w-[50%] h-[50%] bg-blue/5 rounded-full blur-[100px] pointer-events-none" />
       
-      <Container>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader 
           title={courseWhyCohort.title} 
           subtitle={courseWhyCohort.subtitle}
@@ -32,7 +32,7 @@ export const CourseWhyCohort = () => {
             </Reveal>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 };
