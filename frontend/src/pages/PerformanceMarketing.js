@@ -5,7 +5,7 @@ import { PMManifesto } from "../components/pm/PMManifesto";
 import { PMProof } from "../components/pm/PMProof";
 import { PMMechanism } from "../components/pm/PMMechanism";
 import { PMExecution } from "../components/pm/PMExecution";
-import { PMAdvantage } from "../components/pm/PMAdvantage";
+import { PMCaseStudies } from "../components/pm/PMCaseStudies";
 import { PMAbout } from "../components/pm/PMAbout";
 import { PMForm } from "../components/pm/PMForm";
 
@@ -26,7 +26,7 @@ export const PerformanceMarketing = () => {
       <PMProof />
       <PMMechanism />
       <PMExecution />
-      <PMAdvantage />
+      <PMCaseStudies />
       <PMAbout />
       <PMForm />
 
