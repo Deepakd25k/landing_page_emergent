@@ -43,6 +43,26 @@ export const PMCaseStudies = () => {
         "Revenue hit ₹80L/month (25x Growth)"
       ],
       footer: "The Bigger Picture: Scaling is only meaningful when efficiency scales with it. We proved the business could absorb 11x more capital profitably."
+    },
+    {
+      id: "cs3",
+      name: "Combo & CRO Fix",
+      industry: "D2C Goods",
+      problem: [
+        "ROAS stuck at 1x (₹12L Spend)",
+        "No ISP filtering or ad testing",
+        "Poorly defined product combos"
+      ],
+      action: [
+        "Deployed MYOC (Make Your Own Combo)",
+        "End-to-End CRO Funnel Fix"
+      ],
+      result: [
+        "3.2x ROAS at ₹18L Spend",
+        "AOV Stabilized at ₹1700",
+        "Successfully Onboarded to Q-Commerce"
+      ],
+      footer: "End-to-End Fix: We didn't force random combos. We analyzed user behavior to build MYOC flows that buyers naturally wanted."
     }
   ];
 
