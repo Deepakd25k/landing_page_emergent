@@ -101,55 +101,55 @@ export const PMCaseStudies = () => {
                 <div className="w-px h-6 bg-slate-200 mx-auto mt-4 mb-2"></div>
               </div>
 
-              {/* Body (Strictly Horizontal Flowchart) */}
-              <div className="p-6 sm:p-10 pt-0 relative overflow-x-auto hide-scrollbar w-full">
-                <div className="flex flex-row items-center justify-start sm:justify-center gap-4 sm:gap-6 min-w-max mx-auto px-2">
+              {/* Body (Strictly Horizontal Flowchart, No Scroll) */}
+              <div className="p-3 sm:p-10 pt-0 relative w-full">
+                <div className="grid grid-cols-[1fr_auto_1.2fr_auto_1fr] items-stretch gap-1 sm:gap-4 w-full mx-auto max-w-4xl">
                   
                   {/* Step 1: Problem */}
-                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">The Problem</span>
-                    <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 w-full">
-                      <ul className="flex flex-col gap-3">
+                  <div className="flex flex-col items-center text-center w-full">
+                    <span className="text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2 sm:mb-4">The Problem</span>
+                    <div className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 sm:p-5 w-full h-full flex items-center justify-center">
+                      <ul className="flex flex-col gap-1.5 sm:gap-3 w-full">
                         {caseStudies[activeTab].problem.map((p, i) => (
-                          <li key={i} className="text-[13px] font-semibold text-slate-600">{p}</li>
+                          <li key={i} className="text-[9px] sm:text-[13px] font-semibold text-slate-600 leading-[1.2]">{p}</li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
                   {/* Arrow 1 */}
-                  <div className="flex shrink-0 text-slate-300 px-1 sm:px-2">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex shrink-0 items-center justify-center text-slate-300">
+                    <svg className="w-3 h-3 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
 
                   {/* Step 2: Execution */}
-                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center relative z-10">
-                    <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-4">Our Execution</span>
-                    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 w-full shadow-lg transform md:scale-110">
-                      <ul className="flex flex-col gap-3">
+                  <div className="flex flex-col items-center text-center relative z-10 w-full">
+                    <span className="text-[8px] sm:text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-2 sm:mb-4">Our Execution</span>
+                    <div className="bg-slate-900 border border-slate-800 rounded-xl p-2.5 sm:p-5 w-full h-full shadow-lg sm:scale-110 flex items-center justify-center">
+                      <ul className="flex flex-col gap-1.5 sm:gap-3 w-full">
                         {caseStudies[activeTab].action.map((a, i) => (
-                          <li key={i} className="text-[13px] font-semibold text-slate-300">{a}</li>
+                          <li key={i} className="text-[9px] sm:text-[13px] font-semibold text-slate-300 leading-[1.2]">{a}</li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
                   {/* Arrow 2 */}
-                  <div className="flex shrink-0 text-slate-300 px-1 sm:px-2">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex shrink-0 items-center justify-center text-slate-300">
+                    <svg className="w-3 h-3 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
 
                   {/* Step 3: Result */}
-                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center">
-                    <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-4">The Result</span>
-                    <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 w-full">
-                      <ul className="flex flex-col gap-3">
+                  <div className="flex flex-col items-center text-center w-full">
+                    <span className="text-[8px] sm:text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-2 sm:mb-4">The Result</span>
+                    <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-2.5 sm:p-5 w-full h-full flex items-center justify-center">
+                      <ul className="flex flex-col gap-1.5 sm:gap-3 w-full">
                         {caseStudies[activeTab].result.map((r, i) => (
-                          <li key={i} className="text-[13px] font-bold text-emerald-700">{r}</li>
+                          <li key={i} className="text-[9px] sm:text-[13px] font-bold text-emerald-700 leading-[1.2]">{r}</li>
                         ))}
                       </ul>
                     </div>
