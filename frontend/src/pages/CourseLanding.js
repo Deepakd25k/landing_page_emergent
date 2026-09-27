@@ -9,6 +9,7 @@ import { MobileStickyButton } from "@/components/MobileStickyButton";
 import { CourseHero } from "@/components/course/CourseHero";
 import { CourseReality } from "@/components/course/CourseReality";
 import { CourseWhyCohort } from "@/components/course/CourseWhyCohort";
+import { CourseTools } from "@/components/course/CourseTools";
 import { CourseCurriculum } from "@/components/course/CourseCurriculum";
 import { CourseSystem } from "@/components/course/CourseSystem";
 import { CourseResults } from "@/components/course/CourseResults";
@@ -43,6 +44,7 @@ export default function CourseLanding() {
           <CourseHero />
           <CourseReality />
           <CourseWhyCohort />
+          <CourseTools />
           <CourseSystem />
           <CourseCurriculum />
           <CourseResults />
