@@ -2,47 +2,49 @@ import { motion } from "framer-motion";
 
 export const PMAbout = () => {
   return (
-    <section className="py-20 sm:py-32 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-20 sm:py-24 bg-white relative overflow-hidden border-b border-slate-100 px-4">
       
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 z-0 opacity-[0.2]" style={{ backgroundImage: 'linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         
-        {/* Label */}
-        <div className="mb-10 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold tracking-widest uppercase">
-            How We Partner
-          </div>
-        </div>
-
-        {/* Core Message */}
-        <div className="space-y-10 sm:space-y-14">
+        {/* The Master Card */}
+        <div className="bg-white border border-slate-200 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.04)] p-8 sm:p-12 overflow-hidden relative">
           
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-[1.1]">
+          {/* Top Accent Line */}
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-900"></div>
+
+          {/* Label */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 text-slate-600 text-[10px] font-bold tracking-widest uppercase">
+              Our Philosophy
+            </span>
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 mb-6 leading-snug">
             In 2026, <span className="text-red-500">"growth at all costs"</span> will not work in D2C.
           </h2>
 
-          <div className="space-y-8 sm:space-y-10 text-lg sm:text-2xl font-medium text-slate-500 leading-relaxed">
-            
+          <div className="text-sm sm:text-base font-medium text-slate-600 leading-relaxed space-y-5">
             <p>
-              We work directly with D2C brands and founders because we know exactly how they think. To a founder, dashboard ROAS is not a profitable metric. They go much deeper downstream to see if <strong className="text-slate-900 bg-emerald-100 px-1.5 py-0.5 rounded">topline revenue is actually increasing</strong>.
+              We work directly with founders because we know exactly how they think. To a founder, dashboard ROAS is not a profitable metric. They go much deeper downstream to see if <strong className="text-slate-900 bg-emerald-100 px-1 rounded">topline revenue is actually increasing</strong>.
             </p>
-
             <p>
               That’s why we do the complete D2C math on a <strong className="text-slate-900">per-product level</strong> to calculate the real CAC. We don't just run ads—we sit with founders to <span className="text-blue-600 font-bold">negotiate pricing with vendors</span>, whether it's logistics, delivery, or packaging.
             </p>
-
-            <div className="bg-slate-50 border-l-4 border-slate-900 p-6 sm:p-10 rounded-r-3xl shadow-sm">
-              <p className="text-xl sm:text-3xl text-slate-900 font-black tracking-tight mb-4">
-                We don't believe in middle-person reporting.
-              </p>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                We refuse to work in a tiered system where we report to an employee, who reports to a manager, who reports to the founder—while losing focus on what actually matters. <strong className="text-slate-900">We work directly with the founder</strong> to understand the real bottlenecks and fix them end-to-end.
-              </p>
-            </div>
-
           </div>
+
+          {/* Bottom Highlight Box inside the card */}
+          <div className="mt-8 bg-slate-50 border-l-4 border-slate-900 p-5 sm:p-6 rounded-r-xl">
+            <p className="text-lg sm:text-xl text-slate-900 font-bold tracking-tight mb-2">
+              We don't believe in middle-person reporting.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              We refuse to work in a tiered system where we report to an employee, who reports to a manager, who reports to the founder. <strong className="text-slate-900">We work directly with the founder</strong> to understand the real bottlenecks and fix them end-to-end.
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
