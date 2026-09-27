@@ -32,3 +32,26 @@ export const courseScarcity = {
   title: "What Happens After?",
   desc: "After ending this 15-hour session, you will clearly see how D2C operates. You will have your own growth pillars, know exactly how to fix someone else's business, find where the leak is, and apply the exact fixes.",
 };
+
+export const courseFaq = [
+  {
+    q: "Is this a recorded course or live?",
+    a: "This is a 100% LIVE cohort. We will log into active ad accounts spending ₹3L+/day, build n8n automations, and make scaling decisions in real-time. It's 15 hours of pure, over-the-shoulder execution."
+  },
+  {
+    q: "I'm a beginner, is this for me?",
+    a: "No. This cohort is not for absolute beginners who don't know what a Meta Business Manager is. It is designed for media buyers and marketers who want to level up into irreplaceable D2C Growth Partners."
+  },
+  {
+    q: "Do I need to be a developer to use n8n or setup CAPI?",
+    a: "Not at all. We provide exact plug-and-play workflows and teach you how to set up Server-Side Tracking (CAPI) visually, without writing a single line of code."
+  },
+  {
+    q: "Will I get access to the recordings?",
+    a: "Yes. All 5 sessions will be recorded. You will get lifetime access to the recordings, plus all the automation templates, SOPs, and resume templates we provide."
+  },
+  {
+    q: "Why are there only 50 seats?",
+    a: "Because this is a highly interactive cohort, not a mass webinar. We want to answer your specific questions, audit your thought process, and genuinely transform your career trajectory."
+  }
+];
