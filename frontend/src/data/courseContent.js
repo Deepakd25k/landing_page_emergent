@@ -1,35 +1,33 @@
 export const courseHero = {
-  badge: "INTIMATE LIVE COHORT • STRICTLY LIMITED TO 50 SEATS",
-  headline: "2026 Onwards, No Brand Will Hire A Marketer Who Only Knows 'Meta Checkboxes'.",
-  subheadline: "Stop learning basic FB Ads. Learn the real Indian D2C Tech Stack. See exactly how decisions are made inside ₹10L - ₹40L/month ad accounts.",
-  ctaText: "Apply For The Cohort",
-  ctaSubtext: "Live on Sat & Sun. High-touch Q&A.",
+  badge: "15-HOUR LIVE COHORT",
+  headline: "Stop Being A Platform Operator. Learn The Real D2C Tech Stack.",
+  subheadline: "If you only know Meta Ads, AI will replace you. Learn from a LIVE dashboard spending ₹3 Lakh/day and become the D2C Growth Partner founders actually value.",
+  ctaText: "Enroll In The Cohort",
+  ctaSubtext: "Limited seats. High-touch interactive sessions.",
 };
 
 export const courseReality = {
-  title: "The Performance Marketing Illusion",
+  title: "The Brutal Industry Reality",
   cards: [
-    { agencySays: "I know how to run CBO & ABO.", reality: "Brands don't care. They care if you can read SKU-level P&L and fix Contribution Margins." },
-    { agencySays: "I can lower your CPC & CPM.", reality: "If the landing page conversion is 0.5% and RTO is 40%, cheap traffic still burns money." },
-    { agencySays: "Meta is reporting 4x ROAS.", reality: "If you don't know Server-Side Tracking (CAPI), you are optimizing on 40% fake data." },
+    { agencySays: "The AI Delusion", reality: "Brands can't just give credit cards to AI. When metrics drop, AI just justifies it. Founders need human accountability for stable growth." },
+    { agencySays: "The Interview Failure", reality: "99% of marketers fail interviews. They debate ABO vs CBO instead of understanding the real D2C tech stack needed in 2026." },
+    { agencySays: "The Metric Lie", reality: "Founders don't care about Platform ROAS. It's inflated by 20-30% fake orders. They care about actual profit and unit economics." },
   ],
-  closer: "70% of candidates we interview have outdated knowledge. They think marketing is just pressing buttons in Ads Manager.",
+  closer: "Growth isn't a secret trick. It's a system that needs to be aligned. And we will teach you that system.",
 };
 
 export const courseCurriculum = {
-  title: "What Happens Inside A ₹40L/Month Account?",
-  subtitle: "We don't teach theory. We open live dashboards and break down the real D2C mechanics.",
+  title: "A 15-Hour Live Transformation",
+  subtitle: "I won't just 'teach' you. I will build your ultimate confidence.",
   modules: [
-    { num: "01", title: "The Indian D2C Tech Stack", desc: "How Shopify, Meta, Analytics, and Logistics talk to each other.", icon: "account_tree" },
-    { num: "02", title: "SKU-Level Profitability", desc: "Stop optimizing for 'Campaign ROAS'. Learn how to scale based on per-product margins.", icon: "inventory" },
-    { num: "03", title: "Tracking & CAPI Mastery", desc: "How to fix iOS signal loss. Setting up server-side events so the algorithm actually learns.", icon: "dns" },
-    { num: "04", title: "CRO & Offer Engineering", desc: "If the ad works but the site doesn't, you lose. Learn to build offers that convert at 3%+.", icon: "local_offer" },
-    { num: "05", title: "The RTO Defense", desc: "Tier-2 scaling without the return-to-origin bloodbath. PIN-code level filtering.", icon: "shield" },
-    { num: "06", title: "Reporting Like A CMO", desc: "How to present data to founders so they trust you with infinite budgets.", icon: "insights" },
+    { num: "01", title: "Live Dashboards (₹3L/Day)", desc: "No outdated theory. See exactly how decisions are made inside live accounts spending roughly ₹3 Lakh daily.", icon: "account_tree" },
+    { num: "02", title: "The Attribution Secret", desc: "No one talks about it, but 40-60% of growth lies in proper attribution tracking. We fix the leaks.", icon: "dns" },
+    { num: "03", title: "Scaling The Topline", desc: "If you increase budget, will the topline increase? If yes, where? If not, why? The exact math you need.", icon: "inventory" },
+    { num: "04", title: "Founder Communication", desc: "Stop giving generic answers. Learn how to explain the exact mechanics of growth to the founder.", icon: "insights" },
   ]
 };
 
 export const courseScarcity = {
-  title: "Why Only 50 Students?",
-  desc: "This isn't a pre-recorded course where you buy it and never watch it. This is a live, interactive weekend intensive. We will open real data, answer your specific bottlenecks, and rebuild your approach to performance marketing. 50 seats ensures everyone gets personal attention.",
+  title: "What Happens After?",
+  desc: "After ending this 15-hour session, you will clearly see how D2C operates. You will have your own growth pillars, know exactly how to fix someone else's business, find where the leak is, and apply the exact fixes.",
 };

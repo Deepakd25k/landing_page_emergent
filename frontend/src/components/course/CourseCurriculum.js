@@ -22,12 +22,12 @@ export const CourseCurriculum = () => (
       </Reveal>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-24 relative z-10">
         {courseCurriculum.modules.map((mod, i) => (
           <Reveal key={i} delay={i * 0.1}>
-            <div className="group relative p-6 sm:p-8 bg-[#f8f9fb] rounded-2xl border border-line hover:border-blue hover:shadow-card transition-all duration-300">
+            <div className={`group relative p-6 sm:p-8 rounded-2xl border transition-all duration-300 ${i % 2 === 0 ? 'bg-white border-line hover:border-blue hover:shadow-card' : 'bg-[#F8F9FA] border-transparent hover:border-blue/30 hover:shadow-card'}`}>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 shrink-0 rounded-full bg-white shadow-soft flex items-center justify-center text-blue group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-white border border-line shadow-sm flex items-center justify-center text-blue group-hover:scale-110 transition-transform duration-300">
                   <span className="material-icons-round text-2xl">{mod.icon}</span>
                 </div>
                 <div>
@@ -47,14 +47,15 @@ export const CourseCurriculum = () => (
         ))}
       </div>
 
-      {/* Scarcity Section */}
+      {/* Scarcity / What Happens After Section */}
       <Reveal delay={0.2}>
-        <div className="bg-orange-50 border border-orange-200 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
-          <span className="material-icons-round text-orange-500 text-4xl mb-4">groups</span>
-          <h3 className="text-2xl sm:text-4xl font-black text-orange-900 mb-4 tracking-tight">
+        <div className="bg-ink text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue/20 blur-[100px] rounded-full pointer-events-none"></div>
+          <span className="material-icons-round text-blue-400 text-4xl mb-4 relative z-10">rocket_launch</span>
+          <h3 className="text-2xl sm:text-4xl font-black text-white mb-4 tracking-tight relative z-10">
             {courseScarcity.title}
           </h3>
-          <p className="text-base sm:text-lg text-orange-800/80 leading-relaxed max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-3xl mx-auto font-medium relative z-10">
             {courseScarcity.desc}
           </p>
         </div>

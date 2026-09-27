@@ -3,8 +3,17 @@ import { Reveal } from "@/components/shared";
 import { courseReality } from "@/data/courseContent";
 
 export const CourseReality = () => (
-  <section className="bg-white py-20 sm:py-32 overflow-hidden">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="relative bg-[#FAFAFA] py-20 sm:py-32 overflow-hidden border-t border-line">
+    {/* Subtle Square Grid */}
+    <div 
+      className="absolute inset-0 pointer-events-none opacity-[0.25]" 
+      style={{
+        backgroundImage: "linear-gradient(#E2E8F0 1px, transparent 1px), linear-gradient(90deg, #E2E8F0 1px, transparent 1px)",
+        backgroundSize: "40px 40px"
+      }}
+    />
+
+    <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <Reveal>
         <div className="text-center mb-16">
@@ -12,7 +21,7 @@ export const CourseReality = () => (
             {courseReality.title}
           </h2>
           <p className="text-lg text-ink-2 max-w-2xl mx-auto font-medium">
-            Stop learning features. Start learning business mechanics.
+            The era of the "Platform Operator" is dead. Brands don't need button clickers anymore.
           </p>
         </div>
       </Reveal>
