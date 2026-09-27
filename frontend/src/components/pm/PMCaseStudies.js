@@ -26,22 +26,23 @@ export const PMCaseStudies = () => {
     },
     {
       id: "cs2",
-      name: "The Scaling Wall",
-      industry: "Jewelry Brand",
+      name: "Profitable Scaling",
+      industry: "D2C Fashion",
       problem: [
-        "Stuck at ₹10L/month",
-        "CPA spikes instantly",
-        "Rapid creative fatigue"
+        "Stuck at ₹2L/month spend",
+        "Low Efficiency (1.5x ROAS)",
+        "Revenue capped at ₹3L/month"
       ],
       action: [
-        "Deployed n8n AI Workflows",
-        "Data-Native Testing"
+        "Aggressive Spend Scaling",
+        "Real-Time Efficiency Optimization"
       ],
       result: [
-        "Scaled to ₹50L/month",
-        "CPA Reduced by 40%"
+        "Scaled Spend to ₹22L/month",
+        "ROAS improved to 3.5x",
+        "Revenue hit ₹80L/month (25x Growth)"
       ],
-      footer: "End-to-End Fix: Maintained highly consistent ROAS while scaling ad spend 5x in 60 days."
+      footer: "The Bigger Picture: Scaling is only meaningful when efficiency scales with it. We proved the business could absorb 11x more capital profitably."
     }
   ];
 
