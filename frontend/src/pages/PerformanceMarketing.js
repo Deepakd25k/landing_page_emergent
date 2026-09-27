@@ -9,13 +9,14 @@ import { PMExecution } from "../components/pm/PMExecution";
 import { PMCaseStudies } from "../components/pm/PMCaseStudies";
 import { PMAbout } from "../components/pm/PMAbout";
 
-export const PerformanceMarketing = () => {
+import { TrackingProvider, useTracking } from "@/context/TrackingContext";
+
+const PMContent = () => {
   const location = useLocation();
+  const { track } = useTracking();
 
   useEffect(() => {
-    // Scroll to top when the component mounts
     window.scrollTo(0, 0);
-    // Dynamic page title
     document.title = "D2C Growth Partners | Not An Agency";
   }, [location]);
 
@@ -37,18 +38,27 @@ export const PerformanceMarketing = () => {
         "hideEventTypeDetails": false,
         "layout": "month_view"
       });
+
+      // Track Cal.com events
+      cal("on", {
+        action: "*",
+        callback: (e) => {
+          if (e.detail.type === "linkReady") {
+            track("CalendarOpen", { section: "floating-cal-button", customData: { source: "pm_page" } });
+          } else if (e.detail.type === "bookingSuccessful") {
+            track("d2c_session_booked", { section: "floating-cal-button", send_capi: true });
+          }
+        }
+      });
     })();
 
-    // Cleanup floating button on unmount if possible, though Cal API might persist it.
-    // In React Router, it might stay on other pages if not hidden, but let's just initialize it here.
     return () => {
-      // Hiding the Cal floating button when leaving this page
-      const calBtn = document.getElementById("cal-booking-place-holder"); // usually where Cal injects
+      const calBtn = document.getElementById("cal-booking-place-holder");
       if (calBtn) calBtn.style.display = "none";
-      const actualBtn = document.querySelector(".cal-floating-button"); // fallback selector
+      const actualBtn = document.querySelector(".cal-floating-button");
       if (actualBtn) actualBtn.style.display = "none";
     };
-  }, []);
+  }, [track]);
 
   return (
     <div className="bg-ink min-h-screen text-white font-sans selection:bg-blue selection:text-white pb-24 relative">
@@ -62,3 +72,9 @@ export const PerformanceMarketing = () => {
     </div>
   );
 };
+
+export const PerformanceMarketing = () => (
+  <TrackingProvider>
+    <PMContent />
+  </TrackingProvider>
+);
