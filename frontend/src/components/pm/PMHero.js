@@ -69,15 +69,16 @@ export const PMHero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="w-full sm:max-w-md mx-auto flex flex-col items-center"
           >
-            <a
-              href="#apply"
+            <button
+              data-cal-link="d2cdeepak-audit/d2c-growth-call"
+              onClick={() => window.trackEvent?.("InitiateCheckout", { section: "pm-hero" })}
               className="w-full px-8 py-5 bg-[#5D5FEF] hover:bg-[#4d4fdf] text-white rounded-2xl font-semibold text-lg transition-all shadow-[0_10px_30px_rgba(93,95,239,0.3)] hover:shadow-[0_15px_40px_rgba(93,95,239,0.4)] flex items-center justify-center gap-2 mb-4"
             >
               Apply For Partnership
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </a>
+            </button>
             
             <p className="text-sm text-slate-500">
               <span className="relative inline-block font-semibold text-slate-900 px-1">

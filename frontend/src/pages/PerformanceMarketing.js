@@ -16,9 +16,10 @@ const PMContent = () => {
   const { track } = useTracking();
 
   useEffect(() => {
+    window.trackEvent = track;
     window.scrollTo(0, 0);
     document.title = "D2C Growth Partners | Not An Agency";
-  }, [location]);
+  }, [location, track]);
 
   useEffect(() => {
     (async function () {

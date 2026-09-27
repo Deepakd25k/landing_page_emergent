@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useTracking } from "@/context/TrackingContext";
 import { scrollToBooking } from "@/components/shared";
 
-export const CTAButton = ({ label, location, variant = "primary", size = "lg", className = "", testId }) => {
+export const CTAButton = ({ label, location, variant = "primary", size = "lg", className = "", testId, ...props }) => {
   const { track } = useTracking();
   const onClick = () => {
     track("InitiateCheckout", { section: location, customData: { cta_location: location } });
@@ -21,6 +21,7 @@ export const CTAButton = ({ label, location, variant = "primary", size = "lg", c
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
       data-testid={testId || `cta-${location}`}
+      data-cal-link={props["data-cal-link"]}
       className={`${base} ${sizes} ${variants[variant]} ${className}`}
     >
       <span>{label}</span>
