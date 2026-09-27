@@ -26,7 +26,7 @@ export const MobileStickyButton = ({ onOpenModal }) => {
   }, []);
 
   const handleOpen = () => {
-    track("InitiateCheckout", { section: "mobile_sticky" });
+    track("InitiateCheckout_Sticky", { section: "mobile_sticky" });
     if (onOpenModal) onOpenModal();
   };
 

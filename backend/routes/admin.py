@@ -16,13 +16,12 @@ router = APIRouter(prefix="/api/admin", tags=["admin"])
 def get_funnel(campaign: Optional[str] = None):
     if campaign == "cohort":
         return [
-            ("visitors", "PageView", "Landing Page View"),
-            ("scrolled", "ViewContent", "Content Scroll"),
-            ("reached_cta", "ScrolledToCTA", "Reached to CTA"),
-            ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
-            ("opened_form", "OpenedModal", "Initiated Form Fill"),
-            ("lead", "d2c_cohort_lead", "Filled Form (No Payment)"),
-            ("paid", "d2c_cohort_payment", "Payment Intent"),
+            ("landing_page_views", "PageView", "Landing Page Views"),
+            ("scroll_depth", "ViewContent", "Scroll Depth"),
+            ("scroll_CTA", "ScrolledToCTA", "Reached to CTA"),
+            ("click_sticky_CTA", "InitiateCheckout_Sticky", "Clicked Sticky CTA"),
+            ("d2c_cohort_lead", "d2c_cohort_lead", "Form Filled"),
+            ("d2c_cohort_payment", "d2c_cohort_payment", "Payment Intent"),
         ]
     elif campaign == "d2c_growth":
         return [

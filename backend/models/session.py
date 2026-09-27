@@ -38,4 +38,4 @@ class LeadRequest(BaseModel):
     name: str
     email: str
     phone: str
-    role: str
+    role: Optional[str] = None

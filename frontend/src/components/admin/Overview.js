@@ -71,12 +71,12 @@ export const Overview = () => {
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <Stat icon={Users} label="Visitors" value={stats?.sessions ?? "—"} sub="Unique sessions" testId="stat-visitors" />
         <Stat icon={Zap} label="Events" value={stats?.events ?? "—"} sub="Stored in MongoDB" testId="stat-events" />
-        <Stat icon={CalendarCheck} label={campaign === "course" ? "Seats Booked" : campaign === "d2c_growth" ? "Confirmed Calls" : "Paid bookings"} value={stats?.paid_bookings ?? "—"} sub={campaign === "d2c_growth" ? "Total Scheduled" : `${stats?.conversion_rate ?? 0}% visitor → paid`} testId="stat-paid" tone="text-success" />
+        <Stat icon={CalendarCheck} label={campaign === "cohort" ? "Seats Booked" : campaign === "d2c_growth" ? "Confirmed Calls" : "Paid bookings"} value={stats?.paid_bookings ?? "—"} sub={campaign === "d2c_growth" ? "Total Scheduled" : `${stats?.conversion_rate ?? 0}% visitor → paid`} testId="stat-paid" tone="text-success" />
         {campaign !== "d2c_growth" && (
           <Stat icon={IndianRupee} label="Revenue" value={stats ? fmtINR(stats.revenue) : "—"} testId="stat-revenue" tone="text-success" />
         )}
         
-        {campaign === "course" ? (
+        {campaign === "cohort" ? (
           <Stat icon={Zap} label="Velocity (1h)" value={stats?.velocity_1h ?? "—"} sub={`${stats?.velocity_24h ?? 0} booked in 24h`} testId="stat-velocity" tone="text-orange-500" />
         ) : campaign !== "d2c_growth" ? (
           <Stat icon={Repeat} label="Retainers" value={stats?.retainers ?? "—"} sub={`${stats?.retainer_rate ?? 0}% of paid`} testId="stat-retainers" />

@@ -27,7 +27,7 @@ export const CampaignFilter = () => {
       >
         <option value="all">All Campaigns</option>
         <option value="diagnostic">Diagnostic Only</option>
-        <option value="course">Course Only</option>
+        <option value="cohort">Cohort Only</option>
         <option value="d2c_growth">D2C Growth Only</option>
       </select>
     </div>

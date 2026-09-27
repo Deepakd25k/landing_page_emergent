@@ -78,9 +78,9 @@ async def razorpay_webhook(request: Request):
     now = datetime.now(timezone.utc).isoformat()
     session = await resolve_session(booking)
     
-    # Force campaign to course for these payments
+    # Force campaign to cohort for these payments
     if session:
-        session["campaign"] = "course"
+        session["campaign"] = "cohort"
 
     existing = await bookings.find_one({"booking_uid": booking["booking_uid"]})
     if existing:
@@ -88,13 +88,13 @@ async def razorpay_webhook(request: Request):
 
     # Remove the unpaid lead record if it exists so we don't have duplicates
     if email:
-        await bookings.delete_one({"email": email, "status": "lead", "campaign": "course"})
+        await bookings.delete_one({"email": email, "status": "lead", "campaign": "cohort"})
 
     doc = {
         **booking,
         "status": "paid",
         "session_id": session.get("session_id") if session else None,
-        "campaign": "course",
+        "campaign": "cohort",
         "attribution": {
             "utm_source": session.get("utm_source") if session else None,
             "utm_medium": session.get("utm_medium") if session else None,
@@ -115,7 +115,7 @@ async def razorpay_webhook(request: Request):
     }
     await bookings.insert_one(doc)
 
-    capi_results, fields = await fire_purchase_and_schedule(booking, session or {"campaign": "course"}, "COHORT_BOOKED")
+    capi_results, fields = await fire_purchase_and_schedule(booking, session or {"campaign": "cohort"}, "COHORT_BOOKED")
     
     if capi_results:
         await bookings.update_one(
