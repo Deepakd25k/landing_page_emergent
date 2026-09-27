@@ -96,17 +96,17 @@ export const PMCaseStudies = () => {
             >
               
               {/* Header */}
-              <div className="p-8 pb-4 text-center">
-                <h3 className="text-2xl font-black text-slate-900 tracking-tight">{caseStudies[activeTab].industry}</h3>
+              <div className="p-6 sm:p-8 pb-4 text-center">
+                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">{caseStudies[activeTab].industry}</h3>
                 <div className="w-px h-6 bg-slate-200 mx-auto mt-4 mb-2"></div>
               </div>
 
-              {/* Body (Horizontal Flowchart) */}
-              <div className="p-6 sm:p-10 pt-0 relative overflow-x-auto hide-scrollbar">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 min-w-max md:min-w-0 mx-auto">
+              {/* Body (Strictly Horizontal Flowchart) */}
+              <div className="p-6 sm:p-10 pt-0 relative overflow-x-auto hide-scrollbar w-full">
+                <div className="flex flex-row items-center justify-start sm:justify-center gap-4 sm:gap-6 min-w-max mx-auto px-2">
                   
                   {/* Step 1: Problem */}
-                  <div className="w-64 shrink-0 flex flex-col items-center text-center">
+                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center">
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">The Problem</span>
                     <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5 w-full">
                       <ul className="flex flex-col gap-3">
@@ -118,15 +118,14 @@ export const PMCaseStudies = () => {
                   </div>
 
                   {/* Arrow 1 */}
-                  <div className="hidden md:flex shrink-0 text-slate-300 px-2">
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex shrink-0 text-slate-300 px-1 sm:px-2">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
-                  <div className="md:hidden w-px h-6 bg-slate-200"></div>
 
                   {/* Step 2: Execution */}
-                  <div className="w-64 shrink-0 flex flex-col items-center text-center relative z-10">
+                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center relative z-10">
                     <span className="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-4">Our Execution</span>
                     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 w-full shadow-lg transform md:scale-110">
                       <ul className="flex flex-col gap-3">
@@ -138,15 +137,14 @@ export const PMCaseStudies = () => {
                   </div>
 
                   {/* Arrow 2 */}
-                  <div className="hidden md:flex shrink-0 text-slate-300 px-2">
-                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex shrink-0 text-slate-300 px-1 sm:px-2">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
-                  <div className="md:hidden w-px h-6 bg-slate-200"></div>
 
                   {/* Step 3: Result */}
-                  <div className="w-64 shrink-0 flex flex-col items-center text-center">
+                  <div className="w-56 sm:w-64 shrink-0 flex flex-col items-center text-center">
                     <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-4">The Result</span>
                     <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 w-full">
                       <ul className="flex flex-col gap-3">
