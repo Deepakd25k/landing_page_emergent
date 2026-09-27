@@ -95,7 +95,7 @@ async def create_lead(body: LeadRequest, request: Request):
         "phone": body.phone.strip(),
         "role": body.role,
         "lead_captured_at": now,
-        "funnel.Lead": now
+        "funnel.d2c_cohort_lead": now
     }
     await sessions.update_one({"session_id": body.session_id}, {"$set": update})
 
@@ -110,7 +110,7 @@ async def create_lead(body: LeadRequest, request: Request):
         "external_id": [sha256(body.session_id)],
     }
     capi_result = await send_event(
-        event_name="Lead",
+        event_name="d2c_cohort_lead",
         event_id=f"lead_{body.session_id}",
         event_source_url=session.get("landing_url") or "",
         user_data={k: v for k, v in user_data.items() if v},
@@ -137,7 +137,7 @@ async def create_lead(body: LeadRequest, request: Request):
         "payment_success": False,
         "meeting_url": None,
         "status": "lead",
-        "campaign": "course",
+        "campaign": "cohort",
         "attribution": {
             "utm_source": session.get("utm_source"),
             "utm_medium": session.get("utm_medium"),

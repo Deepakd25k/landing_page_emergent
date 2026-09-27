@@ -14,13 +14,15 @@ from services.mongo import ad_spend, bookings, events, sessions, strip_id
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
 def get_funnel(campaign: Optional[str] = None):
-    if campaign == "course":
+    if campaign == "cohort":
         return [
             ("visitors", "PageView", "Landing Page View"),
             ("scrolled", "ViewContent", "Content Scroll"),
-            ("clicked_cta", "InitiateCheckout", "Checkout Initiated"),
-            ("lead", "Lead", "Application Submitted"),
-            ("paid", "cohort_booked", "Cohort Booked"),
+            ("reached_cta", "ScrolledToCTA", "Reached to CTA"),
+            ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
+            ("opened_form", "OpenedModal", "Initiated Form Fill"),
+            ("lead", "d2c_cohort_lead", "Filled Form (No Payment)"),
+            ("paid", "d2c_cohort_payment", "Payment Intent"),
         ]
     elif campaign == "d2c_growth":
         return [
@@ -204,7 +206,7 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
     if match:
         pipeline.append({"$match": match})
         
-    paid_event = "funnel.cohort_booked" if campaign == "course" else "funnel.Purchase"
+    paid_event = "funnel.d2c_cohort_payment" if campaign == "cohort" else "funnel.Purchase"
     
     pipeline.extend([
         {"$group": {

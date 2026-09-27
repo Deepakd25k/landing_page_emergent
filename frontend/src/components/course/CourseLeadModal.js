@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { useAuth } from "@/context/AuthContext";
@@ -10,6 +10,12 @@ export const CourseLeadModal = ({ isOpen, onClose }) => {
   
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      track("OpenedModal", { once: true });
+    }
+  }, [isOpen, track]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +37,8 @@ export const CourseLeadModal = ({ isOpen, onClose }) => {
       }
       
       // 2. Fire CAPI Events exactly as requested
-      track("d2c_course_lead", { customData: { email: formData.email, phone: formData.phone } });
-      track("d2c_course_payment", { customData: { email: formData.email, phone: formData.phone } });
+      track("d2c_cohort_lead", { customData: { email: formData.email, phone: formData.phone } });
+      track("d2c_cohort_payment", { customData: { email: formData.email, phone: formData.phone } });
       
       // 3. Immediate Redirect to Razorpay Payment Link
       window.location.href = "https://rzp.io/rzp/DAFsbLGS";

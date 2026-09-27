@@ -1,8 +1,28 @@
+import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/shared";
 import { useTracking } from "@/context/TrackingContext";
 
 export const RazorpayButton = ({ onOpenModal }) => {
   const { track } = useTracking();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          track("ScrolledToCTA", { once: true });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [track]);
 
   const handleOpen = () => {
     track("InitiateCheckout", { section: "bottom_checkout" });
@@ -10,7 +30,7 @@ export const RazorpayButton = ({ onOpenModal }) => {
   };
 
   return (
-    <section id="book" className="py-20 sm:py-32 bg-[#F8F9FA] border-t border-line overflow-hidden relative">
+    <section ref={sectionRef} id="book" className="py-20 sm:py-32 bg-[#F8F9FA] border-t border-line overflow-hidden relative">
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue/10 blur-[120px] rounded-full pointer-events-none"></div>
 

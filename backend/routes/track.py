@@ -13,7 +13,7 @@ from services.mongo import events, sessions
 
 router = APIRouter(prefix="/api", tags=["track"])
 
-FUNNEL_STEPS = {"PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "CalendarOpen", "CalendarTimeSelected", "AddPaymentInfo", "Purchase", "Schedule", "Lead", "cohort_booked", "d2c_session_booked"}
+FUNNEL_STEPS = {"PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "CalendarOpen", "CalendarTimeSelected", "AddPaymentInfo", "Purchase", "Schedule", "Lead", "cohort_booked", "d2c_session_booked", "ScrolledToCTA", "OpenedModal", "d2c_cohort_lead", "d2c_cohort_payment"}
 
 
 @router.post("/track")
@@ -40,7 +40,7 @@ async def track_event(body: TrackRequest, request: Request):
     if "/pm" in url_to_check:
         campaign_name = "d2c_growth"
     elif "/course" in url_to_check:
-        campaign_name = "course"
+        campaign_name = "cohort"
     else:
         campaign_name = "diagnostic"
 
