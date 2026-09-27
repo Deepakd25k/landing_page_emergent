@@ -27,7 +27,7 @@ export const courseWhyCohort = {
     },
     {
       title: "No Fake Guarantees",
-      desc: "We do not guarantee you a 100% job placement. What we guarantee is that you will be confident enough to stand out in the D2C space and achieve better growth.",
+      desc: "I am not just making you 'job ready'. I am making you 'industry ready' in this AI world. You will build the confidence and skills to stand out and actually drive D2C growth.",
       icon: "verified_user"
     },
     {
