@@ -63,6 +63,26 @@ export const PMCaseStudies = () => {
         "Successfully Onboarded to Q-Commerce"
       ],
       footer: "End-to-End Fix: We didn't force random combos. We analyzed user behavior to build MYOC flows that buyers naturally wanted."
+    },
+    {
+      id: "cs4",
+      name: "EdTech Hyper-Scale",
+      industry: "EdTech",
+      problem: [
+        "Stuck at ₹15L/month spend",
+        "Unsustainable CAC (₹3L)",
+        "Revenue capped at ₹30L/month"
+      ],
+      action: [
+        "Systematic Google+Meta Scaling",
+        "Unit Economics Optimization"
+      ],
+      result: [
+        "Scaled Spend to ₹2.5Cr/month",
+        "CAC slashed by 50% (₹1.5L)",
+        "Revenue hit ₹7.5Cr/month"
+      ],
+      footer: "The Bigger Picture: We didn't just increase budgets. We scaled the economics, allowing 16.7x more capital deployment at half the CAC."
     }
   ];
 
