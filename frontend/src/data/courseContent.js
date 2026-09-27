@@ -16,6 +16,28 @@ export const courseReality = {
   closer: "Growth isn't a secret trick. It's a system that needs to be aligned. And we will teach you that system.",
 };
 
+export const courseWhyCohort = {
+  title: "Why A Cohort? Not Just Another ₹40k Course",
+  subtitle: "We've seen people pay heavy upfront fees for recorded content that gets outdated in 3 months. They still struggle with what to learn, face rejections, and remain clueless in real interviews.",
+  points: [
+    {
+      title: "No Outdated Recordings",
+      desc: "D2C strategies change every quarter. We teach live, using active ad accounts so you learn what works today, not what worked in 2023.",
+      icon: "history_toggle_off"
+    },
+    {
+      title: "No Fake Guarantees",
+      desc: "We do not guarantee you a 100% job placement. What we guarantee is that you will be confident enough to stand out in the D2C space and achieve better growth.",
+      icon: "verified_user"
+    },
+    {
+      title: "Interactive & Genuine",
+      desc: "You aren't left alone with videos. You get real-time feedback, doubt solving, and a community of marketers building systems together.",
+      icon: "groups"
+    }
+  ]
+};
+
 export const courseCurriculum = {
   title: "The 1-Month Transformation",
   subtitle: "This is not a recorded course. This is a 1-Month LIVE cohort (Weekends Only, 2.5 Hrs Learning + 30 Mins Live Doubts). We build the systems together.",
