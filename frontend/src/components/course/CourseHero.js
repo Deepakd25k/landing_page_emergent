@@ -7,7 +7,7 @@ export const CourseHero = () => {
   const { track } = useTracking();
   
   return (
-  <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-white">
+  <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 overflow-hidden bg-white">
     {/* Subtle Dotted Background */}
     <div 
       className="absolute inset-0 pointer-events-none opacity-[0.15]" 
@@ -17,41 +17,41 @@ export const CourseHero = () => {
       }}
     />
     
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
       <Reveal>
-        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue/10 border border-blue/20 text-blue text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-8 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-blue animate-pulse"></span>
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue/5 border border-blue/10 text-blue-dark text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse"></span>
           {courseHero.badge}
         </span>
       </Reveal>
 
       <Reveal delay={0.1}>
-        <h1 className="text-4xl sm:text-6xl md:text-[5rem] font-black text-ink tracking-tighter leading-[1.05] mb-8">
+        <h1 className="text-4xl sm:text-6xl md:text-[5.5rem] font-black text-ink tracking-tight leading-[1.05] mb-6 max-w-4xl mx-auto">
           {courseHero.headline.split('Learn').map((part, i) => (
-            i === 0 ? <span key={i}>{part}<br className="hidden md:block"/>Learn</span> : <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-blue to-blue-dark">{part}</span>
+            i === 0 ? <span key={i}>{part}<br className="hidden md:block"/>Learn</span> : <span key={i} className="text-blue">{part}</span>
           ))}
         </h1>
       </Reveal>
 
       <Reveal delay={0.2}>
-        <p className="text-base sm:text-xl md:text-2xl text-ink-2 max-w-3xl mx-auto leading-relaxed mb-12 font-medium">
+        <p className="text-base sm:text-xl text-ink-2 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
           {courseHero.subheadline}
         </p>
       </Reveal>
 
       <Reveal delay={0.3}>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
           <button 
             onClick={() => {
               track("InitiateCheckout", { section: "course_hero" });
               document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="w-full sm:w-auto px-10 py-5 bg-blue hover:bg-blue-dark text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-[0_10px_40px_rgba(37,99,235,0.2)] hover:shadow-[0_15px_50px_rgba(37,99,235,0.3)] hover:-translate-y-1"
+            className="w-full sm:w-auto px-10 py-4 bg-blue hover:bg-blue-dark text-white rounded-lg font-semibold text-lg transition-all duration-200 shadow-sm hover:shadow-md"
           >
             {courseHero.ctaText}
           </button>
         </div>
-        <p className="mt-5 text-xs sm:text-sm text-ink-3 font-medium">
+        <p className="mt-4 text-xs sm:text-sm text-ink-3 font-medium">
           {courseHero.ctaSubtext}
         </p>
       </Reveal>
