@@ -54,13 +54,13 @@ export const CourseLeadModal = ({ isOpen, onClose }) => {
             onClick={onClose}
             className="fixed inset-0 bg-ink/80 backdrop-blur-sm z-[100]"
           />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-[101] px-4"
-          >
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden w-full max-w-md pointer-events-auto"
+            >
               {/* Header */}
               <div className="bg-blue/5 border-b border-blue/10 px-6 py-5 flex items-center justify-between">
                 <div>
@@ -131,8 +131,8 @@ export const CourseLeadModal = ({ isOpen, onClose }) => {
                   </p>
                 </form>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </>
       )}
     </AnimatePresence>
