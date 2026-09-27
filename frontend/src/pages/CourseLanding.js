@@ -9,6 +9,7 @@ import { MobileStickyButton } from "@/components/MobileStickyButton";
 import { CourseHero } from "@/components/course/CourseHero";
 import { CourseReality } from "@/components/course/CourseReality";
 import { CourseCurriculum } from "@/components/course/CourseCurriculum";
+import { CourseSystem } from "@/components/course/CourseSystem";
 import { PnlReveal } from "@/components/PnlReveal";
 
 export default function CourseLanding() {
@@ -35,6 +36,7 @@ export default function CourseLanding() {
         <main>
           <CourseHero />
           <CourseReality />
+          <CourseSystem />
           <CourseCurriculum />
           {/* Reusing the highly effective PnL reveal to demonstrate what they will learn */}
           <PnlReveal />
