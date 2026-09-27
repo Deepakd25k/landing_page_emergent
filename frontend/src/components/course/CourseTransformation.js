@@ -22,34 +22,34 @@ export const CourseTransformation = () => {
           </div>
         </Reveal>
 
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 relative">
           
           {/* Left: Media Buyer */}
           <Reveal className="w-full lg:w-1/2">
-            <div className="bg-white border border-red-100 rounded-[2rem] p-8 sm:p-10 shadow-sm relative overflow-hidden group hover:border-red-200 hover:shadow-card transition-all duration-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 blur-[50px] rounded-full pointer-events-none transition-all duration-300 group-hover:bg-red-100"></div>
+            <div className="bg-white border border-red-100 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden group hover:border-red-200 hover:shadow-card transition-all duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-red-50 blur-[40px] rounded-full pointer-events-none transition-all duration-300 group-hover:bg-red-100"></div>
               
-              <div className="flex items-center gap-4 mb-6 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-red-50 text-red-500 flex items-center justify-center font-black border border-red-100">
-                  <span className="material-icons-round">person_off</span>
+              <div className="flex items-center gap-4 mb-5 relative z-10">
+                <div className="w-10 h-10 rounded-full bg-red-50 text-red-500 flex items-center justify-center font-black border border-red-100 shrink-0">
+                  <span className="material-icons-round text-lg">person_off</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-ink">Replaceable Media Buyer</h3>
-                  <p className="text-sm font-semibold text-red-500">How 99% of marketers operate</p>
+                  <h3 className="text-lg font-bold text-ink leading-tight">Replaceable Media Buyer</h3>
+                  <p className="text-xs font-semibold text-red-500">How 80% of average marketers operate</p>
                 </div>
               </div>
 
-              <ul className="space-y-4 relative z-10">
+              <ul className="space-y-3 relative z-10">
                 {[
-                  "Debates ABO vs CBO in interviews",
-                  "Optimizes for platform ROAS (inflated data)",
-                  "Has no idea where the funnel leaks",
-                  "Writes copy manually (slow & generic)",
-                  "Seen as a cost center by founders"
+                  "Debates ABO vs CBO instead of systems",
+                  "Optimizes for blind platform ROAS",
+                  "Has no idea where the funnel actually leaks",
+                  "Writes copy manually & slowly",
+                  "Seen merely as a cost center"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="material-icons-round text-red-400 mt-0.5 text-[18px]">close</span>
-                    <span className="text-ink-2 font-medium">{item}</span>
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="material-icons-round text-red-400 mt-0.5 text-[16px]">close</span>
+                    <span className="text-ink-2 text-sm font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -57,41 +57,41 @@ export const CourseTransformation = () => {
           </Reveal>
 
           {/* Center Arrow */}
-          <div className="hidden lg:flex w-16 h-16 shrink-0 bg-white border border-line rounded-full items-center justify-center shadow-md z-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <span className="material-icons-round text-blue text-3xl">arrow_forward</span>
+          <div className="hidden lg:flex w-12 h-12 shrink-0 bg-white border border-line rounded-full items-center justify-center shadow-sm z-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <span className="material-icons-round text-blue text-xl">arrow_forward</span>
           </div>
-          <div className="lg:hidden flex justify-center w-full my-[-1rem] z-20 relative">
-            <div className="w-12 h-12 bg-white border border-line rounded-full flex items-center justify-center shadow-sm">
-              <span className="material-icons-round text-blue text-2xl">arrow_downward</span>
+          <div className="lg:hidden flex justify-center w-full my-[-1.5rem] z-20 relative">
+            <div className="w-10 h-10 bg-white border border-line rounded-full flex items-center justify-center shadow-sm">
+              <span className="material-icons-round text-blue text-lg">arrow_downward</span>
             </div>
           </div>
 
           {/* Right: Growth Partner */}
           <Reveal delay={0.2} className="w-full lg:w-1/2">
-            <div className="bg-white border-2 border-blue/20 rounded-[2rem] p-8 sm:p-10 shadow-lg relative overflow-hidden group hover:border-blue/40 hover:shadow-[0_10px_40px_rgba(37,99,235,0.15)] transition-all duration-300 transform lg:scale-105 z-10">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-blue/10 blur-[60px] rounded-full pointer-events-none transition-all duration-300 group-hover:bg-blue/20"></div>
+            <div className="bg-white border-2 border-blue/20 rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden group hover:border-blue/40 hover:shadow-[0_8px_30px_rgba(37,99,235,0.12)] transition-all duration-300 transform lg:scale-105 z-10">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue/10 blur-[50px] rounded-full pointer-events-none transition-all duration-300 group-hover:bg-blue/20"></div>
               
-              <div className="flex items-center gap-4 mb-6 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-blue text-white flex items-center justify-center font-black shadow-md">
-                  <span className="material-icons-round">workspace_premium</span>
+              <div className="flex items-center gap-4 mb-5 relative z-10">
+                <div className="w-10 h-10 rounded-full bg-blue text-white flex items-center justify-center font-black shadow-sm shrink-0">
+                  <span className="material-icons-round text-lg">workspace_premium</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-ink">Irreplaceable Growth Partner</h3>
-                  <p className="text-sm font-semibold text-blue">The top 1% that founders value</p>
+                  <h3 className="text-lg font-bold text-ink leading-tight">Irreplaceable Growth Partner</h3>
+                  <p className="text-xs font-semibold text-blue">The top 10% of D2C talent</p>
                 </div>
               </div>
 
-              <ul className="space-y-4 relative z-10">
+              <ul className="space-y-3 relative z-10">
                 {[
-                  "Understands the full D2C tech stack & architecture",
+                  "Understands the full D2C tech stack architecture",
                   "Optimizes for SKU-level profitability & margins",
                   "Maps the user journey and plugs attribution leaks",
                   "Deploys AI agents to scale winning angles 100x",
-                  "Speaks unit economics & trusted with infinite budgets"
+                  "Trusted by founders with infinite scale budgets"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="material-icons-round text-blue mt-0.5 text-[18px]">check_circle</span>
-                    <span className="text-ink font-semibold">{item}</span>
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="material-icons-round text-blue mt-0.5 text-[16px]">check_circle</span>
+                    <span className="text-ink text-sm font-semibold">{item}</span>
                   </li>
                 ))}
               </ul>
