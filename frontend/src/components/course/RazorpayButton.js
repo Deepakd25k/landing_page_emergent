@@ -1,19 +1,13 @@
-import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/shared";
+import { useTracking } from "@/context/TrackingContext";
 
-export const RazorpayButton = () => {
-  const formRef = useRef(null);
+export const RazorpayButton = ({ onOpenModal }) => {
+  const { track } = useTracking();
 
-  useEffect(() => {
-    // Only mount the script if it hasn't been mounted yet
-    if (formRef.current && formRef.current.children.length === 0) {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.setAttribute("data-payment_button_id", "pl_Th51bqNt2tJQRM");
-      script.async = true;
-      formRef.current.appendChild(script);
-    }
-  }, []);
+  const handleOpen = () => {
+    track("InitiateCheckout", { section: "bottom_checkout" });
+    onOpenModal();
+  };
 
   return (
     <section id="book" className="py-20 sm:py-32 bg-[#F8F9FA] border-t border-line overflow-hidden relative">
@@ -51,9 +45,24 @@ export const RazorpayButton = () => {
                 </ul>
               </div>
 
-              {/* Right Column: Razorpay Script */}
-              <div className="flex items-center justify-center bg-[#F8F9FA] rounded-2xl p-8 border border-line h-full min-h-[200px]">
-                <form ref={formRef} className="w-full flex items-center justify-center"></form>
+              {/* Right Column: CTA Button */}
+              <div className="flex flex-col items-center justify-center bg-[#F8F9FA] rounded-2xl p-8 border border-line h-full min-h-[200px]">
+                <div className="text-center mb-6">
+                  <p className="text-sm font-semibold text-ink-2 mb-1">One-Time Payment</p>
+                  <p className="text-4xl font-black text-ink">₹2,999 <span className="text-lg text-ink-3 line-through ml-2">₹19,999</span></p>
+                </div>
+                
+                <button 
+                  onClick={handleOpen}
+                  className="w-full max-w-[280px] bg-blue hover:bg-blue-dark text-white rounded-xl font-bold text-lg py-4 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                >
+                  <span className="material-icons-round text-[20px]">lock</span>
+                  Pay Now & Enroll
+                </button>
+                <p className="text-[10px] text-ink-3 font-semibold mt-3 flex items-center gap-1">
+                  <span className="material-icons-round text-[12px] text-green-500">verified</span>
+                  Secured by Razorpay
+                </p>
               </div>
 
             </div>

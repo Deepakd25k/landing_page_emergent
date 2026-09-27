@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import { TrackingProvider } from "@/context/TrackingContext";
 import { Navbar } from "@/components/Navbar";
@@ -13,8 +13,11 @@ import { CourseSystem } from "@/components/course/CourseSystem";
 import { CourseResults } from "@/components/course/CourseResults";
 import { CourseTransformation } from "@/components/course/CourseTransformation";
 import { CourseFaq } from "@/components/course/CourseFaq";
+import { CourseLeadModal } from "@/components/course/CourseLeadModal";
 
 export default function CourseLanding() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 0.95 });
     window.__lenis = lenis;
@@ -43,10 +46,11 @@ export default function CourseLanding() {
           <CourseResults />
           <CourseTransformation />
           <CourseFaq />
-          <RazorpayButton />
+          <RazorpayButton onOpenModal={() => setIsModalOpen(true)} />
         </main>
         <Footer />
-        <MobileStickyButton />
+        <MobileStickyButton onOpenModal={() => setIsModalOpen(true)} />
+        <CourseLeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </TrackingProvider>
   );

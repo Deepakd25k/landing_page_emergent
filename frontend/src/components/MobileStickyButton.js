@@ -1,17 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CTAButton } from "./CTAButton";
 import { hero } from "@/data/content";
+import { useTracking } from "@/context/TrackingContext";
 
-export const MobileStickyButton = () => {
+export const MobileStickyButton = ({ onOpenModal }) => {
   const [show, setShow] = useState(false);
+  const { track } = useTracking();
   const isCourse = typeof window !== "undefined" && window.location.pathname.includes("/course");
   const label = hero.cta;
-  const formRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button after scrolling down 400px
       if (window.scrollY > 400) {
         setShow(true);
       } else {
@@ -25,16 +25,10 @@ export const MobileStickyButton = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // If it's the course page, and the sticky button is showing, embed the razorpay script
-    if (isCourse && show && formRef.current && formRef.current.children.length === 0) {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.setAttribute("data-payment_button_id", "pl_Th51bqNt2tJQRM");
-      script.async = true;
-      formRef.current.appendChild(script);
-    }
-  }, [isCourse, show]);
+  const handleOpen = () => {
+    track("InitiateCheckout", { section: "mobile_sticky" });
+    if (onOpenModal) onOpenModal();
+  };
 
   return (
     <AnimatePresence>
@@ -62,7 +56,13 @@ export const MobileStickyButton = () => {
               </div>
               <div className="shrink-0 w-[140px]">
                 {isCourse ? (
-                  <form ref={formRef} className="w-full flex items-center justify-end m-0 p-0 [&>button]:w-full [&>button]:py-2"></form>
+                  <button 
+                    onClick={handleOpen}
+                    className="w-full bg-blue hover:bg-blue-dark text-white rounded-lg font-bold text-sm py-2.5 transition-all shadow-sm flex items-center justify-center gap-1.5"
+                  >
+                    <span className="material-icons-round text-[14px]">lock</span>
+                    Pay Now
+                  </button>
                 ) : (
                   <CTAButton
                     label="Enroll V3"
