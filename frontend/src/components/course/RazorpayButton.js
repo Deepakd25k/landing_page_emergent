@@ -26,7 +26,7 @@ export const RazorpayButton = () => {
       script.async = true;
       formRef.current.appendChild(script);
     }
-  }, [leadCaptured]);
+  }, [leadCaptured, sessionId, formData.email, formData.phone]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
