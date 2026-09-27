@@ -13,8 +13,8 @@ export const CourseReality = () => (
             <h2 className="text-2xl sm:text-4xl font-black text-ink tracking-tight mb-3">
               {courseReality.title}
             </h2>
-            <p className="text-sm sm:text-base text-ink-2 max-w-xl mx-auto font-medium">
-              The era of the "Platform Operator" is dead. Brands don't need button clickers anymore.
+            <p className="text-sm sm:text-base text-ink-2 max-w-2xl mx-auto font-medium leading-relaxed">
+              The Indian D2C market is projected to hit <strong>$50 Billion by 2026</strong>. The era of the generalist "Platform Operator" is dead. Brands don't need button clickers anymore; they need Growth Partners who understand the entire ecosystem.
             </p>
           </div>
 

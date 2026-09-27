@@ -19,10 +19,16 @@ export const CourseHero = () => {
     
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
       <Reveal>
-        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue/5 border border-blue/10 text-blue-dark text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse"></span>
-          {courseHero.badge}
-        </span>
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-6">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+            <span className="material-icons-round text-sm">trending_up</span>
+            $50 Billion D2C Boom by 2026
+          </span>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue/5 border border-blue/10 text-blue-dark text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse"></span>
+            {courseHero.badge}
+          </span>
+        </div>
       </Reveal>
 
       <Reveal delay={0.1}>

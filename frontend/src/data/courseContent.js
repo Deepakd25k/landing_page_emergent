@@ -1,9 +1,9 @@
 export const courseHero = {
-  badge: "15-HOUR LIVE COHORT",
+  badge: "1-MONTH WEEKEND COHORT",
   headline: "Stop Being A Platform Operator. Learn The Real D2C Tech Stack.",
-  subheadline: "If you only know Meta Ads, AI will replace you. Learn from a LIVE dashboard spending ₹3 Lakh/day and become the D2C Growth Partner founders actually value.",
+  subheadline: "If you only know Meta Ads, AI will replace you. Go from Zero to Advanced. Learn from LIVE dashboards spending ₹3 Lakh/day and become the D2C Growth Partner that founders desperately need.",
   ctaText: "Enroll In The Cohort",
-  ctaSubtext: "Limited seats. High-touch interactive sessions.",
+  ctaSubtext: "Limited seats. High-touch interactive weekend sessions.",
 };
 
 export const courseReality = {
@@ -17,8 +17,8 @@ export const courseReality = {
 };
 
 export const courseCurriculum = {
-  title: "The 15-Hour Transformation",
-  subtitle: "This is not a recorded course. This is a 15-hour LIVE cohort (5 Sessions, 3 Hrs each). We build the systems together.",
+  title: "The 1-Month Transformation",
+  subtitle: "This is not a recorded course. This is a 1-Month LIVE cohort (Weekends Only, 2.5 Hrs Learning + 30 Mins Live Doubts). We build the systems together.",
   modules: [
     { num: "01", title: "Live Dashboards & Architecture", desc: "No theory. We open live ad accounts spending ₹3L+/day. See exactly how an integrated D2C tech stack works beyond a single platform.", icon: "dashboard" },
     { num: "02", title: "n8n AI Automations for D2C", desc: "Enter a URL, and 3 AI agents generate 100+ converting ad angles. Give your creative team precise briefs instead of random guesses. Save hours of manual work.", icon: "smart_toy" },
@@ -29,29 +29,29 @@ export const courseCurriculum = {
 };
 
 export const courseScarcity = {
-  title: "What Happens After?",
-  desc: "After ending this 15-hour session, you will clearly see how D2C operates. You will have your own growth pillars, know exactly how to fix someone else's business, find where the leak is, and apply the exact fixes.",
+  title: "1-Month Post-Cohort Support",
+  desc: "After the 4 weeks of learning, you are not left alone. You get 1 FULL MONTH of direct support to implement these systems in your own brand, or to help you crack interviews and land a high-paying D2C job.",
 };
 
 export const courseFaq = [
   {
     q: "Is this a recorded course or live?",
-    a: "This is a 100% LIVE cohort. We will log into active ad accounts spending ₹3L+/day, build n8n automations, and make scaling decisions in real-time. It's 15 hours of pure, over-the-shoulder execution."
+    a: "This is a 100% LIVE cohort spanning exactly 1 month. Classes are on weekends (2.5 hours of pure execution + 30 minutes of live doubt clearing). We will log into active ad accounts and build systems in real-time."
   },
   {
-    q: "I'm a beginner, is this for me?",
-    a: "No. This cohort is not for absolute beginners who don't know what a Meta Business Manager is. It is designed for media buyers and marketers who want to level up into irreplaceable D2C Growth Partners."
+    q: "I have zero knowledge, is this for me?",
+    a: "YES. We have designed this cohort to take you from absolute zero to an advanced D2C Growth Partner. We will build the core foundations first before scaling up to complex automations and unit economics."
   },
   {
     q: "Do I need to be a developer to use n8n or setup CAPI?",
     a: "Not at all. We provide exact plug-and-play workflows and teach you how to set up Server-Side Tracking (CAPI) visually, without writing a single line of code."
   },
   {
-    q: "Will I get access to the recordings?",
-    a: "Yes. All 5 sessions will be recorded. You will get lifetime access to the recordings, plus all the automation templates, SOPs, and resume templates we provide."
+    q: "Will I get access to the recordings and support?",
+    a: "Yes. All sessions will be recorded for lifetime access. Plus, you get 1 Month of dedicated post-cohort support to help you scale your brand or crack job interviews."
   },
   {
-    q: "Why are there only 50 seats?",
-    a: "Because this is a highly interactive cohort, not a mass webinar. We want to answer your specific questions, audit your thought process, and genuinely transform your career trajectory."
+    q: "Why are there limited seats?",
+    a: "Because this is a highly interactive cohort, not a mass webinar. We dedicate an entire month to support you post-cohort, which requires massive personal attention."
   }
 ];

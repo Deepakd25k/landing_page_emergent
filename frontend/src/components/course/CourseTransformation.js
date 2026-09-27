@@ -14,7 +14,7 @@ export const CourseTransformation = () => {
               The End Result
             </span>
             <h2 className="text-3xl sm:text-5xl font-black text-ink tracking-tight mb-4">
-              Your 15-Hour Transformation
+              Your 1-Month Transformation
             </h2>
             <p className="text-lg text-ink-2 max-w-2xl mx-auto font-medium">
               You won't just learn new tricks. You will completely shift your identity in the job market and to founders.
