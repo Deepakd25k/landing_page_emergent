@@ -6,6 +6,7 @@ const results = [
     platform: "Meta Ads",
     icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     placeholderColor: "bg-blue-50",
+    image: "/images/meta-result.png",
   },
   {
     platform: "Google Ads",
@@ -32,6 +33,7 @@ const results = [
     platform: "Meta Ads",
     icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     placeholderColor: "bg-blue-50",
+    image: "/images/meta-result.png",
   },
   {
     platform: "Google Ads",
@@ -84,11 +86,17 @@ export const CourseResults = () => {
               key={i} 
               className="w-[300px] sm:w-[400px] shrink-0 bg-white border border-line rounded-3xl overflow-hidden shadow-sm hover:shadow-card transition-all duration-300 flex flex-col group-hover:scale-[0.98] hover:!scale-100"
             >
-              {/* Image Placeholder (User will replace this) */}
-              <div className={`w-full aspect-[4/3] ${res.placeholderColor} relative flex items-center justify-center p-6 border-b border-line`}>
-                <div className="text-ink-3/50 text-center font-semibold text-sm border-2 border-dashed border-ink-3/30 rounded-xl w-full h-full flex items-center justify-center">
-                  [Upload {res.platform} Image Here]
-                </div>
+              {/* Image OR Placeholder */}
+              <div className={`w-full h-[250px] sm:h-[300px] ${res.placeholderColor} relative flex items-center justify-center border-b border-line overflow-hidden`}>
+                {res.image ? (
+                  <img src={res.image} alt={`${res.platform} Results`} className="w-full h-full object-cover object-left-top" />
+                ) : (
+                  <div className="p-6 w-full h-full">
+                    <div className="text-ink-3/50 text-center font-semibold text-sm border-2 border-dashed border-ink-3/30 rounded-xl w-full h-full flex items-center justify-center">
+                      [Upload {res.platform} Image Here]
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* Platform Icon & Name */}
