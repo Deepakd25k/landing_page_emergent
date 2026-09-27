@@ -37,7 +37,7 @@ async def track_event(body: TrackRequest, request: Request):
     }
     custom_data = body.custom_data
     url_to_check = body.source_url or session.get("landing_url") or ""
-    if "/performance-marketing" in url_to_check:
+    if "/pm" in url_to_check:
         campaign_name = "d2c_growth"
     elif "/course" in url_to_check:
         campaign_name = "course"

@@ -50,7 +50,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          {typeof window !== "undefined" && window.location.pathname.includes("/performance-marketing") ? (
+          {typeof window !== "undefined" && window.location.pathname.includes("/pm") ? (
             <CTAButton label="Book D2C Growth" location="navbar" size="sm" testId="nav-cta-button" />
           ) : (
             <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar" size="sm" testId="nav-cta-button" />
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            {typeof window !== "undefined" && window.location.pathname.includes("/performance-marketing") ? (
+            {typeof window !== "undefined" && window.location.pathname.includes("/pm") ? (
               <CTAButton label="Book D2C Growth" location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
             ) : (
               <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />

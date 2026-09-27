@@ -15,7 +15,7 @@ const getProductContext = () => {
     if (window.location.pathname.includes("/course")) {
       return { content_name: "D2C Performance Marketing Course", content_category: "Training", value: 4999, currency: "INR" };
     }
-    if (window.location.pathname.includes("/performance-marketing")) {
+    if (window.location.pathname.includes("/pm")) {
       return { content_name: "D2C Growth Consultation", content_category: "Consulting", value: 0, currency: "INR" };
     }
   }
