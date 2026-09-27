@@ -23,28 +23,31 @@ export const CourseCurriculum = () => (
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-24 relative z-10">
-        {courseCurriculum.modules.map((mod, i) => (
-          <Reveal key={i} delay={i * 0.1}>
-            <div className="group relative p-6 sm:p-8 bg-white rounded-2xl border border-line shadow-sm hover:border-blue/30 hover:shadow-card transition-all duration-300 h-full flex flex-col">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 shrink-0 rounded-xl bg-blue/5 border border-blue/10 flex items-center justify-center text-blue group-hover:scale-110 group-hover:bg-blue group-hover:text-white transition-all duration-300">
-                  <span className="material-icons-round text-2xl">{mod.icon}</span>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-bold text-blue uppercase tracking-widest bg-blue/10 px-2 py-0.5 rounded">Module {mod.num}</span>
+        {courseCurriculum.modules.map((mod, i) => {
+          const isLastOdd = i === courseCurriculum.modules.length - 1 && courseCurriculum.modules.length % 2 !== 0;
+          return (
+            <Reveal key={i} delay={i * 0.1} className={isLastOdd ? "md:col-span-2" : ""}>
+              <div className="group relative p-6 sm:p-8 bg-white rounded-2xl border border-line shadow-sm hover:border-blue/30 hover:shadow-card transition-all duration-300 h-full flex flex-col">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 shrink-0 rounded-xl bg-blue/5 border border-blue/10 flex items-center justify-center text-blue group-hover:scale-110 group-hover:bg-blue group-hover:text-white transition-all duration-300">
+                    <span className="material-icons-round text-2xl">{mod.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-ink leading-tight">
-                    {mod.title}
-                  </h3>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-[10px] font-bold text-blue uppercase tracking-widest bg-blue/10 px-2 py-0.5 rounded">Module {mod.num}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-ink leading-tight">
+                      {mod.title}
+                    </h3>
+                  </div>
                 </div>
+                <p className="text-sm text-ink-2 leading-relaxed font-medium mt-auto">
+                  {mod.desc}
+                </p>
               </div>
-              <p className="text-sm text-ink-2 leading-relaxed font-medium mt-auto">
-                {mod.desc}
-              </p>
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
 
       {/* What Happens After Section - Light Theme */}

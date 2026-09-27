@@ -17,13 +17,14 @@ export const courseReality = {
 };
 
 export const courseCurriculum = {
-  title: "A 15-Hour Live Transformation",
-  subtitle: "I won't just 'teach' you. I will build your ultimate confidence.",
+  title: "The 15-Hour Transformation",
+  subtitle: "This is not a recorded course. This is a 15-hour LIVE cohort (5 Sessions, 3 Hrs each). We build the systems together.",
   modules: [
-    { num: "01", title: "Live Dashboards (₹3L/Day)", desc: "No outdated theory. See exactly how decisions are made inside live accounts spending roughly ₹3 Lakh daily.", icon: "account_tree" },
-    { num: "02", title: "The Attribution Secret", desc: "No one talks about it, but 40-60% of growth lies in proper attribution tracking. We fix the leaks.", icon: "dns" },
-    { num: "03", title: "Scaling The Topline", desc: "If you increase budget, will the topline increase? If yes, where? If not, why? The exact math you need.", icon: "inventory" },
-    { num: "04", title: "Founder Communication", desc: "Stop giving generic answers. Learn how to explain the exact mechanics of growth to the founder.", icon: "insights" },
+    { num: "01", title: "Live Dashboards & Architecture", desc: "No theory. We open live ad accounts spending ₹3L+/day. See exactly how an integrated D2C tech stack works beyond a single platform.", icon: "dashboard" },
+    { num: "02", title: "n8n AI Automations for D2C", desc: "Enter a URL, and 3 AI agents generate 100+ converting ad angles. Give your creative team precise briefs instead of random guesses. Save hours of manual work.", icon: "smart_toy" },
+    { num: "03", title: "User Journey, Attribution & CRO", desc: "Learn to track the full user journey. Find exactly where the funnel leaks, fix conversion rates, and master Server-Side (CAPI) tracking.", icon: "route" },
+    { num: "04", title: "Scaling & Founder Communication", desc: "Unit Economics mastery. If you increase budget, where does it go? Learn how to report and speak to founders so they trust you with infinite budgets.", icon: "record_voice_over" },
+    { num: "05", title: "D2C Job/Resume Preparation", desc: "Learn exactly what D2C founders are looking for in 2026. Build a resume and portfolio that proves you have exactly what they desperately need.", icon: "work" },
   ]
 };
 
