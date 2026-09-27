@@ -45,14 +45,20 @@ export const MobileStickyButton = ({ onOpenModal }) => {
             {/* Top Strip */}
             <div className="flex items-center justify-center gap-1.5 bg-blue/5 py-1.5 px-3 rounded-lg border border-blue/10">
               <span className="material-icons-round text-blue text-[14px]">bolt</span>
-              <span className="text-xs font-bold text-blue-dark tracking-wide uppercase">Market Fit & Extreme Value</span>
+              <span className="text-xs font-bold text-blue-dark tracking-wide uppercase">
+                {isCourse ? "Market Fit & Extreme Value" : "Limited Slots Available"}
+              </span>
             </div>
             
             {/* 2-Column Content */}
             <div className="flex items-center justify-between gap-3 px-1">
               <div className="flex flex-col">
-                <span className="text-sm font-black text-ink leading-tight">Book The Cohort</span>
-                <span className="text-[10px] font-bold text-green-600">Secure Your Spot</span>
+                <span className="text-sm font-black text-ink leading-tight">
+                  {isCourse ? "Book The Cohort" : "Profitability Diagnostic"}
+                </span>
+                <span className="text-[10px] font-bold text-green-600">
+                  {isCourse ? "Secure Your Spot" : "Only ₹1,999"}
+                </span>
               </div>
               <div className="shrink-0 w-[140px]">
                 {isCourse ? (
@@ -65,7 +71,7 @@ export const MobileStickyButton = ({ onOpenModal }) => {
                   </button>
                 ) : (
                   <CTAButton
-                    label="Enroll V3"
+                    label="Book Now"
                     location="mobile_sticky"
                     className="w-full text-sm py-2"
                   />
