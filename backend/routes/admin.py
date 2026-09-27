@@ -36,9 +36,9 @@ def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Opt
     match = {}
     if campaign:
         if campaign == "diagnostic":
-            match["$or"] = [{"campaign": "diagnostic"}, {"campaign": {"$exists": False}}]
+            match["$or"] = [{"campaigns": "diagnostic"}, {"campaign": "diagnostic"}, {"campaign": {"$exists": False}}]
         else:
-            match["campaign"] = campaign
+            match["$or"] = [{"campaigns": campaign}, {"campaign": campaign}]
     if start_date or end_date:
         created_at = {}
         if start_date:

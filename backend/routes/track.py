@@ -83,6 +83,8 @@ async def track_event(body: TrackRequest, request: Request):
     if not session.get("campaign"):
         session_update["$set"]["campaign"] = campaign_name
 
+    session_update["$addToSet"] = {"campaigns": campaign_name}
+
     if body.event_name in FUNNEL_STEPS:
         session_update["$set"][f"funnel.{body.event_name}"] = now.isoformat()
     if fbp and not session.get("fbp"):
