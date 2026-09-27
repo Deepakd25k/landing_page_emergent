@@ -1,6 +1,7 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 import Landing from "@/pages/Landing";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminDashboard from "@/pages/AdminDashboard";
@@ -29,6 +30,7 @@ function App() {
         </Routes>
       </AuthProvider>
       <Toaster position="bottom-right" richColors closeButton />
+      <Analytics />
     </BrowserRouter>
   );
 }
