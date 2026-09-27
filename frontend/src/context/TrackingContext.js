@@ -11,8 +11,13 @@ import { sendTrack } from "@/lib/tracking";
 const TrackingContext = createContext({ sessionId: null, track: () => {}, pixelEnabled: false });
 
 const getProductContext = () => {
-  if (typeof window !== "undefined" && window.location.pathname.includes("/course")) {
-    return { content_name: "D2C Performance Marketing Course", content_category: "Training", value: 4999, currency: "INR" };
+  if (typeof window !== "undefined") {
+    if (window.location.pathname.includes("/course")) {
+      return { content_name: "D2C Performance Marketing Course", content_category: "Training", value: 4999, currency: "INR" };
+    }
+    if (window.location.pathname.includes("/performance-marketing")) {
+      return { content_name: "D2C Growth Consultation", content_category: "Consulting", value: 0, currency: "INR" };
+    }
   }
   return { content_name: "D2C Profitability Diagnostic", content_category: "Consulting", value: 1999, currency: "INR" };
 };

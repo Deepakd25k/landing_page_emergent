@@ -50,7 +50,11 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar" size="sm" testId="nav-cta-button" />
+          {typeof window !== "undefined" && window.location.pathname.includes("/performance-marketing") ? (
+            <CTAButton label="Book D2C Growth" location="navbar" size="sm" testId="nav-cta-button" />
+          ) : (
+            <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar" size="sm" testId="nav-cta-button" />
+          )}
         </div>
 
         <button className="md:hidden p-2 rounded-lg text-ink" onClick={() => setOpen(!open)} data-testid="nav-mobile-toggle" aria-label="Menu" aria-expanded={open} aria-controls="mobile-navigation">
@@ -74,7 +78,11 @@ export const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
+            {typeof window !== "undefined" && window.location.pathname.includes("/performance-marketing") ? (
+              <CTAButton label="Book D2C Growth" location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
+            ) : (
+              <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
+            )}
           </motion.div>
         )}
       </AnimatePresence>

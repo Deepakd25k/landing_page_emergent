@@ -110,11 +110,22 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
         "client_ip_address": session.get("ip"), "client_user_agent": session.get("user_agent"),
     })
     order_id = booking.get("payment_id") or booking["booking_uid"]
-    is_course = session.get("campaign") == "course"
-    content_name = "D2C Performance Marketing Course" if is_course else PRODUCT_NAME
-    content_category = "Training" if is_course else PRODUCT_CATEGORY
-    content_ids = ["d2c-course"] if is_course else ["d2c-diagnostic"]
-    default_price = 4999 if is_course else DIAGNOSTIC_PRICE
+    campaign = session.get("campaign")
+    if campaign == "course":
+        content_name = "D2C Performance Marketing Course"
+        content_category = "Training"
+        content_ids = ["d2c-course"]
+        default_price = 4999
+    elif campaign == "d2c_growth":
+        content_name = "D2C Growth Consultation"
+        content_category = "Consulting"
+        content_ids = ["d2c-growth-call"]
+        default_price = 0
+    else:
+        content_name = PRODUCT_NAME
+        content_category = PRODUCT_CATEGORY
+        content_ids = ["d2c-diagnostic"]
+        default_price = DIAGNOSTIC_PRICE
 
     custom_data = {
         "value": booking.get("payment_amount") or 0,
