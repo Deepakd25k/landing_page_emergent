@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Reveal } from "@/components/shared";
 
 export const CourseSystem = () => (
-  <section className="relative bg-[#F8F9FA] py-20 sm:py-32 overflow-hidden border-t border-line">
+  <section className="relative bg-[#F8F9FA] pb-20 sm:pb-32 -mt-8 sm:-mt-12 overflow-hidden border-t border-line relative z-10">
     {/* Subtle Dot Grid Background */}
     <div 
       className="absolute inset-0 pointer-events-none opacity-[0.2]" 

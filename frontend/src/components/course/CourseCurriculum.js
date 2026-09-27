@@ -22,40 +22,44 @@ export const CourseCurriculum = () => (
       </Reveal>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-24 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-24 relative z-10">
         {courseCurriculum.modules.map((mod, i) => (
           <Reveal key={i} delay={i * 0.1}>
-            <div className={`group relative p-6 sm:p-8 rounded-2xl border transition-all duration-300 ${i % 2 === 0 ? 'bg-white border-line hover:border-blue hover:shadow-card' : 'bg-[#F8F9FA] border-transparent hover:border-blue/30 hover:shadow-card'}`}>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 shrink-0 rounded-full bg-white border border-line shadow-sm flex items-center justify-center text-blue group-hover:scale-110 transition-transform duration-300">
+            <div className="group relative p-6 sm:p-8 bg-white rounded-2xl border border-line shadow-sm hover:border-blue/30 hover:shadow-card transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 shrink-0 rounded-xl bg-blue/5 border border-blue/10 flex items-center justify-center text-blue group-hover:scale-110 group-hover:bg-blue group-hover:text-white transition-all duration-300">
                   <span className="material-icons-round text-2xl">{mod.icon}</span>
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold text-blue tracking-wider">MODULE {mod.num}</span>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-bold text-blue uppercase tracking-widest bg-blue/10 px-2 py-0.5 rounded">Module {mod.num}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-ink mb-2 leading-tight">
+                  <h3 className="text-xl font-bold text-ink leading-tight">
                     {mod.title}
                   </h3>
-                  <p className="text-sm text-ink-2 leading-relaxed">
-                    {mod.desc}
-                  </p>
                 </div>
               </div>
+              <p className="text-sm text-ink-2 leading-relaxed font-medium mt-auto">
+                {mod.desc}
+              </p>
             </div>
           </Reveal>
         ))}
       </div>
 
-      {/* Scarcity / What Happens After Section */}
+      {/* What Happens After Section - Light Theme */}
       <Reveal delay={0.2}>
-        <div className="bg-ink text-white rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue/20 blur-[100px] rounded-full pointer-events-none"></div>
-          <span className="material-icons-round text-blue-400 text-4xl mb-4 relative z-10">rocket_launch</span>
-          <h3 className="text-2xl sm:text-4xl font-black text-white mb-4 tracking-tight relative z-10">
+        <div className="bg-[#F8F9FA] border border-line rounded-[2rem] p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue/10 blur-[100px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+          
+          <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-sm border border-line text-blue text-3xl mb-6 relative z-10">
+            <span className="material-icons-round">rocket_launch</span>
+          </span>
+          <h3 className="text-2xl sm:text-4xl font-black text-ink mb-4 tracking-tight relative z-10">
             {courseScarcity.title}
           </h3>
-          <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-3xl mx-auto font-medium relative z-10">
+          <p className="text-base sm:text-lg text-ink-2 leading-relaxed max-w-2xl mx-auto font-medium relative z-10">
             {courseScarcity.desc}
           </p>
         </div>
