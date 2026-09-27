@@ -29,22 +29,14 @@ export const CourseReality = () => (
       <div className="grid gap-6 md:grid-cols-3 mb-16">
         {courseReality.cards.map((card, i) => (
           <Reveal key={i} delay={i * 0.1}>
-            <div className="h-full bg-[#f8f9fb] border border-line rounded-2xl p-6 flex flex-col hover:border-blue/30 hover:shadow-card transition-all duration-300">
+            <div className="h-full bg-white border border-line rounded-2xl p-8 flex flex-col shadow-sm hover:border-blue/30 hover:shadow-card transition-all duration-300">
               <div className="mb-4">
-                <span className="inline-block px-2.5 py-1 bg-red-100 text-red-700 text-[10px] font-bold uppercase rounded tracking-wider mb-2">
-                  Average Marketer Says
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-red-50 text-red-600 font-black text-lg mb-4">
+                  0{i + 1}
                 </span>
-                <p className="text-ink-2 font-medium italic">"{card.agencySays}"</p>
+                <h3 className="text-xl font-bold text-ink mb-3 leading-tight">{card.agencySays}</h3>
               </div>
-              
-              <div className="h-px w-full bg-line my-4"></div>
-              
-              <div className="mt-auto">
-                <span className="inline-block px-2.5 py-1 bg-blue/10 text-blue text-[10px] font-bold uppercase rounded tracking-wider mb-2">
-                  What Brands Actually Want
-                </span>
-                <p className="text-ink font-bold leading-snug">{card.reality}</p>
-              </div>
+              <p className="text-ink-2 font-medium leading-relaxed">{card.reality}</p>
             </div>
           </Reveal>
         ))}
