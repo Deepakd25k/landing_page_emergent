@@ -13,7 +13,6 @@ import { CourseSystem } from "@/components/course/CourseSystem";
 import { CourseResults } from "@/components/course/CourseResults";
 import { CourseTransformation } from "@/components/course/CourseTransformation";
 import { CourseFaq } from "@/components/course/CourseFaq";
-import { PnlReveal } from "@/components/PnlReveal";
 
 export default function CourseLanding() {
   useEffect(() => {
@@ -43,8 +42,6 @@ export default function CourseLanding() {
           <CourseCurriculum />
           <CourseResults />
           <CourseTransformation />
-          {/* Reusing the highly effective PnL reveal to demonstrate what they will learn */}
-          <PnlReveal />
           <CourseFaq />
           <RazorpayButton />
         </main>
