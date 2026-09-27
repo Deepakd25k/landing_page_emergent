@@ -37,11 +37,8 @@ export const PMAbout = () => {
 
           {/* Bottom Highlight Box inside the card */}
           <div className="mt-8 bg-slate-50 border-l-4 border-slate-900 p-5 sm:p-6 rounded-r-xl">
-            <p className="text-lg sm:text-xl text-slate-900 font-bold tracking-tight mb-2">
+            <p className="text-lg sm:text-xl text-slate-900 font-bold tracking-tight">
               We don't believe in middle-person reporting.
-            </p>
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              We refuse to work in a tiered system where we report to an employee, who reports to a manager, who reports to the founder. <strong className="text-slate-900">We work directly with the founder</strong> to understand the real bottlenecks and fix them end-to-end.
             </p>
           </div>
 
