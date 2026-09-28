@@ -42,11 +42,61 @@ export const courseCurriculum = {
   title: "The 1-Month Transformation",
   subtitle: "This is not a recorded course. This is a 1-Month LIVE cohort (Weekends Only, 2.5 Hrs Learning + 30 Mins Live Doubts). We build the systems together.",
   modules: [
-    { num: "01", title: "Live Dashboards & Architecture", desc: "No theory. We open live ad accounts spending ₹3L+/day. See exactly how an integrated D2C tech stack works beyond a single platform.", icon: "dashboard" },
-    { num: "02", title: "n8n AI Automations for D2C", desc: "Enter a URL, and 3 AI agents generate 100+ converting ad angles. Give your creative team precise briefs instead of random guesses. Save hours of manual work.", icon: "smart_toy" },
-    { num: "03", title: "User Journey, Attribution & CRO", desc: "Learn to track the full user journey. Find exactly where the funnel leaks, fix conversion rates, and master Server-Side (CAPI) tracking.", icon: "route" },
-    { num: "04", title: "Scaling & Founder Communication", desc: "Unit Economics mastery. If you increase budget, where does it go? Learn how to report and speak to founders so they trust you with infinite budgets.", icon: "record_voice_over" },
-    { num: "05", title: "D2C Job/Resume Preparation", desc: "Learn exactly what D2C founders are looking for in 2026. Build a resume and portfolio that proves you have exactly what they desperately need.", icon: "work" },
+    { 
+      num: "01", 
+      title: "Omni-Channel Mastery & Attribution", 
+      desc: "The Foundation",
+      points: [
+        "Advanced Meta & Google Ads (Moving past ABO/CBO debates into real architecture)",
+        "Server-Side Tracking (CAPI) & First-Party Data Mastery (Essential for 2026 as cookies die)",
+        "Omnichannel Attribution (Understanding the 'Halo Effect' & using tools like Triple Whale / GA4)"
+      ],
+      icon: "hub" 
+    },
+    { 
+      num: "02", 
+      title: "AI-Driven Creative Strategy", 
+      desc: "The Engine",
+      points: [
+        "Using ChatGPT & Claude for high-converting Ad Scripts & Angles",
+        "Stop obsessing over basic CTRs and CPMs. Go beyond and analyze Hook Rates & Hold Rates like a scientist",
+        "Rapid Creative Testing systems"
+      ],
+      icon: "psychology" 
+    },
+    { 
+      num: "03", 
+      title: "Conversion, Retention & AOV", 
+      desc: "The Profit Center",
+      points: [
+        "Shopify Ecosystem Mastery (Upsells, Cross-sells, Offer crafting)",
+        "Deep CRO (Conversion Rate Optimization) strategies",
+        "WhatsApp Marketing for aggressive retention & automated flows"
+      ],
+      icon: "shopping_cart_checkout" 
+    },
+    { 
+      num: "04", 
+      title: "The AI Automations Stack", 
+      desc: "The Unfair Advantage",
+      points: [
+        "n8n AI Automations for completely hands-off workflows",
+        "Automating creative briefs, data extraction, and reporting pipelines",
+        "Building AI agents that act as your junior media buyers"
+      ],
+      icon: "smart_toy" 
+    },
+    { 
+      num: "05", 
+      title: "Scaling, Unit Economics & Career", 
+      desc: "The Exit",
+      points: [
+        "Financial modeling: LTV:CAC ratios, Payback periods, and True Profit",
+        "Founder Communication: How to report so founders trust you with infinite budgets",
+        "Building a standout D2C portfolio and cracking modern interviews"
+      ],
+      icon: "trending_up" 
+    },
   ]
 };
 

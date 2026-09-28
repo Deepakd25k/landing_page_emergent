@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
 import { Reveal } from "@/components/shared";
 import { courseCurriculum, courseScarcity } from "@/data/courseContent";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export const CourseCurriculum = () => (
-  <section className="bg-white py-20 sm:py-32 border-t border-line">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section className="bg-white py-20 sm:py-32 border-t border-line" id="curriculum">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header */}
       <Reveal>
@@ -21,33 +21,42 @@ export const CourseCurriculum = () => (
         </div>
       </Reveal>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-24 relative z-10">
-        {courseCurriculum.modules.map((mod, i) => {
-          const isLastOdd = i === courseCurriculum.modules.length - 1 && courseCurriculum.modules.length % 2 !== 0;
-          return (
-            <Reveal key={i} delay={i * 0.1} className={isLastOdd ? "md:col-span-2" : ""}>
-              <div className="group relative p-6 sm:p-8 bg-white rounded-2xl border border-line shadow-sm hover:border-blue/30 hover:shadow-card transition-all duration-300 h-full flex flex-col">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 shrink-0 rounded-xl bg-blue/5 border border-blue/10 flex items-center justify-center text-blue group-hover:scale-110 group-hover:bg-blue group-hover:text-white transition-all duration-300">
-                    <span className="material-icons-round text-2xl">{mod.icon}</span>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] font-bold text-blue uppercase tracking-widest bg-blue/10 px-2 py-0.5 rounded">Module {mod.num}</span>
+      {/* Accordion */}
+      <div className="mb-24 relative z-10">
+        <Reveal delay={0.1}>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {courseCurriculum.modules.map((mod, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="bg-white border border-line rounded-2xl overflow-hidden shadow-sm px-2 sm:px-4">
+                <AccordionTrigger className="hover:no-underline py-6">
+                  <div className="flex items-center gap-4 text-left w-full pr-4">
+                    <div className="w-12 h-12 shrink-0 rounded-xl bg-blue/5 border border-blue/10 flex items-center justify-center text-blue">
+                      <span className="material-icons-round text-2xl">{mod.icon}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-ink leading-tight">
-                      {mod.title}
-                    </h3>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <span className="text-[10px] font-bold text-blue uppercase tracking-widest bg-blue/10 px-2 py-0.5 rounded">Module {mod.num}</span>
+                        <span className="text-[10px] font-bold text-ink-3 uppercase tracking-widest">{mod.desc}</span>
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-ink leading-tight">
+                        {mod.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <p className="text-sm text-ink-2 leading-relaxed font-medium mt-auto">
-                  {mod.desc}
-                </p>
-              </div>
-            </Reveal>
-          );
-        })}
+                </AccordionTrigger>
+                <AccordionContent className="pb-6 pt-2 pl-4 sm:pl-20 pr-4">
+                  <ul className="space-y-4">
+                    {mod.points.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="material-icons-round text-green-500 text-[18px] shrink-0 mt-0.5">check_circle</span>
+                        <span className="text-ink-2 font-medium leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
       </div>
 
       {/* What Happens After Section - Light Theme */}
