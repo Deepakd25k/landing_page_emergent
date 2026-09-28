@@ -129,8 +129,8 @@ export const courseFaq = [
     a: "This is a 100% LIVE cohort spanning exactly 1 month. Classes are on weekends (2.5 hours of pure execution + 30 minutes of live doubt clearing). We will log into active ad accounts and build systems in real-time. You will also get recordings for lifetime access — but the live experience is where the real learning happens."
   },
   {
-    q: "Is this better than GrowthSchool or Kraftshala?",
-    a: "We don't do 500-student batches. We don't show you screenshots of someone else's ad accounts. You watch a live account spending ₹3L/day — in real time, with 49 other serious people — and you ask questions live. No other program in India does this. GrowthSchool teaches theory with AI buzzwords. We teach n8n, CAPI, WhatsApp automation, and PMax with real money on the line."
+    q: "Is this better than other popular cohorts out there?",
+    a: "Most popular cohorts run batches of 300 to 500 students. They show screenshots of ad accounts, not real live dashboards. We cap at 50 seats, open a real account spending lakhs per day in the first session, and teach n8n, CAPI, and WhatsApp automation that almost no other program in India covers. The difference is not in the syllabus document. It is in what actually happens inside the sessions."
   },
   {
     q: "I have zero knowledge, is this for me?",

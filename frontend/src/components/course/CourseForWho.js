@@ -12,11 +12,11 @@ const profiles = [
     tag: "Working Professional",
     title: "You have 1-3 years in marketing but feel stuck",
     points: [
-      "You run Meta Ads but interviews scare you — they always ask things beyond ABO/CBO",
-      "You see D2C brands paying ₹8-15 LPA for people who 'get the full picture'",
-      "You want to level up without quitting your job — weekends work perfectly",
+      "You run Meta Ads but interviews always go deeper than ABO vs CBO",
+      "D2C brands are paying ₹8-15 LPA for people who get the full picture",
+      "You want to level up without quitting your job. Weekends work perfectly.",
     ],
-    cta: "This is built for you →",
+    cta: "This is built for you",
   },
   {
     icon: "school",
@@ -27,26 +27,11 @@ const profiles = [
     tag: "Fresh Graduate",
     title: "You know the basics but want to stand out from Day 1",
     points: [
-      "You've done internships, know the platforms — but lack a real portfolio",
-      "Everyone says 'get experience' but nobody tells you how to get the first one",
-      "You want to walk into any D2C interview and be the most prepared person in the room",
+      "You have done internships and know the platforms but lack a real portfolio",
+      "Everyone says get experience but nobody tells you how to land the first one",
+      "You want to walk into any D2C interview as the most prepared person in the room",
     ],
-    cta: "Skip the queue →",
-  },
-  {
-    icon: "storefront",
-    color: "emerald",
-    bgColor: "bg-emerald-500/10",
-    textColor: "text-emerald-600",
-    borderColor: "border-emerald-200",
-    tag: "D2C Brand Owner / Founder",
-    title: "You're paying an agency ₹50k/month and can't verify their work",
-    points: [
-      "You want to understand unit economics — is your brand actually profitable?",
-      "Your agency sends reports you can't fully understand or challenge",
-      "You want to build in-house capability and stop being dependent on vendors",
-    ],
-    cta: "Take back control →",
+    cta: "Skip the queue",
   },
 ];
 
@@ -59,10 +44,10 @@ const NotForYou = () => (
       </div>
       <ul className="space-y-3">
         {[
-          "You're looking for a certificate to put on your resume without actually learning",
-          "You want to watch 100 videos at 2x speed and call it 'done'",
-          "You expect a job guarantee — we give you the skills, brands will come to you",
-          "You're not willing to show up live on weekends for 4 weeks",
+          "You are looking for a certificate without actually learning the skills",
+          "You want to watch videos at 2x speed and call it done",
+          "You expect a job guarantee. We build your skills. Brands will come to you.",
+          "You are not willing to show up live on weekends for 4 weeks",
         ].map((item, i) => (
           <li key={i} className="flex items-start gap-3">
             <span className="material-icons-round text-rose-400 text-[16px] mt-0.5 shrink-0">remove_circle_outline</span>
@@ -90,13 +75,13 @@ export const CourseForWho = () => {
               Who Gets The Most Out Of This
             </h2>
             <p className="text-base sm:text-lg text-ink-2 max-w-xl mx-auto">
-              This cohort has worked for very different people — but they all had one thing in common: they were serious about D2C.
+              This cohort has worked for very different people. They all had one thing in common: they were serious about D2C.
             </p>
           </div>
         </Reveal>
 
         {/* Profile Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
           {profiles.map((p, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <motion.div
