@@ -88,14 +88,25 @@ export const courseCurriculum = {
     },
     { 
       num: "05", 
-      title: "Scaling, Unit Economics & Career", 
-      desc: "The Exit",
+      title: "Scaling & Unit Economics", 
+      desc: "The Growth Engine",
       points: [
         "Financial modeling: LTV:CAC ratios, Payback periods, and True Profit",
         "Founder Communication: How to report so founders trust you with infinite budgets",
-        "Building a standout D2C portfolio and cracking modern interviews"
+        "Budget scaling strategies: How to increase spend without breaking your unit economics"
       ],
       icon: "trending_up" 
+    },
+    { 
+      num: "06", 
+      title: "Brand Recognition & Portfolio", 
+      desc: "The Final Polish",
+      points: [
+        "No fake 'Job Guarantees'. We build a portfolio that forces top D2C brands to recognize your actual value.",
+        "Cracking the modern D2C interview: What founders actually ask vs. what traditional courses teach.",
+        "Positioning yourself as a strategic Growth Partner instead of just a media buyer."
+      ],
+      icon: "verified_user" 
     },
   ]
 };
