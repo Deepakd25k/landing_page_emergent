@@ -3,7 +3,7 @@ export const courseHero = {
   headline: "Stop Being A Platform Operator. Learn The Real D2C Tech Stack.",
   subheadline: "If you only know Meta Ads, AI will replace you. Go from Zero to Advanced. Learn from LIVE dashboards spending ₹3 Lakh/day and become the D2C Growth Partner that founders desperately need.",
   ctaText: "Enroll For The Cohort V3",
-  ctaSubtext: "Limited seats. High-touch interactive weekend sessions.",
+  ctaSubtext: "Strictly limited to 50 seats. We don't do mass webinars where your doubts get ignored.",
 };
 
 export const courseReality = {
@@ -27,13 +27,18 @@ export const courseWhyCohort = {
     },
     {
       title: "No Fake Guarantees",
-      desc: "I am not just making you 'job ready'. I am making you 'industry ready' in this AI world. You will build the confidence and skills to stand out and actually drive D2C growth.",
+      desc: "I am not just making you 'job ready'. I am making you 'industry ready' in this AI world. You will build the confidence and skills to stand out.",
       icon: "verified_user"
     },
     {
-      title: "Interactive & Genuine",
-      desc: "You aren't left alone with videos. You get real-time feedback, doubt solving, and a community of marketers building systems together.",
+      title: "Strictly Capped at 50 Seats",
+      desc: "We refuse to do mass webinars where your questions get lost. With max 50 seats, you get real-time feedback and every single doubt cleared.",
       icon: "groups"
+    },
+    {
+      title: "No Hidden Upsells",
+      desc: "What you pay now is final. No tricks. You will learn infinitely more in this cohort than what a ₹50k or ₹1 Lakh recorded course can ever offer.",
+      icon: "money_off"
     }
   ]
 };

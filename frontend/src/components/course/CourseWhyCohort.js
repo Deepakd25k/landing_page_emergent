@@ -16,7 +16,7 @@ export const CourseWhyCohort = () => {
           centered
         />
 
-        <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-10">
+        <div className="mt-16 grid md:grid-cols-2 gap-6 lg:gap-10">
           {courseWhyCohort.points.map((point, i) => (
             <Reveal key={i} delay={i * 0.1} y={30}>
               <motion.div 
