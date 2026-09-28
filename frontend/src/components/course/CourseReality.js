@@ -18,7 +18,7 @@ export const CourseReality = () => (
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3 relative z-10">
+          <div className="grid gap-6 md:grid-cols-2 relative z-10">
             {courseReality.cards.map((card, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <div className="shrink-0">
