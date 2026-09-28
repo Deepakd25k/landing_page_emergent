@@ -21,13 +21,18 @@ export const CourseWhyCohort = () => {
             <Reveal key={i} delay={i * 0.1} y={30}>
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-3xl border border-line shadow-soft h-full flex flex-col"
+                className="bg-white p-6 sm:p-8 rounded-3xl border border-line shadow-soft h-full flex flex-col sm:flex-row items-start gap-5"
               >
-                <div className="w-14 h-14 bg-blue-tint rounded-2xl flex items-center justify-center text-blue mb-6 shadow-sm border border-blue/10">
+                <div className="w-14 h-14 shrink-0 bg-blue-tint rounded-2xl flex items-center justify-center text-blue shadow-sm border border-blue/10">
                   <span className="material-icons-round text-2xl">{point.icon}</span>
                 </div>
-                <h3 className="text-xl font-black text-ink mb-3 leading-tight">{point.title}</h3>
-                <p className="text-ink-3 leading-relaxed text-sm flex-1">{point.desc}</p>
+                <div>
+                  <h3 className="text-xl font-black text-ink mb-3 leading-tight">{point.title}</h3>
+                  <p 
+                    className="text-ink-3 leading-relaxed text-sm" 
+                    dangerouslySetInnerHTML={{ __html: point.desc }}
+                  />
+                </div>
               </motion.div>
             </Reveal>
           ))}

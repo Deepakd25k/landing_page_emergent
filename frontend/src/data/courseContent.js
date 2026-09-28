@@ -22,22 +22,22 @@ export const courseWhyCohort = {
   points: [
     {
       title: "No Outdated Recordings",
-      desc: "D2C strategies change every quarter. We teach live, using active ad accounts so you learn what works today, not what worked in 2023.",
+      desc: "D2C strategies change every quarter. We teach live, using <strong class='text-ink font-bold'>active ad accounts</strong> so you learn what works today, not what worked in 2023.",
       icon: "history_toggle_off"
     },
     {
       title: "No Fake Guarantees",
-      desc: "I am not just making you 'job ready'. I am making you 'industry ready' in this AI world. You will build the confidence and skills to stand out.",
+      desc: "I am not just making you 'job ready'. I am making you <strong class='text-ink font-bold'>'industry ready'</strong> in this AI world. You will build the confidence and skills to stand out.",
       icon: "verified_user"
     },
     {
       title: "Strictly Capped at 50 Seats",
-      desc: "We refuse to do mass webinars where your questions get lost. With max 50 seats, you get real-time feedback and every single doubt cleared.",
+      desc: "We refuse to do mass webinars where your questions get lost. With <strong class='text-ink font-bold'>max 50 seats</strong>, you get real-time feedback and <strong class='text-ink font-bold'>every single doubt cleared</strong>.",
       icon: "groups"
     },
     {
       title: "No Hidden Upsells",
-      desc: "What you pay now is final. No tricks. You will learn infinitely more in this cohort than what a ₹50k or ₹1 Lakh recorded course can ever offer.",
+      desc: "What you pay now is final. <strong class='text-ink font-bold'>No tricks</strong>. You will learn infinitely more in this cohort than what a <strong class='text-ink font-bold'>₹50k or ₹1 Lakh recorded course</strong> can ever offer.",
       icon: "money_off"
     }
   ]
