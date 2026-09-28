@@ -9,10 +9,12 @@ import { MobileStickyButton } from "@/components/MobileStickyButton";
 import { CourseHero } from "@/components/course/CourseHero";
 import { CourseReality } from "@/components/course/CourseReality";
 import { CourseWhyCohort } from "@/components/course/CourseWhyCohort";
+import { CourseForWho } from "@/components/course/CourseForWho";
 import { CourseTools } from "@/components/course/CourseTools";
 import { CourseCurriculum } from "@/components/course/CourseCurriculum";
 import { CourseSystem } from "@/components/course/CourseSystem";
 import { CourseResults } from "@/components/course/CourseResults";
+import { CourseTestimonials } from "@/components/course/CourseTestimonials";
 import { CourseTransformation } from "@/components/course/CourseTransformation";
 import { CourseFaq } from "@/components/course/CourseFaq";
 import { CourseLeadModal } from "@/components/course/CourseLeadModal";
@@ -44,10 +46,12 @@ export default function CourseLanding() {
           <CourseHero />
           <CourseReality />
           <CourseWhyCohort />
+          <CourseForWho />
           <CourseTools />
           <CourseSystem />
           <CourseCurriculum />
           <CourseResults />
+          <CourseTestimonials />
           <CourseTransformation />
           <CourseFaq />
           <RazorpayButton onOpenModal={() => setIsModalOpen(true)} />
