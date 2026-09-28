@@ -21,9 +21,9 @@ export const CourseWhyCohort = () => {
             <Reveal key={i} delay={i * 0.1} y={30}>
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="bg-white p-6 sm:p-8 rounded-3xl border border-line shadow-soft h-full flex flex-col sm:flex-row items-start gap-5"
+                className="bg-white p-6 sm:p-8 rounded-3xl border border-line shadow-soft h-full flex flex-row items-start gap-4 sm:gap-5"
               >
-                <div className="w-14 h-14 shrink-0 bg-blue-tint rounded-2xl flex items-center justify-center text-blue shadow-sm border border-blue/10">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-blue-tint rounded-2xl flex items-center justify-center text-blue shadow-sm border border-blue/10">
                   <span className="material-icons-round text-2xl">{point.icon}</span>
                 </div>
                 <div>
