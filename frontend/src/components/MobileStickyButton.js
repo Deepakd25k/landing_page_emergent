@@ -4,10 +4,9 @@ import { CTAButton } from "./CTAButton";
 import { hero } from "@/data/content";
 import { useTracking } from "@/context/TrackingContext";
 
-export const MobileStickyButton = ({ onOpenModal }) => {
+export const MobileStickyButton = ({ onOpenModal, isCourse = false }) => {
   const [show, setShow] = useState(false);
   const { track } = useTracking();
-  const isCourse = typeof window !== "undefined" && window.location.pathname.includes("/course");
   const label = hero.cta;
 
   useEffect(() => {
@@ -57,7 +56,7 @@ export const MobileStickyButton = ({ onOpenModal }) => {
                   {isCourse ? "Book The Cohort" : "Profitability Diagnostic"}
                 </span>
                 <span className="text-[10px] font-bold text-green-600">
-                  {isCourse ? "Secure Your Spot" : "Only ₹1,999"}
+                  {isCourse ? "Enroll — ₹2,999" : "Only ₹1,999"}
                 </span>
               </div>
               <div className="shrink-0 w-[140px]">

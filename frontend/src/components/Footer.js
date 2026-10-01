@@ -2,7 +2,7 @@ import { Activity, BadgeCheck } from "lucide-react";
 import { footer, siteConfig } from "@/data/content";
 import { scrollToHash } from "@/components/shared";
 
-export const Footer = () => (
+export const Footer = ({ isCourse = false }) => (
   <footer className="bg-night text-white/70 py-14" data-testid="footer">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
       <div>
@@ -31,12 +31,22 @@ export const Footer = () => (
         </ul>
       </div>
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">Operator</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">{isCourse ? "Policies" : "Operator"}</p>
         <ul className="mt-4 space-y-2.5 text-sm">
-          <li><span className="font-mono text-xs text-white/40">3-layer tracking: Pixel + CAPI + Mongo</span></li>
+          {isCourse ? (
+            <>
+              <li><span className="font-mono text-xs text-white/40">Refund Policy: Full refund if requested before the cohort begins. No refunds after the cohort starts.</span></li>
+              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+            </>
+          ) : (
+            <li><span className="font-mono text-xs text-white/40">3-layer tracking: Pixel + CAPI + Mongo</span></li>
+          )}
         </ul>
       </div>
     </div>
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-white/10 text-xs text-white/40">{footer.legal}</div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-white/10 text-xs text-white/40">
+      {isCourse ? "© 2026 Incremental Value. All rights reserved." : footer.legal}
+    </div>
   </footer>
 );

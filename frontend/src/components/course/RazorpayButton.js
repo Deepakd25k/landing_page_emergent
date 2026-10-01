@@ -83,6 +83,9 @@ export const RazorpayButton = ({ onOpenModal }) => {
                   <span className="material-icons-round text-[12px] text-green-500">verified</span>
                   Secured by Razorpay
                 </p>
+                <p className="text-[10px] text-ink-3 font-semibold mt-1">
+                  GST invoice available for B2B buyers
+                </p>
               </div>
 
             </div>

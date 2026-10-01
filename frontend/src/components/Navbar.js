@@ -5,7 +5,7 @@ import { siteConfig } from "@/data/content";
 import { CTAButton } from "@/components/CTAButton";
 import { scrollToHash } from "@/components/shared";
 
-export const Navbar = () => {
+export const Navbar = ({ isCourse = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -52,6 +52,8 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-3">
           {typeof window !== "undefined" && window.location.pathname.includes("/pm") ? (
             <CTAButton label="Book D2C Growth" location="navbar" size="sm" testId="nav-cta-button" data-cal-link="d2cdeepak-audit/d2c-growth-call" />
+          ) : isCourse ? (
+            <CTAButton label={`Enroll — ₹2,999`} location="navbar" size="sm" testId="nav-cta-button" />
           ) : (
             <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar" size="sm" testId="nav-cta-button" />
           )}
@@ -80,6 +82,8 @@ export const Navbar = () => {
             ))}
             {typeof window !== "undefined" && window.location.pathname.includes("/pm") ? (
               <CTAButton label="Book D2C Growth" location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" data-cal-link="d2cdeepak-audit/d2c-growth-call" />
+            ) : isCourse ? (
+              <CTAButton label={`Enroll — ₹2,999`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
             ) : (
               <CTAButton label={`Book — ₹${siteConfig.price}`} location="navbar-mobile" size="sm" className="w-full" testId="nav-mobile-cta-button" />
             )}

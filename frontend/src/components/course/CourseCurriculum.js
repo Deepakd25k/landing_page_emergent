@@ -59,6 +59,35 @@ export const CourseCurriculum = () => (
         </Reveal>
       </div>
 
+      {/* Deliverables Block */}
+      <Reveal delay={0.15}>
+        <div className="mb-24">
+          <div className="bg-blue/5 border border-blue/10 rounded-[2rem] p-8 sm:p-12 relative overflow-hidden">
+            <h3 className="text-2xl sm:text-3xl font-black text-ink mb-8 tracking-tight text-center">
+              What You Walk Away With
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { title: "n8n AI Workflows", desc: "Keep the exact automation blueprints we build." },
+                { title: "Tracking Architecture", desc: "CAPI & Server-side tracking setups ready to deploy." },
+                { title: "The 'Growth Partner' Portfolio", desc: "Live case studies to show in your next interview." },
+                { title: "Lifetime Recordings", desc: "Access to all live session recordings forever." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 items-start bg-white p-6 rounded-2xl border border-line shadow-sm">
+                  <div className="w-10 h-10 shrink-0 rounded-full bg-blue/10 flex items-center justify-center text-blue">
+                    <span className="material-icons-round">done</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-ink mb-1">{item.title}</h4>
+                    <p className="text-sm font-medium text-ink-2">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
       {/* What Happens After Section - Light Theme */}
       <Reveal delay={0.2}>
         <div className="bg-[#F8F9FA] border border-line rounded-[2rem] p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-sm relative overflow-hidden">

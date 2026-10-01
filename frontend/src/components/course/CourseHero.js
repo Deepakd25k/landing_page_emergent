@@ -60,6 +60,27 @@ export const CourseHero = () => {
         <p className="mt-4 text-xs sm:text-sm text-ink-3 font-medium">
           {courseHero.ctaSubtext}
         </p>
+
+        {/* Schedule & Seats Counter */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-slate-50 border border-line rounded-2xl py-4 px-6 mx-auto inline-flex shadow-sm">
+          <div className="flex flex-col text-left">
+            <span className="text-[10px] font-bold text-ink-3 uppercase tracking-wider mb-0.5">Cohort V3 Schedule</span>
+            <span className="text-sm font-bold text-ink flex items-center gap-1.5">
+              <span className="material-icons-round text-blue text-[16px]">calendar_today</span>
+              Weekends Only • 2.5 Hrs/Day
+            </span>
+          </div>
+          <div className="hidden sm:block w-px h-8 bg-line"></div>
+          <div className="flex flex-col text-left">
+            <span className="text-[10px] font-bold text-ink-3 uppercase tracking-wider mb-0.5">Availability</span>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+              <span className="text-sm font-bold text-ink">
+                37 of 50 Seats Filled
+              </span>
+            </div>
+          </div>
+        </div>
       </Reveal>
     </div>
   </section>

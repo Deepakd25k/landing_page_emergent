@@ -17,6 +17,7 @@ import { CourseResults } from "@/components/course/CourseResults";
 import { CourseTestimonials } from "@/components/course/CourseTestimonials";
 import { CourseTransformation } from "@/components/course/CourseTransformation";
 import { CourseFaq } from "@/components/course/CourseFaq";
+import { CourseInstructor } from "@/components/course/CourseInstructor";
 import { CourseLeadModal } from "@/components/course/CourseLeadModal";
 
 export default function CourseLanding() {
@@ -38,10 +39,33 @@ export default function CourseLanding() {
     };
   }, []);
 
+  useEffect(() => {
+    // Update Meta Tags dynamically for ads crawler
+    document.title = "D2C Growth Cohort V3 | Learn Live — ₹2,999";
+    
+    const updateMeta = (name, property, content) => {
+      let tag = document.querySelector(`meta[${name ? `name="${name}"` : `property="${property}"`}]`);
+      if (tag) {
+        tag.setAttribute("content", content);
+      } else {
+        tag = document.createElement('meta');
+        if (name) tag.setAttribute("name", name);
+        if (property) tag.setAttribute("property", property);
+        tag.setAttribute("content", content);
+        document.head.appendChild(tag);
+      }
+    };
+
+    updateMeta("description", null, "1-Month Live Weekend Cohort. No outdated recordings, no fake demo accounts. Learn on live ₹3L/day accounts.");
+    updateMeta(null, "og:title", "D2C Growth Cohort V3 | Learn Live — ₹2,999");
+    updateMeta(null, "og:description", "1-Month Live Weekend Cohort. No outdated recordings, no fake demo accounts. Learn on live ₹3L/day accounts.");
+    updateMeta(null, "og:type", "website");
+  }, []);
+
   return (
     <TrackingProvider>
       <div className="min-h-screen bg-white text-ink" data-testid="course-landing-page">
-        <Navbar />
+        <Navbar isCourse={true} />
         <main>
           <CourseHero />
           <CourseReality />
@@ -50,14 +74,15 @@ export default function CourseLanding() {
           <CourseTools />
           <CourseSystem />
           <CourseCurriculum />
+          <CourseInstructor />
           <CourseResults />
           <CourseTestimonials />
           <CourseTransformation />
           <CourseFaq />
           <RazorpayButton onOpenModal={() => setIsModalOpen(true)} />
         </main>
-        <Footer />
-        <MobileStickyButton onOpenModal={() => setIsModalOpen(true)} />
+        <Footer isCourse={true} />
+        <MobileStickyButton isCourse={true} onOpenModal={() => setIsModalOpen(true)} />
         <CourseLeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </TrackingProvider>
