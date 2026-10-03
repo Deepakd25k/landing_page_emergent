@@ -27,21 +27,40 @@ const pmSchema = {
 const pmFaq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Are you a traditional performance marketing agency?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "No, Incremental Value is not a traditional agency. We operate as an in-house D2C Growth Partner focusing on end-to-end execution including tracking, creatives, and unit economics."
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are you a traditional performance marketing agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, Incremental Value is not a traditional agency. We operate as an in-house D2C Growth Partner focusing on end-to-end execution including tracking, creatives, and unit economics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you manage Meta Ads and Google Ads for D2C brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we handle advanced Meta Ads, Google Ads (including Performance Max), and full-funnel media buying. But we execute this as a Growth Partner tied to your actual business profit, not just platform ROAS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help D2C brands scale on Q-commerce platforms like Blinkit and Zepto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. End-to-end D2C growth today requires omnichannel presence. We align your Meta/Google top-of-funnel traffic with Q-commerce velocity to dominate market share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do founders fire their performance marketing agencies and hire you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Founders switch to us because traditional agencies ignore high CAC and fake ROAS. We fix the data, integrate server-side tracking, and scale budgets only when the unit economics are profitable."
+      }
     }
-  }, {
-    "@type": "Question",
-    "name": "Why do founders fire their performance marketing agencies and hire you?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Founders switch to us because we focus on true unit economics, RTO reduction, and direct accountability, rather than just platform ROAS and vanity metrics."
-    }
-  }]
+  ]
 };
 
 const PMContent = () => {

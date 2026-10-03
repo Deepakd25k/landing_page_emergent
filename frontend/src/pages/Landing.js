@@ -42,14 +42,32 @@ const diagnosticSchema = {
 const diagnosticFaq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What does Incremental Value do?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "We audit D2C brands to find profit leaks, RTO issues, and fix unit economics to enable profitable scaling."
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to scale a D2C brand profitably without high CAC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To scale D2C profitably, you must move beyond just Meta Ads and Google Ads. Incremental Value provides a Profitability Diagnostic that fixes unit economics, tracking, and retention before scaling ad spend."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How to reduce RTO (Return to Origin) in e-commerce in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RTO leakage destroys D2C margins. Incremental Value audits your complete funnel and implements WhatsApp automations and COD verifications to drastically reduce RTO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is the best end-to-end D2C growth partner in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Founders prefer Incremental Value over traditional performance marketing agencies because we focus on the entire ecosystem: Meta ads, Google ads, Q-commerce integration, CAPI, and bottom-line profit."
+      }
     }
-  }]
+  ]
 };
 
 export default function Landing() {
