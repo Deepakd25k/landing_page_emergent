@@ -20,6 +20,26 @@ import { CourseFaq } from "@/components/course/CourseFaq";
 import { CourseInstructor } from "@/components/course/CourseInstructor";
 import { CourseLeadModal } from "@/components/course/CourseLeadModal";
 
+import { SEOHelmet } from "@/components/SEOHelmet";
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "D2C Growth Cohort | End-to-End Performance Marketing Live",
+  "description": "Learn the complete D2C tech stack—Live Ad Accounts, CAPI, n8n Automations, and Unit Economics. Become the Growth Partner founders need.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Incremental Value",
+    "sameAs": "https://incrementalvalue.in"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "2999",
+    "priceCurrency": "INR",
+    "category": "Paid"
+  }
+};
+
 export default function CourseLanding() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -39,31 +59,14 @@ export default function CourseLanding() {
     };
   }, []);
 
-  useEffect(() => {
-    // Update Meta Tags dynamically for ads crawler
-    document.title = "D2C Growth Cohort V3 | Learn Live — ₹2,999";
-    
-    const updateMeta = (name, property, content) => {
-      let tag = document.querySelector(`meta[${name ? `name="${name}"` : `property="${property}"`}]`);
-      if (tag) {
-        tag.setAttribute("content", content);
-      } else {
-        tag = document.createElement('meta');
-        if (name) tag.setAttribute("name", name);
-        if (property) tag.setAttribute("property", property);
-        tag.setAttribute("content", content);
-        document.head.appendChild(tag);
-      }
-    };
-
-    updateMeta("description", null, "1-Month Live Weekend Cohort. No outdated recordings, no fake demo accounts. Learn on live ₹3L/day accounts.");
-    updateMeta(null, "og:title", "D2C Growth Cohort V3 | Learn Live — ₹2,999");
-    updateMeta(null, "og:description", "1-Month Live Weekend Cohort. No outdated recordings, no fake demo accounts. Learn on live ₹3L/day accounts.");
-    updateMeta(null, "og:type", "website");
-  }, []);
-
   return (
     <TrackingProvider>
+      <SEOHelmet 
+        title="D2C Growth Cohort | End-to-End Performance Marketing Live"
+        description="Stop just running ads. Learn the complete D2C tech stack—Live Ad Accounts, CAPI, n8n Automations, and Unit Economics. Next cohort filling fast."
+        url="https://incrementalvalue.in/course"
+        schemas={[courseSchema]}
+      />
       <div className="min-h-screen bg-white text-ink" data-testid="course-landing-page">
         <Navbar isCourse={true} />
         <main>

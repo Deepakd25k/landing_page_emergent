@@ -11,6 +11,39 @@ import { PMAbout } from "../components/pm/PMAbout";
 
 import { TrackingProvider, useTracking } from "@/context/TrackingContext";
 
+import { SEOHelmet } from "@/components/SEOHelmet";
+
+const pmSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "D2C Growth Partnership",
+  "provider": {
+    "@type": "Organization",
+    "name": "Incremental Value"
+  },
+  "description": "We don't run silos. Incremental Value acts as your in-house D2C Growth Partner, handling tracking, creatives, and unit economics."
+};
+
+const pmFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Are you a traditional performance marketing agency?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, Incremental Value is not a traditional agency. We operate as an in-house D2C Growth Partner focusing on end-to-end execution including tracking, creatives, and unit economics."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Why do founders fire their performance marketing agencies and hire you?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Founders switch to us because we focus on true unit economics, RTO reduction, and direct accountability, rather than just platform ROAS and vanity metrics."
+    }
+  }]
+};
+
 const PMContent = () => {
   const location = useLocation();
   const { track } = useTracking();
@@ -18,7 +51,6 @@ const PMContent = () => {
   useEffect(() => {
     window.trackEvent = track;
     window.scrollTo(0, 0);
-    document.title = "D2C Growth Partners | Not An Agency";
   }, [location, track]);
 
   useEffect(() => {
@@ -65,6 +97,12 @@ const PMContent = () => {
 
   return (
     <div className="bg-ink min-h-screen text-white font-sans selection:bg-blue selection:text-white pb-24 relative">
+      <SEOHelmet 
+        title="D2C Growth Partners | Not An Agency | Incremental Value"
+        description="We don't run silos. Incremental Value acts as your in-house D2C Growth Partner, handling tracking, creatives, and unit economics in 7 days."
+        url="https://incrementalvalue.in/pm"
+        schemas={[pmSchema, pmFaq]}
+      />
       <PMHero />
       <PMManifesto />
       <PMProof />

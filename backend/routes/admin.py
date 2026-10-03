@@ -255,3 +255,64 @@ async def journey(session_id: str):
     evs = [strip_id(e) async for e in events.find({"session_id": session_id}).sort("created_at", 1)]
     bks = [strip_id(b) async for b in bookings.find({"session_id": session_id}).sort("created_at", 1)]
     return {"session": strip_id(session), "events": evs, "bookings": bks}
+
+
+@router.get("/ai_traffic")
+async def ai_traffic(start_date: Optional[str] = None, end_date: Optional[str] = None, campaign: Optional[str] = None):
+    match = get_filter(start_date, end_date, campaign)
+    # AI Domains Regex
+    ai_regex = r"(chatgpt\.com|claude\.ai|perplexity\.ai|openai\.com|poe\.com|anthropic\.com)"
+    if not match:
+        match = {}
+    match["referrer"] = {"$regex": ai_regex, "$options": "i"}
+    
+    pipeline = []
+    pipeline.append({"$match": match})
+    
+    # Group by referrer domain/AI Tool
+    pipeline.extend([
+        {"$group": {
+            "_id": {
+                "referrer": "$referrer",
+                "device": "$device.device_type"
+            },
+            "visitors": {"$sum": 1},
+            "scrolled": {"$sum": {"$cond": [{"$ifNull": ["$funnel.ViewContent", False]}, 1, 0]}},
+            "clicked_cta": {"$sum": {"$cond": [{"$ifNull": ["$funnel.InitiateCheckout", False]}, 1, 0]}},
+            "leads": {"$sum": {"$cond": [{"$ifNull": ["$funnel.Lead", False]}, 1, 0]}},
+            "paid": {"$sum": {"$cond": [{"$ifNull": ["$funnel.Purchase", False]}, 1, 0]}},
+            "landing_urls": {"$addToSet": "$landing_url"}
+        }},
+        {"$sort": {"visitors": -1}}
+    ])
+    
+    rows = [r async for r in sessions.aggregate(pipeline)]
+    
+    out = []
+    for r in rows:
+        referrer = r["_id"]["referrer"] or "Unknown AI"
+        
+        # Friendly Name mapping
+        ai_name = "Other AI"
+        if "chatgpt" in referrer.lower() or "openai" in referrer.lower():
+            ai_name = "ChatGPT"
+        elif "claude" in referrer.lower() or "anthropic" in referrer.lower():
+            ai_name = "Claude"
+        elif "perplexity" in referrer.lower():
+            ai_name = "Perplexity"
+        elif "poe" in referrer.lower():
+            ai_name = "Poe"
+            
+        out.append({
+            "ai_name": ai_name,
+            "raw_referrer": referrer,
+            "device": r["_id"].get("device") or "unknown",
+            "visitors": r["visitors"],
+            "scrolled": r["scrolled"],
+            "clicked_cta": r["clicked_cta"],
+            "leads": r["leads"],
+            "paid": r["paid"],
+            "landing_urls": r["landing_urls"]
+        })
+        
+    return out

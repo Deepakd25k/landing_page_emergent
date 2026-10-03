@@ -9,6 +9,8 @@ import { JourneyViewer } from "@/components/admin/JourneyViewer";
 import { DateFilter } from "@/components/admin/DateFilter";
 import { CampaignFilter } from "@/components/admin/CampaignFilter";
 import { CsvExportButton } from "@/components/admin/CsvExportButton";
+import { AIDashboard } from "@/components/admin/AIDashboard";
+import { Bot } from "lucide-react";
 
 const NAV = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
@@ -16,6 +18,7 @@ const NAV = [
   { to: "/admin/events", label: "Live Events", icon: Radio },
   { to: "/admin/attribution", label: "Attribution", icon: Target },
   { to: "/admin/journeys", label: "Journeys", icon: RouteIcon },
+  { to: "/admin/ai", label: "AI", icon: Bot },
 ];
 
 export default function AdminDashboard() {
@@ -78,6 +81,7 @@ export default function AdminDashboard() {
             <Route path="attribution" element={<UtmTable />} />
             <Route path="journeys" element={<JourneyViewer />} />
             <Route path="journeys/:sessionId" element={<JourneyViewer />} />
+            <Route path="ai" element={<AIDashboard />} />
           </Routes>
         </main>
       </div>
