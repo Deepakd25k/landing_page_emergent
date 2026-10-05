@@ -73,9 +73,9 @@ export const PMExecution = () => {
         </div>
 
         {/* Closing Punchline */}
-        <div className="text-center mb-10">
-          <p className="inline-block px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-sm sm:text-base font-black text-slate-800 tracking-wide uppercase">
-            Clear priorities <span className="text-slate-300 mx-2">•</span> Visible work <span className="text-slate-300 mx-2">•</span> Direct conversations
+        <div className="text-center mb-10 overflow-x-auto hide-scrollbar">
+          <p className="inline-block px-4 sm:px-6 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] sm:text-xs font-semibold text-slate-800 tracking-wider uppercase whitespace-nowrap">
+            Clear priorities <span className="text-slate-300 mx-1.5 sm:mx-2">•</span> Visible work <span className="text-slate-300 mx-1.5 sm:mx-2">•</span> Direct conversations
           </p>
         </div>
 
