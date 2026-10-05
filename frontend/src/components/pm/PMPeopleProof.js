@@ -209,39 +209,49 @@ export const PMPeopleProof = () => {
             </div>
           </div>
 
-          <div className="lg:w-1/2 bg-slate-900 p-4 sm:p-10 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-slate-800 relative overflow-hidden group">
+          <div className="lg:w-1/2 bg-slate-50/80 p-6 sm:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-200 relative">
             
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-slate-800/80 backdrop-blur-sm rounded px-3 py-1.5 z-20 border border-slate-700 flex items-center gap-2 shadow-lg">
-              {evidenceImages[evidenceSlide].platform === 'shopify' && (
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
-              )}
-              {evidenceImages[evidenceSlide].platform === 'meta' && (
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain brightness-0 invert opacity-90" />
-              )}
-              {evidenceImages[evidenceSlide].platform === 'google' && (
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
-              )}
-              {evidenceImages[evidenceSlide].platform === 'sheets' && (
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
-              )}
-              {evidenceImages[evidenceSlide].platform === 'amazon' && (
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
-              )}
-              {evidenceImages[evidenceSlide].platform === 'blinkit' && (
-                <span className="text-[11px] sm:text-[13px] font-extrabold tracking-tighter text-white/90 leading-none">blinkit</span>
-              )}
-              <div className="w-px h-3 bg-slate-600 hidden sm:block"></div>
-              <span className="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-widest leading-none mt-0.5">
-                {evidenceImages[evidenceSlide].label}
-              </span>
+            <div className="text-center mb-8 mt-2">
+              <h3 className="text-[12px] sm:text-[13px] font-black text-slate-800 uppercase tracking-widest bg-slate-200/60 px-4 py-1.5 rounded-full inline-block mb-3 border border-slate-300/50">
+                Omnichannel D2C Performance
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-slate-500">
+                Scaling your brand across every profitable channel.
+              </p>
             </div>
 
-            <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-emerald-500/10 backdrop-blur-sm rounded px-2.5 py-1 z-20 border border-emerald-500/20 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Verified</span>
-            </div>
+            <div className="w-full relative rounded-xl overflow-hidden shadow-lg border border-slate-200/70 bg-white flex-1 min-h-[250px] sm:min-h-[320px] flex items-center justify-center mb-8">
+              
+              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 bg-white/95 backdrop-blur-sm shadow-sm rounded-md px-3 py-1.5 z-20 border border-slate-100 flex items-center gap-2">
+                {evidenceImages[evidenceSlide].platform === 'shopify' && (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-3.5 sm:h-4 object-contain" />
+                )}
+                {evidenceImages[evidenceSlide].platform === 'meta' && (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain" />
+                )}
+                {evidenceImages[evidenceSlide].platform === 'google' && (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-3.5 sm:h-4 object-contain" />
+                )}
+                {evidenceImages[evidenceSlide].platform === 'sheets' && (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3.5 sm:h-4 object-contain" />
+                )}
+                {evidenceImages[evidenceSlide].platform === 'amazon' && (
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-3.5 sm:h-4 object-contain mt-1" />
+                )}
+                {evidenceImages[evidenceSlide].platform === 'blinkit' && (
+                  <span className="text-[12px] sm:text-[14px] font-extrabold tracking-tighter text-[#F8CB46] leading-none drop-shadow-sm">blinkit</span>
+                )}
+                <div className="w-px h-3 bg-slate-300 hidden sm:block"></div>
+                <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest leading-none mt-0.5">
+                  {evidenceImages[evidenceSlide].label}
+                </span>
+              </div>
 
-            <div className="w-full aspect-[4/3] sm:aspect-video relative rounded-xl overflow-hidden shadow-2xl border border-slate-700/50 flex items-center justify-center bg-black">
+              <div className="absolute top-4 right-4 sm:top-5 sm:right-5 bg-emerald-50 backdrop-blur-sm shadow-sm rounded-md px-2.5 py-1 z-20 border border-emerald-200 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest">Verified</span>
+              </div>
+
               <AnimatePresence mode="wait">
                 <motion.img 
                   key={evidenceSlide}
@@ -251,19 +261,27 @@ export const PMPeopleProof = () => {
                   transition={{ duration: 0.4 }}
                   src={evidenceImages[evidenceSlide].url} 
                   alt={evidenceImages[evidenceSlide].label}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full absolute inset-0 object-contain p-2 sm:p-4"
                 />
               </AnimatePresence>
+
+              <div className="absolute bottom-4 sm:bottom-5 left-0 right-0 flex justify-center gap-2 z-20">
+                {evidenceImages.map((_, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setEvidenceSlide(idx)}
+                    className={`w-2 h-2 rounded-full shadow-sm transition-all duration-300 ${idx === evidenceSlide ? 'bg-blue-600 w-5' : 'bg-slate-300 hover:bg-slate-400'}`}
+                  />
+                ))}
+              </div>
             </div>
 
-            <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
-              {evidenceImages.map((_, idx) => (
-                <button 
-                  key={idx}
-                  onClick={() => setEvidenceSlide(idx)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === evidenceSlide ? 'bg-white w-5' : 'bg-white/30 hover:bg-white/60'}`}
-                />
-              ))}
+            <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 opacity-70 hover:opacity-100 transition-opacity mb-2">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-3 sm:h-3.5 grayscale hover:grayscale-0 transition-all cursor-pointer" />
+               <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-4 sm:h-4.5 grayscale hover:grayscale-0 transition-all cursor-pointer" />
+               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-4 sm:h-4.5 grayscale hover:grayscale-0 transition-all cursor-pointer mt-1" />
+               <span className="text-[15px] sm:text-[17px] font-black tracking-tighter text-slate-800 leading-none grayscale hover:grayscale-0 hover:text-[#F8CB46] transition-all cursor-pointer drop-shadow-sm">blinkit</span>
+               <span className="text-[13px] sm:text-[15px] font-bold tracking-tight text-slate-800 leading-none flex items-center gap-1 grayscale hover:grayscale-0 transition-all cursor-pointer"><svg className="w-3.5 h-3.5 text-[#F8CB46] hidden sm:block" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/></svg>Bitespeed</span>
             </div>
 
           </div>
