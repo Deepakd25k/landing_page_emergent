@@ -7,6 +7,7 @@ import { PMComparison } from "../components/pm/PMComparison";
 import { PMAttributionMeasurement } from "../components/pm/PMAttributionMeasurement";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMScope } from "../components/pm/PMScope";
+import { PMBooking } from "../components/pm/PMBooking";
 
 import { TrackingProvider, useTracking } from "@/context/TrackingContext";
 
@@ -127,6 +128,7 @@ const PMContent = () => {
       <PMScope />
       <PMAttributionMeasurement />
       <PMExecution />
+      <PMBooking />
     </div>
   );
 };
