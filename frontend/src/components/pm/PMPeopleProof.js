@@ -9,7 +9,8 @@ export const PMPeopleProof = () => {
   const evidenceImages = [
     { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales", platform: "shopify" },
     { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale", platform: "meta" },
-    { url: "/assets/meta-proof-2.png", label: "Meta Ads Conv. Rate & AOV", platform: "meta" },
+    { url: "/assets/google-proof-1.png", label: "Google Ads Conversions", platform: "google" },
+    { url: "/assets/unit-economics-proof.png", label: "D2C Per Order P&L", platform: "sheets" },
     { url: "/assets/meta-proof-3.png", label: "9-Month Meta Ads Performance", platform: "meta" }
   ];
 
@@ -214,6 +215,12 @@ export const PMPeopleProof = () => {
               )}
               {evidenceImages[evidenceSlide].platform === 'meta' && (
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain brightness-0 invert opacity-90" />
+              )}
+              {evidenceImages[evidenceSlide].platform === 'google' && (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
+              )}
+              {evidenceImages[evidenceSlide].platform === 'sheets' && (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
               )}
               <div className="w-px h-3 bg-slate-600 hidden sm:block"></div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-widest leading-none mt-0.5">
