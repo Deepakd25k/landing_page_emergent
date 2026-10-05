@@ -1,10 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const PMPeopleProof = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [evidenceSlide, setEvidenceSlide] = useState(0);
   const carouselRef = useRef(null);
+
+  const evidenceImages = [
+    { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales" },
+    { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale" },
+    { url: "/assets/meta-proof-2.png", label: "Meta Ads Conv. Rate & AOV" }
+  ];
+
+  useEffect(() => {
+    if (!modalOpen) return;
+    const interval = setInterval(() => {
+      setEvidenceSlide((prev) => (prev + 1) % evidenceImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [modalOpen, evidenceImages.length]);
 
   const founders = [
     {
@@ -291,31 +306,79 @@ export const PMPeopleProof = () => {
 
       </div>
 
-      {/* Image Modal */}
+      {/* Auto-scrolling Image Modal */}
       <AnimatePresence>
         {modalOpen && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-slate-900/95 backdrop-blur-md"
             onClick={() => setModalOpen(false)}
           >
             <motion.div 
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="relative w-full max-w-[95vw] sm:max-w-7xl h-[85vh] sm:h-[90vh] bg-slate-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col border border-slate-700"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center p-4 border-b border-slate-100">
-                <span className="font-bold text-slate-800">Verified Evidence</span>
-                <button onClick={() => setModalOpen(false)} className="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-slate-600 transition-colors">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
+              <div className="flex justify-between items-center p-4 border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm z-10">
+                <div className="flex items-center gap-3">
+                  <span className="font-bold text-white tracking-wide">Verified Evidence</span>
+                  <span className="text-xs font-medium text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md hidden sm:block">
+                    {evidenceImages[evidenceSlide].label}
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-xs font-bold text-slate-400">
+                    {evidenceSlide + 1} / {evidenceImages.length}
+                  </span>
+                  <button onClick={() => setModalOpen(false)} className="w-8 h-8 flex items-center justify-center bg-slate-800 hover:bg-slate-700 rounded-full text-white transition-colors">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/></svg>
+                  </button>
+                </div>
+              </div>
+              
+              <div className="relative flex-1 overflow-hidden bg-black flex items-center justify-center group">
+                {/* Carousel images */}
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={evidenceSlide}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                    src={evidenceImages[evidenceSlide].url} 
+                    alt={evidenceImages[evidenceSlide].label}
+                    className="w-full h-full object-contain"
+                  />
+                </AnimatePresence>
+
+                {/* Left/Right manual controls */}
+                <button 
+                  onClick={() => setEvidenceSlide((prev) => (prev - 1 + evidenceImages.length) % evidenceImages.length)}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button 
+                  onClick={() => setEvidenceSlide((prev) => (prev + 1) % evidenceImages.length)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/></svg>
                 </button>
               </div>
-              <div className="p-4 overflow-auto flex-1 flex justify-center items-center bg-slate-50">
-                <img src={featuredCase.image} alt="Full Evidence" className="w-full h-auto max-h-full object-contain" />
+
+              {/* Progress dots */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10 bg-black/50 px-3 py-2 rounded-full backdrop-blur-md">
+                {evidenceImages.map((_, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setEvidenceSlide(idx)}
+                    className={`w-2 h-2 rounded-full transition-all ${idx === evidenceSlide ? 'bg-white w-4' : 'bg-white/40 hover:bg-white/70'}`}
+                  />
+                ))}
               </div>
             </motion.div>
           </motion.div>
