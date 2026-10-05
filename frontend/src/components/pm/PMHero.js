@@ -36,10 +36,11 @@ export const PMHero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 sm:mb-8 max-w-4xl mx-auto text-slate-900"
+            className="text-[2.2rem] leading-[1.1] sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 sm:mb-8 max-w-4xl mx-auto text-slate-900"
           >
-            Your customer's journey<br className="hidden sm:block" />
-            <span className="text-slate-400">doesn't end at the click.</span>
+            From the first ad<br className="hidden sm:block" />
+            to the delivered order.<br />
+            <span className="text-slate-400 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">We work on what drives growth.</span>
           </motion.h1>
 
           {/* Subtext */}
@@ -49,21 +50,16 @@ export const PMHero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col items-center gap-4 mb-8 sm:mb-10 w-full"
           >
-            <p className="text-[15px] sm:text-xl font-bold text-slate-800 max-w-2xl mx-auto leading-snug sm:leading-relaxed">
-              Neither does our work.
-            </p>
             <p className="text-[14px] sm:text-lg font-medium text-slate-600 max-w-3xl mx-auto leading-relaxed px-1">
-              We run your ads, create performance creatives and fix the problems that cost you sales and profit—from{" "}
-              <span className="text-slate-900 font-bold">broken tracking</span> and{" "}
-              <span className="text-slate-900 font-bold">weak offers</span> to{" "}
-              <span className="text-slate-900 font-bold">payment failures</span>,{" "}
-              <span className="text-slate-900 font-bold">delivery issues</span> and{" "}
-              <span className="text-slate-900 font-bold">RTO</span>.
+              We manage performance marketing and create your ads in-house. We also work on{" "}
+              <span className="text-slate-900 font-bold">tracking</span>,{" "}
+              <span className="text-slate-900 font-bold">offers</span>,{" "}
+              <span className="text-slate-900 font-bold">checkout</span>,{" "}
+              <span className="text-slate-900 font-bold">payment failures</span> and{" "}
+              <span className="text-slate-900 font-bold">RTO</span>—the problems that affect your sales and profit.
             </p>
-            <p className="text-[13px] sm:text-base font-medium text-slate-500 max-w-2xl mx-auto leading-relaxed px-1">
-              Work directly with{" "}
-              <span className="text-slate-800 font-bold border-b-2 border-blue-200">two hands-on founders</span>{" "}
-              and our in-house creative team. One connected team, from the first ad to the delivered order—and the next purchase.
+            <p className="text-[15px] sm:text-lg font-bold text-slate-800 max-w-2xl mx-auto leading-relaxed px-1">
+              Work directly with our two founders and performance creative team.
             </p>
           </motion.div>
 
