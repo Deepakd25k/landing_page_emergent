@@ -3,18 +3,32 @@ import { motion } from "framer-motion";
 export const PMProof = () => {
   const caseStudies = [
     {
-      brand: "Premium Skincare • ₹15L/month Spend",
-      problem: "CAC spiked from ₹800 to ₹1,400 when attempting to scale daily budgets past ₹50k. Overly reliant on bottom-of-funnel retargeting.",
-      work: "Rebuilt the creative testing framework for broad targeting. Implemented Server-Side API (CAPI). Shifted 40% budget to education-first video ads.",
-      result: "CAC stabilized at ₹850 while successfully doubling daily ad spend within 45 days.",
-      impact: "Monthly revenue scaled from ₹45L to ₹95L with a 15% increase in contribution margin."
+      brand: "EdTech • Google + Meta",
+      problem: "Capped at ₹15L/mo spend due to high ₹3L CAC. Unscalable economics.",
+      work: "Systematically scaled the acquisition engine over 12 months.",
+      result: "Spend grew 16.7× (to ₹2.5Cr/mo). CAC dropped by 50% (to ₹1.5L).",
+      impact: "Revenue grew 25× to hit ₹7.5Cr/mo with highly profitable unit economics."
     },
     {
-      brand: "FMCG & Health Foods • ₹20L/month Spend",
-      problem: "High RTOs (28%) on their Shopify store were destroying profitability, despite the Meta dashboard showing a healthy 3.5x ROAS.",
-      work: "Shifted budgets towards Blinkit/Zepto collaborative ads. Redesigned D2C funnels to heavily feature prepaid-only offers to combat RTO.",
-      result: "RTO dropped to 12% in 2 months. Q-Commerce volume tripled simultaneously.",
-      impact: "₹1.2Cr monthly GMV achieved with true EBITDA profitability for the first time in 14 months."
+      brand: "D2C Fashion • Meta + Google",
+      problem: "Stuck at ₹2L/mo spend with inefficient 1.5× ROAS. No room for error.",
+      work: "Progressively increased advertising investment while improving return on every rupee.",
+      result: "Spend scaled 11× (to ₹22L/mo). ROAS improved by 2.3× (to 3.5×).",
+      impact: "Revenue exploded 25×+ to reach ₹75–80L/mo. Efficient at scale."
+    },
+    {
+      brand: "Fashion & Apparel • End-to-End",
+      problem: "Plagued by fake RTOs and low realized returns despite good top-line ROAS.",
+      work: "Fixed logistics, PG routing, and checkout flows end-to-end to capture real intent.",
+      result: "Converted fake RTOs to successful deliveries. Stabilized AOV at ₹4000.",
+      impact: "Delivered 3× Attributed ROAS purely on successful post-return orders."
+    },
+    {
+      brand: "D2C Brand • Persona Testing",
+      problem: "Burning ₹16L/mo at stagnant 1× ROAS. No messaging was converting.",
+      work: "Redefined ICPs and aggressively tested 10 ad creatives daily for 2 months.",
+      result: "Found winning messaging that connected deeply with the actual target buyers.",
+      impact: "Attributed ROAS doubled to 2× at the exact same ₹16L/mo ad spend."
     }
   ];
 
@@ -49,7 +63,7 @@ export const PMProof = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900"
+            className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]"
           >
             Big budgets show experience.<br className="hidden sm:block" />
             <span className="text-slate-400">Business outcomes show the work.</span>
@@ -75,11 +89,11 @@ export const PMProof = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5 }}
-              className="sticky bg-white rounded-[2rem] shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200 overflow-hidden flex flex-col z-20"
+              className="sticky bg-white rounded-[2rem] shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200 overflow-hidden flex flex-col z-20 h-[500px] sm:h-[460px]"
               style={{ top: `calc(100px + ${index * 32}px)` }}
             >
               {/* Card Header (Brand) */}
-              <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
                 <span className="text-base sm:text-lg font-black text-slate-800 tracking-tight uppercase">
                   {caseStudy.brand.split('•')[0].trim()}
                 </span>
@@ -89,15 +103,15 @@ export const PMProof = () => {
               </div>
 
               {/* Card Body (Details) */}
-              <div className="p-6 sm:p-8 flex flex-col gap-6">
+              <div className="p-6 sm:p-8 flex flex-col gap-4 sm:gap-6 flex-1 justify-center">
                 
                 {/* Problem */}
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-rose-500">
                       <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                     </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Problem</h4>
+                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Problem</h4>
                   </div>
                   <p className="text-[14px] sm:text-[15px] font-semibold text-slate-800 leading-relaxed">
                     {caseStudy.problem}
@@ -106,11 +120,11 @@ export const PMProof = () => {
 
                 {/* Our Work */}
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-blue-500">
                       <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Our Work</h4>
+                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Our Work</h4>
                   </div>
                   <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
                     {caseStudy.work}
@@ -119,11 +133,11 @@ export const PMProof = () => {
 
                 {/* Result */}
                 <div>
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-1.5">
                     <span className="text-orange-500">
                       <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
                     </span>
-                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Result</h4>
+                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Result</h4>
                   </div>
                   <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
                     {caseStudy.result}
@@ -133,14 +147,14 @@ export const PMProof = () => {
               </div>
 
               {/* Card Footer (Business Impact) */}
-              <div className="mt-auto bg-[#F0FDF4] border-t border-emerald-100 p-6 sm:p-8">
+              <div className="mt-auto bg-[#F0FDF4] border-t border-emerald-100 p-6 sm:p-8 shrink-0">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-emerald-600">
                     <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   </span>
                   <h4 className="text-[11px] sm:text-xs font-black text-emerald-800 uppercase tracking-widest">Business Impact</h4>
                 </div>
-                <p className="text-[16px] sm:text-[18px] font-bold text-emerald-950 leading-tight">
+                <p className="text-[15px] sm:text-[17px] font-bold text-emerald-950 leading-tight">
                   {caseStudy.impact}
                 </p>
               </div>
@@ -150,7 +164,7 @@ export const PMProof = () => {
         </div>
 
         {/* Built In The Accounts Footer */}
-        <div className="mt-12 sm:mt-16 px-4 pb-4">
+        <div className="mt-8 sm:mt-12 px-4 pb-4">
           <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
             
             <div className="inline-flex items-center gap-3 mb-4">
