@@ -64,10 +64,7 @@ export const PMCreativePipeline = () => {
         </div>
 
         {/* Steps Pipeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-24 relative">
-          {/* Connecting Line for Desktop */}
-          <div className="hidden lg:block absolute top-[1.25rem] left-[10%] right-[10%] h-[2px] bg-slate-100 -z-10"></div>
-          
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 mb-16 sm:mb-24 relative max-w-4xl mx-auto">
           {steps.map((step, index) => (
             <motion.div 
               key={index}
@@ -75,17 +72,19 @@ export const PMCreativePipeline = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col relative"
+              className="flex flex-row items-start gap-4 sm:gap-5 relative bg-[#FAFAFA] p-5 sm:p-6 rounded-2xl border border-slate-100"
             >
-              <div className="w-10 h-10 rounded-full bg-white border-2 border-blue-500 flex items-center justify-center text-blue-600 font-black text-sm mb-5 shadow-[0_0_0_4px_white]">
+              <div className="w-10 h-10 shrink-0 rounded-full bg-white border border-blue-200 shadow-sm flex items-center justify-center text-blue-600 font-black text-sm">
                 {step.step}
               </div>
-              <h3 className="text-[16px] sm:text-[17px] font-bold text-slate-900 mb-3">
-                {step.title}
-              </h3>
-              <p className="text-[13px] sm:text-[14px] font-medium text-slate-500 leading-relaxed pr-4">
-                {step.desc}
-              </p>
+              <div>
+                <h3 className="text-[16px] sm:text-[17px] font-bold text-slate-900 mb-2 mt-1.5">
+                  {step.title}
+                </h3>
+                <p className="text-[13px] sm:text-[14px] font-medium text-slate-500 leading-relaxed pr-2">
+                  {step.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
