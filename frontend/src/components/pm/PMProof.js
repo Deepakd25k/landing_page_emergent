@@ -1,47 +1,21 @@
 import { motion } from "framer-motion";
 
 export const PMProof = () => {
-  const platforms = [
-    { 
-      name: "Meta", 
-      tabText: "Meta Ads • Live",
-      headline: "₹2.63 Cr Ad Spend",
-      subhead: "Scaled profitably in just 7 months.",
-      img: "/images/proof-meta.png", 
-      icon: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
+  const caseStudies = [
+    {
+      brand: "Premium Skincare • ₹15L/month Spend",
+      problem: "CAC spiked from ₹800 to ₹1,400 when attempting to scale daily budgets past ₹50k. Overly reliant on bottom-of-funnel retargeting.",
+      work: "Rebuilt the creative testing framework for broad targeting. Implemented Server-Side API (CAPI). Shifted 40% budget to education-first video ads.",
+      result: "CAC stabilized at ₹850 while successfully doubling daily ad spend within 45 days.",
+      impact: "Monthly revenue scaled from ₹45L to ₹95L with a 15% increase in contribution margin."
     },
-    { 
-      name: "Google", 
-      tabText: "Google Ads • Live",
-      headline: "46x ROAS on Google",
-      subhead: "9,620 sales at just $3.30 CPA.",
-      img: "/images/proof-google.png", 
-      icon: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
-    },
-    { 
-      name: "Amazon", 
-      tabText: "Amazon Ads • Scaling",
-      headline: "Marketplace Scaling",
-      subhead: "Outbidding competitors efficiently.",
-      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600", // Temp placeholder
-      icon: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" 
-    },
-    { 
-      name: "WhatsApp", 
-      tabText: "Retention • Active",
-      headline: "WhatsApp Funnels",
-      subhead: "Recovered 24% of abandoned carts.",
-      img: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=600", // Temp placeholder
-      icon: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-    },
-    { 
-      name: "CRO", 
-      tabText: "Store CRO • Active",
-      headline: "Conversion Boost",
-      subhead: "Optimized landing pages for CVR.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600", // Temp placeholder
-      icon: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
-    },
+    {
+      brand: "FMCG & Health Foods • ₹20L/month Spend",
+      problem: "High RTOs (28%) on their Shopify store were destroying profitability, despite the Meta dashboard showing a healthy 3.5x ROAS.",
+      work: "Shifted budgets towards Blinkit/Zepto collaborative ads. Redesigned D2C funnels to heavily feature prepaid-only offers to combat RTO.",
+      result: "RTO dropped to 12% in 2 months. Q-Commerce volume tripled simultaneously.",
+      impact: "₹1.2Cr monthly GMV achieved with true EBITDA profitability for the first time in 14 months."
+    }
   ];
 
   return (
@@ -55,109 +29,134 @@ export const PMProof = () => {
         }}
       ></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 px-4 sm:px-6">
         
         {/* Section Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-6 px-4">
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4 leading-snug text-slate-900">
-            Don't take our word for it. Look at {" "}
-            <span className="relative inline-block px-1">
-              <span className="relative z-10">the math.</span>
-              <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-            </span>
-          </h2>
-        </div>
-
-        {/* Horizontal Swipe Carousel */}
-        <div className="w-full overflow-hidden">
-          {/* Hiding scrollbar using standard tailwind utilities if available, or inline style fallback */}
-          <div 
-            className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-10 px-6 sm:px-12 pb-12 pt-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16 mt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6"
           >
-            <style>{`
-              .flex::-webkit-scrollbar { display: none; }
-            `}</style>
-            
-            {platforms.map((platform, index) => (
-              <div 
-                key={index}
-                className="snap-center shrink-0 w-[85vw] sm:w-[450px] relative flex flex-col group transition-transform hover:-translate-y-1 drop-shadow-[0_8px_20px_rgba(0,0,0,0.06)]"
-              >
-                {/* Folder Tab */}
-                <div className="bg-white h-10 w-48 rounded-t-2xl flex items-center px-5 relative z-10 border-b-0">
-                   <div className="flex items-center gap-2">
-                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                     <span className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">{platform.tabText}</span>
-                   </div>
-                </div>
-                
-                {/* Main Folder Body */}
-                <div className="w-full bg-white rounded-b-[2rem] rounded-tr-[2rem] rounded-tl-none relative z-20 overflow-hidden flex flex-col" style={{ minHeight: '400px' }}>
-                  
-                  {/* Content Header */}
-                  <div className="px-6 py-5 border-b border-slate-100 bg-white">
-                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">{platform.headline}</h3>
-                    <p className="text-sm font-bold text-slate-500 mt-1">{platform.subhead}</p>
-                  </div>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] sm:text-xs font-bold tracking-widest text-slate-500 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Verified Outcomes
+            </div>
+          </motion.div>
 
-                  {/* Image Container */}
-                  <div className="w-full flex-1 bg-slate-50/50 flex items-center justify-center p-4 relative">
-                    <img 
-                      src={platform.img} 
-                      alt={`${platform.name} Proof`} 
-                      className="w-full max-h-[300px] object-contain rounded-xl shadow-sm border border-slate-200/50 bg-white"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    {/* Fallback if image not uploaded yet */}
-                    <div className="absolute inset-0 flex-col items-center justify-center text-slate-400 font-medium text-sm hidden">
-                      <svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      Upload {platform.img?.split('/').pop() || 'image'}
-                    </div>
-                  </div>
-                </div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-[1.1] text-slate-900"
+          >
+            Big budgets show experience.<br className="hidden sm:block" />
+            <span className="text-slate-400">Business outcomes show the work.</span>
+          </motion.h2>
 
-                {/* Attached Floating Platform Icon */}
-                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.12)] border border-slate-50 flex items-center justify-center z-30">
-                  <img 
-                    src={platform.icon} 
-                    alt={platform.name}
-                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[14px] sm:text-lg text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed"
+          >
+            Across our founders’ work in D2C, we’ve managed <span className="font-bold text-slate-900 border-b-2 border-emerald-200">₹60Cr in ad spend</span> over three years, including monthly budgets above ₹2Cr.
+            <br className="hidden sm:block" />Here’s what we found, what we changed and what happened next.
+          </motion.p>
         </div>
 
-        {/* Swipe Indicators */}
-        <div className="flex flex-col items-center justify-center mt-2">
-          <div className="flex gap-2 mb-2">
-            <div className="w-5 h-1.5 rounded-full bg-[#5D5FEF]"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-          </div>
-          <p className="text-slate-400 text-xs font-medium tracking-wide">
-            Swipe to see the whole system
-          </p>
+        {/* Case Studies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
+          {caseStudies.map((caseStudy, index) => (
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-200 overflow-hidden flex flex-col"
+            >
+              {/* Card Header (Brand) */}
+              <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <span className="text-base sm:text-lg font-black text-slate-800 tracking-tight uppercase">
+                  {caseStudy.brand.split('•')[0].trim()}
+                </span>
+                <span className="text-[11px] sm:text-xs font-bold text-slate-500 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm w-fit">
+                  {caseStudy.brand.split('•')[1].trim()}
+                </span>
+              </div>
+
+              {/* Card Body (Details) */}
+              <div className="p-6 sm:p-8 flex flex-col gap-6">
+                
+                {/* Problem */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-rose-500">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    </span>
+                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Problem</h4>
+                  </div>
+                  <p className="text-[14px] sm:text-[15px] font-semibold text-slate-800 leading-relaxed">
+                    {caseStudy.problem}
+                  </p>
+                </div>
+
+                {/* Our Work */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-blue-500">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </span>
+                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Our Work</h4>
+                  </div>
+                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
+                    {caseStudy.work}
+                  </p>
+                </div>
+
+                {/* Result */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-orange-500">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </span>
+                    <h4 className="text-[11px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Result</h4>
+                  </div>
+                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
+                    {caseStudy.result}
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Card Footer (Business Impact) */}
+              <div className="mt-auto bg-[#F0FDF4] border-t border-emerald-100 p-6 sm:p-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-emerald-600">
+                    <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </span>
+                  <h4 className="text-[11px] sm:text-xs font-black text-emerald-800 uppercase tracking-widest">Business Impact</h4>
+                </div>
+                <p className="text-[16px] sm:text-[18px] font-bold text-emerald-950 leading-tight">
+                  {caseStudy.impact}
+                </p>
+              </div>
+
+            </motion.div>
+          ))}
         </div>
 
         {/* Backed By Footer */}
-        <div className="mt-10 px-4">
-          <div className="flex flex-row flex-wrap items-center justify-center gap-x-2 sm:gap-x-4 gap-y-2 text-xs sm:text-sm font-bold text-slate-800">
+        <div className="mt-12 sm:mt-16 px-4">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-3 text-xs sm:text-sm font-bold text-slate-800">
             <div className="flex items-center text-slate-400 tracking-widest text-[9px] sm:text-[10px] uppercase mr-1">
               Backed By
             </div>
             
-            <div className="flex items-center gap-1">
-              <div className="w-4 h-4 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[9px] leading-none">
+            <div className="flex items-center gap-1.5">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[9px] sm:text-[11px] leading-none">
                 Y
               </div>
               <span>Y Combinator</span>
@@ -171,10 +170,6 @@ export const PMProof = () => {
             
             <div className="text-slate-300">•</div>
             <div>Kunal Shah</div>
-          </div>
-          
-          <div className="text-center mt-3 text-slate-500 font-medium text-[11px] sm:text-xs">
-            1,00,000+ creators & experts supported
           </div>
         </div>
 
