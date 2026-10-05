@@ -7,9 +7,10 @@ export const PMPeopleProof = () => {
   const carouselRef = useRef(null);
 
   const evidenceImages = [
-    { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales" },
-    { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale" },
-    { url: "/assets/meta-proof-2.png", label: "Meta Ads Conv. Rate & AOV" }
+    { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales", platform: "shopify" },
+    { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale", platform: "meta" },
+    { url: "/assets/meta-proof-2.png", label: "Meta Ads Conv. Rate & AOV", platform: "meta" },
+    { url: "/assets/meta-proof-3.png", label: "9-Month Meta Ads Performance", platform: "meta" }
   ];
 
   useEffect(() => {
@@ -207,8 +208,17 @@ export const PMPeopleProof = () => {
 
           <div className="lg:w-1/2 bg-slate-900 p-4 sm:p-10 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-slate-800 relative overflow-hidden group">
             
-            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-slate-800/80 backdrop-blur-sm rounded px-2.5 py-1 z-20 border border-slate-700">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-widest">{evidenceImages[evidenceSlide].label}</span>
+            <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-slate-800/80 backdrop-blur-sm rounded px-3 py-1.5 z-20 border border-slate-700 flex items-center gap-2 shadow-lg">
+              {evidenceImages[evidenceSlide].platform === 'shopify' && (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
+              )}
+              {evidenceImages[evidenceSlide].platform === 'meta' && (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain brightness-0 invert opacity-90" />
+              )}
+              <div className="w-px h-3 bg-slate-600 hidden sm:block"></div>
+              <span className="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-widest leading-none mt-0.5">
+                {evidenceImages[evidenceSlide].label}
+              </span>
             </div>
 
             <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-emerald-500/10 backdrop-blur-sm rounded px-2.5 py-1 z-20 border border-emerald-500/20 flex items-center gap-1.5">
