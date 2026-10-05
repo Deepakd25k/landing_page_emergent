@@ -4,6 +4,15 @@ export const PMHero = () => {
   return (
     <section className="relative w-full flex flex-col justify-start items-center bg-white overflow-hidden px-3 sm:px-6 pt-4 pb-4 sm:pt-8 sm:pb-6">
       
+      {/* Integrated Logo */}
+      <div className="w-full max-w-5xl mx-auto flex justify-start items-center pb-5 sm:pb-6 px-1 sm:px-2">
+        <div className="text-[20px] sm:text-[22px] tracking-tight">
+          <span className="font-normal text-slate-500">incremental</span>
+          <span className="font-extrabold text-slate-900">value</span>
+          <span className="font-extrabold text-blue-600">.in</span>
+        </div>
+      </div>
+
       {/* Outer Card Container */}
       <div className="relative w-full max-w-5xl mx-auto bg-[#FAFAFA] border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center">
         

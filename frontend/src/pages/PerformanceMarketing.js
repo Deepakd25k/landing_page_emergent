@@ -124,18 +124,9 @@ const PMContent = () => {
       />
       
       {/* Slim Static Announcement Bar */}
-      <div className="w-full bg-[#111827] text-white px-4 py-2 sm:py-2.5 flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-[13px] tracking-wide z-50 relative">
-        <span className="font-extrabold text-blue-400">₹3L+/month on ads?</span>
-        <span className="opacity-95 font-medium">Get direct access to your growth team.</span>
-      </div>
-
-      {/* Text Logo Header */}
-      <div className="w-full bg-white flex justify-center sm:justify-start items-center py-4 px-6 sm:px-10 z-40 relative">
-        <div className="text-[20px] sm:text-[22px] tracking-tight">
-          <span className="font-normal text-slate-500">incremental</span>
-          <span className="font-extrabold text-slate-900">value</span>
-          <span className="font-extrabold text-blue-600">.in</span>
-        </div>
+      <div className="w-full bg-[#5D5FEF] text-white px-4 py-2 sm:py-2.5 flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-[13px] tracking-wide z-50 relative">
+        <span className="font-extrabold text-white drop-shadow-sm">₹3L+/month on ads?</span>
+        <span className="text-white/95 font-medium">Get direct access to your growth team.</span>
       </div>
 
       <PMHero />
