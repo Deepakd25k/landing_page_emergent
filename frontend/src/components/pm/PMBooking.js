@@ -51,7 +51,10 @@ export const PMBooking = () => {
           transition={{ delay: 0.2 }}
         >
           <button
+            data-cal-namespace="default"
             data-cal-link="d2cdeepak-audit/d2c-growth-call"
+            data-cal-origin="https://cal.id"
+            data-cal-config='{"layout":"month_view"}'
             onClick={() => window.trackEvent?.("InitiateCheckout", { section: "pm-final-booking" })}
             className="inline-flex items-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-[15px] sm:text-[16px] transition-all shadow-sm active:scale-95"
           >

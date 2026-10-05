@@ -405,7 +405,10 @@ export const PMPeopleProof = () => {
         {/* Bottom CTA */}
         <div className="flex justify-center">
           <button
+            data-cal-namespace="default"
             data-cal-link="d2cdeepak-audit/d2c-growth-call"
+            data-cal-origin="https://cal.id"
+            data-cal-config='{"layout":"month_view"}'
             onClick={() => window.trackEvent?.("InitiateCheckout", { section: "pm-people-proof" })}
             className="px-8 py-4 bg-[#5D5FEF] hover:bg-[#4d4fdf] text-white rounded-xl font-bold text-base transition-all shadow-[0_4px_14px_0_rgb(93,95,239,0.39)] hover:shadow-[0_6px_20px_rgba(93,95,239,0.23)] hover:-translate-y-0.5 flex items-center justify-center gap-2"
           >
