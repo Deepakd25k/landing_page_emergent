@@ -41,7 +41,7 @@ export const PMManifesto = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             
             {/* Card 1 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
               <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center shrink-0 text-rose-500">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -56,7 +56,7 @@ export const PMManifesto = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
               <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center shrink-0 text-orange-500">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -71,7 +71,7 @@ export const PMManifesto = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
               <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shrink-0 text-blue-500">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
@@ -86,7 +86,7 @@ export const PMManifesto = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 flex flex-row gap-4 sm:gap-5 shadow-sm border border-slate-100 items-start">
               <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center shrink-0 text-purple-500">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
