@@ -22,5 +22,11 @@
       "destination": "https://incrementalvalue.in/pm",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
