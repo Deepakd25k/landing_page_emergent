@@ -10,16 +10,30 @@ export const PMPeopleProof = () => {
     {
       name: "Deepak Gupta",
       title: "Co-founder, Incremental Value",
-      responsibility: "Directly oversees account strategy and business growth.",
       image: "/images/deepak_founder.png",
-      linkedin: "#"
+      linkedin: "#",
+      highlights: [
+        "Individual Contributor & Team Lead for D2C brands",
+        "D2C Growth Specialist (Omnichannel & CRO-led)",
+        "₹10Cr+ D2C Ad Spend Managed",
+        "5+ yrs exp (Former Software Dev in Product Co.)",
+        "Focus on CM3+ Optimization & Avg 4X ROAS",
+        "n8n for D2C automation & End-to-end leak fixes"
+      ]
     },
     {
       name: "Kushagra Jain",
       title: "Co-founder, Incremental Value",
-      responsibility: "Directly handles performance marketing and creative operations.",
       image: "/images/kushagra_founder.jpg",
-      linkedin: "#"
+      linkedin: "#",
+      highlights: [
+        "Working closely with D2C Founders",
+        "₹35Cr+ Ad Spend Managed",
+        "Growth Manager & D2C Expert",
+        "Google Ads Ecosystem Expert",
+        "5+ yrs exp & Avg 5X ROAS",
+        "End-to-end D2C problem fixes"
+      ]
     }
   ];
 
@@ -127,10 +141,15 @@ export const PMPeopleProof = () => {
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   </a>
                 </div>
-                <p className="text-sm font-semibold text-blue-600 mb-3">{founder.title}</p>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  {founder.responsibility}
-                </p>
+                <p className="text-sm font-semibold text-blue-600 mb-4">{founder.title}</p>
+                <ul className="space-y-2">
+                  {founder.highlights.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[13px] sm:text-sm text-slate-600 font-medium leading-snug">
+                      <span className="text-blue-500 font-bold shrink-0 mt-0.5">•</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
