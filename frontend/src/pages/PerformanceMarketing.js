@@ -129,6 +129,15 @@ const PMContent = () => {
         <span className="opacity-95 font-medium">Get direct access to your growth team.</span>
       </div>
 
+      {/* Text Logo Header */}
+      <div className="w-full bg-white flex justify-center sm:justify-start items-center py-4 px-6 sm:px-10 z-40 relative">
+        <div className="text-[20px] sm:text-[22px] tracking-tight">
+          <span className="font-normal text-slate-500">incremental</span>
+          <span className="font-extrabold text-slate-900">value</span>
+          <span className="font-extrabold text-blue-600">.in</span>
+        </div>
+      </div>
+
       <PMHero />
       <PMPeopleProof />
       <PMComparison />
