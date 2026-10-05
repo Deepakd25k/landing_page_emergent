@@ -2,6 +2,26 @@
   "rewrites": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "cohort.incrementalvalue.in"
+        }
+      ],
+      "destination": "/cohort.html"
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "growth.incrementalvalue.in"
+        }
+      ],
+      "destination": "/growth.html"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
