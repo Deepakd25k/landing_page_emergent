@@ -148,28 +148,37 @@ export const PMProof = () => {
           ))}
         </div>
 
-        {/* Backed By Footer */}
-        <div className="mt-12 sm:mt-16 px-4">
-          <div className="flex flex-row flex-wrap items-center justify-center gap-x-3 sm:gap-x-5 gap-y-3 text-xs sm:text-sm font-bold text-slate-800">
-            <div className="flex items-center text-slate-400 tracking-widest text-[9px] sm:text-[10px] uppercase mr-1">
-              Backed By
+        {/* Built In The Accounts Footer */}
+        <div className="mt-12 sm:mt-16 px-4 pb-4">
+          <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
+            
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 sm:w-12 h-[1px] bg-slate-200"></span>
+              <span className="text-slate-400 tracking-[0.2em] text-[10px] sm:text-[11px] font-bold uppercase">
+                Built In The Accounts
+              </span>
+              <span className="w-8 sm:w-12 h-[1px] bg-slate-200"></span>
             </div>
             
-            <div className="flex items-center gap-1.5">
-              <div className="w-4 h-4 sm:w-5 sm:h-5 rounded bg-[#FF6600] flex items-center justify-center text-white font-bold text-[9px] sm:text-[11px] leading-none">
-                Y
-              </div>
-              <span>Y Combinator</span>
+            <div className="text-base sm:text-xl font-extrabold text-slate-900 mb-2 tracking-tight">
+              ₹60Cr managed <span className="text-slate-300 mx-1.5 sm:mx-2">•</span> ₹2Cr+ monthly budgets
             </div>
             
-            <div className="text-slate-300">•</div>
-            <div>Lightspeed</div>
-            
-            <div className="text-slate-300">•</div>
-            <div>Chiratae</div>
-            
-            <div className="text-slate-300">•</div>
-            <div>Kunal Shah</div>
+            <p className="text-xs sm:text-sm text-slate-500 font-medium mb-6">
+              Across our founders’ experience over the last 3 years.
+            </p>
+
+            <div className="bg-white border border-rose-100 shadow-[0_4px_14px_rgba(225,29,72,0.08)] rounded-xl px-5 py-3 sm:px-6 sm:py-3.5 flex items-center gap-3 w-fit transition-transform hover:-translate-y-0.5">
+              <span className="text-rose-500 shrink-0">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                </svg>
+              </span>
+              <span className="text-[13px] sm:text-[15px] font-bold text-slate-800 text-left leading-snug">
+                No forwarding your questions to <span className="text-rose-600">“the concerned team.”</span>
+              </span>
+            </div>
+
           </div>
         </div>
 
