@@ -126,8 +126,8 @@ const PMContent = () => {
       <PMPeopleProof />
       <PMComparison />
       <PMScope />
-      <PMCreativePipeline />
       <PMAttributionMeasurement />
+      <PMCreativePipeline />
       <PMExecution />
     </div>
   );
