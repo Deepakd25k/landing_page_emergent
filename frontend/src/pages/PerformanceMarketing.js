@@ -122,6 +122,13 @@ const PMContent = () => {
         url="https://incrementalvalue.in/pm"
         schemas={[pmSchema, pmFaq]}
       />
+      
+      {/* Slim Static Announcement Bar */}
+      <div className="w-full bg-[#111827] text-white px-4 py-2 sm:py-2.5 flex items-center justify-center gap-1 sm:gap-2 text-[11px] sm:text-[13px] tracking-wide z-50 relative">
+        <span className="font-extrabold text-blue-400">₹3L+/month on ads?</span>
+        <span className="opacity-95 font-medium">Get direct access to your growth team.</span>
+      </div>
+
       <PMHero />
       <PMPeopleProof />
       <PMComparison />
