@@ -11,6 +11,8 @@ export const PMPeopleProof = () => {
     { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale", platform: "meta" },
     { url: "/assets/google-proof-1.png", label: "Google Ads Conversions", platform: "google" },
     { url: "/assets/unit-economics-proof.png", label: "D2C Per Order P&L", platform: "sheets" },
+    { url: "/assets/amazon-proof.png", label: "Amazon Marketplace Sales", platform: "amazon" },
+    { url: "/assets/blinkit-proof.png", label: "Blinkit Quick Commerce", platform: "blinkit" },
     { url: "/assets/meta-proof-3.png", label: "9-Month Meta Ads Performance", platform: "meta" }
   ];
 
@@ -221,6 +223,12 @@ export const PMPeopleProof = () => {
               )}
               {evidenceImages[evidenceSlide].platform === 'sheets' && (
                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
+              )}
+              {evidenceImages[evidenceSlide].platform === 'amazon' && (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" className="h-3 sm:h-4 object-contain brightness-0 invert opacity-90" />
+              )}
+              {evidenceImages[evidenceSlide].platform === 'blinkit' && (
+                <span className="text-[11px] sm:text-[13px] font-extrabold tracking-tighter text-white/90 leading-none">blinkit</span>
               )}
               <div className="w-px h-3 bg-slate-600 hidden sm:block"></div>
               <span className="text-[9px] sm:text-[10px] font-bold text-slate-300 uppercase tracking-widest leading-none mt-0.5">
