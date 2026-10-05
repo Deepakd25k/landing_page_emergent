@@ -4,7 +4,7 @@ import { getCalApi } from "@calcom/embed-react";
 import { PMHero } from "../components/pm/PMHero";
 import { PMManifesto } from "../components/pm/PMManifesto";
 import { PMProof } from "../components/pm/PMProof";
-import { PMMechanism } from "../components/pm/PMMechanism";
+import { PMCreativePipeline } from "../components/pm/PMCreativePipeline";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMCaseStudies } from "../components/pm/PMCaseStudies";
 import { PMAbout } from "../components/pm/PMAbout";
@@ -125,7 +125,7 @@ const PMContent = () => {
       <PMHero />
       <PMManifesto />
       <PMProof />
-      <PMMechanism />
+      <PMCreativePipeline />
       <PMExecution />
       <PMCaseStudies />
       <PMAbout />
