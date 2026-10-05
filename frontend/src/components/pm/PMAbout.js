@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMAbout = () => {
   return (
-    <section className="py-20 sm:py-24 bg-white relative overflow-hidden border-b border-slate-100 px-4">
+    <section className="py-4 sm:py-6 bg-white relative overflow-hidden border-b border-slate-100 px-4">
       
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 z-0 opacity-[0.2]" style={{ backgroundImage: 'linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>

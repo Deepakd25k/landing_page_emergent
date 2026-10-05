@@ -45,7 +45,7 @@ export const PMProof = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-4 sm:py-6 bg-white relative overflow-hidden border-b border-slate-100">
       {/* Subtle Dotted Background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.3]" 

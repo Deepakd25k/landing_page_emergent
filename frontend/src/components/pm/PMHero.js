@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMHero = () => {
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-start items-center bg-white overflow-hidden px-3 sm:px-6 pt-4 pb-12 sm:pt-8">
+    <section className="relative w-full min-h-[100svh] flex flex-col justify-start items-center bg-white overflow-hidden px-3 sm:px-6 pt-4 pb-4 sm:pt-8 sm:pb-6">
       
       {/* Outer Card Container */}
       <div className="relative w-full max-w-5xl mx-auto bg-[#FAFAFA] border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col items-center">

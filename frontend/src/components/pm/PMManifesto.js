@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMManifesto = () => {
   return (
-    <section className="py-12 sm:py-20 bg-white relative">
+    <section className="py-4 sm:py-6 bg-white relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header section */}

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const PMExecution = () => {
   return (
-    <section className="pt-10 pb-20 sm:pt-16 sm:pb-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-4 sm:py-6 bg-slate-50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Heading */}
