@@ -1,167 +1,138 @@
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const PMAttributionMeasurement = () => {
-  const steps = [
-    {
-      title: "Check the signals.",
-      desc: "We audit purchase events, tracking coverage, duplicate events and conversion values before trusting the reports."
-    },
-    {
-      title: "Connect the numbers.",
-      desc: "We reconcile platform reporting with store orders, new customers, cancellations, returns and delivered revenue."
-    },
-    {
-      title: "Understand the credit.",
-      desc: "We review attribution windows, conversion delays and overlapping claims—before recommending what to scale or stop."
-    },
-    {
-      title: "Test the impact.",
-      desc: "Where data and scale allow, we use controlled tests to understand what advertising actually adds."
-    }
-  ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="py-12 sm:py-20 bg-slate-50 relative overflow-hidden border-b border-slate-100">
-      
-      {/* Subtle Background */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.5]" 
-        style={{ 
-          backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', 
-          backgroundSize: '32px 32px' 
-        }}
-      ></div>
-
+    <section className="py-16 sm:py-24 bg-white relative border-b border-slate-100 overflow-hidden font-sans">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Section Heading & Narrative */}
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-6"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-sm border border-slate-200 text-[11px] sm:text-xs font-bold tracking-widest text-slate-500 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-              Attribution & Measurement
-            </div>
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[24px] sm:text-[36px] md:text-[42px] font-extrabold tracking-tight mb-8 leading-[1.1] text-slate-900"
-          >
-            Meta took the credit.<br />
-            Google took the credit.<br />
-            <span className="text-slate-400">You received one order.</span>
-          </motion.h2>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[15px] sm:text-[18px] text-slate-600 font-medium space-y-4 max-w-2xl mx-auto"
-          >
-            <p>
-              Your customer can discover you through an ad, search for your brand later and buy after a WhatsApp reminder.
-            </p>
-            <p>
-              Every dashboard sees part of that journey. <span className="font-bold text-slate-900">Your budget decisions need a wider view.</span>
-            </p>
-            <p>
-              “ROAS looks good” is where the conversation starts. <br className="hidden sm:block" />It shouldn’t be where it ends.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Visual Journey Element */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-200 p-8 sm:p-12 mb-16 sm:mb-20 mx-auto max-w-3xl"
-        >
-          {/* Vertical Timeline */}
-          <div className="flex flex-col max-w-xs sm:max-w-sm mx-auto relative mb-10 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-12 sm:gap-16 items-start">
+          
+          {/* Left Column - The Core Problem */}
+          <div className="flex flex-col justify-center pt-2">
+            <h2 className="text-[28px] sm:text-[36px] font-extrabold text-slate-900 mb-8 leading-[1.2] tracking-tight">
+              <span className="block text-slate-400 font-semibold text-lg sm:text-xl mb-2">Can I trust these numbers?</span>
+              Meta reports a sale.<br />
+              Google reports a sale.<br />
+              <span className="text-blue-600 bg-blue-50 px-2 rounded-md inline-block mt-1">
+                Your store received 1 order.
+              </span>
+            </h2>
             
-            {/* Vertical dashed line */}
-            <div className="absolute top-8 bottom-8 left-6 sm:left-7 w-0.5 border-l-2 border-dashed border-slate-200 z-0"></div>
-
-            {/* Node 1 */}
-            <div className="flex items-center gap-6 relative z-10 mb-8 sm:mb-10 group">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-50 flex items-center justify-center border border-blue-100 text-blue-600 shadow-sm shrink-0 transition-transform group-hover:scale-110">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </div>
-              <span className="text-[15px] sm:text-[17px] font-bold text-slate-700 tracking-tight">Meta discovery</span>
-            </div>
-
-            {/* Node 2 */}
-            <div className="flex items-center gap-6 relative z-10 mb-8 sm:mb-10 group">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-red-50 flex items-center justify-center border border-red-100 text-red-500 shadow-sm shrink-0 transition-transform group-hover:scale-110">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-              </div>
-              <span className="text-[15px] sm:text-[17px] font-bold text-slate-700 tracking-tight">Google search</span>
-            </div>
-
-            {/* Node 3 */}
-            <div className="flex items-center gap-6 relative z-10 mb-8 sm:mb-10 group">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 flex items-center justify-center border border-emerald-100 text-emerald-500 shadow-sm shrink-0 transition-transform group-hover:scale-110">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-              </div>
-              <span className="text-[15px] sm:text-[17px] font-bold text-slate-700 tracking-tight">WhatsApp reminder</span>
-            </div>
-
-            {/* Node 4 (Outcome) */}
-            <div className="flex items-center gap-6 relative z-10 group">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-slate-900 flex items-center justify-center border border-slate-800 text-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.25)] shrink-0 transition-transform group-hover:scale-110">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-              </div>
-              <span className="text-[16px] sm:text-[18px] font-black text-slate-900 tracking-tight">One store order</span>
-            </div>
-
-          </div>
-
-          <div className="text-center bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 sm:py-5 mx-auto max-w-xl">
-            <p className="text-[13px] sm:text-[15px] font-bold text-slate-600 leading-relaxed">
-              “Multiple touchpoints. One purchase. <br className="hidden sm:block" /><span className="text-slate-900">Platform-reported revenue should not simply be added together.</span>”
+            <p className="text-lg sm:text-xl font-bold text-slate-800 mb-4 leading-snug">
+              Which number should guide your next budget decision?
+            </p>
+            
+            <p className="text-[15px] sm:text-base font-medium text-slate-500 leading-relaxed max-w-md">
+              We check your tracking, fix missing or duplicate events, and compare ad reports with actual store orders.
             </p>
           </div>
-        </motion.div>
 
-        {/* 4 Pillars of Measurement */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10">
-          {steps.map((step, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col items-start"
-            >
-              <h3 className="text-[16px] sm:text-[18px] font-bold text-slate-900 mb-2">{step.title}</h3>
-              <p className="text-[13px] sm:text-[14px] font-medium text-slate-500 leading-relaxed">{step.desc}</p>
-            </motion.div>
-          ))}
+          {/* Right Column - The Three Rows */}
+          <div className="flex flex-col gap-6 sm:gap-8">
+            
+            <div className="space-y-6">
+              {/* Row 1 */}
+              <div className="flex items-start gap-4 group">
+                <div className="w-7 h-7 shrink-0 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-black text-xs border border-slate-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+                  1
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-[17px] font-bold text-slate-900 mb-1 tracking-tight">
+                    Pixel, CAPI and analytics.
+                  </h4>
+                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-500 leading-relaxed">
+                    Are the right events and values being sent correctly?
+                  </p>
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="flex items-start gap-4 group">
+                <div className="w-7 h-7 shrink-0 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-black text-xs border border-slate-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+                  2
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-[17px] font-bold text-slate-900 mb-1 tracking-tight">
+                    Attribution.
+                  </h4>
+                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-500 leading-relaxed">
+                    Are multiple channels claiming the same order? Are conversion delays changing the picture?
+                  </p>
+                </div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="flex items-start gap-4 group">
+                <div className="w-7 h-7 shrink-0 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-black text-xs border border-slate-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+                  3
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-[17px] font-bold text-slate-900 mb-1 tracking-tight">
+                    Business results.
+                  </h4>
+                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-500 leading-relaxed">
+                    How many orders were cancelled, returned or delivered—and what margin remained?
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Optional Technical Checklist Accordion */}
+            <div className="mt-2 border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm hover:border-slate-300 transition-colors">
+              <button 
+                onClick={() => setIsOpen(!isOpen)} 
+                className="w-full flex items-center justify-between px-5 py-4 text-sm font-bold text-slate-700 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                  See what we check (Technical)
+                </span>
+                <svg 
+                  className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }} 
+                    animate={{ height: 'auto', opacity: 1 }} 
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="px-5 pb-5 pt-2 border-t border-slate-100 bg-white">
+                      <ul className="text-[13px] text-slate-500 font-medium space-y-2.5 list-disc pl-4 marker:text-slate-300">
+                        <li>Server-side API (CAPI) deduplication & event match quality</li>
+                        <li>UTM parameter standardization across campaigns</li>
+                        <li>GA4 e-commerce tracking & channel mapping accuracy</li>
+                        <li>Drop-offs between Add-to-Cart, Initiate Checkout & Payment</li>
+                        <li>Post-purchase tracking discrepancies</li>
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Closing Line */}
+            <div className="p-5 sm:p-6 bg-[#F8FAFC] border border-slate-200 rounded-xl mt-2 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-blue-600"></div>
+              <p className="text-[14px] sm:text-[15px] font-bold text-slate-800 leading-relaxed">
+                We connect the available data, explain the gaps and use it to guide what to scale, fix or test.
+              </p>
+            </div>
+
+          </div>
         </div>
-
-        {/* Footer Callout */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <motion.h3 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[17px] sm:text-[22px] font-black text-slate-900 leading-snug tracking-tight"
-          >
-            Know what the data supports.<br className="hidden sm:block" />
-            Know what still needs testing.<br />
-            <span className="text-slate-500 mt-2 block">Make your next budget decision with both in view.</span>
-          </motion.h3>
-        </div>
-
       </div>
     </section>
   );
