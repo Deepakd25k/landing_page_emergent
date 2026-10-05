@@ -1,28 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "cohort.incrementalvalue.in"
-        }
-      ],
-      "destination": "https://incrementalvalue.in/course",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "growth.incrementalvalue.in"
-        }
-      ],
-      "destination": "https://incrementalvalue.in/pm",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",

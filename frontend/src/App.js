@@ -10,11 +10,20 @@ import { PerformanceMarketing } from "@/pages/PerformanceMarketing";
 import { AuthProvider, RequireAdmin } from "@/context/AuthContext";
 
 function App() {
+  const host = window.location.hostname;
+  
+  let DefaultComponent = <Landing />;
+  if (host.includes("cohort")) {
+    DefaultComponent = <CourseLanding />;
+  } else if (host.includes("growth")) {
+    DefaultComponent = <PerformanceMarketing />;
+  }
+
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={DefaultComponent} />
           <Route path="/course" element={<CourseLanding />} />
           <Route path="/pm" element={<PerformanceMarketing />} />
           <Route path="/admin/login" element={<AdminLogin />} />
