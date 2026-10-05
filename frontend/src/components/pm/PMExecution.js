@@ -72,34 +72,61 @@ export const PMExecution = () => {
           </div>
         </div>
 
-        {/* Closing Punchline */}
-        <div className="text-center mb-10 overflow-x-auto hide-scrollbar">
-          <p className="inline-block px-4 sm:px-6 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-[10px] sm:text-xs font-semibold text-slate-800 tracking-wider uppercase whitespace-nowrap">
-            Clear priorities <span className="text-slate-300 mx-1.5 sm:mx-2">•</span> Visible work <span className="text-slate-300 mx-1.5 sm:mx-2">•</span> Direct conversations
-          </p>
-        </div>
-
-        {/* AI Callout & Modal Trigger */}
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left hover:border-blue-200 hover:shadow-md transition-all">
-          <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-50 border border-blue-100 text-[10px] font-black text-blue-700 uppercase tracking-widest mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              Creative Workflow
+        {/* AI Accountability Section */}
+        <div className="mt-12 sm:mt-16 bg-white border border-slate-200 rounded-3xl p-5 sm:p-10 shadow-sm relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            
+            {/* Text Side (45%) */}
+            <div className="w-full md:w-[45%] text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-black text-slate-700 uppercase tracking-widest mb-5">
+                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                AI-ENABLED. HUMAN-LED.
+              </div>
+              
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-[#0a192f] leading-[1.1] mb-5 tracking-tight">
+                AI can do more.<br/>
+                But who’s <span className="text-blue-600">accountable?</span>
+              </h3>
+              
+              <p className="text-base sm:text-[17px] font-bold text-slate-800 mb-4 leading-relaxed">
+                You need a team that knows how to use these tools—and takes responsibility for the work.
+              </p>
+              
+              <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed pr-0 sm:pr-4">
+                Our in-house n8n workflows help us analyse data, develop creative ideas and critique them faster. Our team owns the decisions, execution and follow-through—and measures what actually improves your business.
+              </p>
             </div>
-            <p className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-              AI develops and critiques.<br className="hidden sm:block" /> Our team makes the final call.
-            </p>
+
+            {/* Image Side (55%) */}
+            <div className="w-full md:w-[55%] relative">
+              {/* Subtle light-grey dot grid behind image area only */}
+              <div className="absolute -inset-4 sm:-inset-6 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-70 rounded-3xl z-0 pointer-events-none"></div>
+              
+              <div className="relative z-10 flex flex-col items-start sm:items-center w-full">
+                <div className="bg-white px-3 py-1 border border-slate-200 rounded shadow-sm text-[9px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 relative z-20 self-start sm:self-center">
+                  n8n / Creative workflow
+                </div>
+                
+                <button 
+                  onClick={() => setModalOpen(true)}
+                  className="w-full group relative block rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-[#1a1a1a] transition-all hover:shadow-md cursor-zoom-in"
+                  aria-label="Tap to explore workflow"
+                >
+                  <img 
+                    src="/assets/n8n-workflow.png" 
+                    alt="n8n Workflow Preview" 
+                    className="w-full h-auto opacity-95 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/5 transition-colors"></div>
+                </button>
+                
+                <p className="mt-3 text-[11px] font-semibold text-slate-400 self-center">
+                  Tap to explore workflow
+                </p>
+              </div>
+            </div>
+
           </div>
-          
-          <button 
-            onClick={() => setModalOpen(true)}
-            className="shrink-0 group flex items-center gap-2 text-[14px] font-bold text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            See our creative workflow
-            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </button>
         </div>
 
       </div>
