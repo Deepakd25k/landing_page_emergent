@@ -24,7 +24,7 @@ export const PMScope = () => {
             <div className="w-1.5 h-1.5 rounded-full bg-green-500 ml-auto"></div>
           </div>
           <div className="h-5 w-full bg-gradient-to-r from-blue-50 to-indigo-50 rounded border border-blue-100/50"></div>
-          <div className="w-full h-4 bg-blue-600 rounded text-white text-[8px] font-bold flex items-center justify-center">Book now</div>
+          <div className="w-full h-4 bg-blue-600 rounded text-white text-[8px] font-bold flex items-center justify-center">Shop now</div>
         </div>
       )
     },
