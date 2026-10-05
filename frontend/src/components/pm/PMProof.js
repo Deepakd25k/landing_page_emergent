@@ -32,9 +32,17 @@ export const PMProof = () => {
     },
     {
       type: "image",
-      brand: "Store Dashboard • Verified Growth",
+      platform: "shopify",
+      brand: "Store Dashboard • Shopify Growth",
       imageUrl: "/assets/shopify-proof.png",
       impact: "We don't just optimize for ad clicks. We optimize for this."
+    },
+    {
+      type: "image",
+      platform: "amazon",
+      brand: "Marketplace Sales • Amazon Dashboard",
+      imageUrl: "/assets/amazon-proof.png",
+      impact: "Omnichannel scaling. We capture demand wherever your customers buy."
     }
   ];
 
@@ -113,9 +121,13 @@ export const PMProof = () => {
                 <div className="flex-1 relative bg-slate-50 flex items-center justify-center p-2 sm:p-4">
                   <img src={caseStudy.imageUrl} alt="Verified Store Dashboard" className="w-full h-full object-contain rounded-xl shadow-sm border border-slate-200" />
                   
-                  {/* Shopify Icon Badge */}
+                  {/* Platform Icon Badge */}
                   <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-xl border border-slate-200 flex items-center gap-2">
-                    <img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" alt="Shopify" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    {caseStudy.platform === "amazon" ? (
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    ) : (
+                      <img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" alt="Shopify" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    )}
                     <span className="text-[11px] sm:text-xs font-black text-slate-800 pr-1 tracking-tight">Verified Data</span>
                   </div>
                 </div>
