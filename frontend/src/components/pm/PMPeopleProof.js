@@ -132,6 +132,17 @@ export const PMPeopleProof = () => {
     }
   };
 
+  const formatHighlight = (text) => {
+    if (!text) return null;
+    const parts = text.split(/(₹[\d.,]+[a-zA-Z]*\/?(?:mo)?|\d+(?:\.\d+)?[×x%])/g);
+    return parts.map((part, i) => {
+      if (part && part.match(/^(₹[\d.,]+[a-zA-Z]*\/?(?:mo)?|\d+(?:\.\d+)?[×x%])$/)) {
+        return <span key={i} className="font-extrabold text-blue-800 bg-blue-100/80 px-1 py-0.5 rounded-[4px] border border-blue-200/50 shadow-sm leading-none inline-block mx-0.5">{part}</span>;
+      }
+      return part;
+    });
+  };
+
   return (
     <section className="py-12 sm:py-20 bg-slate-50 relative border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -345,11 +356,11 @@ export const PMPeopleProof = () => {
           <div 
             ref={carouselRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0"
+            className="flex items-stretch overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {additionalCases.map((caseStudy, idx) => (
-              <div key={idx} className="shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col h-[380px] sm:h-[400px] overflow-hidden group hover:shadow-md transition-shadow duration-300">
+              <div key={idx} className="shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col overflow-hidden group hover:shadow-md transition-shadow duration-300">
                 
                 <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 py-4 shrink-0 flex items-center justify-between">
                   <span className="text-[12px] sm:text-[13px] font-bold text-slate-800 tracking-tight uppercase">
@@ -358,28 +369,32 @@ export const PMPeopleProof = () => {
                   <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 </div>
 
-                <div className="bg-blue-50/50 border-b border-blue-100/50 px-6 py-5 shrink-0">
-                  <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1.5">Verified Result</h4>
-                  <p className="text-xl sm:text-2xl font-extrabold text-blue-900 tracking-tight leading-none">
-                    {caseStudy.highlightMetric}
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 border-b border-blue-800 px-6 py-5 shrink-0 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                  <h4 className="text-[10px] font-black text-blue-200 uppercase tracking-widest mb-1.5 flex items-center gap-1.5 relative z-10">
+                    <svg className="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    Verified Result
+                  </h4>
+                  <p className="text-xl sm:text-2xl font-black text-white tracking-tight leading-none drop-shadow-sm relative z-10">
+                    {formatHighlight(caseStudy.highlightMetric)}
                   </p>
                 </div>
 
-                <div className="p-6 flex flex-col gap-5 flex-1">
+                <div className="p-6 flex flex-col gap-5 flex-1 bg-white">
                   <div>
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Problem</h4>
-                    <p className="text-[13px] font-semibold text-slate-800 leading-snug">{caseStudy.problem}</p>
+                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Problem</h4>
+                    <p className="text-[13px] font-semibold text-slate-800 leading-snug">{formatHighlight(caseStudy.problem)}</p>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Our Work</h4>
-                    <p className="text-[13px] font-medium text-slate-600 leading-snug">{caseStudy.work}</p>
+                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Our Work</h4>
+                    <p className="text-[13px] font-medium text-slate-600 leading-snug">{formatHighlight(caseStudy.work)}</p>
                   </div>
                 </div>
 
                 <div className="mt-auto bg-slate-900 border-t border-slate-800 p-5 shrink-0">
                   <h4 className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Business Impact</h4>
                   <p className="text-[13px] font-bold text-white leading-tight">
-                    {caseStudy.impact}
+                    {formatHighlight(caseStudy.impact)}
                   </p>
                 </div>
               </div>
