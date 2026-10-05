@@ -5,6 +5,7 @@ import { PMHero } from "../components/pm/PMHero";
 import { PMManifesto } from "../components/pm/PMManifesto";
 import { PMProof } from "../components/pm/PMProof";
 import { PMCreativePipeline } from "../components/pm/PMCreativePipeline";
+import { PMAttributionMeasurement } from "../components/pm/PMAttributionMeasurement";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMScope } from "../components/pm/PMScope";
 import { PMAbout } from "../components/pm/PMAbout";
@@ -126,6 +127,7 @@ const PMContent = () => {
       <PMManifesto />
       <PMProof />
       <PMCreativePipeline />
+      <PMAttributionMeasurement />
       <PMExecution />
       <PMScope />
       <PMAbout />
