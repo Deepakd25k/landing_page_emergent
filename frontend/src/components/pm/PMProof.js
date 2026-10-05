@@ -43,6 +43,13 @@ export const PMProof = () => {
       brand: "Marketplace Sales • Amazon Dashboard",
       imageUrl: "/assets/amazon-proof.png",
       impact: "Omnichannel scaling. We capture demand wherever your customers buy."
+    },
+    {
+      type: "image",
+      platform: "google",
+      brand: "Acquisition Engine • Google Ads",
+      imageUrl: "/assets/google-ads-proof.png",
+      impact: "Sustaining 4.2× ROAS at high budgets. Scale without sacrificing efficiency."
     }
   ];
 
@@ -125,6 +132,8 @@ export const PMProof = () => {
                   <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-xl border border-slate-200 flex items-center gap-2">
                     {caseStudy.platform === "amazon" ? (
                       <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    ) : caseStudy.platform === "google" ? (
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Ads" className="w-5 h-5 sm:w-6 sm:h-6" />
                     ) : (
                       <img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" alt="Shopify" className="w-5 h-5 sm:w-6 sm:h-6" />
                     )}
