@@ -68,54 +68,66 @@ export const PMPeopleProof = () => {
   const additionalCases = [
     {
       brand: "EdTech • Google + Meta",
+      highlightMetric: "25× Revenue Growth",
       problem: "Capped at ₹15L/mo spend due to high ₹3L CAC. Unscalable economics.",
       work: "Systematically scaled the acquisition engine over 12 months.",
       result: "Spend grew 16.7× (to ₹2.5Cr/mo). CAC dropped by 50% (to ₹1.5L).",
-      impact: "Revenue grew 25× to hit ₹7.5Cr/mo with highly profitable unit economics."
+      impact: "Hit ₹7.5Cr/mo revenue with highly profitable unit economics."
     },
     {
       brand: "D2C Fashion • Meta + Google",
+      highlightMetric: "11× Spend Scale",
       problem: "Stuck at ₹2L/mo spend with inefficient 1.5× ROAS. No room for error.",
-      work: "Progressively increased advertising investment while improving return on every rupee.",
-      result: "Spend scaled 11× (to ₹22L/mo). ROAS improved by 2.3× (to 3.5×).",
-      impact: "Revenue exploded 25×+ to reach ₹75–80L/mo. Efficient at scale."
+      work: "Progressively increased investment while improving return per rupee.",
+      result: "Spend scaled to ₹22L/mo. ROAS improved by 2.3× (to 3.5×).",
+      impact: "Revenue exploded to reach ₹75–80L/mo. Highly efficient at scale."
     },
     {
       brand: "D2C Brand • Persona Testing",
+      highlightMetric: "2× ROAS at Same Spend",
       problem: "Burning ₹16L/mo at stagnant 1× ROAS. No messaging was converting.",
-      work: "Redefined ICPs and aggressively tested 10 ad creatives daily for 2 months.",
-      result: "Found winning messaging that connected deeply with the actual target buyers.",
+      work: "Redefined ICPs and aggressively tested 10 creatives daily for 2 months.",
+      result: "Found winning messaging that connected deeply with target buyers.",
       impact: "Attributed ROAS doubled to 2× at the exact same ₹16L/mo ad spend."
     },
     {
-      type: "image",
-      platform: "amazon",
-      brand: "Marketplace Sales • Amazon Dashboard",
-      imageUrl: "/assets/amazon-proof.png",
-      impact: "Omnichannel scaling. We capture demand wherever your customers buy."
-    },
-    {
-      type: "image",
-      platform: "google",
-      brand: "Acquisition Engine • Google Ads",
-      imageUrl: "/assets/google-ads-proof.png",
-      impact: "Sustaining 4.2× ROAS at high budgets. Scale without sacrificing efficiency."
+      brand: "Apparel • Conversion Opt.",
+      highlightMetric: "AOV Stabilized at ₹4000",
+      problem: "Plagued by fake RTOs and low realized returns despite good top-line ROAS.",
+      work: "Fixed logistics routing end-to-end. Redesigned checkout flows.",
+      result: "Converted fake RTOs to successful deliveries. Captured real intent.",
+      impact: "Delivered 3× Attributed ROAS on successful post-return orders."
     }
   ];
 
   const handleScroll = () => {
     if (carouselRef.current) {
       const scrollLeft = carouselRef.current.scrollLeft;
-      const cardWidth = carouselRef.current.offsetWidth;
-      const newSlide = Math.round(scrollLeft / cardWidth);
-      setCurrentSlide(newSlide);
+      const cardWidth = carouselRef.current.children[0]?.offsetWidth || 400;
+      const gap = 24;
+      const newSlide = Math.round(scrollLeft / (cardWidth + gap));
+      if (newSlide !== currentSlide && newSlide < additionalCases.length) {
+        setCurrentSlide(newSlide);
+      }
     }
   };
 
+  useEffect(() => {
+    const autoScroll = setInterval(() => {
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % additionalCases.length;
+        scrollToIndex(next);
+        return next;
+      });
+    }, 6000); // 6 seconds auto-scroll
+    return () => clearInterval(autoScroll);
+  }, [additionalCases.length]);
+
   const scrollToIndex = (index) => {
     if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth;
-      carouselRef.current.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      const cardWidth = carouselRef.current.children[0]?.offsetWidth || 400;
+      const gap = 24;
+      carouselRef.current.scrollTo({ left: index * (cardWidth + gap), behavior: 'smooth' });
       setCurrentSlide(index);
     }
   };
@@ -337,46 +349,36 @@ export const PMPeopleProof = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {additionalCases.map((caseStudy, idx) => (
-              <div key={idx} className="shrink-0 w-[85vw] sm:w-[400px] snap-center bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col h-[420px] sm:h-[400px]">
+              <div key={idx} className="shrink-0 w-[85vw] sm:w-[380px] snap-center bg-white border border-slate-200 rounded-2xl shadow-sm flex flex-col h-[380px] sm:h-[400px] overflow-hidden group hover:shadow-md transition-shadow duration-300">
                 
-                <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 py-4 shrink-0">
-                  <span className="text-[13px] sm:text-sm font-bold text-slate-800 tracking-tight uppercase">
+                <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 py-4 shrink-0 flex items-center justify-between">
+                  <span className="text-[12px] sm:text-[13px] font-bold text-slate-800 tracking-tight uppercase">
                     {caseStudy.brand}
                   </span>
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 </div>
 
-                {caseStudy.type === "image" ? (
-                  <div className="flex-1 relative bg-slate-50 p-4 flex items-center justify-center">
-                    <img src={caseStudy.imageUrl} alt="Verified Data" className="w-full h-full object-contain rounded-xl shadow-sm border border-slate-200" />
-                    <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md rounded-lg p-2 shadow-lg border border-slate-200 flex items-center gap-2">
-                      {caseStudy.platform === "amazon" ? (
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" alt="Amazon" className="w-4 h-4" />
-                      ) : (
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Ads" className="w-4 h-4" />
-                      )}
-                      <span className="text-[10px] font-black text-slate-800 tracking-tight">Verified</span>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-6 flex flex-col gap-4 flex-1">
-                    <div>
-                      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Problem</h4>
-                      <p className="text-[13px] font-semibold text-slate-800">{caseStudy.problem}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Our Work</h4>
-                      <p className="text-[13px] font-medium text-slate-600">{caseStudy.work}</p>
-                    </div>
-                    <div>
-                      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Result</h4>
-                      <p className="text-[13px] font-medium text-slate-600">{caseStudy.result}</p>
-                    </div>
-                  </div>
-                )}
+                <div className="bg-blue-50/50 border-b border-blue-100/50 px-6 py-5 shrink-0">
+                  <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1.5">Verified Result</h4>
+                  <p className="text-xl sm:text-2xl font-extrabold text-blue-900 tracking-tight leading-none">
+                    {caseStudy.highlightMetric}
+                  </p>
+                </div>
 
-                <div className="mt-auto bg-[#F0FDF4] border-t border-emerald-100 p-5 shrink-0 rounded-b-2xl">
-                  <h4 className="text-[10px] font-black text-emerald-800 uppercase tracking-widest mb-1">Business Impact</h4>
-                  <p className="text-[14px] font-bold text-emerald-950 leading-tight">
+                <div className="p-6 flex flex-col gap-5 flex-1">
+                  <div>
+                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Problem</h4>
+                    <p className="text-[13px] font-semibold text-slate-800 leading-snug">{caseStudy.problem}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Our Work</h4>
+                    <p className="text-[13px] font-medium text-slate-600 leading-snug">{caseStudy.work}</p>
+                  </div>
+                </div>
+
+                <div className="mt-auto bg-slate-900 border-t border-slate-800 p-5 shrink-0">
+                  <h4 className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Business Impact</h4>
+                  <p className="text-[13px] font-bold text-white leading-tight">
                     {caseStudy.impact}
                   </p>
                 </div>
