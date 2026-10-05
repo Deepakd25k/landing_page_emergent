@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Highlight = ({ children }) => (
-  <span className="font-mono text-[0.85em] font-semibold text-neutral-900 bg-neutral-100 border border-neutral-200 px-1.5 py-0.5 rounded shadow-sm leading-none inline-block align-baseline mx-0.5">
+  <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded mx-0.5">
     {children}
   </span>
 );
@@ -100,7 +100,7 @@ export const PMComparison = () => {
           <div className="grid grid-cols-2 bg-neutral-50 border-b border-neutral-200">
             <div className="p-4 sm:p-5 flex items-center">
               <span className="font-mono text-[10px] sm:text-xs font-semibold text-neutral-400 uppercase tracking-widest">
-                Current Agency
+                If this sounds familiar…
               </span>
             </div>
             <div className="p-4 sm:p-5 bg-[#fafafa] border-l border-neutral-200 flex items-center">
