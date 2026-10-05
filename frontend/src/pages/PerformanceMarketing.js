@@ -6,7 +6,7 @@ import { PMManifesto } from "../components/pm/PMManifesto";
 import { PMProof } from "../components/pm/PMProof";
 import { PMCreativePipeline } from "../components/pm/PMCreativePipeline";
 import { PMExecution } from "../components/pm/PMExecution";
-import { PMCaseStudies } from "../components/pm/PMCaseStudies";
+import { PMScope } from "../components/pm/PMScope";
 import { PMAbout } from "../components/pm/PMAbout";
 
 import { TrackingProvider, useTracking } from "@/context/TrackingContext";
@@ -127,7 +127,7 @@ const PMContent = () => {
       <PMProof />
       <PMCreativePipeline />
       <PMExecution />
-      <PMCaseStudies />
+      <PMScope />
       <PMAbout />
     </div>
   );
