@@ -46,9 +46,11 @@ export const PMExecution = () => {
       title: "AI that supports the work.",
       desc: "We use automation to reduce repetitive reporting and speed up research and creative preparation. Our team reviews the outputs and owns the decisions.",
       icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
+        <img 
+          src="https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png" 
+          alt="n8n"
+          className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+        />
       ),
       color: "rose"
     }
@@ -98,7 +100,7 @@ export const PMExecution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-[1.5rem] p-5 sm:p-6 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
+              className="bg-white rounded-[1.5rem] p-5 sm:p-6 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200 flex flex-row items-start gap-4 sm:gap-6 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
             >
               <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center border ${getColorClasses(pillar.color)}`}>
                 {pillar.icon}
