@@ -38,9 +38,11 @@ export const PMHero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-[2.2rem] leading-[1.1] sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 sm:mb-8 max-w-4xl mx-auto text-slate-900"
           >
-            From the first ad<br className="hidden sm:block" />
-            to the delivered order.<br />
-            <span className="text-slate-400 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">We work on what drives growth.</span>
+            From the first ad <br className="hidden sm:block" />
+            to the <span className="text-blue-600">delivered order.</span><br />
+            <span className="text-slate-400 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">
+              We work on what <span className="text-slate-800">drives growth.</span>
+            </span>
           </motion.h1>
 
           {/* Subtext */}
