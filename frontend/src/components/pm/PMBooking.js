@@ -61,8 +61,8 @@ export const PMBooking = () => {
             </svg>
           </button>
 
-          <div className="mt-8 flex justify-center">
-            <p className="inline-block font-mono text-[9px] sm:text-[11px] text-neutral-500 font-semibold tracking-widest uppercase">
+          <div className="mt-8 flex justify-center relative z-20">
+            <p className="inline-block font-mono text-[10px] sm:text-[12px] text-neutral-800 font-bold tracking-widest uppercase bg-neutral-100 border border-neutral-200 px-4 py-2 rounded-md shadow-sm">
               Tell us about your brand. Choose a time. Meet the people who would work with you.
             </p>
           </div>
