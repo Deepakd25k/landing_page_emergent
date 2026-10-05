@@ -1,98 +1,120 @@
 import { motion } from "framer-motion";
 
 export const PMExecution = () => {
+  const pillars = [
+    {
+      title: "Direct access to the operators.",
+      desc: "Speak with the founders involved in your account’s diagnosis, priorities and execution.",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+        </svg>
+      ),
+      color: "blue"
+    },
+    {
+      title: "Creative and performance, together.",
+      desc: "The people making your ads understand the customer, the test and the results.",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+      ),
+      color: "emerald"
+    },
+    {
+      title: "Connected business numbers.",
+      desc: "We review ad reporting alongside store revenue, delivered orders, returns and product margins.",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      color: "orange"
+    },
+    {
+      title: "A visible plan.",
+      desc: "Know what’s being worked on, who owns it and what decision comes next.",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+        </svg>
+      ),
+      color: "purple"
+    },
+    {
+      title: "AI that supports the work.",
+      desc: "We use automation to reduce repetitive reporting and speed up research and creative preparation. Our team reviews the outputs and owns the decisions.",
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      color: "rose"
+    }
+  ];
+
+  const getColorClasses = (color) => {
+    const classes = {
+      blue: "bg-blue-50 text-blue-600 border-blue-100",
+      emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
+      orange: "bg-orange-50 text-orange-600 border-orange-100",
+      purple: "bg-purple-50 text-purple-600 border-purple-100",
+      rose: "bg-rose-50 text-rose-600 border-rose-100",
+    };
+    return classes[color];
+  };
+
   return (
-    <section className="py-4 sm:py-6 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+    <section className="py-4 sm:py-6 bg-[#FAFAFA] relative overflow-hidden border-y border-slate-100">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#5D5FEF]/10 text-[#5D5FEF] text-[11px] font-bold tracking-widest uppercase mb-3">
-            The Solution
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3 leading-tight">
+        <div className="text-center mb-12 sm:mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]"
+          >
             The New Standard.
-          </h2>
-          <p className="text-sm sm:text-base text-slate-500 font-medium px-4">
-            How we operate differently from every agency you've ever fired.
-          </p>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[15px] sm:text-[19px] text-slate-600 font-bold max-w-2xl mx-auto leading-relaxed"
+          >
+            Fewer handoffs. Clearer decisions. Work that moves.
+          </motion.p>
         </div>
 
-        {/* The Massive Single Card */}
-        <div className="bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-[0_20px_80px_rgba(0,0,0,0.04)] border border-slate-100/60 relative overflow-hidden">
-          
-          {/* Subtle background element inside card */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#5D5FEF]/5 to-transparent rounded-bl-full pointer-events-none"></div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 relative z-10">
-            
-            {/* Pillar 1 */}
-            <div className="flex items-start gap-4 sm:gap-5 group">
-              <div className="w-12 h-12 shrink-0 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+        {/* Pillars Vertical List */}
+        <div className="flex flex-col gap-4 sm:gap-6 w-full">
+          {pillars.map((pillar, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-[1.5rem] p-5 sm:p-6 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
+            >
+              <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center border ${getColorClasses(pillar.color)}`}>
+                {pillar.icon}
               </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">7 Days to Core Math.</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  We don't take 3 months to "learn your brand". We lock in your profitable unit economics in 7 days or less.
+              <div className="pt-1">
+                <h3 className="text-[17px] sm:text-[19px] font-bold text-slate-900 mb-2 tracking-tight">
+                  {pillar.title}
+                </h3>
+                <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
+                  {pillar.desc}
                 </p>
               </div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="flex items-start gap-4 sm:gap-5 group">
-              <div className="w-12 h-12 shrink-0 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">48-Hour Fixes.</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  When ROAS drops, we don't say "we're figuring it out." We know exactly what broke in the funnel and deploy fixes in 2 days.
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="flex items-start gap-4 sm:gap-5 group">
-              <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">Data-Native Creatives.</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  Your creatives aren't made by isolated artists. They are built by performance marketers who analyze live spend data daily.
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 4 */}
-            <div className="flex items-start gap-4 sm:gap-5 group">
-              <div className="w-12 h-12 shrink-0 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 tracking-tight">n8n AI + Human Intel.</h3>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">
-                  We don't blindly copy-paste ChatGPT. We use custom n8n multi-layer AI trained on actual data, validated strictly by human experts.
-                </p>
-                <div className="mt-2.5 bg-slate-50 border border-slate-100 rounded-md p-2 inline-block shadow-sm">
-                  <p className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                    *Fact: Generic AI ad copy sees a 41% lower conversion rate.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );
