@@ -29,6 +29,12 @@ export const PMProof = () => {
       work: "Redefined ICPs and aggressively tested 10 ad creatives daily for 2 months.",
       result: "Found winning messaging that connected deeply with the actual target buyers.",
       impact: "Attributed ROAS doubled to 2× at the exact same ₹16L/mo ad spend."
+    },
+    {
+      type: "image",
+      brand: "Store Dashboard • Verified Growth",
+      imageUrl: "/assets/shopify-proof.png",
+      impact: "We don't just optimize for ad clicks. We optimize for this."
     }
   ];
 
@@ -102,49 +108,59 @@ export const PMProof = () => {
                 </span>
               </div>
 
-              {/* Card Body (Details) */}
-              <div className="p-6 sm:p-8 flex flex-col gap-4 sm:gap-6 flex-1 justify-center">
-                
-                {/* Problem */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-rose-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                    </span>
-                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Problem</h4>
+              {/* Card Body (Details or Image) */}
+              {caseStudy.type === "image" ? (
+                <div className="flex-1 relative bg-slate-50 flex items-center justify-center p-2 sm:p-4">
+                  <img src={caseStudy.imageUrl} alt="Verified Store Dashboard" className="w-full h-full object-contain rounded-xl shadow-sm border border-slate-200" />
+                  
+                  {/* Shopify Icon Badge */}
+                  <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 bg-white/95 backdrop-blur-md rounded-xl p-2.5 shadow-xl border border-slate-200 flex items-center gap-2">
+                    <img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" alt="Shopify" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <span className="text-[11px] sm:text-xs font-black text-slate-800 pr-1 tracking-tight">Verified Data</span>
                   </div>
-                  <p className="text-[14px] sm:text-[15px] font-semibold text-slate-800 leading-relaxed">
-                    {caseStudy.problem}
-                  </p>
                 </div>
-
-                {/* Our Work */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-blue-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    </span>
-                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Our Work</h4>
+              ) : (
+                <div className="p-6 sm:p-8 flex flex-col gap-4 sm:gap-6 flex-1 justify-center">
+                  {/* Problem */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-rose-500">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                      </span>
+                      <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Problem</h4>
+                    </div>
+                    <p className="text-[14px] sm:text-[15px] font-semibold text-slate-800 leading-relaxed">
+                      {caseStudy.problem}
+                    </p>
                   </div>
-                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
-                    {caseStudy.work}
-                  </p>
-                </div>
 
-                {/* Result */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-orange-500">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                    </span>
-                    <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Result</h4>
+                  {/* Our Work */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-blue-500">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                      </span>
+                      <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Our Work</h4>
+                    </div>
+                    <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
+                      {caseStudy.work}
+                    </p>
                   </div>
-                  <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
-                    {caseStudy.result}
-                  </p>
-                </div>
 
-              </div>
+                  {/* Result */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="text-orange-500">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                      </span>
+                      <h4 className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest">Result</h4>
+                    </div>
+                    <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
+                      {caseStudy.result}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Card Footer (Business Impact) */}
               <div className="mt-auto bg-[#F0FDF4] border-t border-emerald-100 p-6 sm:p-8 shrink-0">
