@@ -4,7 +4,6 @@ import { getCalApi } from "@calcom/embed-react";
 import { PMHero } from "../components/pm/PMHero";
 import { PMPeopleProof } from "../components/pm/PMPeopleProof";
 import { PMComparison } from "../components/pm/PMComparison";
-import { PMCreativePipeline } from "../components/pm/PMCreativePipeline";
 import { PMAttributionMeasurement } from "../components/pm/PMAttributionMeasurement";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMScope } from "../components/pm/PMScope";
@@ -127,7 +126,6 @@ const PMContent = () => {
       <PMComparison />
       <PMScope />
       <PMAttributionMeasurement />
-      <PMCreativePipeline />
       <PMExecution />
     </div>
   );

@@ -1,123 +1,159 @@
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const PMExecution = () => {
-  const pillars = [
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const steps = [
     {
-      title: "Direct access to the operators.",
-      desc: "Speak with the founders involved in your account’s diagnosis, priorities and execution.",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-        </svg>
-      ),
-      color: "blue"
+      id: "01",
+      title: "UNDERSTAND",
+      desc: "Once access and business data are ready, we review your accounts, creative, tracking, store and order economics."
     },
     {
-      title: "Creative and performance, together.",
-      desc: "The people making your ads understand the customer, the test and the results.",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-        </svg>
-      ),
-      color: "emerald"
+      id: "02",
+      title: "PRIORITISE",
+      desc: "In week one, we agree on the first problems to address, tests to run and who owns each action. We begin the fixes that are ready to move."
     },
     {
-      title: "Connected business numbers.",
-      desc: "We review ad reporting alongside store revenue, delivered orders, returns and product margins.",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
-      color: "orange"
-    },
-    {
-      title: "A visible plan.",
-      desc: "Know what’s being worked on, who owns it and what decision comes next.",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-        </svg>
-      ),
-      color: "purple"
-    },
-    {
-      title: "AI that supports the work.",
-      desc: "We use automation to reduce repetitive reporting and speed up research and creative preparation. Our team reviews the outputs and owns the decisions.",
-      icon: (
-        <img 
-          src="https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png" 
-          alt="n8n"
-          className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
-        />
-      ),
-      color: "rose"
+      id: "03",
+      title: "BUILD, TEST, LEARN",
+      desc: "Our in-house creative team turns customer insights into ads. Our n8n AI workflow develops and critiques ideas; we make the final call before production.",
+      extra: "Results feed into the next brief and the next business decision."
     }
   ];
 
-  const getColorClasses = (color) => {
-    const classes = {
-      blue: "bg-blue-50 text-blue-600 border-blue-100",
-      emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
-      orange: "bg-orange-50 text-orange-600 border-orange-100",
-      purple: "bg-purple-50 text-purple-600 border-purple-100",
-      rose: "bg-rose-50 text-rose-600 border-rose-100",
-    };
-    return classes[color];
-  };
-
   return (
-    <section className="py-4 sm:py-6 bg-[#FAFAFA] relative overflow-hidden border-y border-slate-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+    <section className="py-16 sm:py-24 bg-slate-50 relative border-b border-slate-200 overflow-hidden font-sans">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Section Heading */}
-        <div className="text-center mb-12 sm:mb-16">
+        {/* Header */}
+        <div className="max-w-2xl mb-12 sm:mb-16">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[2rem] sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]"
+            className="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-[1.1] tracking-tight"
           >
-            The New Standard.
+            You’ll know what we’re doing.<br/>
+            <span className="text-blue-600">And why.</span>
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-[15px] sm:text-[19px] text-slate-600 font-bold max-w-2xl mx-auto leading-relaxed"
-          >
-            Fewer handoffs. Clearer decisions. Work that moves.
-          </motion.p>
         </div>
 
-        {/* Pillars Vertical List */}
-        <div className="flex flex-col gap-4 sm:gap-6 w-full">
-          {pillars.map((pillar, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-[1.5rem] p-5 sm:p-6 lg:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-200 flex flex-row items-start gap-4 sm:gap-6 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300"
-            >
-              <div className={`shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center border ${getColorClasses(pillar.color)}`}>
-                {pillar.icon}
+        {/* Steps Layout */}
+        <div className="relative mb-16 sm:mb-20">
+          {/* Mobile connecting line */}
+          <div className="absolute left-[19px] top-6 bottom-6 w-0.5 bg-slate-200 md:hidden z-0"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative z-10">
+            {steps.map((step, idx) => (
+              <div key={idx} className="flex md:flex-col items-start gap-5 md:gap-4 relative group">
+                {/* Number Badge */}
+                <div className="shrink-0 w-10 h-10 rounded-full bg-white border-2 border-slate-200 text-slate-400 flex items-center justify-center font-black text-sm relative z-10 group-hover:border-blue-500 group-hover:text-blue-600 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all">
+                  {step.id}
+                </div>
+                
+                {/* Content */}
+                <div className="pt-1.5 md:pt-2">
+                  <h3 className="text-base sm:text-[17px] font-black text-slate-900 tracking-tight uppercase mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14.5px] sm:text-[15.5px] font-medium text-slate-600 leading-relaxed mb-3">
+                    {step.desc}
+                  </p>
+                  {step.extra && (
+                    <p className="text-[13px] font-bold text-slate-700 bg-slate-200/50 p-2.5 rounded-lg leading-snug border border-slate-200">
+                      {step.extra}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className="pt-1">
-                <h3 className="text-[17px] sm:text-[19px] font-bold text-slate-900 mb-2 tracking-tight">
-                  {pillar.title}
-                </h3>
-                <p className="text-[14px] sm:text-[15px] font-medium text-slate-600 leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Closing Punchline */}
+        <div className="text-center mb-10">
+          <p className="inline-block px-5 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-sm sm:text-base font-black text-slate-800 tracking-wide uppercase">
+            Clear priorities <span className="text-slate-300 mx-2">•</span> Visible work <span className="text-slate-300 mx-2">•</span> Direct conversations
+          </p>
+        </div>
+
+        {/* AI Callout & Modal Trigger */}
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left hover:border-blue-200 hover:shadow-md transition-all">
+          <div>
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-50 border border-blue-100 text-[10px] font-black text-blue-700 uppercase tracking-widest mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              Creative Workflow
+            </div>
+            <p className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+              AI develops and critiques.<br className="hidden sm:block" /> Our team makes the final call.
+            </p>
+          </div>
+          
+          <button 
+            onClick={() => setModalOpen(true)}
+            className="shrink-0 group flex items-center gap-2 text-[14px] font-bold text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            See our creative workflow
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
         </div>
 
       </div>
+
+      {/* AI Workflow Image Modal */}
+      <AnimatePresence>
+        {modalOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm"
+            onClick={() => setModalOpen(false)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 10 }}
+              className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center p-4 border-b border-slate-100 bg-slate-50">
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm">Internal n8n AI Architecture</h3>
+                  <p className="text-[11px] font-medium text-slate-500">How we develop, challenge and critique ad angles before production.</p>
+                </div>
+                <button 
+                  onClick={() => setModalOpen(false)} 
+                  className="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 hover:bg-slate-100 rounded-full text-slate-600 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+              </div>
+              
+              <div className="p-4 sm:p-6 overflow-auto flex-1 flex justify-center items-center bg-[#1E1E1E]">
+                {/* Fallback to dark background since n8n workflow image looks better against dark/original themes */}
+                <img 
+                  src="/assets/n8n-workflow.png" 
+                  alt="n8n AI Creative Workflow" 
+                  className="w-full h-auto max-h-full object-contain rounded border border-white/10" 
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <div style={{ display: 'none' }} className="text-white text-sm">
+                  Workflow image unavailable.
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 };
