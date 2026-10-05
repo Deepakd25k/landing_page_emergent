@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export const PMHero = () => {
   return (
-    <section className="relative pt-6 pb-8 sm:pt-10 sm:pb-12 flex flex-col items-center bg-white">
+    <section className="relative w-full h-[100svh] min-h-[600px] flex flex-col justify-center items-center bg-white overflow-hidden px-3 sm:px-6">
       
       {/* Outer Card Container */}
-      <div className="relative w-full max-w-[95%] sm:max-w-4xl mx-auto bg-[#FAFAFA] border border-slate-100 rounded-[2.5rem] p-8 sm:p-16 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.02)]">
+      <div className="relative w-full h-[95%] sm:h-auto max-w-5xl mx-auto bg-[#FAFAFA] border border-slate-100 rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-12 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.02)] flex flex-col justify-center">
         
         {/* Dotted Background inside the card */}
         <div 
@@ -16,77 +16,89 @@ export const PMHero = () => {
           }}
         />
 
-        <div className="relative z-10 text-center flex flex-col items-center">
+        <div className="relative z-10 text-center flex flex-col items-center justify-center w-full h-full">
           
-          {/* Minimalist White Pill Badge */}
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8"
+            className="mb-4 sm:mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 text-sm font-medium text-slate-700">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white shadow-sm border border-slate-200 text-[10px] sm:text-xs font-bold tracking-wider text-slate-600 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              Not an agency. Your D2C growth partners.
+              FOUNDER-LED D2C GROWTH PARTNERSHIP
             </div>
           </motion.div>
 
-          {/* Typography - Black, Gray, Blue layout */}
+          {/* H1 */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto"
+            className="text-[1.75rem] leading-[1.15] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tight mb-4 sm:mb-6 max-w-4xl mx-auto text-slate-900"
           >
-            <span className="text-slate-900">Stop paying retainers </span>
-            <span className="text-slate-400">for interns to learn on </span>
-            <span className="text-blue-600 whitespace-nowrap">your budget.</span>
+            You hired a growth team.<br className="hidden sm:block" />
+            <span className="text-slate-400">Why are you still doing their job?</span>
           </motion.h1>
 
-          {/* Paragraph with inline highlights */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+          {/* Subtext */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg sm:text-xl font-normal text-slate-700 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="flex flex-col items-center gap-3 mb-6 sm:mb-8"
           >
-            You don't need another dashboard painted green. You need a specialized growth unit that{" "}
-            <span className="relative inline-block font-semibold text-slate-900 px-1">
-              <span className="relative z-10">fixes the math</span>
-              <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-            </span>{" "}
-            and{" "}
-            <span className="relative inline-block font-semibold text-slate-900 px-1">
-              <span className="relative z-10">scales your brand.</span>
-              <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-            </span>
-          </motion.p>
+            <p className="text-[13px] sm:text-lg font-medium text-slate-600 max-w-2xl mx-auto leading-snug sm:leading-relaxed">
+              Briefing the creative team. Chasing your account manager. Asking what gets tested next.
+            </p>
+            <p className="text-[13px] sm:text-base font-normal text-slate-500 max-w-3xl mx-auto leading-snug sm:leading-relaxed px-2">
+              Work directly with two hands-on D2C operators and our own performance creative team. We connect customer insights, creative, media and profitability—with clear ownership of the work.
+            </p>
+          </motion.div>
 
-          {/* Big Purple/Blue Button */}
+          {/* Stats Row */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full sm:max-w-md mx-auto flex flex-col items-center"
+            className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 w-full mb-6 sm:mb-8"
+          >
+            <div className="flex flex-col items-center bg-white px-4 py-2 sm:py-3 rounded-xl shadow-sm border border-slate-100 w-full sm:w-auto">
+              <span className="text-lg sm:text-2xl font-black text-slate-900">₹60Cr+</span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-medium">Managed over 3 years</span>
+            </div>
+            <div className="flex flex-col items-center bg-white px-4 py-2 sm:py-3 rounded-xl shadow-sm border border-slate-100 w-full sm:w-auto">
+              <span className="text-lg sm:text-2xl font-black text-slate-900">₹2Cr+</span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-medium">Monthly ad budgets handled</span>
+            </div>
+            <p className="text-[9px] sm:text-[10px] text-slate-400 mt-1 sm:hidden w-full text-center">
+              Combined experience of founders across prior roles.
+            </p>
+          </motion.div>
+
+          {/* CTA Area */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-full max-w-sm mx-auto flex flex-col items-center"
           >
             <button
               data-cal-link="d2cdeepak-audit/d2c-growth-call"
               onClick={() => window.trackEvent?.("InitiateCheckout", { section: "pm-hero" })}
-              className="w-full px-8 py-5 bg-[#5D5FEF] hover:bg-[#4d4fdf] text-white rounded-2xl font-semibold text-lg transition-all shadow-[0_10px_30px_rgba(93,95,239,0.3)] hover:shadow-[0_15px_40px_rgba(93,95,239,0.4)] flex items-center justify-center gap-2 mb-4"
+              className="w-full px-6 py-3.5 sm:py-4 bg-[#5D5FEF] hover:bg-[#4d4fdf] text-white rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
             >
-              Apply For Partnership
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              Book a Founder Fit Call
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
             
-            <p className="text-sm text-slate-500">
-              <span className="relative inline-block font-semibold text-slate-900 px-1">
-                <span className="relative z-10">7 Days.</span>
-                <span className="absolute bottom-[10%] left-0 w-full h-[45%] bg-[#E0E7FF] -z-10 rounded"></span>
-              </span>{" "}
-              No silos, no excuses. Just your math, fixed honestly.
-            </p>
+            <div className="text-[10px] sm:text-xs text-slate-500 leading-tight">
+              For established D2C brands spending <span className="font-semibold text-slate-700">₹3 lakh+/month</span> on ads.
+              <br />Best suited to brands spending <span className="font-semibold text-slate-700">₹5 lakh+/month</span> & above.
+            </div>
           </motion.div>
           
         </div>
