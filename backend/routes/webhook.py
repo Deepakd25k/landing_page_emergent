@@ -140,14 +140,18 @@ async def fire_purchase_and_schedule(booking: dict, session: Optional[dict], tri
     }
     source_url = session.get("landing_url") or "https://cal.id"
     to_send = []
-    if trigger == "BOOKING_PAID":
-        to_send.append(("Purchase", f"purchase_{booking['booking_uid']}", custom_data))
-    elif trigger == "RAZORPAY_PAID":
-        to_send.append(("razorpay_course_payment", f"razorpay_{booking['booking_uid']}", custom_data))
-    elif trigger == "COHORT_BOOKED":
-        to_send.append(("cohort_booked", f"cohort_{booking['booking_uid']}", custom_data))
-        
-    if trigger not in ("RAZORPAY_PAID", "COHORT_BOOKED"):
+    
+    if campaign == "d2c_growth" and trigger in ("BOOKING_CREATED", "BOOKING_PAID"):
+        to_send.append(("growth_session_booked", f"growth_session_booked_{booking['booking_uid']}", custom_data))
+    else:
+        if trigger == "BOOKING_PAID":
+            to_send.append(("Purchase", f"purchase_{booking['booking_uid']}", custom_data))
+        elif trigger == "RAZORPAY_PAID":
+            to_send.append(("razorpay_course_payment", f"razorpay_{booking['booking_uid']}", custom_data))
+        elif trigger == "COHORT_BOOKED":
+            to_send.append(("cohort_booked", f"cohort_{booking['booking_uid']}", custom_data))
+            
+    if trigger not in ("RAZORPAY_PAID", "COHORT_BOOKED", "BOOKING_CREATED") or campaign != "d2c_growth":
         to_send.append(("booking_scheduled", f"booking_scheduled_{booking['booking_uid']}",
                         {**custom_data, "appointment_time": booking.get("start_time")}))
 

@@ -12,10 +12,12 @@ const TrackingContext = createContext({ sessionId: null, track: () => {}, pixelE
 
 const getProductContext = () => {
   if (typeof window !== "undefined") {
-    if (window.location.pathname.includes("/course")) {
+    const isCourse = window.location.pathname.includes("/course") || window.location.hostname.includes("cohort");
+    if (isCourse) {
       return { content_name: "D2C Performance Marketing Course", content_category: "Training", value: 4999, currency: "INR" };
     }
-    if (window.location.pathname.includes("/pm")) {
+    const isGrowth = window.location.pathname.includes("/pm") || window.location.hostname.includes("growth");
+    if (isGrowth) {
       return { content_name: "D2C Growth Consultation", content_category: "Consulting", value: 0, currency: "INR" };
     }
   }

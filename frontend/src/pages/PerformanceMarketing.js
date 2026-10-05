@@ -100,7 +100,9 @@ const PMContent = () => {
           } else if (e.detail.type === "timeSelected") {
             track("CalendarTimeSelected", { section: "floating-cal-button" });
           } else if (e.detail.type === "bookingSuccessful") {
-            track("d2c_session_booked", { section: "floating-cal-button", send_capi: true });
+            const bookingUid = e.detail.data?.uid || e.detail.data?.booking?.uid || "";
+            const eventId = bookingUid ? `growth_session_booked_${bookingUid}` : undefined;
+            track("growth_session_booked", { section: "floating-cal-button", send_capi: true, eventId });
           }
         }
       });

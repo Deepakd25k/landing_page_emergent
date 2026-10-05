@@ -30,7 +30,7 @@ def get_funnel(campaign: Optional[str] = None):
             ("clicked_cta", "InitiateCheckout", "Clicked CTA"),
             ("calendar_open", "CalendarOpen", "Opened Calendar"),
             ("lead", "CalendarTimeSelected", "Selected Time"),
-            ("booked", "d2c_session_booked", "Confirmed Session"),
+            ("booked", "growth_session_booked", "Confirmed Session"),
         ]
     return [
         ("visitors", "PageView", "Visitors"),
