@@ -2,13 +2,11 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getCalApi } from "@calcom/embed-react";
 import { PMHero } from "../components/pm/PMHero";
-import { PMManifesto } from "../components/pm/PMManifesto";
-import { PMProof } from "../components/pm/PMProof";
+import { PMPeopleProof } from "../components/pm/PMPeopleProof";
 import { PMCreativePipeline } from "../components/pm/PMCreativePipeline";
 import { PMAttributionMeasurement } from "../components/pm/PMAttributionMeasurement";
 import { PMExecution } from "../components/pm/PMExecution";
 import { PMScope } from "../components/pm/PMScope";
-import { PMAbout } from "../components/pm/PMAbout";
 
 import { TrackingProvider, useTracking } from "@/context/TrackingContext";
 
@@ -124,13 +122,11 @@ const PMContent = () => {
         schemas={[pmSchema, pmFaq]}
       />
       <PMHero />
-      <PMManifesto />
-      <PMProof />
+      <PMPeopleProof />
       <PMCreativePipeline />
       <PMAttributionMeasurement />
       <PMExecution />
       <PMScope />
-      <PMAbout />
     </div>
   );
 };
