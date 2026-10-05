@@ -19,7 +19,7 @@ export const PMProof = () => {
   ];
 
   return (
-    <section className="py-4 sm:py-6 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-4 sm:py-6 bg-white relative border-b border-slate-100">
       {/* Subtle Dotted Background */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.3]" 
@@ -66,16 +66,17 @@ export const PMProof = () => {
           </motion.p>
         </div>
 
-        {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
+        {/* Case Studies Stack */}
+        <div className="flex flex-col gap-10 sm:gap-20 w-full max-w-3xl mx-auto pb-10 sm:pb-20">
           {caseStudies.map((caseStudy, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-200 overflow-hidden flex flex-col"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className="sticky bg-white rounded-[2rem] shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200 overflow-hidden flex flex-col z-20"
+              style={{ top: `calc(100px + ${index * 32}px)` }}
             >
               {/* Card Header (Brand) */}
               <div className="bg-[#FAFAFA] border-b border-slate-200 px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
