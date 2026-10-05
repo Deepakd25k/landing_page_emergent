@@ -125,10 +125,10 @@ const PMContent = () => {
       <PMHero />
       <PMPeopleProof />
       <PMComparison />
+      <PMScope />
       <PMCreativePipeline />
       <PMAttributionMeasurement />
       <PMExecution />
-      <PMScope />
     </div>
   );
 };
