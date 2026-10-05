@@ -63,13 +63,9 @@ export const PMAbout = () => {
                <img src="/images/deepak_founder.png" alt="Deepak Gupta - Founder Profile" className="w-full h-auto object-cover" />
             </div>
 
-            {/* Placeholder for 2nd Founder */}
-            <div className="w-full max-w-md mx-auto border-2 border-dashed border-slate-200 rounded-3xl flex flex-col items-center justify-center opacity-60 min-h-[250px] bg-slate-50 p-6 text-center">
-               <div className="w-12 h-12 rounded-full bg-slate-200 mb-4 flex items-center justify-center text-slate-400">
-                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4"/></svg>
-               </div>
-               <span className="text-sm font-bold text-slate-600">Second Founder</span>
-               <span className="text-xs font-medium text-slate-400 mt-1">Profile coming soon</span>
+            {/* Founder 2 Image */}
+            <div className="w-full max-w-md mx-auto bg-white border border-slate-200 rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.04)] overflow-hidden">
+               <img src="/images/kushagra_founder.jpg" alt="Kushagra Jain - Founder Profile" className="w-full h-full object-cover" />
             </div>
 
           </div>
