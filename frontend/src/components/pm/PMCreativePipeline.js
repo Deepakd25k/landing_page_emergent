@@ -185,6 +185,63 @@ export const PMCreativePipeline = () => {
           </p>
         </div>
 
+        {/* n8n Workflow Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 sm:mt-24 max-w-5xl mx-auto rounded-[2rem] bg-slate-900 overflow-hidden shadow-2xl flex flex-col lg:flex-row items-stretch border border-slate-800"
+        >
+          {/* Text Content */}
+          <div className="p-8 sm:p-12 lg:w-1/2 flex flex-col justify-center relative z-10">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+              A product URL isn’t a creative brief.
+            </h3>
+            <p className="text-slate-400 text-[13px] sm:text-[14px] font-medium mb-8 leading-relaxed">
+              <span className="text-slate-300 italic font-semibold">“Here’s the link. Give me 10 ad angles.”</span><br/>
+              That’s a prompt. Your brand deserves a process. We’ve built an in-house AI workflow in <strong className="text-white">n8n</strong> that develops and critiques ideas before they reach production.
+            </p>
+            
+            <ul className="space-y-5">
+              <li className="flex gap-3 items-start">
+                <div className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p className="text-[12px] sm:text-[13.5px] font-medium text-slate-400 leading-snug"><strong className="text-white">AI challenges, we decide.</strong> We review the insight, claims and angle—deciding what advances or gets dropped.</p>
+              </li>
+              <li className="flex gap-3 items-start">
+                <div className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p className="text-[12px] sm:text-[13.5px] font-medium text-slate-400 leading-snug"><strong className="text-white">In-house production.</strong> Approved directions go directly to our performance creative team to build.</p>
+              </li>
+              <li className="flex gap-3 items-start">
+                <div className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p className="text-[12px] sm:text-[13.5px] font-medium text-slate-400 leading-snug"><strong className="text-white">Speed + Judgment.</strong> AI helps us move faster. Our judgment decides what deserves your budget.</p>
+              </li>
+            </ul>
+          </div>
+
+          {/* Image */}
+          <div className="lg:w-1/2 bg-[#121212] p-6 sm:p-10 flex items-center justify-center relative border-t lg:border-t-0 lg:border-l border-slate-800">
+             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/5 z-0"></div>
+             
+             {/* n8n Badge Overlay */}
+             <div className="absolute top-6 left-6 z-20 bg-black/50 backdrop-blur-md border border-white/10 rounded-lg px-3 py-1.5 flex items-center gap-2 shadow-xl">
+               <img src="https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png" alt="n8n" className="w-4 h-4 object-contain" />
+               <span className="text-[10px] font-bold text-white tracking-widest uppercase">Live Workflow</span>
+             </div>
+
+             <img 
+               src="/assets/n8n-workflow.png" 
+               alt="n8n Creative Workflow" 
+               className="w-full h-auto object-cover rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-slate-700 relative z-10" 
+             />
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
