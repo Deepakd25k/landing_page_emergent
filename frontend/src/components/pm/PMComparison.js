@@ -1,13 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const Highlight = ({ children }) => (
+  <span className="font-mono text-[0.85em] font-semibold text-neutral-900 bg-neutral-100 border border-neutral-200 px-1.5 py-0.5 rounded shadow-sm leading-none inline-block align-baseline mx-0.5">
+    {children}
+  </span>
+);
+
 export const PMComparison = () => {
   const comparisonData = [
     {
       pain: "“Let me check with the performance team.”",
       solution: (
         <>
-          Speak directly with the <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">people making decisions</span> on your account.
+          Speak directly with the <Highlight>people making decisions</Highlight> on your account.
         </>
       )
     },
@@ -15,7 +21,7 @@ export const PMComparison = () => {
       pain: "You don’t know who actually handles your budget.",
       solution: (
         <>
-          <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">Know who owns the work</span> and what experience they bring.
+          <Highlight>Know who owns the work</Highlight> and what experience they bring.
         </>
       )
     },
@@ -23,7 +29,7 @@ export const PMComparison = () => {
       pain: "You keep explaining your brand to the creative team.",
       solution: (
         <>
-          <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">Creative and performance work together</span> on your customers, product and results.
+          <Highlight>Creative and performance work together</Highlight> on your customers, product and results.
         </>
       )
     },
@@ -31,7 +37,7 @@ export const PMComparison = () => {
       pain: "“We’re testing” is the entire explanation.",
       solution: (
         <>
-          Every test has a <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">reason</span>, a <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">success measure</span> and a next decision.
+          Every test has a <Highlight>reason</Highlight>, a <Highlight>success measure</Highlight> and a next decision.
         </>
       )
     },
@@ -39,7 +45,7 @@ export const PMComparison = () => {
       pain: "“Give us 90 days” before you see a clear plan.",
       solution: (
         <>
-          We start reviewing and prioritising action in <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">week one</span>, once access is ready.
+          We start reviewing and prioritising action in <Highlight>week one</Highlight>, once access is ready.
         </>
       )
     },
@@ -47,23 +53,33 @@ export const PMComparison = () => {
       pain: "“Payment failures and RTO aren’t our department.”",
       solution: (
         <>
-          We <span className="font-extrabold text-blue-700 bg-blue-100/50 px-1 rounded">investigate with your tech and operations</span> partners and help move the fix forward.
+          We <Highlight>investigate with tech & operations</Highlight> partners and help move the fix forward.
         </>
       )
     }
   ];
 
   return (
-    <section className="py-12 sm:py-24 bg-white relative border-b border-slate-100 overflow-hidden">
-      <div className="max-w-5xl mx-auto px-3 sm:px-6">
+    <section className="py-16 sm:py-24 bg-white relative border-b border-neutral-200 overflow-hidden font-sans">
+      
+      {/* Subtle tech background (grid) */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.15]" 
+        style={{
+          backgroundImage: "linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }}
+      />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Header */}
-        <div className="max-w-3xl mb-10 sm:mb-16">
+        {/* Header - Brutalist / Clean Tech */}
+        <div className="max-w-3xl mb-12 sm:mb-20">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl lg:text-[40px] leading-[1.2] sm:leading-[1.1] font-extrabold text-slate-900 mb-4 sm:mb-5 tracking-tight"
+            className="text-3xl sm:text-5xl leading-[1.1] font-extrabold text-neutral-900 mb-4 tracking-[-0.03em]"
           >
             You hired a team.<br className="hidden sm:block"/> You shouldn’t have to coordinate everyone.
           </motion.h2>
@@ -72,57 +88,68 @@ export const PMComparison = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[15px] sm:text-xl font-medium text-slate-600 leading-relaxed"
+            className="text-base sm:text-xl font-medium text-neutral-500"
           >
             Here’s what changes with Incremental Value.
           </motion.p>
         </div>
 
-        {/* Universal Two-Column Table (Desktop & Mobile) */}
-        <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 shadow-[0_4px_20px_rgb(0,0,0,0.03)] mb-10 sm:mb-12 bg-white">
+        {/* Universal Two-Column Tech Table */}
+        <div className="rounded-xl overflow-hidden border border-neutral-200 shadow-[0_2px_10px_rgb(0,0,0,0.02)] mb-12 sm:mb-16 bg-white">
           {/* Table Header */}
-          <div className="grid grid-cols-2 bg-slate-50 border-b border-slate-200">
-            <div className="p-3 sm:p-6 flex items-end">
-              <span className="text-[9px] sm:text-sm font-black text-slate-400 uppercase tracking-widest leading-tight">
-                If this sounds familiar…
+          <div className="grid grid-cols-2 bg-neutral-50 border-b border-neutral-200">
+            <div className="p-4 sm:p-5 flex items-center">
+              <span className="font-mono text-[10px] sm:text-xs font-semibold text-neutral-400 uppercase tracking-widest">
+                Current Agency
               </span>
             </div>
-            <div className="p-3 sm:p-6 bg-blue-50/50 border-l border-slate-200 flex items-end">
-              <span className="text-[9px] sm:text-sm font-black text-blue-600 uppercase tracking-widest leading-tight">
-                With Incremental Value
+            <div className="p-4 sm:p-5 bg-[#fafafa] border-l border-neutral-200 flex items-center">
+              <span className="font-mono text-[10px] sm:text-xs font-semibold text-blue-600 uppercase tracking-widest flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                Incremental Value
               </span>
             </div>
           </div>
           
           {/* Table Body */}
-          <div className="divide-y divide-slate-100 sm:divide-slate-200">
+          <div className="divide-y divide-neutral-100">
             {comparisonData.map((row, idx) => (
-              <div key={idx} className="grid grid-cols-2 group hover:bg-slate-50/50 transition-colors">
-                <div className="p-3 sm:p-6 flex items-center">
-                  <p className="text-[12px] sm:text-base font-medium text-slate-600 leading-snug sm:leading-relaxed">
+              <div key={idx} className="grid grid-cols-2 transition-colors hover:bg-neutral-50/50">
+                
+                {/* Left Column (Pain) */}
+                <div className="p-4 sm:p-6 flex items-center">
+                  <p className="text-[13px] sm:text-[15px] font-medium text-neutral-500 leading-snug sm:leading-relaxed">
                     {row.pain}
                   </p>
                 </div>
-                <div className="p-3 sm:p-6 bg-blue-50/30 border-l border-slate-200 flex items-center group-hover:bg-blue-50/60 transition-colors">
-                  <p className="text-[12px] sm:text-base font-semibold text-slate-900 leading-snug sm:leading-relaxed">
+                
+                {/* Right Column (Solution) */}
+                <div className="p-4 sm:p-6 bg-[#fafafa] border-l border-neutral-200 flex items-center">
+                  <p className="text-[13px] sm:text-[15px] font-medium text-neutral-900 leading-snug sm:leading-relaxed">
                     {row.solution}
                   </p>
                 </div>
+
               </div>
             ))}
           </div>
         </div>
 
-        {/* Closing Line */}
+        {/* Closing Line - Console log style / Monospace badge */}
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="flex justify-center"
         >
-          <p className="inline-block px-4 sm:px-5 py-2.5 rounded-full bg-slate-100 text-slate-800 font-bold text-[12px] sm:text-base tracking-tight border border-slate-200 shadow-sm">
-            Your question shouldn’t need three meetings.
-          </p>
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-md bg-neutral-900 text-white border border-neutral-800 shadow-xl">
+            <svg className="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span className="font-mono text-xs sm:text-sm tracking-tight font-medium">
+              Your question shouldn’t need three meetings.
+            </span>
+          </div>
         </motion.div>
 
       </div>
