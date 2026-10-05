@@ -7,13 +7,13 @@ export const PMPeopleProof = () => {
   const carouselRef = useRef(null);
 
   const evidenceImages = [
-    { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales", platform: "shopify" },
-    { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale", platform: "meta" },
-    { url: "/assets/google-proof-1.png", label: "Google Ads Conversions", platform: "google" },
-    { url: "/assets/unit-economics-proof.png", label: "D2C Per Order P&L", platform: "sheets" },
-    { url: "/assets/amazon-proof.png", label: "Amazon Marketplace Sales", platform: "amazon" },
-    { url: "/assets/blinkit-proof.png", label: "Blinkit Quick Commerce", platform: "blinkit" },
-    { url: "/assets/meta-proof-3.png", label: "9-Month Meta Ads Performance", platform: "meta" }
+    { url: "/assets/shopify-proof-1.png", label: "Shopify Gross & Net Sales", platform: "shopify", highlight: "High-Volume Revenue Scaling", metric: "Store CVR: 3.8% (Benchmark: 1.5%)" },
+    { url: "/assets/meta-proof-1.png", label: "Meta Ads ROAS at Scale", platform: "meta", highlight: "Consistent Profitable Delivery", metric: "4.8X Avg ROAS at High Spends" },
+    { url: "/assets/google-proof-1.png", label: "Google Ads Conversions", platform: "google", highlight: "₹121K Value on ₹27.2K Ad Spend", metric: "4.47X Conv. Value/Cost (ROAS)" },
+    { url: "/assets/unit-economics-proof.png", label: "D2C Per Order P&L", platform: "sheets", highlight: "Factoring 30% RTO & Actual COGS", metric: "Tracking True Net Margin (CM2)" },
+    { url: "/assets/amazon-proof.png", label: "Amazon Marketplace Sales", platform: "amazon", highlight: "₹25.2L+ Snapshot Sales", metric: "3,700+ Order Items Delivered" },
+    { url: "/assets/blinkit-proof.png", label: "Blinkit Quick Commerce", platform: "blinkit", highlight: "₹2.76L Sales (+215% MoM Growth)", metric: "2.76% CTR (Benchmark: 2.31%)" },
+    { url: "/assets/meta-proof-3.png", label: "9-Month Meta Ads Performance", platform: "meta", highlight: "6.59X Avg ROAS over 9 Months", metric: "₹1.49Cr+ Revenue from ₹22.7L Spend" }
   ];
 
   useEffect(() => {
@@ -220,60 +220,88 @@ export const PMPeopleProof = () => {
               </p>
             </div>
 
-            <div className="w-full relative rounded-xl overflow-hidden shadow-lg border border-slate-200/70 bg-white flex-1 min-h-[250px] sm:min-h-[320px] flex items-center justify-center mb-8">
+            <div className="w-full relative rounded-xl shadow-lg border border-slate-200/70 bg-white flex flex-col mb-8 overflow-hidden">
               
-              <div className="absolute top-4 left-4 sm:top-5 sm:left-5 bg-white/95 backdrop-blur-sm shadow-sm rounded-md px-3 py-1.5 z-20 border border-slate-100 flex items-center gap-2">
-                {evidenceImages[evidenceSlide].platform === 'shopify' && (
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-3.5 sm:h-4 object-contain" />
-                )}
-                {evidenceImages[evidenceSlide].platform === 'meta' && (
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain" />
-                )}
-                {evidenceImages[evidenceSlide].platform === 'google' && (
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-3.5 sm:h-4 object-contain" />
-                )}
-                {evidenceImages[evidenceSlide].platform === 'sheets' && (
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3.5 sm:h-4 object-contain" />
-                )}
-                {evidenceImages[evidenceSlide].platform === 'amazon' && (
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-3.5 sm:h-4 object-contain mt-1" />
-                )}
-                {evidenceImages[evidenceSlide].platform === 'blinkit' && (
-                  <span className="text-[12px] sm:text-[14px] font-extrabold tracking-tighter text-[#F8CB46] leading-none drop-shadow-sm">blinkit</span>
-                )}
-                <div className="w-px h-3 bg-slate-300 hidden sm:block"></div>
-                <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest leading-none mt-0.5">
-                  {evidenceImages[evidenceSlide].label}
-                </span>
-              </div>
+              <div className="relative flex-1 min-h-[200px] sm:min-h-[250px] bg-slate-50/50 flex items-center justify-center p-4 group">
+                <div className="absolute top-4 left-4 sm:top-5 sm:left-5 bg-white/95 backdrop-blur-sm shadow-sm rounded-md px-3 py-1.5 z-20 border border-slate-100 flex items-center gap-2">
+                  {evidenceImages[evidenceSlide].platform === 'shopify' && (
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="h-3.5 sm:h-4 object-contain" />
+                  )}
+                  {evidenceImages[evidenceSlide].platform === 'meta' && (
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="h-2.5 sm:h-3 object-contain" />
+                  )}
+                  {evidenceImages[evidenceSlide].platform === 'google' && (
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="h-3.5 sm:h-4 object-contain" />
+                  )}
+                  {evidenceImages[evidenceSlide].platform === 'sheets' && (
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg" alt="Sheets" className="h-3.5 sm:h-4 object-contain" />
+                  )}
+                  {evidenceImages[evidenceSlide].platform === 'amazon' && (
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="h-3.5 sm:h-4 object-contain mt-1" />
+                  )}
+                  {evidenceImages[evidenceSlide].platform === 'blinkit' && (
+                    <span className="text-[12px] sm:text-[14px] font-extrabold tracking-tighter text-[#F8CB46] leading-none drop-shadow-sm">blinkit</span>
+                  )}
+                  <div className="w-px h-3 bg-slate-300 hidden sm:block"></div>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-widest leading-none mt-0.5">
+                    {evidenceImages[evidenceSlide].label}
+                  </span>
+                </div>
 
-              <div className="absolute top-4 right-4 sm:top-5 sm:right-5 bg-emerald-50 backdrop-blur-sm shadow-sm rounded-md px-2.5 py-1 z-20 border border-emerald-200 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest">Verified</span>
-              </div>
+                <div className="absolute top-4 right-4 sm:top-5 sm:right-5 bg-emerald-50 backdrop-blur-sm shadow-sm rounded-md px-2.5 py-1 z-20 border border-emerald-200 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest">Verified</span>
+                </div>
 
-              <AnimatePresence mode="wait">
-                <motion.img 
-                  key={evidenceSlide}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4 }}
-                  src={evidenceImages[evidenceSlide].url} 
-                  alt={evidenceImages[evidenceSlide].label}
-                  className="w-full h-full absolute inset-0 object-contain p-2 sm:p-4"
-                />
-              </AnimatePresence>
-
-              <div className="absolute bottom-4 sm:bottom-5 left-0 right-0 flex justify-center gap-2 z-20">
-                {evidenceImages.map((_, idx) => (
-                  <button 
-                    key={idx}
-                    onClick={() => setEvidenceSlide(idx)}
-                    className={`w-2 h-2 rounded-full shadow-sm transition-all duration-300 ${idx === evidenceSlide ? 'bg-blue-600 w-5' : 'bg-slate-300 hover:bg-slate-400'}`}
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={evidenceSlide}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.4 }}
+                    src={evidenceImages[evidenceSlide].url} 
+                    alt={evidenceImages[evidenceSlide].label}
+                    className="w-full h-full absolute inset-0 object-contain p-2 sm:p-4 pt-16 sm:pt-20 pb-10 sm:pb-12"
                   />
-                ))}
+                </AnimatePresence>
+
+                <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-20">
+                  {evidenceImages.map((_, idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setEvidenceSlide(idx)}
+                      className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shadow-sm transition-all duration-300 ${idx === evidenceSlide ? 'bg-blue-600 w-4 sm:w-5' : 'bg-slate-300 hover:bg-slate-400'}`}
+                    />
+                  ))}
+                </div>
               </div>
+
+              <div className="bg-white border-t border-slate-100 p-3 sm:p-4 z-30">
+                <AnimatePresence mode="wait">
+                  <motion.div 
+                    key={evidenceSlide}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                  >
+                    <div>
+                      <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Key Insight</p>
+                      <p className="text-[13px] sm:text-[14.5px] font-extrabold text-slate-800 leading-tight">
+                        {evidenceImages[evidenceSlide].highlight}
+                      </p>
+                    </div>
+                    <div className="sm:text-right bg-blue-50/60 px-3 py-1.5 rounded-md border border-blue-100/50">
+                      <p className="text-[11px] sm:text-[12px] font-semibold text-blue-700 leading-tight">
+                        {evidenceImages[evidenceSlide].metric}
+                      </p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 opacity-70 hover:opacity-100 transition-opacity mb-2">
