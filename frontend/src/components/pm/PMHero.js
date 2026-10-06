@@ -40,10 +40,9 @@ export const PMHero = () => {
           <h1
             className="text-[2.2rem] leading-[1.1] sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 sm:mb-8 max-w-4xl mx-auto text-slate-900"
           >
-            From the first ad <br className="hidden sm:block" />
-            to the <span className="text-blue-600">delivered order.</span><br />
+            Better <span className="text-blue-600">performance.</span><br />
             <span className="text-slate-600 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">
-              We work on what <span className="text-slate-800">drives growth.</span>
+              From the first ad to the <span className="text-slate-800">delivered order.</span>
             </span>
           </h1>
 
@@ -52,15 +51,13 @@ export const PMHero = () => {
             className="flex flex-col items-center gap-4 mb-8 sm:mb-10 w-full"
           >
             <p className="text-[14px] sm:text-lg font-medium text-slate-600 max-w-3xl mx-auto leading-relaxed px-1">
-              We manage performance marketing and create your ads in-house. We also work on{" "}
-              <span className="text-slate-900 font-bold">tracking</span>,{" "}
-              <span className="text-slate-900 font-bold">offers</span>,{" "}
-              <span className="text-slate-900 font-bold">checkout</span>,{" "}
-              <span className="text-slate-900 font-bold">payment failures</span> and{" "}
-              <span className="text-slate-900 font-bold">RTO</span>—the problems that affect your sales and profit.
+              We run your ads, create performance creatives in-house, and fix the problems that hurt <span className="text-slate-900 font-bold">sales and profit</span>—from <span className="text-slate-900 font-bold">tracking</span> and <span className="text-slate-900 font-bold">checkout</span> to <span className="text-slate-900 font-bold">payment failures</span> and <span className="text-slate-900 font-bold">RTO</span>.
+            </p>
+            <p className="text-[15px] sm:text-lg font-medium text-slate-600 max-w-2xl mx-auto leading-relaxed px-1">
+              We look beyond dashboards to what your brand <span className="text-slate-900 font-bold">actually earns</span>.
             </p>
             <p className="text-[15px] sm:text-lg font-bold text-slate-800 max-w-2xl mx-auto leading-relaxed px-1">
-              Work directly with our two founders and performance creative team.
+              Work directly with the founders doing the work.
             </p>
           </div>
 
@@ -83,7 +80,8 @@ export const PMHero = () => {
             </button>
             
             <div className="text-[11px] sm:text-xs text-slate-500 leading-relaxed font-medium text-center">
-              For established D2C brands spending <span className="font-bold text-slate-800">₹3 lakh+/month</span> on ads.
+              Your website. Your ad accounts. Your customer data.<br />
+              <span className="font-bold text-slate-800">Owned by you. Always.</span>
             </div>
           </div>
 
