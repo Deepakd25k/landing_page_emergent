@@ -213,7 +213,12 @@ async def utm_performance(start_date: Optional[str] = None, end_date: Optional[s
     if match:
         pipeline.append({"$match": match})
         
-    paid_event = "funnel.d2c_cohort_payment" if campaign == "cohort" else "funnel.Purchase"
+    if campaign == "cohort":
+        paid_event = "funnel.d2c_cohort_payment"
+    elif campaign == "d2c_growth":
+        paid_event = "funnel.growth_session_booked"
+    else:
+        paid_event = "funnel.Purchase"
     
     pipeline.extend([
         {"$group": {
