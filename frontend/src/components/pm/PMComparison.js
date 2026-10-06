@@ -10,7 +10,15 @@ const Highlight = ({ children }) => (
 export const PMComparison = () => {
   const comparisonData = [
     {
-      pain: "“Let me check with the performance team.”",
+      pain: "Leaving means losing access to your website, ad accounts or customer data.",
+      solution: (
+        <>
+          Your brand <Highlight>owns the assets</Highlight> and keeps admin access. We work through permissions you control.
+        </>
+      )
+    },
+    {
+      pain: "“Let me check with the team.”",
       solution: (
         <>
           Speak directly with the <Highlight>people making decisions</Highlight> on your account.
@@ -18,42 +26,26 @@ export const PMComparison = () => {
       )
     },
     {
-      pain: "You don’t know who actually handles your budget.",
+      pain: "Creative and performance keep passing the brief around.",
       solution: (
         <>
-          <Highlight>Know who owns the work</Highlight> and what experience they bring.
+          One team connects <Highlight>customer research, creative production and campaign results</Highlight>.
         </>
       )
     },
     {
-      pain: "You keep explaining your brand to the creative team.",
+      pain: "“We’re testing”—without a clear explanation.",
       solution: (
         <>
-          <Highlight>Creative and performance work together</Highlight> on your customers, product and results.
+          Know <Highlight>what we’re testing, why, and what result</Highlight> decides the next step.
         </>
       )
     },
     {
-      pain: "“We’re testing” is the entire explanation.",
+      pain: "Payment failures and RTO are “someone else’s problem.”",
       solution: (
         <>
-          Every test has a <Highlight>reason</Highlight>, a <Highlight>success measure</Highlight> and a next decision.
-        </>
-      )
-    },
-    {
-      pain: "“Give us 90 days” before you see a clear plan.",
-      solution: (
-        <>
-          We start reviewing and prioritising action in <Highlight>week one</Highlight>, once access is ready.
-        </>
-      )
-    },
-    {
-      pain: "“Payment failures and RTO aren’t our department.”",
-      solution: (
-        <>
-          We <Highlight>investigate with tech & operations</Highlight> partners and help move the fix forward.
+          We <Highlight>investigate</Highlight> with your tech and operations partners and <Highlight>follow through</Highlight> on the agreed fixes.
         </>
       )
     }
@@ -106,7 +98,7 @@ export const PMComparison = () => {
             <div className="p-4 sm:p-5 bg-[#fafafa] border-l border-neutral-200 flex items-center">
               <span className="font-mono text-[10px] sm:text-xs font-semibold text-blue-600 uppercase tracking-widest flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                Incremental Value
+                With Incremental Value
               </span>
             </div>
           </div>
