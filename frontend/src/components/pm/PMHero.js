@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 
 export const PMHero = () => {
   return (
@@ -28,23 +27,17 @@ export const PMHero = () => {
         <div className="relative z-10 text-center flex flex-col items-center w-full">
           
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <div
             className="mb-6 sm:mb-8"
           >
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white shadow-sm border border-slate-200 text-[10px] sm:text-xs font-bold tracking-widest text-slate-700 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
               YOUR END-TO-END D2C GROWTH TEAM
             </div>
-          </motion.div>
+          </div>
 
           {/* H1 */}
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <h1
             className="text-[2.2rem] leading-[1.1] sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-5 sm:mb-8 max-w-4xl mx-auto text-slate-900"
           >
             From the first ad <br className="hidden sm:block" />
@@ -52,13 +45,10 @@ export const PMHero = () => {
             <span className="text-slate-600 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">
               We work on what <span className="text-slate-800">drives growth.</span>
             </span>
-          </motion.h1>
+          </h1>
 
           {/* Subtext */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="flex flex-col items-center gap-4 mb-8 sm:mb-10 w-full"
           >
             <p className="text-[14px] sm:text-lg font-medium text-slate-600 max-w-3xl mx-auto leading-relaxed px-1">
@@ -72,13 +62,10 @@ export const PMHero = () => {
             <p className="text-[15px] sm:text-lg font-bold text-slate-800 max-w-2xl mx-auto leading-relaxed px-1">
               Work directly with our two founders and performance creative team.
             </p>
-          </motion.div>
+          </div>
 
           {/* CTA Area */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+          <div
             className="w-full max-w-sm mx-auto flex flex-col items-center mb-8"
           >
             <button
@@ -98,13 +85,10 @@ export const PMHero = () => {
             <div className="text-[11px] sm:text-xs text-slate-500 leading-relaxed font-medium text-center">
               For established D2C brands spending <span className="font-bold text-slate-800">₹3 lakh+/month</span> on ads.
             </div>
-          </motion.div>
+          </div>
 
           {/* Stats Row */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+          <div
             className="flex flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-2xl"
           >
             <div className="flex-1 flex flex-col items-center bg-white px-2 py-4 sm:py-5 rounded-2xl shadow-sm border border-slate-200">
@@ -115,16 +99,13 @@ export const PMHero = () => {
               <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">₹2Cr+</span>
               <span className="text-[10px] sm:text-xs text-slate-500 font-semibold mt-1 text-center leading-tight">monthly ad budgets handled</span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+          <p
             className="text-[9px] sm:text-[10px] text-slate-600 font-medium mt-3"
           >
             *Combined experience across our founders' prior roles and engagements.
-          </motion.p>
+          </p>
 
         </div>
       </div>

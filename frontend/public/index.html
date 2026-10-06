@@ -184,7 +184,16 @@
             
             <p>Visit: <a href="https://incrementalvalue.in">incrementalvalue.in</a> | <a href="https://incrementalvalue.in/pm">Growth Partnership</a> | <a href="https://incrementalvalue.in/course">Live Cohort</a></p>
         </noscript>
-        <div id="root"></div>
+        <div id="root">
+            <style>
+                .initial-loader-wrapper { display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; background: transparent; flex-direction: column; font-family: system-ui, -apple-system, sans-serif; }
+                .initial-loader { width: 32px; height: 32px; border: 3px solid #e2e8f0; border-radius: 50%; border-top-color: #3b82f6; animation: spin 0.8s linear infinite; }
+                @keyframes spin { to { transform: rotate(360deg); } }
+            </style>
+            <div class="initial-loader-wrapper">
+                <div class="initial-loader"></div>
+            </div>
+        </div>
         <script>
             !(function (t, e) {
                 var o, n, p, r;
