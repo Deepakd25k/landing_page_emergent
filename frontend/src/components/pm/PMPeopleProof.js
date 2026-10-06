@@ -144,7 +144,7 @@ export const PMPeopleProof = () => {
   };
 
   return (
-    <section className="py-12 sm:py-20 bg-slate-50 relative border-b border-slate-200">
+    <section data-section="pm-people-proof" data-track-event="ViewContent" className="py-12 sm:py-20 bg-slate-50 relative border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Header */}

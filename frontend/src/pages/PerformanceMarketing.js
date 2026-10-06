@@ -96,8 +96,9 @@ const PMContent = () => {
         action: "*",
         callback: (e) => {
           if (e.detail.type === "linkReady") {
+            track("InitiateCheckout", { once: true, section: "floating-cal-button" });
             track("CalendarOpen", { section: "floating-cal-button", customData: { source: "pm_page" } });
-          } else if (e.detail.type === "timeSelected") {
+          } else if (e.detail.type === "timeSelected" || e.detail.type === "dateTimeSelected") {
             track("CalendarTimeSelected", { section: "floating-cal-button" });
           } else if (e.detail.type === "bookingSuccessful") {
             const bookingUid = e.detail.data?.uid || e.detail.data?.booking?.uid || "";

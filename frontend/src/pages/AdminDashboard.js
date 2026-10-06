@@ -1,5 +1,5 @@
 import { Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
-import { Activity, LayoutDashboard, CalendarCheck, Radio, Target, Route as RouteIcon, LogOut, ExternalLink } from "lucide-react";
+import { Activity, LayoutDashboard, CalendarCheck, Radio, Target, Route as RouteIcon, LogOut, ExternalLink, TrendingUp } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { Overview } from "@/components/admin/Overview";
 import { BookingsTable } from "@/components/admin/BookingsTable";
@@ -10,6 +10,7 @@ import { DateFilter } from "@/components/admin/DateFilter";
 import { CampaignFilter } from "@/components/admin/CampaignFilter";
 import { CsvExportButton } from "@/components/admin/CsvExportButton";
 import { AIDashboard } from "@/components/admin/AIDashboard";
+import { GrowthDashboard } from "@/components/admin/GrowthDashboard";
 import { Bot } from "lucide-react";
 
 const NAV = [
@@ -19,6 +20,7 @@ const NAV = [
   { to: "/admin/attribution", label: "Attribution", icon: Target },
   { to: "/admin/journeys", label: "Journeys", icon: RouteIcon },
   { to: "/admin/ai", label: "AI", icon: Bot },
+  { to: "/admin/growth", label: "growth.incremental...", icon: TrendingUp },
 ];
 
 export default function AdminDashboard() {
@@ -82,6 +84,7 @@ export default function AdminDashboard() {
             <Route path="journeys" element={<JourneyViewer />} />
             <Route path="journeys/:sessionId" element={<JourneyViewer />} />
             <Route path="ai" element={<AIDashboard />} />
+            <Route path="growth" element={<GrowthDashboard />} />
           </Routes>
         </main>
       </div>
