@@ -10,6 +10,8 @@ const Landing = lazy(() => import("@/pages/Landing"));
 const AdminLogin = lazy(() => import("@/pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
 const CourseLanding = lazy(() => import("@/pages/CourseLanding"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
 // Note: We need to export PerformanceMarketing as default or handle named exports
 const PerformanceMarketing = lazy(() => import("@/pages/PerformanceMarketing").then(module => ({ default: module.PerformanceMarketing })));
 
@@ -31,6 +33,8 @@ function App() {
             <Route path="/" element={DefaultComponent} />
             <Route path="/course" element={<CourseLanding />} />
             <Route path="/pm" element={<PerformanceMarketing />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route
               path="/admin/*"

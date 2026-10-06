@@ -31,17 +31,15 @@ export const Footer = ({ isCourse = false }) => (
         </ul>
       </div>
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">{isCourse ? "Policies" : "Operator"}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/40">Policies & Legal</p>
         <ul className="mt-4 space-y-2.5 text-sm">
           {isCourse ? (
-            <>
-              <li><span className="font-mono text-xs text-white/40">Refund Policy: Full refund if requested before the cohort begins. No refunds after the cohort starts.</span></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-            </>
+            <li><span className="font-mono text-xs text-white/40">Refund Policy: Full refund if requested before the cohort begins. No refunds after the cohort starts.</span></li>
           ) : (
-            <li><span className="font-mono text-xs text-white/40">3-layer tracking: Pixel + CAPI + Mongo</span></li>
+             <li><span className="font-mono text-xs text-white/40">Refund Policy: Full refund if diagnostic provides zero insights.</span></li>
           )}
+          <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
