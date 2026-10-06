@@ -1,25 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import Lenis from "lenis";
 import { TrackingProvider } from "@/context/TrackingContext";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { Marquee } from "@/components/Marquee";
 import { FestiveTimeline } from "@/components/FestiveTimeline";
-import { PainPoints } from "@/components/PainPoints";
-import { PnlReveal } from "@/components/PnlReveal";
-import { AttributionWar } from "@/components/AttributionWar";
-import { FunnelChain } from "@/components/FunnelChain";
-import { ResultsShowcase } from "@/components/ResultsShowcase";
-import { AuditComparison } from "@/components/AuditComparison";
-import { AdvisoryPillars } from "@/components/AdvisoryPillars";
-import { WhatYouGet } from "@/components/WhatYouGet";
-import { BonusAutomations } from "@/components/BonusAutomations";
-import { WhyNow } from "@/components/WhyNow";
-import { HowItWorks } from "@/components/HowItWorks";
-import { FinalCTA } from "@/components/FinalCTA";
-import { CalEmbed } from "@/components/CalEmbed";
-import { Footer } from "@/components/Footer";
-import { MobileStickyButton } from "@/components/MobileStickyButton";
+
+const PainPoints = lazy(() => import("@/components/PainPoints").then(m => ({ default: m.PainPoints })));
+const PnlReveal = lazy(() => import("@/components/PnlReveal").then(m => ({ default: m.PnlReveal })));
+const AttributionWar = lazy(() => import("@/components/AttributionWar").then(m => ({ default: m.AttributionWar })));
+const FunnelChain = lazy(() => import("@/components/FunnelChain").then(m => ({ default: m.FunnelChain })));
+const ResultsShowcase = lazy(() => import("@/components/ResultsShowcase").then(m => ({ default: m.ResultsShowcase })));
+const AuditComparison = lazy(() => import("@/components/AuditComparison").then(m => ({ default: m.AuditComparison })));
+const AdvisoryPillars = lazy(() => import("@/components/AdvisoryPillars").then(m => ({ default: m.AdvisoryPillars })));
+const WhatYouGet = lazy(() => import("@/components/WhatYouGet").then(m => ({ default: m.WhatYouGet })));
+const BonusAutomations = lazy(() => import("@/components/BonusAutomations").then(m => ({ default: m.BonusAutomations })));
+const WhyNow = lazy(() => import("@/components/WhyNow").then(m => ({ default: m.WhyNow })));
+const HowItWorks = lazy(() => import("@/components/HowItWorks").then(m => ({ default: m.HowItWorks })));
+const FinalCTA = lazy(() => import("@/components/FinalCTA").then(m => ({ default: m.FinalCTA })));
+const CalEmbed = lazy(() => import("@/components/CalEmbed").then(m => ({ default: m.CalEmbed })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+const MobileStickyButton = lazy(() => import("@/components/MobileStickyButton").then(m => ({ default: m.MobileStickyButton })));
 
 import { SEOHelmet } from "@/components/SEOHelmet";
 
@@ -101,22 +102,26 @@ export default function Landing() {
           <HeroSection />
           <Marquee />
           <FestiveTimeline />
-          <PainPoints />
-          <FunnelChain />
-          <PnlReveal />
-          <AttributionWar />
-          <ResultsShowcase />
-          <AuditComparison />
-          <AdvisoryPillars />
-          <WhatYouGet />
-          <BonusAutomations />
-          <WhyNow />
-          <HowItWorks />
-          <FinalCTA />
-          <CalEmbed />
+          <Suspense fallback={<div className="h-96 w-full flex items-center justify-center text-slate-500 text-sm">Loading components...</div>}>
+            <PainPoints />
+            <FunnelChain />
+            <PnlReveal />
+            <AttributionWar />
+            <ResultsShowcase />
+            <AuditComparison />
+            <AdvisoryPillars />
+            <WhatYouGet />
+            <BonusAutomations />
+            <WhyNow />
+            <HowItWorks />
+            <FinalCTA />
+            <CalEmbed />
+          </Suspense>
         </main>
-        <Footer />
-        <MobileStickyButton />
+        <Suspense fallback={null}>
+          <Footer />
+          <MobileStickyButton />
+        </Suspense>
       </div>
     </TrackingProvider>
   );

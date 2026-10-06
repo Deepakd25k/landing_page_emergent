@@ -1,13 +1,17 @@
 import "@/App.css";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
-import Landing from "@/pages/Landing";
-import AdminLogin from "@/pages/AdminLogin";
-import AdminDashboard from "@/pages/AdminDashboard";
-import CourseLanding from "@/pages/CourseLanding";
-import { PerformanceMarketing } from "@/pages/PerformanceMarketing";
 import { AuthProvider, RequireAdmin } from "@/context/AuthContext";
+
+// Lazy load all major routes to drastically reduce initial JS payload and TBT
+const Landing = lazy(() => import("@/pages/Landing"));
+const AdminLogin = lazy(() => import("@/pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
+const CourseLanding = lazy(() => import("@/pages/CourseLanding"));
+// Note: We need to export PerformanceMarketing as default or handle named exports
+const PerformanceMarketing = lazy(() => import("@/pages/PerformanceMarketing").then(module => ({ default: module.PerformanceMarketing })));
 
 function App() {
   const host = window.location.hostname;
@@ -22,21 +26,23 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={DefaultComponent} />
-          <Route path="/course" element={<CourseLanding />} />
-          <Route path="/pm" element={<PerformanceMarketing />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route
-            path="/admin/*"
-            element={
-              <RequireAdmin>
-                <AdminDashboard />
-              </RequireAdmin>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-sm text-slate-400">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={DefaultComponent} />
+            <Route path="/course" element={<CourseLanding />} />
+            <Route path="/pm" element={<PerformanceMarketing />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin/*"
+              element={
+                <RequireAdmin>
+                  <AdminDashboard />
+                </RequireAdmin>
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </AuthProvider>
       <Toaster position="bottom-right" richColors closeButton />
       <Analytics />

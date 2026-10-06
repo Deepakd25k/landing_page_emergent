@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import { getCalApi } from "@calcom/embed-react";
 import { PMHero } from "../components/pm/PMHero";
-import { PMPeopleProof } from "../components/pm/PMPeopleProof";
-import { PMComparison } from "../components/pm/PMComparison";
-import { PMAttributionMeasurement } from "../components/pm/PMAttributionMeasurement";
-import { PMExecution } from "../components/pm/PMExecution";
-import { PMScope } from "../components/pm/PMScope";
-import { PMBooking } from "../components/pm/PMBooking";
+
+// Lazy load below-the-fold components to improve FCP, LCP and TBT
+const PMPeopleProof = lazy(() => import("../components/pm/PMPeopleProof").then(m => ({ default: m.PMPeopleProof })));
+const PMComparison = lazy(() => import("../components/pm/PMComparison").then(m => ({ default: m.PMComparison })));
+const PMAttributionMeasurement = lazy(() => import("../components/pm/PMAttributionMeasurement").then(m => ({ default: m.PMAttributionMeasurement })));
+const PMExecution = lazy(() => import("../components/pm/PMExecution").then(m => ({ default: m.PMExecution })));
+const PMScope = lazy(() => import("../components/pm/PMScope").then(m => ({ default: m.PMScope })));
+const PMBooking = lazy(() => import("../components/pm/PMBooking").then(m => ({ default: m.PMBooking })));
 
 import { TrackingProvider, useTracking } from "@/context/TrackingContext";
 
@@ -133,12 +135,14 @@ const PMContent = () => {
       </div>
 
       <PMHero />
-      <PMPeopleProof />
-      <PMComparison />
-      <PMScope />
-      <PMAttributionMeasurement />
-      <PMExecution />
-      <PMBooking />
+      <Suspense fallback={<div className="h-96 w-full flex items-center justify-center text-slate-500 text-sm">Loading components...</div>}>
+        <PMPeopleProof />
+        <PMComparison />
+        <PMScope />
+        <PMAttributionMeasurement />
+        <PMExecution />
+        <PMBooking />
+      </Suspense>
     </div>
   );
 };
