@@ -142,7 +142,7 @@ export const PMScope = () => {
             transition={{ delay: 0.1 }}
             className="text-[15px] sm:text-lg font-semibold text-slate-500 leading-snug"
           >
-            We work across the parts of your D2C business that affect growth.
+            We run the marketing and creative work. For fixes involving your website, payments or logistics, we work with the right partners and track progress.
           </motion.p>
         </div>
 
