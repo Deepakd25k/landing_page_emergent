@@ -127,15 +127,16 @@ export const GrowthDashboard = () => {
                 <th className="p-3 font-semibold">Source / Campaign</th>
                 <th className="p-3 font-semibold text-right">Visitors</th>
                 <th className="p-3 font-semibold text-right">Opened Cal</th>
+                <th className="p-3 font-semibold text-right text-blue">LinkedIn Clicks</th>
                 <th className="p-3 font-semibold text-right text-success">Bookings</th>
                 <th className="p-3 font-semibold text-right">CVR</th>
               </tr>
             </thead>
             <tbody>
               {!utmData ? (
-                <tr><td colSpan={5} className="p-3 text-center text-ink-3">Loading...</td></tr>
+                <tr><td colSpan={6} className="p-3 text-center text-ink-3">Loading...</td></tr>
               ) : utmData.length === 0 ? (
-                <tr><td colSpan={5} className="p-3 text-center text-ink-3">No attribution data recorded yet.</td></tr>
+                <tr><td colSpan={6} className="p-3 text-center text-ink-3">No attribution data recorded yet.</td></tr>
               ) : (
                 utmData.map((row, i) => {
                   const label = row.utm_source ? `${row.utm_source} / ${row.utm_campaign || "none"}` : (row.utm_content === "(direct / none)" ? "Direct / Unknown" : row.utm_content);
@@ -148,6 +149,7 @@ export const GrowthDashboard = () => {
                       </td>
                       <td className="p-3 text-right font-mono text-ink-2">{row.visitors}</td>
                       <td className="p-3 text-right font-mono text-ink-2">{row.calendar_open}</td>
+                      <td className="p-3 text-right font-mono text-blue font-bold">{row.linkedin_clicks || 0}</td>
                       <td className="p-3 text-right font-mono text-success font-bold">{row.paid}</td>
                       <td className="p-3 text-right font-mono text-ink-2">{row.cvr}%</td>
                     </tr>

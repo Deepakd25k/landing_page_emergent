@@ -13,7 +13,7 @@ from services.mongo import events, sessions
 
 router = APIRouter(prefix="/api", tags=["track"])
 
-FUNNEL_STEPS = {"PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "InitiateCheckout_Sticky", "CalendarOpen", "CalendarTimeSelected", "AddPaymentInfo", "Purchase", "Schedule", "Lead", "cohort_booked", "d2c_session_booked", "growth_session_booked", "ScrolledToCTA", "OpenedModal", "d2c_cohort_lead", "d2c_cohort_payment"}
+FUNNEL_STEPS = {"PageView", "ViewContent", "ViewContent_CaseStudy", "InitiateCheckout", "InitiateCheckout_Sticky", "CalendarOpen", "CalendarTimeSelected", "AddPaymentInfo", "Purchase", "Schedule", "Lead", "cohort_booked", "d2c_session_booked", "growth_session_booked", "ScrolledToCTA", "OpenedModal", "LinkedInClicked", "d2c_cohort_lead", "d2c_cohort_payment"}
 
 
 @router.post("/track")
