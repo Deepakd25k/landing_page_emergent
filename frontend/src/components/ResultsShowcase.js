@@ -207,7 +207,9 @@ export const ResultsShowcase = () => {
                     </AnimatePresence>
                     <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-white/80 px-2 py-1 rounded-full">
                       {metaScreenshots.map((_, i) => (
-                        <button key={i} onClick={() => setCurrentMetaIndex(i)} className={`h-1.5 rounded-full transition-all ${i === currentMetaIndex ? "bg-blue w-5" : "bg-ink-3/50 w-1.5"}`} />
+                        <button key={i} aria-label={`Go to image ${i + 1}`} onClick={() => setCurrentMetaIndex(i)} className="p-2 cursor-pointer flex items-center justify-center">
+                          <span className={`h-1.5 rounded-full transition-all ${i === currentMetaIndex ? "bg-blue w-5" : "bg-ink-3/50 w-1.5"}`} />
+                        </button>
                       ))}
                     </div>
                   </div>

@@ -134,15 +134,17 @@ const PMContent = () => {
         <span className="text-white/95 font-medium">Get direct access to your growth team.</span>
       </div>
 
-      <PMHero />
-      <Suspense fallback={<div className="h-96 w-full flex items-center justify-center text-slate-500 text-sm">Loading components...</div>}>
-        <PMPeopleProof />
-        <PMComparison />
-        <PMScope />
-        <PMAttributionMeasurement />
-        <PMExecution />
-        <PMBooking />
-      </Suspense>
+      <main>
+        <PMHero />
+        <Suspense fallback={<div className="h-96 w-full flex items-center justify-center text-slate-500 text-sm">Loading components...</div>}>
+          <PMPeopleProof />
+          <PMComparison />
+          <PMScope />
+          <PMAttributionMeasurement />
+          <PMExecution />
+          <PMBooking />
+        </Suspense>
+      </main>
     </div>
   );
 };

@@ -177,7 +177,7 @@ export const PMPeopleProof = () => {
               <div className="flex flex-col flex-1">
                 <div className="flex items-center justify-start gap-2.5 mb-1">
                   <h3 className="text-lg font-bold text-slate-900">{founder.name}</h3>
-                  <a href={founder.linkedin} target={founder.linkedin === "#" ? "_self" : "_blank"} rel="noopener noreferrer" className="text-[#0A66C2] hover:opacity-80 transition-opacity flex items-center" onClick={() => { if (founder.linkedin !== "#") window.trackEvent?.("LinkedInClicked", { founder: founder.name, section: "pm-people-proof" }) }}>
+                  <a href={founder.linkedin} target={founder.linkedin === "#" ? "_self" : "_blank"} rel="noopener noreferrer" aria-label={`LinkedIn profile of ${founder.name}`} className="text-[#0A66C2] hover:opacity-80 transition-opacity flex items-center" onClick={() => { if (founder.linkedin !== "#") window.trackEvent?.("LinkedInClicked", { founder: founder.name, section: "pm-people-proof" }) }}>
                     <svg className="w-[18px] h-[18px] sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   </a>
                 </div>
@@ -204,14 +204,14 @@ export const PMPeopleProof = () => {
             </div>
             
             <div className="mb-6">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Problem</h4>
+              <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Problem</p>
               <p className="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed">
                 {featuredCase.problem}
               </p>
             </div>
             
             <div className="mb-6">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Actions</h4>
+              <p className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-2">Actions</p>
               <ul className="space-y-3">
                 {featuredCase.actions.map((act, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-[14.5px] sm:text-base font-medium text-slate-600">
@@ -225,7 +225,7 @@ export const PMPeopleProof = () => {
             </div>
             
             <div className="mt-2 p-5 rounded-xl bg-emerald-50 border border-emerald-100">
-              <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-widest mb-2">Outcome</h4>
+              <p className="text-xs font-bold text-emerald-800 uppercase tracking-widest mb-2">Outcome</p>
               <p className="text-sm sm:text-base font-bold text-emerald-950 leading-relaxed">
                 {featuredCase.outcome}
               </p>
@@ -311,7 +311,7 @@ export const PMPeopleProof = () => {
                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                   >
                     <div>
-                      <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Key Insight</p>
+                      <p className="text-[9px] sm:text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-1">Key Insight</p>
                       <p className="text-[13px] sm:text-[14.5px] font-extrabold text-slate-800 leading-tight">
                         {evidenceImages[evidenceSlide].highlight}
                       </p>
@@ -343,11 +343,11 @@ export const PMPeopleProof = () => {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">More verified outcomes</h3>
             <div className="flex items-center gap-3">
-              <span className="text-sm font-bold text-slate-400 mr-2">{currentSlide + 1} / {additionalCases.length}</span>
-              <button onClick={() => scrollToIndex(Math.max(0, currentSlide - 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center bg-white hover:bg-slate-50 text-slate-600 transition-colors disabled:opacity-50" disabled={currentSlide === 0}>
+              <span className="text-sm font-bold text-slate-600 mr-2">{currentSlide + 1} / {additionalCases.length}</span>
+              <button onClick={() => scrollToIndex(Math.max(0, currentSlide - 1))} className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center bg-white hover:bg-slate-50 text-slate-600 transition-colors disabled:opacity-50" disabled={currentSlide === 0} aria-label="Previous slide">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/></svg>
               </button>
-              <button onClick={() => scrollToIndex(Math.min(additionalCases.length - 1, currentSlide + 1))} className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center bg-white hover:bg-slate-50 text-slate-600 transition-colors disabled:opacity-50" disabled={currentSlide === additionalCases.length - 1}>
+              <button onClick={() => scrollToIndex(Math.min(additionalCases.length - 1, currentSlide + 1))} className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center bg-white hover:bg-slate-50 text-slate-600 transition-colors disabled:opacity-50" disabled={currentSlide === additionalCases.length - 1} aria-label="Next slide">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
@@ -371,10 +371,10 @@ export const PMPeopleProof = () => {
 
                 <div className="bg-gradient-to-br from-blue-600 to-indigo-700 border-b border-blue-800 px-6 py-5 shrink-0 relative overflow-hidden">
                   <div className="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
-                  <h4 className="text-[10px] font-black text-blue-200 uppercase tracking-widest mb-1.5 flex items-center gap-1.5 relative z-10">
+                  <p className="text-[10px] font-black text-blue-200 uppercase tracking-widest mb-1.5 flex items-center gap-1.5 relative z-10">
                     <svg className="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
                     Verified Result
-                  </h4>
+                  </p>
                   <p className="text-xl sm:text-2xl font-black text-white tracking-tight leading-none drop-shadow-sm relative z-10">
                     {formatHighlight(caseStudy.highlightMetric)}
                   </p>
@@ -382,17 +382,17 @@ export const PMPeopleProof = () => {
 
                 <div className="p-6 flex flex-col gap-5 flex-1 bg-white">
                   <div>
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Problem</h4>
+                    <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1.5">Problem</p>
                     <p className="text-[13px] font-semibold text-slate-800 leading-snug">{formatHighlight(caseStudy.problem)}</p>
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Our Work</h4>
+                    <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest mb-1.5">Our Work</p>
                     <p className="text-[13px] font-medium text-slate-600 leading-snug">{formatHighlight(caseStudy.work)}</p>
                   </div>
                 </div>
 
                 <div className="mt-auto bg-slate-900 border-t border-slate-800 p-5 shrink-0">
-                  <h4 className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Business Impact</h4>
+                  <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1.5">Business Impact</p>
                   <p className="text-[13px] font-bold text-white leading-tight">
                     {formatHighlight(caseStudy.impact)}
                   </p>

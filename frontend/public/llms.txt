@@ -1,0 +1,13 @@
+# Incremental Value
+
+Incremental Value is an end-to-end D2C Growth Partner in India, founded by Deepak Gupta. We help e-commerce founders scale profitably by fixing unit economics, tracking, and media buying.
+
+## Useful Links
+- [Homepage](https://incrementalvalue.in)
+- [Performance Marketing Partnership](https://incrementalvalue.in/pm)
+- [Live D2C Cohort Course](https://incrementalvalue.in/course)
+
+## Services
+- D2C Profitability Diagnostic
+- Growth Partnership (Meta Ads, Google Ads, Q-commerce)
+- D2C Tech Setup (CAPI, n8n)

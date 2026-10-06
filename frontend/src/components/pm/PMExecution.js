@@ -156,6 +156,7 @@ export const PMExecution = () => {
                 <button 
                   onClick={() => setModalOpen(false)} 
                   className="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 hover:bg-slate-100 rounded-full text-slate-600 transition-colors"
+                  aria-label="Close modal"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>

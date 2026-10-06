@@ -49,7 +49,7 @@ export const PMHero = () => {
           >
             From the first ad <br className="hidden sm:block" />
             to the <span className="text-blue-600">delivered order.</span><br />
-            <span className="text-slate-400 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">
+            <span className="text-slate-600 text-[1.8rem] sm:text-4xl md:text-5xl mt-2 block">
               We work on what <span className="text-slate-800">drives growth.</span>
             </span>
           </motion.h1>
@@ -121,7 +121,7 @@ export const PMHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-3"
+            className="text-[9px] sm:text-[10px] text-slate-600 font-medium mt-3"
           >
             *Combined experience across our founders' prior roles and engagements.
           </motion.p>

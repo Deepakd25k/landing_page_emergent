@@ -115,9 +115,11 @@ export const BonusAutomations = () => {
             <button 
               key={i} 
               onClick={() => setCurrentIndex(i)}
-              className={`h-2 rounded-full transition-all duration-500 ${i === currentIndex ? "w-8 bg-blue" : "w-2 bg-line-dark hover:bg-ink-3"}`}
+              className="p-2 cursor-pointer flex items-center justify-center"
               aria-label={`Go to slide ${i + 1}`}
-            />
+            >
+              <span className={`h-2 rounded-full transition-all duration-500 ${i === currentIndex ? "w-8 bg-blue" : "w-2 bg-line-dark hover:bg-ink-3"}`} />
+            </button>
           ))}
         </div>
 
