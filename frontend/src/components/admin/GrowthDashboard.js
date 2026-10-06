@@ -1,4 +1,5 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Users, CalendarCheck, Zap, ServerCog, Globe, Target } from "lucide-react";
 import { usePolling } from "@/hooks/usePolling";
@@ -45,12 +46,14 @@ const FunnelBars = ({ funnel }) => (
 );
 
 export const GrowthDashboard = () => {
-  // Hardcode campaign to d2c_growth
+  const [searchParams] = useSearchParams();
+  const start_date = searchParams.get("start") || undefined;
+  const end_date = searchParams.get("end") || undefined;
   const campaign = "d2c_growth";
 
-  const { data: stats } = usePolling("/admin/stats", { interval: 10000, params: { campaign } });
-  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000, params: { campaign } });
-  const { data: utmData } = usePolling("/admin/utm", { interval: 15000, params: { campaign } });
+  const { data: stats } = usePolling("/admin/stats", { interval: 10000, params: { start_date, end_date, campaign } });
+  const { data: funnel } = usePolling("/admin/funnel", { interval: 10000, params: { start_date, end_date, campaign } });
+  const { data: utmData } = usePolling("/admin/utm", { interval: 15000, params: { start_date, end_date, campaign } });
 
   return (
     <div className="pb-10">

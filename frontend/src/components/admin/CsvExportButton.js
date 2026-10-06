@@ -3,10 +3,17 @@ import { useSearchParams } from "react-router-dom";
 
 export const CsvExportButton = () => {
   const [searchParams] = useSearchParams();
+  const location = window.location.pathname;
   
   const handleDownload = () => {
     const url = new URL("/api/admin/export/bookings", window.location.origin);
     const params = new URLSearchParams(searchParams);
+    
+    // Automatically filter to d2c_growth if we are on the dedicated growth tab
+    if (location.includes('/growth')) {
+      params.set('campaign', 'd2c_growth');
+    }
+    
     url.search = params.toString();
     
     // Create temporary link and click it to download

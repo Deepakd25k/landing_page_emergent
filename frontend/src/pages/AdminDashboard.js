@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, NavLink, Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { Activity, LayoutDashboard, CalendarCheck, Radio, Target, Route as RouteIcon, LogOut, ExternalLink, TrendingUp } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { Overview } from "@/components/admin/Overview";
@@ -26,6 +26,7 @@ const NAV = [
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="min-h-screen bg-alt text-ink flex" data-testid="admin-dashboard">
@@ -73,7 +74,7 @@ export default function AdminDashboard() {
         <main className="p-4 sm:p-8 max-w-7xl mx-auto">
           <div className="flex justify-end gap-3 mb-6">
             <CsvExportButton />
-            <CampaignFilter />
+            {!location.pathname.includes('/growth') && <CampaignFilter />}
             <DateFilter />
           </div>
           <Routes>
