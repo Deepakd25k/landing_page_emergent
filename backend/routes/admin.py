@@ -82,9 +82,17 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
     capi_sent = await events.count_documents({**match, "capi.status": "sent"})
     capi_skipped = await events.count_documents({**match, "capi.status": "skipped"})
     capi_error = await events.count_documents({**match, "capi.status": "error"})
-    since = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
-    today_visitors = await sessions.count_documents({"created_at": {"$gte": since}})
-    today_events = await events.count_documents({"created_at": {"$gte": since}})
+    ist_offset = __import__("datetime").timedelta(hours=5, minutes=30)
+    now_ist = datetime.now(timezone.utc) + ist_offset
+    start_of_day_ist = now_ist.replace(hour=0, minute=0, second=0, microsecond=0)
+    since = (start_of_day_ist - ist_offset).isoformat()
+    
+    today_visitors = await sessions.count_documents({**match, "created_at": {"$gte": since}})
+    today_events = await events.count_documents({**match, "created_at": {"$gte": since}})
+    
+    if campaign == "d2c_growth":
+        # If webhook is missing/delayed, rely on the frontend tracking which updates the session funnel.
+        paid = await sessions.count_documents({**match, "funnel.growth_session_booked": {"$exists": True}})
     
     one_hour_ago = (datetime.now(timezone.utc) - __import__("datetime").timedelta(hours=1)).isoformat()
     twentyfour_hours_ago = (datetime.now(timezone.utc) - __import__("datetime").timedelta(hours=24)).isoformat()

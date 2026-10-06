@@ -98,7 +98,18 @@ export const GrowthDashboard = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="w-7 h-7 rounded-lg bg-blue-tint text-blue grid place-items-center font-mono text-xs font-bold">2</span>
-              <div><p className="font-semibold">Backend · Meta CAPI</p><p className="text-xs text-ink-3">Receives the Cal.com webhook with Name, Email & Phone. Hashes PII and sends <span className="font-mono text-blue bg-blue-tint px-1 rounded">growth_session_booked</span> securely to Meta for maximum optimization match rate.</p></div>
+              <div>
+                <p className="font-semibold flex items-center gap-2">
+                  Backend · Meta CAPI 
+                  {!stats?.webhook_signature && (
+                    <span className="bg-danger/10 text-danger text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Webhook Missing</span>
+                  )}
+                </p>
+                <p className="text-xs text-ink-3 mt-1">Receives the Cal.com webhook with Name, Email & Phone. Hashes PII and sends <span className="font-mono text-blue bg-blue-tint px-1 rounded">growth_session_booked</span> securely to Meta for maximum optimization match rate.</p>
+                {!stats?.webhook_signature && (
+                  <p className="text-[11px] text-danger mt-2 font-medium">⚠️ Add your Render API URL (<span className="font-mono">/api/webhook/calid</span>) to Cal.com webhooks and set CALID_WEBHOOK_SECRET in .env to enable rich CAPI.</p>
+                )}
+              </div>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-7 h-7 rounded-lg bg-blue-tint text-blue grid place-items-center font-mono text-xs font-bold">3</span>
