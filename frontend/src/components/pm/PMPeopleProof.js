@@ -147,23 +147,14 @@ export const PMPeopleProof = () => {
     <section data-section="pm-people-proof" data-track-event="ViewContent" className="py-12 sm:py-20 bg-slate-50 relative border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Know who’s responsible for your growth.
           </h2>
-          <div className="text-base sm:text-lg font-medium text-slate-600 space-y-4">
+          <div className="text-base sm:text-lg font-medium text-slate-600">
             <p>
-              <strong className="text-slate-900">Deepak Gupta & Kushagra Jain</strong><br/>
-              Co-founders, Incremental Value
+              You’ll work directly with <strong className="text-slate-900">Deepak Gupta</strong> and <strong className="text-slate-900">Kushagra Jain</strong>. We stay involved in account decisions, creative reviews and business priorities, alongside our in-house creative team.
             </p>
-            <p>
-              We’ve worked closely with founders, managed live accounts and helped solve problems across marketing and operations.
-            </p>
-            <p>
-              At Incremental Value, we stay involved in your account, creative decisions and business reviews. Our in-house creative team works alongside us.
-            </p>
-            <p className="font-bold text-slate-900">Meet the people. See the work.</p>
           </div>
         </div>
 
