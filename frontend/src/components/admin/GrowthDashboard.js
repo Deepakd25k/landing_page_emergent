@@ -89,7 +89,21 @@ export const GrowthDashboard = () => {
       </div>
 
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6 mb-6">
-        <Panel title="Realtime Conversion Funnel" right={funnel && <span className="text-xs font-mono text-ink-3">{funnel.total} sessions</span>}>
+        <Panel 
+          title="Realtime Conversion Funnel" 
+          right={funnel && (
+            <div className="text-xs font-mono text-ink-3 flex items-center gap-3">
+              {stats?.engagement && (
+                <>
+                  <span className="hidden sm:inline">Scroll: <span className="font-bold text-ink">{stats.engagement.avg_scroll}%</span></span>
+                  <span className="hidden sm:inline">Time: <span className="font-bold text-ink">{stats.engagement.avg_time}s</span></span>
+                  <span className="text-line">|</span>
+                </>
+              )}
+              <span>{funnel.total} sessions</span>
+            </div>
+          )}
+        >
           {funnel ? <FunnelBars funnel={funnel} /> : <p className="text-sm text-ink-3">Loading funnel data...</p>}
         </Panel>
 

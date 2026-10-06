@@ -110,6 +110,18 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
     
     velocity_1h = await bookings.count_documents({**b_match, "created_at": {"$gte": one_hour_ago}})
     velocity_24h = await bookings.count_documents({**b_match, "created_at": {"$gte": twentyfour_hours_ago}})
+    
+    avg_scroll, avg_time = 0, 0
+    if total_sessions > 0:
+        cursor = sessions.aggregate([
+            {"$match": match},
+            {"$group": {"_id": None, "avg_scroll": {"$avg": "$scroll_depth"}, "avg_time": {"$avg": "$time_on_page"}}}
+        ])
+        aggs = [r async for r in cursor]
+        if aggs:
+            avg_scroll = round(aggs[0].get("avg_scroll") or 0)
+            avg_time = round(aggs[0].get("avg_time") or 0)
+
     return {
         "sessions": total_sessions, "events": total_events, "bookings": total_bookings, "paid_bookings": paid,
         "revenue": revenue[0]["sum"] if revenue else 0, "conversion_rate": pct(paid, total_sessions),
@@ -120,6 +132,7 @@ async def stats(start_date: Optional[str] = None, end_date: Optional[str] = None
         "today": {"visitors": today_visitors, "events": today_events},
         "velocity_1h": velocity_1h,
         "velocity_24h": velocity_24h,
+        "engagement": {"avg_scroll": avg_scroll, "avg_time": avg_time}
     }
 
 
