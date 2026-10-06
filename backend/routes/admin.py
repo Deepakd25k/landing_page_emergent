@@ -50,11 +50,21 @@ def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Opt
         else:
             match["$or"] = [{"campaigns": campaign}, {"campaign": campaign}]
     if start_date or end_date:
+        from datetime import datetime, timezone, timedelta
+        ist_offset = timedelta(hours=5, minutes=30)
         created_at = {}
         if start_date:
-            created_at["$gte"] = start_date
+            try:
+                dt = datetime.strptime(start_date[:10], "%Y-%m-%d").replace(tzinfo=timezone(ist_offset))
+                created_at["$gte"] = dt.astimezone(timezone.utc).isoformat()
+            except Exception:
+                pass
         if end_date:
-            created_at["$lte"] = end_date if "T" in end_date else f"{end_date}T23:59:59.999Z"
+            try:
+                dt = datetime.strptime(end_date[:10], "%Y-%m-%d").replace(hour=23, minute=59, second=59, microsecond=999999, tzinfo=timezone(ist_offset))
+                created_at["$lte"] = dt.astimezone(timezone.utc).isoformat()
+            except Exception:
+                pass
         if created_at:
             match["created_at"] = created_at
     match["is_bot"] = {"$ne": True}
