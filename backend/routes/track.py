@@ -52,6 +52,7 @@ async def track_event(body: TrackRequest, request: Request):
         "source": "browser",
         "section": body.section,
         "source_url": body.source_url,
+        "is_bot": session.get("is_bot", False),
         "created_at": now.isoformat(),
         "event_time": int(time.time()),
         "user_data_fields": [k for k, v in user_data.items() if v],
@@ -64,7 +65,9 @@ async def track_event(body: TrackRequest, request: Request):
     except DuplicateKeyError:
         return {"ok": True, "duplicate": True, "event_id": body.event_id}
 
-    if body.send_capi:
+    if session.get("is_bot"):
+        capi_result = {"status": "not_sent", "reason": "bot_detected"}
+    elif body.send_capi:
         capi_result = await send_event(
             event_name=body.event_name,
             event_id=body.event_id,

@@ -9,6 +9,14 @@ from services.mongo import sessions, bookings
 from config import RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET
 from services.meta_capi import send_event
 from services.hash_utils import sha256
+import re
+
+BOT_REGEX = re.compile(r"(bot|crawler|spider|lighthouse|preview|facebookexternalhit|headless|googlebot|bingbot|yahoo|yandex|slurp|duckduckbot|baiduspider)", re.I)
+
+def is_bot(user_agent: str) -> bool:
+    if not user_agent:
+        return False
+    return bool(BOT_REGEX.search(user_agent))
 
 router = APIRouter(prefix="/api/session", tags=["session"])
 
@@ -52,6 +60,7 @@ async def init_session(body: SessionInitRequest, request: Request):
         "landing_url": body.landing_url,
         "ip": client_ip(request),
         "user_agent": body.device.user_agent or request.headers.get("user-agent"),
+        "is_bot": is_bot(body.device.user_agent or request.headers.get("user-agent")),
         "device": body.device.model_dump(),
         "scroll_depth": 0,
         "sections_viewed": [],
@@ -109,12 +118,14 @@ async def create_lead(body: LeadRequest, request: Request):
         "ph": [sha256(update["phone"])],
         "external_id": [sha256(body.session_id)],
     }
-    capi_result = await send_event(
-        event_name="d2c_cohort_lead",
-        event_id=f"lead_{body.session_id}",
-        event_source_url=session.get("landing_url") or "",
-        user_data={k: v for k, v in user_data.items() if v},
-    )
+    capi_result = None
+    if not session.get("is_bot"):
+        capi_result = await send_event(
+            event_name="d2c_cohort_lead",
+            event_id=f"lead_{body.session_id}",
+            event_source_url=session.get("landing_url") or "",
+            user_data={k: v for k, v in user_data.items() if v},
+        )
 
     # Insert into bookings as a lead
     booking_doc = {

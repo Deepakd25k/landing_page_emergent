@@ -57,6 +57,7 @@ def get_filter(start_date: Optional[str], end_date: Optional[str], campaign: Opt
             created_at["$lte"] = end_date if "T" in end_date else f"{end_date}T23:59:59.999Z"
         if created_at:
             match["created_at"] = created_at
+    match["is_bot"] = {"$ne": True}
     return match
 
 
