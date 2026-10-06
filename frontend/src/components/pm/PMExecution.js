@@ -8,18 +8,18 @@ export const PMExecution = () => {
     {
       id: "01",
       title: "UNDERSTAND",
-      desc: "Once access and business data are ready, we review your accounts, creative, tracking, store and order economics."
+      desc: "We review your ads, creative, tracking, store and order economics once access and data are ready."
     },
     {
       id: "02",
       title: "PRIORITISE",
-      desc: "In week one, we agree on the first problems to address, tests to run and who owns each action. We begin the fixes that are ready to move."
+      desc: "In week one, we agree on the first priorities, who owns each action and how we’ll measure progress. We start the fixes that are ready."
     },
     {
       id: "03",
-      title: "BUILD, TEST, LEARN",
-      desc: "Our in-house creative team turns customer insights into ads. Our n8n AI workflow develops and critiques ideas; we make the final call before production.",
-      extra: "Results feed into the next brief and the next business decision."
+      title: "EXECUTE AND REVIEW",
+      desc: "We launch creative tests, improve campaigns and move agreed business fixes forward.",
+      extra: "Each review shows what changed, what we learned and what happens next."
     }
   ];
 
