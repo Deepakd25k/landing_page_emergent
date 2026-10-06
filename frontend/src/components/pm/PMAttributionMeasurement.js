@@ -58,10 +58,10 @@ export const PMAttributionMeasurement = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1.5 tracking-tight">
-                    Pixel, CAPI and analytics.
+                    Tracking that sends the right data.
                   </h3>
                   <p className="text-[13px] sm:text-[14px] font-medium text-neutral-600 leading-relaxed">
-                    Most agencies stop at the pixel. We verify if the <Highlight>right events and values</Highlight> are being sent, and fix deductions.
+                    We check your Pixel, CAPI and analytics for <Highlight>missing events, duplicate purchases</Highlight> and <Highlight>incorrect order values</Highlight>.
                   </p>
                 </div>
               </div>
@@ -73,10 +73,10 @@ export const PMAttributionMeasurement = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1.5 tracking-tight">
-                    Attribution.
+                    A clearer view across channels.
                   </h3>
                   <p className="text-[13px] sm:text-[14px] font-medium text-neutral-600 leading-relaxed">
-                    Are multiple channels <Highlight>claiming the same order</Highlight>? We map true delays and overlaps to find the real source of growth.
+                    We compare how each platform credits a sale, including <Highlight>overlaps and reporting delays</Highlight>, before making <Highlight>budget decisions</Highlight>.
                   </p>
                 </div>
               </div>
@@ -88,10 +88,10 @@ export const PMAttributionMeasurement = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-neutral-900 mb-1.5 tracking-tight">
-                    Business results.
+                    Results tied to the business.
                   </h3>
                   <p className="text-[13px] sm:text-[14px] font-medium text-neutral-600 leading-relaxed">
-                    We don't optimize for dashboard ROAS. We optimize for <Highlight>delivered orders and margin</Highlight> left after returns.
+                    We assess ad performance alongside <Highlight>cancellations, returns, delivered revenue and margins</Highlight>.
                   </p>
                 </div>
               </div>
