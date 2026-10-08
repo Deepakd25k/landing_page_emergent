@@ -21,8 +21,6 @@ function App() {
   let DefaultComponent = <Landing />;
   if (host.includes("cohort")) {
     DefaultComponent = <CourseLanding />;
-  } else if (host.includes("growth")) {
-    DefaultComponent = <PerformanceMarketing />;
   }
 
   return (
